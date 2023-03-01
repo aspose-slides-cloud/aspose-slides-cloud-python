@@ -617,3 +617,12 @@ class TestShapes(BaseTest):
         response = BaseTest.slides_api.delete_smart_art_node(constant.FILE_NAME, slide_index, smart_art_index, node_index,
                                                             sub_node_path, constant.PASSWORD, constant.FOLDER_NAME)
         self.assertEqual(3, len(response.nodes[0].nodes))
+
+    def test_download_shape_from_dto(self):
+        dto = Shape()
+        dto.width = 400
+        dto.height = 200
+        dto.shape_type = "Rectangle"
+        dto.text = "Shape text"
+
+        result = BaseTest.slides_api.download_shape_from_dto("png", dto)

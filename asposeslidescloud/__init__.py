@@ -174,6 +174,7 @@ from asposeslidescloud.models.ordered_merge_request import OrderedMergeRequest
 from asposeslidescloud.models.outer_shadow_effect import OuterShadowEffect
 from asposeslidescloud.models.output_file import OutputFile
 from asposeslidescloud.models.paragraph import Paragraph
+from asposeslidescloud.models.paragraph_format import ParagraphFormat
 from asposeslidescloud.models.paragraphs import Paragraphs
 from asposeslidescloud.models.path_input_file import PathInputFile
 from asposeslidescloud.models.path_output_file import PathOutputFile

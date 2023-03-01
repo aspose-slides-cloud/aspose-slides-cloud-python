@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 
-from asposeslidescloud import Shape, TextFrameFormat, ThreeDFormat, ShapeBevel, LightRig, Camera
+from asposeslidescloud import Shape, TextFrameFormat, ThreeDFormat, ShapeBevel, LightRig, Camera, ParagraphFormat, \
+    SolidFill
 from test.base_test import BaseTest
 import asposeslidescloud
 from test import constant
@@ -65,3 +66,33 @@ class TestTextFormat(BaseTest):
         shape = BaseTest.slides_api.create_shape(constant.FILE_NAME, slide_index, dto, None, None, constant.PASSWORD,
                                                  constant.FOLDER_NAME)
         self.assertTrue(isinstance(shape, Shape))
+
+    def test_text_frame_format(self):
+        dto = Shape()
+        dto.shape_type = "Rectangle"
+        dto.x = 100
+        dto.y = 100
+        dto.height = 100
+        dto.width = 200
+        dto.text = "Sample text"
+
+        text_frame_format = TextFrameFormat()
+        text_frame_format.margin_left = 2
+        text_frame_format.margin_right = 2
+        text_frame_format.margin_top = 2
+        text_frame_format.margin_bottom = 2
+        text_frame_format.center_text = "True"
+        default_paragraph_format = ParagraphFormat()
+        solid_fill_format = SolidFill()
+        solid_fill_format.color = "#FF0000"
+        default_paragraph_format.bullet_fill_format = solid_fill_format
+        text_frame_format.default_paragraph_format = default_paragraph_format
+        dto.text_frame = text_frame_format
+		
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME,
+                                      constant.FOLDER_NAME + "/" + constant.FILE_NAME)
+        slide_index = 1
+        shape = BaseTest.slides_api.create_shape(constant.FILE_NAME, slide_index, dto, None, None, constant.PASSWORD,
+                                                 constant.FOLDER_NAME)
+        self.assertTrue(isinstance(shape, Shape))
+

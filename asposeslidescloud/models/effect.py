@@ -58,7 +58,8 @@ class Effect(object):
         'speed': 'float',
         'trigger_delay_time': 'float',
         'repeat_until_end_slide': 'bool',
-        'repeat_until_next_click': 'bool'
+        'repeat_until_next_click': 'bool',
+        'stop_previous_sound': 'bool'
     }
 
     attribute_map = {
@@ -78,13 +79,14 @@ class Effect(object):
         'speed': 'speed',
         'trigger_delay_time': 'triggerDelayTime',
         'repeat_until_end_slide': 'repeatUntilEndSlide',
-        'repeat_until_next_click': 'repeatUntilNextClick'
+        'repeat_until_next_click': 'repeatUntilNextClick',
+        'stop_previous_sound': 'stopPreviousSound'
     }
 
     type_determiners = {
     }
 
-    def __init__(self, type=None, subtype=None, preset_class_type=None, shape_index=None, paragraph_index=None, trigger_type=None, accelerate=None, auto_reverse=None, decelerate=None, duration=None, repeat_count=None, repeat_duration=None, restart=None, speed=None, trigger_delay_time=None, repeat_until_end_slide=None, repeat_until_next_click=None):  # noqa: E501
+    def __init__(self, type=None, subtype=None, preset_class_type=None, shape_index=None, paragraph_index=None, trigger_type=None, accelerate=None, auto_reverse=None, decelerate=None, duration=None, repeat_count=None, repeat_duration=None, restart=None, speed=None, trigger_delay_time=None, repeat_until_end_slide=None, repeat_until_next_click=None, stop_previous_sound=None):  # noqa: E501
         """Effect - a model defined in Swagger"""  # noqa: E501
 
         self._type = None
@@ -104,6 +106,7 @@ class Effect(object):
         self._trigger_delay_time = None
         self._repeat_until_end_slide = None
         self._repeat_until_next_click = None
+        self._stop_previous_sound = None
 
         if type is not None:
             self.type = type
@@ -138,6 +141,8 @@ class Effect(object):
             self.repeat_until_end_slide = repeat_until_end_slide
         if repeat_until_next_click is not None:
             self.repeat_until_next_click = repeat_until_next_click
+        if stop_previous_sound is not None:
+            self.stop_previous_sound = stop_previous_sound
 
     @property
     def type(self):
@@ -592,6 +597,28 @@ class Effect(object):
         :type: bool
         """
         self._repeat_until_next_click = repeat_until_next_click
+
+    @property
+    def stop_previous_sound(self):
+        """Gets the stop_previous_sound of this Effect.  # noqa: E501
+
+        This attribute specifies if the animation effect stops the previous sound.  # noqa: E501
+
+        :return: The stop_previous_sound of this Effect.  # noqa: E501
+        :rtype: bool
+        """
+        return self._stop_previous_sound
+
+    @stop_previous_sound.setter
+    def stop_previous_sound(self, stop_previous_sound):
+        """Sets the stop_previous_sound of this Effect.
+
+        This attribute specifies if the animation effect stops the previous sound.  # noqa: E501
+
+        :param stop_previous_sound: The stop_previous_sound of this Effect.  # noqa: E501
+        :type: bool
+        """
+        self._stop_previous_sound = stop_previous_sound
 
     def to_dict(self):
         """Returns the model properties as a dict"""

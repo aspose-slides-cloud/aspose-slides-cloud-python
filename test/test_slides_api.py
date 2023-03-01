@@ -17081,6 +17081,52 @@ class TestSlidesApi(BaseTest):
         if ok:
             self.assert_no_exception('download_shape', 'sub_shape', 'str')
 
+    def test_download_shape_from_dto(self):
+        """Test case for download_shape_from_dto
+        """
+        param_format = self.get_test_value('download_shape_from_dto', 'format', 'str')
+        param_dto = self.get_test_value('download_shape_from_dto', 'dto', 'ShapeBase')
+        self.initialize('download_shape_from_dto', None, None, None)
+        response = self.api.download_shape_from_dto(param_format, param_dto)
+        self.assertTrue(isinstance(response, str))
+        self.assertTrue(len(response) > 0)
+
+    def test_download_shape_from_dto_invalid_format(self):
+        """Test case for download_shape_from_dto with invalid format
+        """
+        param_format = self.get_test_value('download_shape_from_dto', 'format', 'str')
+        param_dto = self.get_test_value('download_shape_from_dto', 'dto', 'ShapeBase')
+        param_format = self.get_invalid_test_value('download_shape_from_dto', 'format', param_format, 'str')
+        self.initialize('download_shape_from_dto', 'format', param_format, 'str')
+        ok = False
+        try:
+            self.api.download_shape_from_dto(param_format, param_dto)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'download_shape_from_dto', 'format', param_format, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'download_shape_from_dto', 'format', param_format, 'str')
+        if ok:
+            self.assert_no_exception('download_shape_from_dto', 'format', 'str')
+
+    def test_download_shape_from_dto_invalid_dto(self):
+        """Test case for download_shape_from_dto with invalid dto
+        """
+        param_format = self.get_test_value('download_shape_from_dto', 'format', 'str')
+        param_dto = self.get_test_value('download_shape_from_dto', 'dto', 'ShapeBase')
+        param_dto = self.get_invalid_test_value('download_shape_from_dto', 'dto', param_dto, 'ShapeBase')
+        self.initialize('download_shape_from_dto', 'dto', param_dto, 'ShapeBase')
+        ok = False
+        try:
+            self.api.download_shape_from_dto(param_format, param_dto)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'download_shape_from_dto', 'dto', param_dto, 'ShapeBase')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'download_shape_from_dto', 'dto', param_dto, 'ShapeBase')
+        if ok:
+            self.assert_no_exception('download_shape_from_dto', 'dto', 'ShapeBase')
+
     def test_download_shape_online(self):
         """Test case for download_shape_online
         """

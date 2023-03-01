@@ -51,7 +51,8 @@ class Hyperlink(object):
         'history': 'bool',
         'highlight_click': 'bool',
         'stop_sound_on_click': 'bool',
-        'color_source': 'str'
+        'color_source': 'str',
+        'sound_base64': 'str'
     }
 
     attribute_map = {
@@ -64,13 +65,14 @@ class Hyperlink(object):
         'history': 'history',
         'highlight_click': 'highlightClick',
         'stop_sound_on_click': 'stopSoundOnClick',
-        'color_source': 'colorSource'
+        'color_source': 'colorSource',
+        'sound_base64': 'soundBase64'
     }
 
     type_determiners = {
     }
 
-    def __init__(self, is_disabled=None, action_type=None, external_url=None, target_slide_index=None, target_frame=None, tooltip=None, history=None, highlight_click=None, stop_sound_on_click=None, color_source=None):  # noqa: E501
+    def __init__(self, is_disabled=None, action_type=None, external_url=None, target_slide_index=None, target_frame=None, tooltip=None, history=None, highlight_click=None, stop_sound_on_click=None, color_source=None, sound_base64=None):  # noqa: E501
         """Hyperlink - a model defined in Swagger"""  # noqa: E501
 
         self._is_disabled = None
@@ -83,6 +85,7 @@ class Hyperlink(object):
         self._highlight_click = None
         self._stop_sound_on_click = None
         self._color_source = None
+        self._sound_base64 = None
 
         if is_disabled is not None:
             self.is_disabled = is_disabled
@@ -103,6 +106,8 @@ class Hyperlink(object):
             self.stop_sound_on_click = stop_sound_on_click
         if color_source is not None:
             self.color_source = color_source
+        if sound_base64 is not None:
+            self.sound_base64 = sound_base64
 
     @property
     def is_disabled(self):
@@ -355,6 +360,28 @@ class Hyperlink(object):
                     .format(color_source, allowed_values)
                 )
         self._color_source = color_source
+
+    @property
+    def sound_base64(self):
+        """Gets the sound_base64 of this Hyperlink.  # noqa: E501
+
+        Audio data encoded in base64. Represents the playing sound of the hyperlink.   # noqa: E501
+
+        :return: The sound_base64 of this Hyperlink.  # noqa: E501
+        :rtype: str
+        """
+        return self._sound_base64
+
+    @sound_base64.setter
+    def sound_base64(self, sound_base64):
+        """Sets the sound_base64 of this Hyperlink.
+
+        Audio data encoded in base64. Represents the playing sound of the hyperlink.   # noqa: E501
+
+        :param sound_base64: The sound_base64 of this Hyperlink.  # noqa: E501
+        :type: str
+        """
+        self._sound_base64 = sound_base64
 
     def to_dict(self):
         """Returns the model properties as a dict"""

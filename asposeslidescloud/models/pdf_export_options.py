@@ -243,7 +243,7 @@ class PdfExportOptions(ExportOptions):
         :type: str
         """
         if compliance is not None:
-            allowed_values = ["Pdf15", "PdfA1b", "PdfA1a", "PdfUa"]  # noqa: E501
+            allowed_values = ["Pdf15", "Pdf16", "Pdf17", "PdfA1b", "PdfA1a", "PdfA2b", "PdfA2a", "PdfA3b", "PdfA3a", "PdfUa", "PdfA2u"]  # noqa: E501
             if compliance.isdigit():
                 int_compliance = int(compliance)
                 if int_compliance < 0 or int_compliance >= len(allowed_values):
