@@ -35411,8 +35411,9 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_and_save_online', 'password', 'str')
         param_storage = self.get_test_value('split_and_save_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_and_save_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_and_save_online', 'options', 'ExportOptions')
         self.initialize('split_and_save_online', None, None, None)
-        response = self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+        response = self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
         self.assertIsNotNone(response)
 
     def test_split_and_save_online_invalid_document(self):
@@ -35428,11 +35429,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_and_save_online', 'password', 'str')
         param_storage = self.get_test_value('split_and_save_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_and_save_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_and_save_online', 'options', 'ExportOptions')
         param_document = self.get_invalid_test_value('split_and_save_online', 'document', param_document, 'file')
         self.initialize('split_and_save_online', 'document', param_document, 'file')
         ok = False
         try:
-            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_and_save_online', 'document', param_document, 'file')
@@ -35454,11 +35456,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_and_save_online', 'password', 'str')
         param_storage = self.get_test_value('split_and_save_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_and_save_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_and_save_online', 'options', 'ExportOptions')
         param_format = self.get_invalid_test_value('split_and_save_online', 'format', param_format, 'str')
         self.initialize('split_and_save_online', 'format', param_format, 'str')
         ok = False
         try:
-            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_and_save_online', 'format', param_format, 'str')
@@ -35480,11 +35483,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_and_save_online', 'password', 'str')
         param_storage = self.get_test_value('split_and_save_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_and_save_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_and_save_online', 'options', 'ExportOptions')
         param_dest_folder = self.get_invalid_test_value('split_and_save_online', 'dest_folder', param_dest_folder, 'str')
         self.initialize('split_and_save_online', 'dest_folder', param_dest_folder, 'str')
         ok = False
         try:
-            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_and_save_online', 'dest_folder', param_dest_folder, 'str')
@@ -35506,11 +35510,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_and_save_online', 'password', 'str')
         param_storage = self.get_test_value('split_and_save_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_and_save_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_and_save_online', 'options', 'ExportOptions')
         param_width = self.get_invalid_test_value('split_and_save_online', 'width', param_width, 'int')
         self.initialize('split_and_save_online', 'width', param_width, 'int')
         ok = False
         try:
-            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_and_save_online', 'width', param_width, 'int')
@@ -35532,11 +35537,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_and_save_online', 'password', 'str')
         param_storage = self.get_test_value('split_and_save_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_and_save_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_and_save_online', 'options', 'ExportOptions')
         param_height = self.get_invalid_test_value('split_and_save_online', 'height', param_height, 'int')
         self.initialize('split_and_save_online', 'height', param_height, 'int')
         ok = False
         try:
-            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_and_save_online', 'height', param_height, 'int')
@@ -35558,11 +35564,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_and_save_online', 'password', 'str')
         param_storage = self.get_test_value('split_and_save_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_and_save_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_and_save_online', 'options', 'ExportOptions')
         param__from = self.get_invalid_test_value('split_and_save_online', '_from', param__from, 'int')
         self.initialize('split_and_save_online', '_from', param__from, 'int')
         ok = False
         try:
-            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_and_save_online', '_from', param__from, 'int')
@@ -35584,11 +35591,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_and_save_online', 'password', 'str')
         param_storage = self.get_test_value('split_and_save_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_and_save_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_and_save_online', 'options', 'ExportOptions')
         param_to = self.get_invalid_test_value('split_and_save_online', 'to', param_to, 'int')
         self.initialize('split_and_save_online', 'to', param_to, 'int')
         ok = False
         try:
-            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_and_save_online', 'to', param_to, 'int')
@@ -35610,11 +35618,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_and_save_online', 'password', 'str')
         param_storage = self.get_test_value('split_and_save_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_and_save_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_and_save_online', 'options', 'ExportOptions')
         param_password = self.get_invalid_test_value('split_and_save_online', 'password', param_password, 'str')
         self.initialize('split_and_save_online', 'password', param_password, 'str')
         ok = False
         try:
-            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_and_save_online', 'password', param_password, 'str')
@@ -35636,11 +35645,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_and_save_online', 'password', 'str')
         param_storage = self.get_test_value('split_and_save_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_and_save_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_and_save_online', 'options', 'ExportOptions')
         param_storage = self.get_invalid_test_value('split_and_save_online', 'storage', param_storage, 'str')
         self.initialize('split_and_save_online', 'storage', param_storage, 'str')
         ok = False
         try:
-            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_and_save_online', 'storage', param_storage, 'str')
@@ -35662,11 +35672,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_and_save_online', 'password', 'str')
         param_storage = self.get_test_value('split_and_save_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_and_save_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_and_save_online', 'options', 'ExportOptions')
         param_fonts_folder = self.get_invalid_test_value('split_and_save_online', 'fonts_folder', param_fonts_folder, 'str')
         self.initialize('split_and_save_online', 'fonts_folder', param_fonts_folder, 'str')
         ok = False
         try:
-            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_and_save_online', 'fonts_folder', param_fonts_folder, 'str')
@@ -35674,6 +35685,33 @@ class TestSlidesApi(BaseTest):
             self.assert_value_error(ex, 'split_and_save_online', 'fonts_folder', param_fonts_folder, 'str')
         if ok:
             self.assert_no_exception('split_and_save_online', 'fonts_folder', 'str')
+
+    def test_split_and_save_online_invalid_options(self):
+        """Test case for split_and_save_online with invalid options
+        """
+        param_document = self.get_test_value('split_and_save_online', 'document', 'file')
+        param_format = self.get_test_value('split_and_save_online', 'format', 'str')
+        param_dest_folder = self.get_test_value('split_and_save_online', 'dest_folder', 'str')
+        param_width = self.get_test_value('split_and_save_online', 'width', 'int')
+        param_height = self.get_test_value('split_and_save_online', 'height', 'int')
+        param__from = self.get_test_value('split_and_save_online', '_from', 'int')
+        param_to = self.get_test_value('split_and_save_online', 'to', 'int')
+        param_password = self.get_test_value('split_and_save_online', 'password', 'str')
+        param_storage = self.get_test_value('split_and_save_online', 'storage', 'str')
+        param_fonts_folder = self.get_test_value('split_and_save_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_and_save_online', 'options', 'ExportOptions')
+        param_options = self.get_invalid_test_value('split_and_save_online', 'options', param_options, 'ExportOptions')
+        self.initialize('split_and_save_online', 'options', param_options, 'ExportOptions')
+        ok = False
+        try:
+            self.api.split_and_save_online(param_document, param_format, param_dest_folder, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'split_and_save_online', 'options', param_options, 'ExportOptions')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'split_and_save_online', 'options', param_options, 'ExportOptions')
+        if ok:
+            self.assert_no_exception('split_and_save_online', 'options', 'ExportOptions')
 
     def test_split_online(self):
         """Test case for split_online
@@ -35687,8 +35725,9 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_online', 'password', 'str')
         param_storage = self.get_test_value('split_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_online', 'options', 'ExportOptions')
         self.initialize('split_online', None, None, None)
-        response = self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+        response = self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
         self.assertTrue(isinstance(response, str))
         self.assertTrue(len(response) > 0)
 
@@ -35704,11 +35743,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_online', 'password', 'str')
         param_storage = self.get_test_value('split_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_online', 'options', 'ExportOptions')
         param_document = self.get_invalid_test_value('split_online', 'document', param_document, 'file')
         self.initialize('split_online', 'document', param_document, 'file')
         ok = False
         try:
-            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_online', 'document', param_document, 'file')
@@ -35729,11 +35769,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_online', 'password', 'str')
         param_storage = self.get_test_value('split_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_online', 'options', 'ExportOptions')
         param_format = self.get_invalid_test_value('split_online', 'format', param_format, 'str')
         self.initialize('split_online', 'format', param_format, 'str')
         ok = False
         try:
-            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_online', 'format', param_format, 'str')
@@ -35754,11 +35795,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_online', 'password', 'str')
         param_storage = self.get_test_value('split_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_online', 'options', 'ExportOptions')
         param_width = self.get_invalid_test_value('split_online', 'width', param_width, 'int')
         self.initialize('split_online', 'width', param_width, 'int')
         ok = False
         try:
-            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_online', 'width', param_width, 'int')
@@ -35779,11 +35821,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_online', 'password', 'str')
         param_storage = self.get_test_value('split_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_online', 'options', 'ExportOptions')
         param_height = self.get_invalid_test_value('split_online', 'height', param_height, 'int')
         self.initialize('split_online', 'height', param_height, 'int')
         ok = False
         try:
-            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_online', 'height', param_height, 'int')
@@ -35804,11 +35847,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_online', 'password', 'str')
         param_storage = self.get_test_value('split_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_online', 'options', 'ExportOptions')
         param__from = self.get_invalid_test_value('split_online', '_from', param__from, 'int')
         self.initialize('split_online', '_from', param__from, 'int')
         ok = False
         try:
-            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_online', '_from', param__from, 'int')
@@ -35829,11 +35873,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_online', 'password', 'str')
         param_storage = self.get_test_value('split_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_online', 'options', 'ExportOptions')
         param_to = self.get_invalid_test_value('split_online', 'to', param_to, 'int')
         self.initialize('split_online', 'to', param_to, 'int')
         ok = False
         try:
-            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_online', 'to', param_to, 'int')
@@ -35854,11 +35899,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_online', 'password', 'str')
         param_storage = self.get_test_value('split_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_online', 'options', 'ExportOptions')
         param_password = self.get_invalid_test_value('split_online', 'password', param_password, 'str')
         self.initialize('split_online', 'password', param_password, 'str')
         ok = False
         try:
-            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_online', 'password', param_password, 'str')
@@ -35879,11 +35925,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_online', 'password', 'str')
         param_storage = self.get_test_value('split_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_online', 'options', 'ExportOptions')
         param_storage = self.get_invalid_test_value('split_online', 'storage', param_storage, 'str')
         self.initialize('split_online', 'storage', param_storage, 'str')
         ok = False
         try:
-            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_online', 'storage', param_storage, 'str')
@@ -35904,11 +35951,12 @@ class TestSlidesApi(BaseTest):
         param_password = self.get_test_value('split_online', 'password', 'str')
         param_storage = self.get_test_value('split_online', 'storage', 'str')
         param_fonts_folder = self.get_test_value('split_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_online', 'options', 'ExportOptions')
         param_fonts_folder = self.get_invalid_test_value('split_online', 'fonts_folder', param_fonts_folder, 'str')
         self.initialize('split_online', 'fonts_folder', param_fonts_folder, 'str')
         ok = False
         try:
-            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder)
+            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
             ok = True
         except ApiException as ex:
             self.assert_exception(ex, 'split_online', 'fonts_folder', param_fonts_folder, 'str')
@@ -35916,6 +35964,32 @@ class TestSlidesApi(BaseTest):
             self.assert_value_error(ex, 'split_online', 'fonts_folder', param_fonts_folder, 'str')
         if ok:
             self.assert_no_exception('split_online', 'fonts_folder', 'str')
+
+    def test_split_online_invalid_options(self):
+        """Test case for split_online with invalid options
+        """
+        param_document = self.get_test_value('split_online', 'document', 'file')
+        param_format = self.get_test_value('split_online', 'format', 'str')
+        param_width = self.get_test_value('split_online', 'width', 'int')
+        param_height = self.get_test_value('split_online', 'height', 'int')
+        param__from = self.get_test_value('split_online', '_from', 'int')
+        param_to = self.get_test_value('split_online', 'to', 'int')
+        param_password = self.get_test_value('split_online', 'password', 'str')
+        param_storage = self.get_test_value('split_online', 'storage', 'str')
+        param_fonts_folder = self.get_test_value('split_online', 'fonts_folder', 'str')
+        param_options = self.get_test_value('split_online', 'options', 'ExportOptions')
+        param_options = self.get_invalid_test_value('split_online', 'options', param_options, 'ExportOptions')
+        self.initialize('split_online', 'options', param_options, 'ExportOptions')
+        ok = False
+        try:
+            self.api.split_online(param_document, param_format, param_width, param_height, param__from, param_to, param_password, param_storage, param_fonts_folder, param_options)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'split_online', 'options', param_options, 'ExportOptions')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'split_online', 'options', param_options, 'ExportOptions')
+        if ok:
+            self.assert_no_exception('split_online', 'options', 'ExportOptions')
 
     def test_storage_exists(self):
         """Test case for storage_exists

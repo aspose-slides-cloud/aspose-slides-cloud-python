@@ -52,7 +52,8 @@ class ImageExportOptions(ImageExportOptionsBase):
         'notes_position': 'str',
         'comments_position': 'str',
         'comments_area_width': 'int',
-        'comments_area_color': 'str'
+        'comments_area_color': 'str',
+        'show_hidden_slides': 'bool'
     }
 
     attribute_map = {
@@ -65,14 +66,15 @@ class ImageExportOptions(ImageExportOptionsBase):
         'notes_position': 'notesPosition',
         'comments_position': 'commentsPosition',
         'comments_area_width': 'commentsAreaWidth',
-        'comments_area_color': 'commentsAreaColor'
+        'comments_area_color': 'commentsAreaColor',
+        'show_hidden_slides': 'showHiddenSlides'
     }
 
     type_determiners = {
         'format': 'image',
     }
 
-    def __init__(self, default_regular_font=None, font_fallback_rules=None, font_subst_rules=None, format='image', height=None, width=None, notes_position=None, comments_position=None, comments_area_width=None, comments_area_color=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, font_fallback_rules=None, font_subst_rules=None, format='image', height=None, width=None, notes_position=None, comments_position=None, comments_area_width=None, comments_area_color=None, show_hidden_slides=None):  # noqa: E501
         """ImageExportOptions - a model defined in Swagger"""  # noqa: E501
         super(ImageExportOptions, self).__init__(default_regular_font, font_fallback_rules, font_subst_rules, format, height, width)
 
@@ -80,6 +82,7 @@ class ImageExportOptions(ImageExportOptionsBase):
         self._comments_position = None
         self._comments_area_width = None
         self._comments_area_color = None
+        self._show_hidden_slides = None
         self.format = 'image'
 
         if notes_position is not None:
@@ -90,6 +93,8 @@ class ImageExportOptions(ImageExportOptionsBase):
             self.comments_area_width = comments_area_width
         if comments_area_color is not None:
             self.comments_area_color = comments_area_color
+        if show_hidden_slides is not None:
+            self.show_hidden_slides = show_hidden_slides
 
     @property
     def notes_position(self):
@@ -210,6 +215,28 @@ class ImageExportOptions(ImageExportOptionsBase):
         :type: str
         """
         self._comments_area_color = comments_area_color
+
+    @property
+    def show_hidden_slides(self):
+        """Gets the show_hidden_slides of this ImageExportOptions.  # noqa: E501
+
+        Show hidden slides. If true, hidden are exported.  # noqa: E501
+
+        :return: The show_hidden_slides of this ImageExportOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_hidden_slides
+
+    @show_hidden_slides.setter
+    def show_hidden_slides(self, show_hidden_slides):
+        """Sets the show_hidden_slides of this ImageExportOptions.
+
+        Show hidden slides. If true, hidden are exported.  # noqa: E501
+
+        :param show_hidden_slides: The show_hidden_slides of this ImageExportOptions.  # noqa: E501
+        :type: bool
+        """
+        self._show_hidden_slides = show_hidden_slides
 
     def to_dict(self):
         """Returns the model properties as a dict"""

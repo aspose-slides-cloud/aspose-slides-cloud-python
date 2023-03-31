@@ -27069,12 +27069,12 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def split_and_save_online(self, document, format, dest_folder = None, width = None, height = None, _from = None, to = None, password = None, storage = None, fonts_folder = None, **kwargs):  # noqa: E501
+    def split_and_save_online(self, document, format, dest_folder = None, width = None, height = None, _from = None, to = None, password = None, storage = None, fonts_folder = None, options = None, **kwargs):  # noqa: E501
         """Splits PowerPoint presentation slides from the specified range into separate files and exports them in the specified file format. If the range is not provided all slides will be processed.   # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.(document, format, dest_folder, width, height, _from, to, password, storage, fonts_folder, is_async=True)
+        >>> thread = api.(document, format, dest_folder, width, height, _from, to, password, storage, fonts_folder, options, is_async=True)
         >>> result = thread.get()
 
         :param is_async bool
@@ -27088,23 +27088,24 @@ class SlidesApi(ApiBase):
         :param password Document password.
         :param storage Document storage.
         :param fonts_folder Custom fonts folder.
+        :param options Export options.
         :return: SplitDocumentResult
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('is_async'):
-            return self.split_and_save_online_with_http_info(document, format, dest_folder, width, height, _from, to, password, storage, fonts_folder, **kwargs)  # noqa: E501
+            return self.split_and_save_online_with_http_info(document, format, dest_folder, width, height, _from, to, password, storage, fonts_folder, options, **kwargs)  # noqa: E501
         else:
-            (data) = self.split_and_save_online_with_http_info(document, format, dest_folder, width, height, _from, to, password, storage, fonts_folder, **kwargs)  # noqa: E501
+            (data) = self.split_and_save_online_with_http_info(document, format, dest_folder, width, height, _from, to, password, storage, fonts_folder, options, **kwargs)  # noqa: E501
             return data
 
-    def split_and_save_online_with_http_info(self, document, format, dest_folder = None, width = None, height = None, _from = None, to = None, password = None, storage = None, fonts_folder = None, **kwargs):  # noqa: E501
+    def split_and_save_online_with_http_info(self, document, format, dest_folder = None, width = None, height = None, _from = None, to = None, password = None, storage = None, fonts_folder = None, options = None, **kwargs):  # noqa: E501
         """Splits PowerPoint presentation slides from the specified range into separate files and exports them in the specified file format. If the range is not provided all slides will be processed.   # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.split_and_save_online_with_http_info(document, format, dest_folder, width, height, _from, to, password, storage, fonts_folder, is_async=True)
+        >>> thread = api.split_and_save_online_with_http_info(document, format, dest_folder, width, height, _from, to, password, storage, fonts_folder, options, is_async=True)
         >>> result = thread.get()
 
         :param is_async bool
@@ -27118,6 +27119,7 @@ class SlidesApi(ApiBase):
         :param password Document password.
         :param storage Document storage.
         :param fonts_folder Custom fonts folder.
+        :param options Export options.
         :return: SplitDocumentResult
                  If the method is called asynchronously,
                  returns the request thread.
@@ -27179,6 +27181,8 @@ class SlidesApi(ApiBase):
             param_files['document'] = document  # noqa: E501
 
         body_params = None
+        if options:
+            body_params = options
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
@@ -27207,12 +27211,12 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def split_online(self, document, format, width = None, height = None, _from = None, to = None, password = None, storage = None, fonts_folder = None, **kwargs):  # noqa: E501
+    def split_online(self, document, format, width = None, height = None, _from = None, to = None, password = None, storage = None, fonts_folder = None, options = None, **kwargs):  # noqa: E501
         """Splits PowerPoint presentation slides from the specified range into separate files and exports them in the specified file format. If the range is not provided all slides will be processed.   # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.(document, format, width, height, _from, to, password, storage, fonts_folder, is_async=True)
+        >>> thread = api.(document, format, width, height, _from, to, password, storage, fonts_folder, options, is_async=True)
         >>> result = thread.get()
 
         :param is_async bool
@@ -27225,23 +27229,24 @@ class SlidesApi(ApiBase):
         :param password Document password.
         :param storage Document storage.
         :param fonts_folder Custom fonts folder.
+        :param options Export options.
         :return: file
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('is_async'):
-            return self.split_online_with_http_info(document, format, width, height, _from, to, password, storage, fonts_folder, **kwargs)  # noqa: E501
+            return self.split_online_with_http_info(document, format, width, height, _from, to, password, storage, fonts_folder, options, **kwargs)  # noqa: E501
         else:
-            (data) = self.split_online_with_http_info(document, format, width, height, _from, to, password, storage, fonts_folder, **kwargs)  # noqa: E501
+            (data) = self.split_online_with_http_info(document, format, width, height, _from, to, password, storage, fonts_folder, options, **kwargs)  # noqa: E501
             return data
 
-    def split_online_with_http_info(self, document, format, width = None, height = None, _from = None, to = None, password = None, storage = None, fonts_folder = None, **kwargs):  # noqa: E501
+    def split_online_with_http_info(self, document, format, width = None, height = None, _from = None, to = None, password = None, storage = None, fonts_folder = None, options = None, **kwargs):  # noqa: E501
         """Splits PowerPoint presentation slides from the specified range into separate files and exports them in the specified file format. If the range is not provided all slides will be processed.   # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.split_online_with_http_info(document, format, width, height, _from, to, password, storage, fonts_folder, is_async=True)
+        >>> thread = api.split_online_with_http_info(document, format, width, height, _from, to, password, storage, fonts_folder, options, is_async=True)
         >>> result = thread.get()
 
         :param is_async bool
@@ -27254,6 +27259,7 @@ class SlidesApi(ApiBase):
         :param password Document password.
         :param storage Document storage.
         :param fonts_folder Custom fonts folder.
+        :param options Export options.
         :return: file
                  If the method is called asynchronously,
                  returns the request thread.
@@ -27313,6 +27319,8 @@ class SlidesApi(ApiBase):
             param_files['document'] = document  # noqa: E501
 
         body_params = None
+        if options:
+            body_params = options
 
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
