@@ -6997,6 +6997,731 @@ class TestSlidesApi(BaseTest):
         if ok:
             self.assert_no_exception('create_special_slide_shape', 'sub_shape', 'str')
 
+    def test_create_table_cell_paragraph(self):
+        """Test case for create_table_cell_paragraph
+        """
+        param_name = self.get_test_value('create_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_paragraph', 'cell_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('create_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_paragraph', 'storage', 'str')
+        self.initialize('create_table_cell_paragraph', None, None, None)
+        response = self.api.create_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_create_table_cell_paragraph_invalid_name(self):
+        """Test case for create_table_cell_paragraph with invalid name
+        """
+        param_name = self.get_test_value('create_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_paragraph', 'cell_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('create_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_paragraph', 'storage', 'str')
+        param_name = self.get_invalid_test_value('create_table_cell_paragraph', 'name', param_name, 'str')
+        self.initialize('create_table_cell_paragraph', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.create_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_paragraph', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_paragraph', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('create_table_cell_paragraph', 'name', 'str')
+
+    def test_create_table_cell_paragraph_invalid_slide_index(self):
+        """Test case for create_table_cell_paragraph with invalid slide_index
+        """
+        param_name = self.get_test_value('create_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_paragraph', 'cell_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('create_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_paragraph', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('create_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        self.initialize('create_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.create_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('create_table_cell_paragraph', 'slide_index', 'int')
+
+    def test_create_table_cell_paragraph_invalid_shape_index(self):
+        """Test case for create_table_cell_paragraph with invalid shape_index
+        """
+        param_name = self.get_test_value('create_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_paragraph', 'cell_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('create_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_paragraph', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('create_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        self.initialize('create_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.create_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('create_table_cell_paragraph', 'shape_index', 'int')
+
+    def test_create_table_cell_paragraph_invalid_row_index(self):
+        """Test case for create_table_cell_paragraph with invalid row_index
+        """
+        param_name = self.get_test_value('create_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_paragraph', 'cell_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('create_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_paragraph', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('create_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        self.initialize('create_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.create_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('create_table_cell_paragraph', 'row_index', 'int')
+
+    def test_create_table_cell_paragraph_invalid_cell_index(self):
+        """Test case for create_table_cell_paragraph with invalid cell_index
+        """
+        param_name = self.get_test_value('create_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_paragraph', 'cell_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('create_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_paragraph', 'storage', 'str')
+        param_cell_index = self.get_invalid_test_value('create_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        self.initialize('create_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        ok = False
+        try:
+            self.api.create_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        if ok:
+            self.assert_no_exception('create_table_cell_paragraph', 'cell_index', 'int')
+
+    def test_create_table_cell_paragraph_invalid_dto(self):
+        """Test case for create_table_cell_paragraph with invalid dto
+        """
+        param_name = self.get_test_value('create_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_paragraph', 'cell_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('create_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_paragraph', 'storage', 'str')
+        param_dto = self.get_invalid_test_value('create_table_cell_paragraph', 'dto', param_dto, 'Paragraph')
+        self.initialize('create_table_cell_paragraph', 'dto', param_dto, 'Paragraph')
+        ok = False
+        try:
+            self.api.create_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_paragraph', 'dto', param_dto, 'Paragraph')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_paragraph', 'dto', param_dto, 'Paragraph')
+        if ok:
+            self.assert_no_exception('create_table_cell_paragraph', 'dto', 'Paragraph')
+
+    def test_create_table_cell_paragraph_invalid_password(self):
+        """Test case for create_table_cell_paragraph with invalid password
+        """
+        param_name = self.get_test_value('create_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_paragraph', 'cell_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('create_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_paragraph', 'storage', 'str')
+        param_password = self.get_invalid_test_value('create_table_cell_paragraph', 'password', param_password, 'str')
+        self.initialize('create_table_cell_paragraph', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.create_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_paragraph', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_paragraph', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('create_table_cell_paragraph', 'password', 'str')
+
+    def test_create_table_cell_paragraph_invalid_folder(self):
+        """Test case for create_table_cell_paragraph with invalid folder
+        """
+        param_name = self.get_test_value('create_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_paragraph', 'cell_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('create_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_paragraph', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('create_table_cell_paragraph', 'folder', param_folder, 'str')
+        self.initialize('create_table_cell_paragraph', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.create_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_paragraph', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_paragraph', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('create_table_cell_paragraph', 'folder', 'str')
+
+    def test_create_table_cell_paragraph_invalid_storage(self):
+        """Test case for create_table_cell_paragraph with invalid storage
+        """
+        param_name = self.get_test_value('create_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_paragraph', 'cell_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('create_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_paragraph', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('create_table_cell_paragraph', 'storage', param_storage, 'str')
+        self.initialize('create_table_cell_paragraph', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.create_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_paragraph', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_paragraph', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('create_table_cell_paragraph', 'storage', 'str')
+
+    def test_create_table_cell_portion(self):
+        """Test case for create_table_cell_portion
+        """
+        param_name = self.get_test_value('create_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('create_table_cell_portion', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('create_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_portion', 'storage', 'str')
+        self.initialize('create_table_cell_portion', None, None, None)
+        response = self.api.create_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_create_table_cell_portion_invalid_name(self):
+        """Test case for create_table_cell_portion with invalid name
+        """
+        param_name = self.get_test_value('create_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('create_table_cell_portion', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('create_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_portion', 'storage', 'str')
+        param_name = self.get_invalid_test_value('create_table_cell_portion', 'name', param_name, 'str')
+        self.initialize('create_table_cell_portion', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.create_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_portion', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_portion', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('create_table_cell_portion', 'name', 'str')
+
+    def test_create_table_cell_portion_invalid_slide_index(self):
+        """Test case for create_table_cell_portion with invalid slide_index
+        """
+        param_name = self.get_test_value('create_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('create_table_cell_portion', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('create_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_portion', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('create_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        self.initialize('create_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.create_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('create_table_cell_portion', 'slide_index', 'int')
+
+    def test_create_table_cell_portion_invalid_shape_index(self):
+        """Test case for create_table_cell_portion with invalid shape_index
+        """
+        param_name = self.get_test_value('create_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('create_table_cell_portion', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('create_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_portion', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('create_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        self.initialize('create_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.create_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('create_table_cell_portion', 'shape_index', 'int')
+
+    def test_create_table_cell_portion_invalid_row_index(self):
+        """Test case for create_table_cell_portion with invalid row_index
+        """
+        param_name = self.get_test_value('create_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('create_table_cell_portion', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('create_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_portion', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('create_table_cell_portion', 'row_index', param_row_index, 'int')
+        self.initialize('create_table_cell_portion', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.create_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_portion', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_portion', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('create_table_cell_portion', 'row_index', 'int')
+
+    def test_create_table_cell_portion_invalid_cell_index(self):
+        """Test case for create_table_cell_portion with invalid cell_index
+        """
+        param_name = self.get_test_value('create_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('create_table_cell_portion', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('create_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_portion', 'storage', 'str')
+        param_cell_index = self.get_invalid_test_value('create_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        self.initialize('create_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        ok = False
+        try:
+            self.api.create_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        if ok:
+            self.assert_no_exception('create_table_cell_portion', 'cell_index', 'int')
+
+    def test_create_table_cell_portion_invalid_paragraph_index(self):
+        """Test case for create_table_cell_portion with invalid paragraph_index
+        """
+        param_name = self.get_test_value('create_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('create_table_cell_portion', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('create_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_portion', 'storage', 'str')
+        param_paragraph_index = self.get_invalid_test_value('create_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        self.initialize('create_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        ok = False
+        try:
+            self.api.create_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        if ok:
+            self.assert_no_exception('create_table_cell_portion', 'paragraph_index', 'int')
+
+    def test_create_table_cell_portion_invalid_dto(self):
+        """Test case for create_table_cell_portion with invalid dto
+        """
+        param_name = self.get_test_value('create_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('create_table_cell_portion', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('create_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_portion', 'storage', 'str')
+        param_dto = self.get_invalid_test_value('create_table_cell_portion', 'dto', param_dto, 'Portion')
+        self.initialize('create_table_cell_portion', 'dto', param_dto, 'Portion')
+        ok = False
+        try:
+            self.api.create_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_portion', 'dto', param_dto, 'Portion')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_portion', 'dto', param_dto, 'Portion')
+        if ok:
+            self.assert_no_exception('create_table_cell_portion', 'dto', 'Portion')
+
+    def test_create_table_cell_portion_invalid_password(self):
+        """Test case for create_table_cell_portion with invalid password
+        """
+        param_name = self.get_test_value('create_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('create_table_cell_portion', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('create_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_portion', 'storage', 'str')
+        param_password = self.get_invalid_test_value('create_table_cell_portion', 'password', param_password, 'str')
+        self.initialize('create_table_cell_portion', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.create_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_portion', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_portion', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('create_table_cell_portion', 'password', 'str')
+
+    def test_create_table_cell_portion_invalid_folder(self):
+        """Test case for create_table_cell_portion with invalid folder
+        """
+        param_name = self.get_test_value('create_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('create_table_cell_portion', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('create_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_portion', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('create_table_cell_portion', 'folder', param_folder, 'str')
+        self.initialize('create_table_cell_portion', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.create_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_portion', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_portion', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('create_table_cell_portion', 'folder', 'str')
+
+    def test_create_table_cell_portion_invalid_storage(self):
+        """Test case for create_table_cell_portion with invalid storage
+        """
+        param_name = self.get_test_value('create_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('create_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('create_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('create_table_cell_portion', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('create_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('create_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('create_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_cell_portion', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('create_table_cell_portion', 'storage', param_storage, 'str')
+        self.initialize('create_table_cell_portion', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.create_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_cell_portion', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_cell_portion', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('create_table_cell_portion', 'storage', 'str')
+
+    def test_create_table_row(self):
+        """Test case for create_table_row
+        """
+        param_name = self.get_test_value('create_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_row', 'shape_index', 'int')
+        param_dto = self.get_test_value('create_table_row', 'dto', 'TableRow')
+        param_position = self.get_test_value('create_table_row', 'position', 'int')
+        param_password = self.get_test_value('create_table_row', 'password', 'str')
+        param_folder = self.get_test_value('create_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_row', 'storage', 'str')
+        self.initialize('create_table_row', None, None, None)
+        response = self.api.create_table_row(param_name, param_slide_index, param_shape_index, param_dto, param_position, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_create_table_row_invalid_name(self):
+        """Test case for create_table_row with invalid name
+        """
+        param_name = self.get_test_value('create_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_row', 'shape_index', 'int')
+        param_dto = self.get_test_value('create_table_row', 'dto', 'TableRow')
+        param_position = self.get_test_value('create_table_row', 'position', 'int')
+        param_password = self.get_test_value('create_table_row', 'password', 'str')
+        param_folder = self.get_test_value('create_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_row', 'storage', 'str')
+        param_name = self.get_invalid_test_value('create_table_row', 'name', param_name, 'str')
+        self.initialize('create_table_row', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.create_table_row(param_name, param_slide_index, param_shape_index, param_dto, param_position, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_row', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_row', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('create_table_row', 'name', 'str')
+
+    def test_create_table_row_invalid_slide_index(self):
+        """Test case for create_table_row with invalid slide_index
+        """
+        param_name = self.get_test_value('create_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_row', 'shape_index', 'int')
+        param_dto = self.get_test_value('create_table_row', 'dto', 'TableRow')
+        param_position = self.get_test_value('create_table_row', 'position', 'int')
+        param_password = self.get_test_value('create_table_row', 'password', 'str')
+        param_folder = self.get_test_value('create_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_row', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('create_table_row', 'slide_index', param_slide_index, 'int')
+        self.initialize('create_table_row', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.create_table_row(param_name, param_slide_index, param_shape_index, param_dto, param_position, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_row', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_row', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('create_table_row', 'slide_index', 'int')
+
+    def test_create_table_row_invalid_shape_index(self):
+        """Test case for create_table_row with invalid shape_index
+        """
+        param_name = self.get_test_value('create_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_row', 'shape_index', 'int')
+        param_dto = self.get_test_value('create_table_row', 'dto', 'TableRow')
+        param_position = self.get_test_value('create_table_row', 'position', 'int')
+        param_password = self.get_test_value('create_table_row', 'password', 'str')
+        param_folder = self.get_test_value('create_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_row', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('create_table_row', 'shape_index', param_shape_index, 'int')
+        self.initialize('create_table_row', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.create_table_row(param_name, param_slide_index, param_shape_index, param_dto, param_position, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_row', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_row', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('create_table_row', 'shape_index', 'int')
+
+    def test_create_table_row_invalid_dto(self):
+        """Test case for create_table_row with invalid dto
+        """
+        param_name = self.get_test_value('create_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_row', 'shape_index', 'int')
+        param_dto = self.get_test_value('create_table_row', 'dto', 'TableRow')
+        param_position = self.get_test_value('create_table_row', 'position', 'int')
+        param_password = self.get_test_value('create_table_row', 'password', 'str')
+        param_folder = self.get_test_value('create_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_row', 'storage', 'str')
+        param_dto = self.get_invalid_test_value('create_table_row', 'dto', param_dto, 'TableRow')
+        self.initialize('create_table_row', 'dto', param_dto, 'TableRow')
+        ok = False
+        try:
+            self.api.create_table_row(param_name, param_slide_index, param_shape_index, param_dto, param_position, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_row', 'dto', param_dto, 'TableRow')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_row', 'dto', param_dto, 'TableRow')
+        if ok:
+            self.assert_no_exception('create_table_row', 'dto', 'TableRow')
+
+    def test_create_table_row_invalid_position(self):
+        """Test case for create_table_row with invalid position
+        """
+        param_name = self.get_test_value('create_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_row', 'shape_index', 'int')
+        param_dto = self.get_test_value('create_table_row', 'dto', 'TableRow')
+        param_position = self.get_test_value('create_table_row', 'position', 'int')
+        param_password = self.get_test_value('create_table_row', 'password', 'str')
+        param_folder = self.get_test_value('create_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_row', 'storage', 'str')
+        param_position = self.get_invalid_test_value('create_table_row', 'position', param_position, 'int')
+        self.initialize('create_table_row', 'position', param_position, 'int')
+        ok = False
+        try:
+            self.api.create_table_row(param_name, param_slide_index, param_shape_index, param_dto, param_position, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_row', 'position', param_position, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_row', 'position', param_position, 'int')
+        if ok:
+            self.assert_no_exception('create_table_row', 'position', 'int')
+
+    def test_create_table_row_invalid_password(self):
+        """Test case for create_table_row with invalid password
+        """
+        param_name = self.get_test_value('create_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_row', 'shape_index', 'int')
+        param_dto = self.get_test_value('create_table_row', 'dto', 'TableRow')
+        param_position = self.get_test_value('create_table_row', 'position', 'int')
+        param_password = self.get_test_value('create_table_row', 'password', 'str')
+        param_folder = self.get_test_value('create_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_row', 'storage', 'str')
+        param_password = self.get_invalid_test_value('create_table_row', 'password', param_password, 'str')
+        self.initialize('create_table_row', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.create_table_row(param_name, param_slide_index, param_shape_index, param_dto, param_position, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_row', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_row', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('create_table_row', 'password', 'str')
+
+    def test_create_table_row_invalid_folder(self):
+        """Test case for create_table_row with invalid folder
+        """
+        param_name = self.get_test_value('create_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_row', 'shape_index', 'int')
+        param_dto = self.get_test_value('create_table_row', 'dto', 'TableRow')
+        param_position = self.get_test_value('create_table_row', 'position', 'int')
+        param_password = self.get_test_value('create_table_row', 'password', 'str')
+        param_folder = self.get_test_value('create_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_row', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('create_table_row', 'folder', param_folder, 'str')
+        self.initialize('create_table_row', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.create_table_row(param_name, param_slide_index, param_shape_index, param_dto, param_position, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_row', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_row', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('create_table_row', 'folder', 'str')
+
+    def test_create_table_row_invalid_storage(self):
+        """Test case for create_table_row with invalid storage
+        """
+        param_name = self.get_test_value('create_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('create_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('create_table_row', 'shape_index', 'int')
+        param_dto = self.get_test_value('create_table_row', 'dto', 'TableRow')
+        param_position = self.get_test_value('create_table_row', 'position', 'int')
+        param_password = self.get_test_value('create_table_row', 'password', 'str')
+        param_folder = self.get_test_value('create_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('create_table_row', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('create_table_row', 'storage', param_storage, 'str')
+        self.initialize('create_table_row', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.create_table_row(param_name, param_slide_index, param_shape_index, param_dto, param_position, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'create_table_row', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'create_table_row', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('create_table_row', 'storage', 'str')
+
     def test_create_watermark(self):
         """Test case for create_watermark
         """
@@ -14525,6 +15250,731 @@ class TestSlidesApi(BaseTest):
             self.assert_value_error(ex, 'delete_special_slide_shapes', 'sub_shape', param_sub_shape, 'str')
         if ok:
             self.assert_no_exception('delete_special_slide_shapes', 'sub_shape', 'str')
+
+    def test_delete_table_cell_paragraph(self):
+        """Test case for delete_table_cell_paragraph
+        """
+        param_name = self.get_test_value('delete_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_paragraph', 'storage', 'str')
+        self.initialize('delete_table_cell_paragraph', None, None, None)
+        response = self.api.delete_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_delete_table_cell_paragraph_invalid_name(self):
+        """Test case for delete_table_cell_paragraph with invalid name
+        """
+        param_name = self.get_test_value('delete_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_paragraph', 'storage', 'str')
+        param_name = self.get_invalid_test_value('delete_table_cell_paragraph', 'name', param_name, 'str')
+        self.initialize('delete_table_cell_paragraph', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.delete_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_paragraph', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_paragraph', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('delete_table_cell_paragraph', 'name', 'str')
+
+    def test_delete_table_cell_paragraph_invalid_slide_index(self):
+        """Test case for delete_table_cell_paragraph with invalid slide_index
+        """
+        param_name = self.get_test_value('delete_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_paragraph', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('delete_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        self.initialize('delete_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_cell_paragraph', 'slide_index', 'int')
+
+    def test_delete_table_cell_paragraph_invalid_shape_index(self):
+        """Test case for delete_table_cell_paragraph with invalid shape_index
+        """
+        param_name = self.get_test_value('delete_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_paragraph', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('delete_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        self.initialize('delete_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_cell_paragraph', 'shape_index', 'int')
+
+    def test_delete_table_cell_paragraph_invalid_row_index(self):
+        """Test case for delete_table_cell_paragraph with invalid row_index
+        """
+        param_name = self.get_test_value('delete_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_paragraph', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('delete_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        self.initialize('delete_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_cell_paragraph', 'row_index', 'int')
+
+    def test_delete_table_cell_paragraph_invalid_cell_index(self):
+        """Test case for delete_table_cell_paragraph with invalid cell_index
+        """
+        param_name = self.get_test_value('delete_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_paragraph', 'storage', 'str')
+        param_cell_index = self.get_invalid_test_value('delete_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        self.initialize('delete_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_cell_paragraph', 'cell_index', 'int')
+
+    def test_delete_table_cell_paragraph_invalid_paragraph_index(self):
+        """Test case for delete_table_cell_paragraph with invalid paragraph_index
+        """
+        param_name = self.get_test_value('delete_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_paragraph', 'storage', 'str')
+        param_paragraph_index = self.get_invalid_test_value('delete_table_cell_paragraph', 'paragraph_index', param_paragraph_index, 'int')
+        self.initialize('delete_table_cell_paragraph', 'paragraph_index', param_paragraph_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_paragraph', 'paragraph_index', param_paragraph_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_paragraph', 'paragraph_index', param_paragraph_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_cell_paragraph', 'paragraph_index', 'int')
+
+    def test_delete_table_cell_paragraph_invalid_password(self):
+        """Test case for delete_table_cell_paragraph with invalid password
+        """
+        param_name = self.get_test_value('delete_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_paragraph', 'storage', 'str')
+        param_password = self.get_invalid_test_value('delete_table_cell_paragraph', 'password', param_password, 'str')
+        self.initialize('delete_table_cell_paragraph', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.delete_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_paragraph', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_paragraph', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('delete_table_cell_paragraph', 'password', 'str')
+
+    def test_delete_table_cell_paragraph_invalid_folder(self):
+        """Test case for delete_table_cell_paragraph with invalid folder
+        """
+        param_name = self.get_test_value('delete_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_paragraph', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('delete_table_cell_paragraph', 'folder', param_folder, 'str')
+        self.initialize('delete_table_cell_paragraph', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.delete_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_paragraph', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_paragraph', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('delete_table_cell_paragraph', 'folder', 'str')
+
+    def test_delete_table_cell_paragraph_invalid_storage(self):
+        """Test case for delete_table_cell_paragraph with invalid storage
+        """
+        param_name = self.get_test_value('delete_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_paragraph', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('delete_table_cell_paragraph', 'storage', param_storage, 'str')
+        self.initialize('delete_table_cell_paragraph', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.delete_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_paragraph', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_paragraph', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('delete_table_cell_paragraph', 'storage', 'str')
+
+    def test_delete_table_cell_portion(self):
+        """Test case for delete_table_cell_portion
+        """
+        param_name = self.get_test_value('delete_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('delete_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_portion', 'storage', 'str')
+        self.initialize('delete_table_cell_portion', None, None, None)
+        response = self.api.delete_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_delete_table_cell_portion_invalid_name(self):
+        """Test case for delete_table_cell_portion with invalid name
+        """
+        param_name = self.get_test_value('delete_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('delete_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_portion', 'storage', 'str')
+        param_name = self.get_invalid_test_value('delete_table_cell_portion', 'name', param_name, 'str')
+        self.initialize('delete_table_cell_portion', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.delete_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_portion', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_portion', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('delete_table_cell_portion', 'name', 'str')
+
+    def test_delete_table_cell_portion_invalid_slide_index(self):
+        """Test case for delete_table_cell_portion with invalid slide_index
+        """
+        param_name = self.get_test_value('delete_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('delete_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_portion', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('delete_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        self.initialize('delete_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_cell_portion', 'slide_index', 'int')
+
+    def test_delete_table_cell_portion_invalid_shape_index(self):
+        """Test case for delete_table_cell_portion with invalid shape_index
+        """
+        param_name = self.get_test_value('delete_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('delete_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_portion', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('delete_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        self.initialize('delete_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_cell_portion', 'shape_index', 'int')
+
+    def test_delete_table_cell_portion_invalid_row_index(self):
+        """Test case for delete_table_cell_portion with invalid row_index
+        """
+        param_name = self.get_test_value('delete_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('delete_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_portion', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('delete_table_cell_portion', 'row_index', param_row_index, 'int')
+        self.initialize('delete_table_cell_portion', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_portion', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_portion', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_cell_portion', 'row_index', 'int')
+
+    def test_delete_table_cell_portion_invalid_cell_index(self):
+        """Test case for delete_table_cell_portion with invalid cell_index
+        """
+        param_name = self.get_test_value('delete_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('delete_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_portion', 'storage', 'str')
+        param_cell_index = self.get_invalid_test_value('delete_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        self.initialize('delete_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_cell_portion', 'cell_index', 'int')
+
+    def test_delete_table_cell_portion_invalid_paragraph_index(self):
+        """Test case for delete_table_cell_portion with invalid paragraph_index
+        """
+        param_name = self.get_test_value('delete_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('delete_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_portion', 'storage', 'str')
+        param_paragraph_index = self.get_invalid_test_value('delete_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        self.initialize('delete_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_cell_portion', 'paragraph_index', 'int')
+
+    def test_delete_table_cell_portion_invalid_portion_index(self):
+        """Test case for delete_table_cell_portion with invalid portion_index
+        """
+        param_name = self.get_test_value('delete_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('delete_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_portion', 'storage', 'str')
+        param_portion_index = self.get_invalid_test_value('delete_table_cell_portion', 'portion_index', param_portion_index, 'int')
+        self.initialize('delete_table_cell_portion', 'portion_index', param_portion_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_portion', 'portion_index', param_portion_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_portion', 'portion_index', param_portion_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_cell_portion', 'portion_index', 'int')
+
+    def test_delete_table_cell_portion_invalid_password(self):
+        """Test case for delete_table_cell_portion with invalid password
+        """
+        param_name = self.get_test_value('delete_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('delete_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_portion', 'storage', 'str')
+        param_password = self.get_invalid_test_value('delete_table_cell_portion', 'password', param_password, 'str')
+        self.initialize('delete_table_cell_portion', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.delete_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_portion', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_portion', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('delete_table_cell_portion', 'password', 'str')
+
+    def test_delete_table_cell_portion_invalid_folder(self):
+        """Test case for delete_table_cell_portion with invalid folder
+        """
+        param_name = self.get_test_value('delete_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('delete_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_portion', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('delete_table_cell_portion', 'folder', param_folder, 'str')
+        self.initialize('delete_table_cell_portion', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.delete_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_portion', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_portion', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('delete_table_cell_portion', 'folder', 'str')
+
+    def test_delete_table_cell_portion_invalid_storage(self):
+        """Test case for delete_table_cell_portion with invalid storage
+        """
+        param_name = self.get_test_value('delete_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('delete_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('delete_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('delete_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('delete_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_cell_portion', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('delete_table_cell_portion', 'storage', param_storage, 'str')
+        self.initialize('delete_table_cell_portion', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.delete_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_cell_portion', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_cell_portion', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('delete_table_cell_portion', 'storage', 'str')
+
+    def test_delete_table_row(self):
+        """Test case for delete_table_row
+        """
+        param_name = self.get_test_value('delete_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_row', 'row_index', 'int')
+        param_with_attached_rows = self.get_test_value('delete_table_row', 'with_attached_rows', 'bool')
+        param_password = self.get_test_value('delete_table_row', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_row', 'storage', 'str')
+        self.initialize('delete_table_row', None, None, None)
+        response = self.api.delete_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_with_attached_rows, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_delete_table_row_invalid_name(self):
+        """Test case for delete_table_row with invalid name
+        """
+        param_name = self.get_test_value('delete_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_row', 'row_index', 'int')
+        param_with_attached_rows = self.get_test_value('delete_table_row', 'with_attached_rows', 'bool')
+        param_password = self.get_test_value('delete_table_row', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_row', 'storage', 'str')
+        param_name = self.get_invalid_test_value('delete_table_row', 'name', param_name, 'str')
+        self.initialize('delete_table_row', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.delete_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_with_attached_rows, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_row', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_row', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('delete_table_row', 'name', 'str')
+
+    def test_delete_table_row_invalid_slide_index(self):
+        """Test case for delete_table_row with invalid slide_index
+        """
+        param_name = self.get_test_value('delete_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_row', 'row_index', 'int')
+        param_with_attached_rows = self.get_test_value('delete_table_row', 'with_attached_rows', 'bool')
+        param_password = self.get_test_value('delete_table_row', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_row', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('delete_table_row', 'slide_index', param_slide_index, 'int')
+        self.initialize('delete_table_row', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_with_attached_rows, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_row', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_row', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_row', 'slide_index', 'int')
+
+    def test_delete_table_row_invalid_shape_index(self):
+        """Test case for delete_table_row with invalid shape_index
+        """
+        param_name = self.get_test_value('delete_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_row', 'row_index', 'int')
+        param_with_attached_rows = self.get_test_value('delete_table_row', 'with_attached_rows', 'bool')
+        param_password = self.get_test_value('delete_table_row', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_row', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('delete_table_row', 'shape_index', param_shape_index, 'int')
+        self.initialize('delete_table_row', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_with_attached_rows, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_row', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_row', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_row', 'shape_index', 'int')
+
+    def test_delete_table_row_invalid_row_index(self):
+        """Test case for delete_table_row with invalid row_index
+        """
+        param_name = self.get_test_value('delete_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_row', 'row_index', 'int')
+        param_with_attached_rows = self.get_test_value('delete_table_row', 'with_attached_rows', 'bool')
+        param_password = self.get_test_value('delete_table_row', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_row', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('delete_table_row', 'row_index', param_row_index, 'int')
+        self.initialize('delete_table_row', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.delete_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_with_attached_rows, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_row', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_row', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('delete_table_row', 'row_index', 'int')
+
+    def test_delete_table_row_invalid_with_attached_rows(self):
+        """Test case for delete_table_row with invalid with_attached_rows
+        """
+        param_name = self.get_test_value('delete_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_row', 'row_index', 'int')
+        param_with_attached_rows = self.get_test_value('delete_table_row', 'with_attached_rows', 'bool')
+        param_password = self.get_test_value('delete_table_row', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_row', 'storage', 'str')
+        param_with_attached_rows = self.get_invalid_test_value('delete_table_row', 'with_attached_rows', param_with_attached_rows, 'bool')
+        self.initialize('delete_table_row', 'with_attached_rows', param_with_attached_rows, 'bool')
+        ok = False
+        try:
+            self.api.delete_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_with_attached_rows, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_row', 'with_attached_rows', param_with_attached_rows, 'bool')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_row', 'with_attached_rows', param_with_attached_rows, 'bool')
+        if ok:
+            self.assert_no_exception('delete_table_row', 'with_attached_rows', 'bool')
+
+    def test_delete_table_row_invalid_password(self):
+        """Test case for delete_table_row with invalid password
+        """
+        param_name = self.get_test_value('delete_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_row', 'row_index', 'int')
+        param_with_attached_rows = self.get_test_value('delete_table_row', 'with_attached_rows', 'bool')
+        param_password = self.get_test_value('delete_table_row', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_row', 'storage', 'str')
+        param_password = self.get_invalid_test_value('delete_table_row', 'password', param_password, 'str')
+        self.initialize('delete_table_row', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.delete_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_with_attached_rows, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_row', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_row', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('delete_table_row', 'password', 'str')
+
+    def test_delete_table_row_invalid_folder(self):
+        """Test case for delete_table_row with invalid folder
+        """
+        param_name = self.get_test_value('delete_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_row', 'row_index', 'int')
+        param_with_attached_rows = self.get_test_value('delete_table_row', 'with_attached_rows', 'bool')
+        param_password = self.get_test_value('delete_table_row', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_row', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('delete_table_row', 'folder', param_folder, 'str')
+        self.initialize('delete_table_row', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.delete_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_with_attached_rows, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_row', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_row', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('delete_table_row', 'folder', 'str')
+
+    def test_delete_table_row_invalid_storage(self):
+        """Test case for delete_table_row with invalid storage
+        """
+        param_name = self.get_test_value('delete_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('delete_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('delete_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('delete_table_row', 'row_index', 'int')
+        param_with_attached_rows = self.get_test_value('delete_table_row', 'with_attached_rows', 'bool')
+        param_password = self.get_test_value('delete_table_row', 'password', 'str')
+        param_folder = self.get_test_value('delete_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('delete_table_row', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('delete_table_row', 'storage', param_storage, 'str')
+        self.initialize('delete_table_row', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.delete_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_with_attached_rows, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'delete_table_row', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'delete_table_row', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('delete_table_row', 'storage', 'str')
 
     def test_delete_unused_layout_slides(self):
         """Test case for delete_unused_layout_slides
@@ -25570,6 +27020,972 @@ class TestSlidesApi(BaseTest):
         if ok:
             self.assert_no_exception('get_special_slide_shapes', 'sub_shape', 'str')
 
+    def test_get_table_cell_paragraph(self):
+        """Test case for get_table_cell_paragraph
+        """
+        param_name = self.get_test_value('get_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraph', 'storage', 'str')
+        self.initialize('get_table_cell_paragraph', None, None, None)
+        response = self.api.get_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_get_table_cell_paragraph_invalid_name(self):
+        """Test case for get_table_cell_paragraph with invalid name
+        """
+        param_name = self.get_test_value('get_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraph', 'storage', 'str')
+        param_name = self.get_invalid_test_value('get_table_cell_paragraph', 'name', param_name, 'str')
+        self.initialize('get_table_cell_paragraph', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraph', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraph', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraph', 'name', 'str')
+
+    def test_get_table_cell_paragraph_invalid_slide_index(self):
+        """Test case for get_table_cell_paragraph with invalid slide_index
+        """
+        param_name = self.get_test_value('get_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraph', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('get_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        self.initialize('get_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraph', 'slide_index', 'int')
+
+    def test_get_table_cell_paragraph_invalid_shape_index(self):
+        """Test case for get_table_cell_paragraph with invalid shape_index
+        """
+        param_name = self.get_test_value('get_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraph', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('get_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        self.initialize('get_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraph', 'shape_index', 'int')
+
+    def test_get_table_cell_paragraph_invalid_row_index(self):
+        """Test case for get_table_cell_paragraph with invalid row_index
+        """
+        param_name = self.get_test_value('get_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraph', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('get_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        self.initialize('get_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraph', 'row_index', 'int')
+
+    def test_get_table_cell_paragraph_invalid_cell_index(self):
+        """Test case for get_table_cell_paragraph with invalid cell_index
+        """
+        param_name = self.get_test_value('get_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraph', 'storage', 'str')
+        param_cell_index = self.get_invalid_test_value('get_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        self.initialize('get_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraph', 'cell_index', 'int')
+
+    def test_get_table_cell_paragraph_invalid_paragraph_index(self):
+        """Test case for get_table_cell_paragraph with invalid paragraph_index
+        """
+        param_name = self.get_test_value('get_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraph', 'storage', 'str')
+        param_paragraph_index = self.get_invalid_test_value('get_table_cell_paragraph', 'paragraph_index', param_paragraph_index, 'int')
+        self.initialize('get_table_cell_paragraph', 'paragraph_index', param_paragraph_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraph', 'paragraph_index', param_paragraph_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraph', 'paragraph_index', param_paragraph_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraph', 'paragraph_index', 'int')
+
+    def test_get_table_cell_paragraph_invalid_password(self):
+        """Test case for get_table_cell_paragraph with invalid password
+        """
+        param_name = self.get_test_value('get_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraph', 'storage', 'str')
+        param_password = self.get_invalid_test_value('get_table_cell_paragraph', 'password', param_password, 'str')
+        self.initialize('get_table_cell_paragraph', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraph', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraph', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraph', 'password', 'str')
+
+    def test_get_table_cell_paragraph_invalid_folder(self):
+        """Test case for get_table_cell_paragraph with invalid folder
+        """
+        param_name = self.get_test_value('get_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraph', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('get_table_cell_paragraph', 'folder', param_folder, 'str')
+        self.initialize('get_table_cell_paragraph', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraph', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraph', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraph', 'folder', 'str')
+
+    def test_get_table_cell_paragraph_invalid_storage(self):
+        """Test case for get_table_cell_paragraph with invalid storage
+        """
+        param_name = self.get_test_value('get_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_paragraph', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraph', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('get_table_cell_paragraph', 'storage', param_storage, 'str')
+        self.initialize('get_table_cell_paragraph', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraph', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraph', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraph', 'storage', 'str')
+
+    def test_get_table_cell_paragraphs(self):
+        """Test case for get_table_cell_paragraphs
+        """
+        param_name = self.get_test_value('get_table_cell_paragraphs', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraphs', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraphs', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraphs', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraphs', 'cell_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraphs', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraphs', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraphs', 'storage', 'str')
+        self.initialize('get_table_cell_paragraphs', None, None, None)
+        response = self.api.get_table_cell_paragraphs(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_get_table_cell_paragraphs_invalid_name(self):
+        """Test case for get_table_cell_paragraphs with invalid name
+        """
+        param_name = self.get_test_value('get_table_cell_paragraphs', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraphs', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraphs', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraphs', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraphs', 'cell_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraphs', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraphs', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraphs', 'storage', 'str')
+        param_name = self.get_invalid_test_value('get_table_cell_paragraphs', 'name', param_name, 'str')
+        self.initialize('get_table_cell_paragraphs', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraphs(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraphs', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraphs', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraphs', 'name', 'str')
+
+    def test_get_table_cell_paragraphs_invalid_slide_index(self):
+        """Test case for get_table_cell_paragraphs with invalid slide_index
+        """
+        param_name = self.get_test_value('get_table_cell_paragraphs', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraphs', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraphs', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraphs', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraphs', 'cell_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraphs', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraphs', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraphs', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('get_table_cell_paragraphs', 'slide_index', param_slide_index, 'int')
+        self.initialize('get_table_cell_paragraphs', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraphs(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraphs', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraphs', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraphs', 'slide_index', 'int')
+
+    def test_get_table_cell_paragraphs_invalid_shape_index(self):
+        """Test case for get_table_cell_paragraphs with invalid shape_index
+        """
+        param_name = self.get_test_value('get_table_cell_paragraphs', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraphs', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraphs', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraphs', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraphs', 'cell_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraphs', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraphs', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraphs', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('get_table_cell_paragraphs', 'shape_index', param_shape_index, 'int')
+        self.initialize('get_table_cell_paragraphs', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraphs(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraphs', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraphs', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraphs', 'shape_index', 'int')
+
+    def test_get_table_cell_paragraphs_invalid_row_index(self):
+        """Test case for get_table_cell_paragraphs with invalid row_index
+        """
+        param_name = self.get_test_value('get_table_cell_paragraphs', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraphs', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraphs', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraphs', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraphs', 'cell_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraphs', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraphs', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraphs', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('get_table_cell_paragraphs', 'row_index', param_row_index, 'int')
+        self.initialize('get_table_cell_paragraphs', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraphs(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraphs', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraphs', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraphs', 'row_index', 'int')
+
+    def test_get_table_cell_paragraphs_invalid_cell_index(self):
+        """Test case for get_table_cell_paragraphs with invalid cell_index
+        """
+        param_name = self.get_test_value('get_table_cell_paragraphs', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraphs', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraphs', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraphs', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraphs', 'cell_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraphs', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraphs', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraphs', 'storage', 'str')
+        param_cell_index = self.get_invalid_test_value('get_table_cell_paragraphs', 'cell_index', param_cell_index, 'int')
+        self.initialize('get_table_cell_paragraphs', 'cell_index', param_cell_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraphs(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraphs', 'cell_index', param_cell_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraphs', 'cell_index', param_cell_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraphs', 'cell_index', 'int')
+
+    def test_get_table_cell_paragraphs_invalid_password(self):
+        """Test case for get_table_cell_paragraphs with invalid password
+        """
+        param_name = self.get_test_value('get_table_cell_paragraphs', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraphs', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraphs', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraphs', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraphs', 'cell_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraphs', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraphs', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraphs', 'storage', 'str')
+        param_password = self.get_invalid_test_value('get_table_cell_paragraphs', 'password', param_password, 'str')
+        self.initialize('get_table_cell_paragraphs', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraphs(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraphs', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraphs', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraphs', 'password', 'str')
+
+    def test_get_table_cell_paragraphs_invalid_folder(self):
+        """Test case for get_table_cell_paragraphs with invalid folder
+        """
+        param_name = self.get_test_value('get_table_cell_paragraphs', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraphs', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraphs', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraphs', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraphs', 'cell_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraphs', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraphs', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraphs', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('get_table_cell_paragraphs', 'folder', param_folder, 'str')
+        self.initialize('get_table_cell_paragraphs', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraphs(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraphs', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraphs', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraphs', 'folder', 'str')
+
+    def test_get_table_cell_paragraphs_invalid_storage(self):
+        """Test case for get_table_cell_paragraphs with invalid storage
+        """
+        param_name = self.get_test_value('get_table_cell_paragraphs', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_paragraphs', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_paragraphs', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_paragraphs', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_paragraphs', 'cell_index', 'int')
+        param_password = self.get_test_value('get_table_cell_paragraphs', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_paragraphs', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_paragraphs', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('get_table_cell_paragraphs', 'storage', param_storage, 'str')
+        self.initialize('get_table_cell_paragraphs', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_paragraphs(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_paragraphs', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_paragraphs', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_paragraphs', 'storage', 'str')
+
+    def test_get_table_cell_portion(self):
+        """Test case for get_table_cell_portion
+        """
+        param_name = self.get_test_value('get_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('get_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portion', 'storage', 'str')
+        self.initialize('get_table_cell_portion', None, None, None)
+        response = self.api.get_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_get_table_cell_portion_invalid_name(self):
+        """Test case for get_table_cell_portion with invalid name
+        """
+        param_name = self.get_test_value('get_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('get_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portion', 'storage', 'str')
+        param_name = self.get_invalid_test_value('get_table_cell_portion', 'name', param_name, 'str')
+        self.initialize('get_table_cell_portion', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portion', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portion', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_portion', 'name', 'str')
+
+    def test_get_table_cell_portion_invalid_slide_index(self):
+        """Test case for get_table_cell_portion with invalid slide_index
+        """
+        param_name = self.get_test_value('get_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('get_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portion', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('get_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        self.initialize('get_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_portion', 'slide_index', 'int')
+
+    def test_get_table_cell_portion_invalid_shape_index(self):
+        """Test case for get_table_cell_portion with invalid shape_index
+        """
+        param_name = self.get_test_value('get_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('get_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portion', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('get_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        self.initialize('get_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_portion', 'shape_index', 'int')
+
+    def test_get_table_cell_portion_invalid_row_index(self):
+        """Test case for get_table_cell_portion with invalid row_index
+        """
+        param_name = self.get_test_value('get_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('get_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portion', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('get_table_cell_portion', 'row_index', param_row_index, 'int')
+        self.initialize('get_table_cell_portion', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portion', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portion', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_portion', 'row_index', 'int')
+
+    def test_get_table_cell_portion_invalid_cell_index(self):
+        """Test case for get_table_cell_portion with invalid cell_index
+        """
+        param_name = self.get_test_value('get_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('get_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portion', 'storage', 'str')
+        param_cell_index = self.get_invalid_test_value('get_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        self.initialize('get_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_portion', 'cell_index', 'int')
+
+    def test_get_table_cell_portion_invalid_paragraph_index(self):
+        """Test case for get_table_cell_portion with invalid paragraph_index
+        """
+        param_name = self.get_test_value('get_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('get_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portion', 'storage', 'str')
+        param_paragraph_index = self.get_invalid_test_value('get_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        self.initialize('get_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_portion', 'paragraph_index', 'int')
+
+    def test_get_table_cell_portion_invalid_portion_index(self):
+        """Test case for get_table_cell_portion with invalid portion_index
+        """
+        param_name = self.get_test_value('get_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('get_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portion', 'storage', 'str')
+        param_portion_index = self.get_invalid_test_value('get_table_cell_portion', 'portion_index', param_portion_index, 'int')
+        self.initialize('get_table_cell_portion', 'portion_index', param_portion_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portion', 'portion_index', param_portion_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portion', 'portion_index', param_portion_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_portion', 'portion_index', 'int')
+
+    def test_get_table_cell_portion_invalid_password(self):
+        """Test case for get_table_cell_portion with invalid password
+        """
+        param_name = self.get_test_value('get_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('get_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portion', 'storage', 'str')
+        param_password = self.get_invalid_test_value('get_table_cell_portion', 'password', param_password, 'str')
+        self.initialize('get_table_cell_portion', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portion', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portion', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_portion', 'password', 'str')
+
+    def test_get_table_cell_portion_invalid_folder(self):
+        """Test case for get_table_cell_portion with invalid folder
+        """
+        param_name = self.get_test_value('get_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('get_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portion', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('get_table_cell_portion', 'folder', param_folder, 'str')
+        self.initialize('get_table_cell_portion', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portion', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portion', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_portion', 'folder', 'str')
+
+    def test_get_table_cell_portion_invalid_storage(self):
+        """Test case for get_table_cell_portion with invalid storage
+        """
+        param_name = self.get_test_value('get_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('get_table_cell_portion', 'portion_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portion', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('get_table_cell_portion', 'storage', param_storage, 'str')
+        self.initialize('get_table_cell_portion', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portion', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portion', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_portion', 'storage', 'str')
+
+    def test_get_table_cell_portions(self):
+        """Test case for get_table_cell_portions
+        """
+        param_name = self.get_test_value('get_table_cell_portions', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portions', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portions', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portions', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portions', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portions', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portions', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portions', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portions', 'storage', 'str')
+        self.initialize('get_table_cell_portions', None, None, None)
+        response = self.api.get_table_cell_portions(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_get_table_cell_portions_invalid_name(self):
+        """Test case for get_table_cell_portions with invalid name
+        """
+        param_name = self.get_test_value('get_table_cell_portions', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portions', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portions', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portions', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portions', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portions', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portions', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portions', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portions', 'storage', 'str')
+        param_name = self.get_invalid_test_value('get_table_cell_portions', 'name', param_name, 'str')
+        self.initialize('get_table_cell_portions', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_portions(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portions', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portions', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_portions', 'name', 'str')
+
+    def test_get_table_cell_portions_invalid_slide_index(self):
+        """Test case for get_table_cell_portions with invalid slide_index
+        """
+        param_name = self.get_test_value('get_table_cell_portions', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portions', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portions', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portions', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portions', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portions', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portions', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portions', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portions', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('get_table_cell_portions', 'slide_index', param_slide_index, 'int')
+        self.initialize('get_table_cell_portions', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_portions(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portions', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portions', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_portions', 'slide_index', 'int')
+
+    def test_get_table_cell_portions_invalid_shape_index(self):
+        """Test case for get_table_cell_portions with invalid shape_index
+        """
+        param_name = self.get_test_value('get_table_cell_portions', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portions', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portions', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portions', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portions', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portions', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portions', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portions', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portions', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('get_table_cell_portions', 'shape_index', param_shape_index, 'int')
+        self.initialize('get_table_cell_portions', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_portions(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portions', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portions', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_portions', 'shape_index', 'int')
+
+    def test_get_table_cell_portions_invalid_row_index(self):
+        """Test case for get_table_cell_portions with invalid row_index
+        """
+        param_name = self.get_test_value('get_table_cell_portions', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portions', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portions', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portions', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portions', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portions', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portions', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portions', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portions', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('get_table_cell_portions', 'row_index', param_row_index, 'int')
+        self.initialize('get_table_cell_portions', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_portions(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portions', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portions', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_portions', 'row_index', 'int')
+
+    def test_get_table_cell_portions_invalid_cell_index(self):
+        """Test case for get_table_cell_portions with invalid cell_index
+        """
+        param_name = self.get_test_value('get_table_cell_portions', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portions', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portions', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portions', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portions', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portions', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portions', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portions', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portions', 'storage', 'str')
+        param_cell_index = self.get_invalid_test_value('get_table_cell_portions', 'cell_index', param_cell_index, 'int')
+        self.initialize('get_table_cell_portions', 'cell_index', param_cell_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_portions(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portions', 'cell_index', param_cell_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portions', 'cell_index', param_cell_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_portions', 'cell_index', 'int')
+
+    def test_get_table_cell_portions_invalid_paragraph_index(self):
+        """Test case for get_table_cell_portions with invalid paragraph_index
+        """
+        param_name = self.get_test_value('get_table_cell_portions', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portions', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portions', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portions', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portions', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portions', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portions', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portions', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portions', 'storage', 'str')
+        param_paragraph_index = self.get_invalid_test_value('get_table_cell_portions', 'paragraph_index', param_paragraph_index, 'int')
+        self.initialize('get_table_cell_portions', 'paragraph_index', param_paragraph_index, 'int')
+        ok = False
+        try:
+            self.api.get_table_cell_portions(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portions', 'paragraph_index', param_paragraph_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portions', 'paragraph_index', param_paragraph_index, 'int')
+        if ok:
+            self.assert_no_exception('get_table_cell_portions', 'paragraph_index', 'int')
+
+    def test_get_table_cell_portions_invalid_password(self):
+        """Test case for get_table_cell_portions with invalid password
+        """
+        param_name = self.get_test_value('get_table_cell_portions', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portions', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portions', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portions', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portions', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portions', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portions', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portions', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portions', 'storage', 'str')
+        param_password = self.get_invalid_test_value('get_table_cell_portions', 'password', param_password, 'str')
+        self.initialize('get_table_cell_portions', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_portions(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portions', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portions', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_portions', 'password', 'str')
+
+    def test_get_table_cell_portions_invalid_folder(self):
+        """Test case for get_table_cell_portions with invalid folder
+        """
+        param_name = self.get_test_value('get_table_cell_portions', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portions', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portions', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portions', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portions', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portions', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portions', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portions', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portions', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('get_table_cell_portions', 'folder', param_folder, 'str')
+        self.initialize('get_table_cell_portions', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_portions(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portions', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portions', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_portions', 'folder', 'str')
+
+    def test_get_table_cell_portions_invalid_storage(self):
+        """Test case for get_table_cell_portions with invalid storage
+        """
+        param_name = self.get_test_value('get_table_cell_portions', 'name', 'str')
+        param_slide_index = self.get_test_value('get_table_cell_portions', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('get_table_cell_portions', 'shape_index', 'int')
+        param_row_index = self.get_test_value('get_table_cell_portions', 'row_index', 'int')
+        param_cell_index = self.get_test_value('get_table_cell_portions', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('get_table_cell_portions', 'paragraph_index', 'int')
+        param_password = self.get_test_value('get_table_cell_portions', 'password', 'str')
+        param_folder = self.get_test_value('get_table_cell_portions', 'folder', 'str')
+        param_storage = self.get_test_value('get_table_cell_portions', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('get_table_cell_portions', 'storage', param_storage, 'str')
+        self.initialize('get_table_cell_portions', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.get_table_cell_portions(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'get_table_cell_portions', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'get_table_cell_portions', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('get_table_cell_portions', 'storage', 'str')
+
     def test_get_theme(self):
         """Test case for get_theme
         """
@@ -27196,6 +29612,181 @@ class TestSlidesApi(BaseTest):
             self.assert_value_error(ex, 'merge_online', 'storage', param_storage, 'str')
         if ok:
             self.assert_no_exception('merge_online', 'storage', 'str')
+
+    def test_merge_table_cells(self):
+        """Test case for merge_table_cells
+        """
+        param_name = self.get_test_value('merge_table_cells', 'name', 'str')
+        param_slide_index = self.get_test_value('merge_table_cells', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('merge_table_cells', 'shape_index', 'int')
+        param_table_cell_merge_options = self.get_test_value('merge_table_cells', 'table_cell_merge_options', 'TableCellMergeOptions')
+        param_password = self.get_test_value('merge_table_cells', 'password', 'str')
+        param_folder = self.get_test_value('merge_table_cells', 'folder', 'str')
+        param_storage = self.get_test_value('merge_table_cells', 'storage', 'str')
+        self.initialize('merge_table_cells', None, None, None)
+        response = self.api.merge_table_cells(param_name, param_slide_index, param_shape_index, param_table_cell_merge_options, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_merge_table_cells_invalid_name(self):
+        """Test case for merge_table_cells with invalid name
+        """
+        param_name = self.get_test_value('merge_table_cells', 'name', 'str')
+        param_slide_index = self.get_test_value('merge_table_cells', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('merge_table_cells', 'shape_index', 'int')
+        param_table_cell_merge_options = self.get_test_value('merge_table_cells', 'table_cell_merge_options', 'TableCellMergeOptions')
+        param_password = self.get_test_value('merge_table_cells', 'password', 'str')
+        param_folder = self.get_test_value('merge_table_cells', 'folder', 'str')
+        param_storage = self.get_test_value('merge_table_cells', 'storage', 'str')
+        param_name = self.get_invalid_test_value('merge_table_cells', 'name', param_name, 'str')
+        self.initialize('merge_table_cells', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.merge_table_cells(param_name, param_slide_index, param_shape_index, param_table_cell_merge_options, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'merge_table_cells', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'merge_table_cells', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('merge_table_cells', 'name', 'str')
+
+    def test_merge_table_cells_invalid_slide_index(self):
+        """Test case for merge_table_cells with invalid slide_index
+        """
+        param_name = self.get_test_value('merge_table_cells', 'name', 'str')
+        param_slide_index = self.get_test_value('merge_table_cells', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('merge_table_cells', 'shape_index', 'int')
+        param_table_cell_merge_options = self.get_test_value('merge_table_cells', 'table_cell_merge_options', 'TableCellMergeOptions')
+        param_password = self.get_test_value('merge_table_cells', 'password', 'str')
+        param_folder = self.get_test_value('merge_table_cells', 'folder', 'str')
+        param_storage = self.get_test_value('merge_table_cells', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('merge_table_cells', 'slide_index', param_slide_index, 'int')
+        self.initialize('merge_table_cells', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.merge_table_cells(param_name, param_slide_index, param_shape_index, param_table_cell_merge_options, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'merge_table_cells', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'merge_table_cells', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('merge_table_cells', 'slide_index', 'int')
+
+    def test_merge_table_cells_invalid_shape_index(self):
+        """Test case for merge_table_cells with invalid shape_index
+        """
+        param_name = self.get_test_value('merge_table_cells', 'name', 'str')
+        param_slide_index = self.get_test_value('merge_table_cells', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('merge_table_cells', 'shape_index', 'int')
+        param_table_cell_merge_options = self.get_test_value('merge_table_cells', 'table_cell_merge_options', 'TableCellMergeOptions')
+        param_password = self.get_test_value('merge_table_cells', 'password', 'str')
+        param_folder = self.get_test_value('merge_table_cells', 'folder', 'str')
+        param_storage = self.get_test_value('merge_table_cells', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('merge_table_cells', 'shape_index', param_shape_index, 'int')
+        self.initialize('merge_table_cells', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.merge_table_cells(param_name, param_slide_index, param_shape_index, param_table_cell_merge_options, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'merge_table_cells', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'merge_table_cells', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('merge_table_cells', 'shape_index', 'int')
+
+    def test_merge_table_cells_invalid_table_cell_merge_options(self):
+        """Test case for merge_table_cells with invalid table_cell_merge_options
+        """
+        param_name = self.get_test_value('merge_table_cells', 'name', 'str')
+        param_slide_index = self.get_test_value('merge_table_cells', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('merge_table_cells', 'shape_index', 'int')
+        param_table_cell_merge_options = self.get_test_value('merge_table_cells', 'table_cell_merge_options', 'TableCellMergeOptions')
+        param_password = self.get_test_value('merge_table_cells', 'password', 'str')
+        param_folder = self.get_test_value('merge_table_cells', 'folder', 'str')
+        param_storage = self.get_test_value('merge_table_cells', 'storage', 'str')
+        param_table_cell_merge_options = self.get_invalid_test_value('merge_table_cells', 'table_cell_merge_options', param_table_cell_merge_options, 'TableCellMergeOptions')
+        self.initialize('merge_table_cells', 'table_cell_merge_options', param_table_cell_merge_options, 'TableCellMergeOptions')
+        ok = False
+        try:
+            self.api.merge_table_cells(param_name, param_slide_index, param_shape_index, param_table_cell_merge_options, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'merge_table_cells', 'table_cell_merge_options', param_table_cell_merge_options, 'TableCellMergeOptions')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'merge_table_cells', 'table_cell_merge_options', param_table_cell_merge_options, 'TableCellMergeOptions')
+        if ok:
+            self.assert_no_exception('merge_table_cells', 'table_cell_merge_options', 'TableCellMergeOptions')
+
+    def test_merge_table_cells_invalid_password(self):
+        """Test case for merge_table_cells with invalid password
+        """
+        param_name = self.get_test_value('merge_table_cells', 'name', 'str')
+        param_slide_index = self.get_test_value('merge_table_cells', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('merge_table_cells', 'shape_index', 'int')
+        param_table_cell_merge_options = self.get_test_value('merge_table_cells', 'table_cell_merge_options', 'TableCellMergeOptions')
+        param_password = self.get_test_value('merge_table_cells', 'password', 'str')
+        param_folder = self.get_test_value('merge_table_cells', 'folder', 'str')
+        param_storage = self.get_test_value('merge_table_cells', 'storage', 'str')
+        param_password = self.get_invalid_test_value('merge_table_cells', 'password', param_password, 'str')
+        self.initialize('merge_table_cells', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.merge_table_cells(param_name, param_slide_index, param_shape_index, param_table_cell_merge_options, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'merge_table_cells', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'merge_table_cells', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('merge_table_cells', 'password', 'str')
+
+    def test_merge_table_cells_invalid_folder(self):
+        """Test case for merge_table_cells with invalid folder
+        """
+        param_name = self.get_test_value('merge_table_cells', 'name', 'str')
+        param_slide_index = self.get_test_value('merge_table_cells', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('merge_table_cells', 'shape_index', 'int')
+        param_table_cell_merge_options = self.get_test_value('merge_table_cells', 'table_cell_merge_options', 'TableCellMergeOptions')
+        param_password = self.get_test_value('merge_table_cells', 'password', 'str')
+        param_folder = self.get_test_value('merge_table_cells', 'folder', 'str')
+        param_storage = self.get_test_value('merge_table_cells', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('merge_table_cells', 'folder', param_folder, 'str')
+        self.initialize('merge_table_cells', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.merge_table_cells(param_name, param_slide_index, param_shape_index, param_table_cell_merge_options, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'merge_table_cells', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'merge_table_cells', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('merge_table_cells', 'folder', 'str')
+
+    def test_merge_table_cells_invalid_storage(self):
+        """Test case for merge_table_cells with invalid storage
+        """
+        param_name = self.get_test_value('merge_table_cells', 'name', 'str')
+        param_slide_index = self.get_test_value('merge_table_cells', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('merge_table_cells', 'shape_index', 'int')
+        param_table_cell_merge_options = self.get_test_value('merge_table_cells', 'table_cell_merge_options', 'TableCellMergeOptions')
+        param_password = self.get_test_value('merge_table_cells', 'password', 'str')
+        param_folder = self.get_test_value('merge_table_cells', 'folder', 'str')
+        param_storage = self.get_test_value('merge_table_cells', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('merge_table_cells', 'storage', param_storage, 'str')
+        self.initialize('merge_table_cells', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.merge_table_cells(param_name, param_slide_index, param_shape_index, param_table_cell_merge_options, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'merge_table_cells', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'merge_table_cells', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('merge_table_cells', 'storage', 'str')
 
     def test_move_file(self):
         """Test case for move_file
@@ -35991,6 +38582,283 @@ class TestSlidesApi(BaseTest):
         if ok:
             self.assert_no_exception('split_online', 'options', 'ExportOptions')
 
+    def test_split_table_cell(self):
+        """Test case for split_table_cell
+        """
+        param_name = self.get_test_value('split_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('split_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('split_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('split_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('split_table_cell', 'cell_index', 'int')
+        param_split_type = self.get_test_value('split_table_cell', 'split_type', 'str')
+        param_value = self.get_test_value('split_table_cell', 'value', 'float')
+        param_password = self.get_test_value('split_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('split_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('split_table_cell', 'storage', 'str')
+        self.initialize('split_table_cell', None, None, None)
+        response = self.api.split_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_split_type, param_value, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_split_table_cell_invalid_name(self):
+        """Test case for split_table_cell with invalid name
+        """
+        param_name = self.get_test_value('split_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('split_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('split_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('split_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('split_table_cell', 'cell_index', 'int')
+        param_split_type = self.get_test_value('split_table_cell', 'split_type', 'str')
+        param_value = self.get_test_value('split_table_cell', 'value', 'float')
+        param_password = self.get_test_value('split_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('split_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('split_table_cell', 'storage', 'str')
+        param_name = self.get_invalid_test_value('split_table_cell', 'name', param_name, 'str')
+        self.initialize('split_table_cell', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.split_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_split_type, param_value, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'split_table_cell', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'split_table_cell', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('split_table_cell', 'name', 'str')
+
+    def test_split_table_cell_invalid_slide_index(self):
+        """Test case for split_table_cell with invalid slide_index
+        """
+        param_name = self.get_test_value('split_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('split_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('split_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('split_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('split_table_cell', 'cell_index', 'int')
+        param_split_type = self.get_test_value('split_table_cell', 'split_type', 'str')
+        param_value = self.get_test_value('split_table_cell', 'value', 'float')
+        param_password = self.get_test_value('split_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('split_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('split_table_cell', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('split_table_cell', 'slide_index', param_slide_index, 'int')
+        self.initialize('split_table_cell', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.split_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_split_type, param_value, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'split_table_cell', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'split_table_cell', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('split_table_cell', 'slide_index', 'int')
+
+    def test_split_table_cell_invalid_shape_index(self):
+        """Test case for split_table_cell with invalid shape_index
+        """
+        param_name = self.get_test_value('split_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('split_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('split_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('split_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('split_table_cell', 'cell_index', 'int')
+        param_split_type = self.get_test_value('split_table_cell', 'split_type', 'str')
+        param_value = self.get_test_value('split_table_cell', 'value', 'float')
+        param_password = self.get_test_value('split_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('split_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('split_table_cell', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('split_table_cell', 'shape_index', param_shape_index, 'int')
+        self.initialize('split_table_cell', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.split_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_split_type, param_value, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'split_table_cell', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'split_table_cell', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('split_table_cell', 'shape_index', 'int')
+
+    def test_split_table_cell_invalid_row_index(self):
+        """Test case for split_table_cell with invalid row_index
+        """
+        param_name = self.get_test_value('split_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('split_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('split_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('split_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('split_table_cell', 'cell_index', 'int')
+        param_split_type = self.get_test_value('split_table_cell', 'split_type', 'str')
+        param_value = self.get_test_value('split_table_cell', 'value', 'float')
+        param_password = self.get_test_value('split_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('split_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('split_table_cell', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('split_table_cell', 'row_index', param_row_index, 'int')
+        self.initialize('split_table_cell', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.split_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_split_type, param_value, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'split_table_cell', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'split_table_cell', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('split_table_cell', 'row_index', 'int')
+
+    def test_split_table_cell_invalid_cell_index(self):
+        """Test case for split_table_cell with invalid cell_index
+        """
+        param_name = self.get_test_value('split_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('split_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('split_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('split_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('split_table_cell', 'cell_index', 'int')
+        param_split_type = self.get_test_value('split_table_cell', 'split_type', 'str')
+        param_value = self.get_test_value('split_table_cell', 'value', 'float')
+        param_password = self.get_test_value('split_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('split_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('split_table_cell', 'storage', 'str')
+        param_cell_index = self.get_invalid_test_value('split_table_cell', 'cell_index', param_cell_index, 'int')
+        self.initialize('split_table_cell', 'cell_index', param_cell_index, 'int')
+        ok = False
+        try:
+            self.api.split_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_split_type, param_value, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'split_table_cell', 'cell_index', param_cell_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'split_table_cell', 'cell_index', param_cell_index, 'int')
+        if ok:
+            self.assert_no_exception('split_table_cell', 'cell_index', 'int')
+
+    def test_split_table_cell_invalid_split_type(self):
+        """Test case for split_table_cell with invalid split_type
+        """
+        param_name = self.get_test_value('split_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('split_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('split_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('split_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('split_table_cell', 'cell_index', 'int')
+        param_split_type = self.get_test_value('split_table_cell', 'split_type', 'str')
+        param_value = self.get_test_value('split_table_cell', 'value', 'float')
+        param_password = self.get_test_value('split_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('split_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('split_table_cell', 'storage', 'str')
+        param_split_type = self.get_invalid_test_value('split_table_cell', 'split_type', param_split_type, 'str')
+        self.initialize('split_table_cell', 'split_type', param_split_type, 'str')
+        ok = False
+        try:
+            self.api.split_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_split_type, param_value, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'split_table_cell', 'split_type', param_split_type, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'split_table_cell', 'split_type', param_split_type, 'str')
+        if ok:
+            self.assert_no_exception('split_table_cell', 'split_type', 'str')
+
+    def test_split_table_cell_invalid_value(self):
+        """Test case for split_table_cell with invalid value
+        """
+        param_name = self.get_test_value('split_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('split_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('split_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('split_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('split_table_cell', 'cell_index', 'int')
+        param_split_type = self.get_test_value('split_table_cell', 'split_type', 'str')
+        param_value = self.get_test_value('split_table_cell', 'value', 'float')
+        param_password = self.get_test_value('split_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('split_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('split_table_cell', 'storage', 'str')
+        param_value = self.get_invalid_test_value('split_table_cell', 'value', param_value, 'float')
+        self.initialize('split_table_cell', 'value', param_value, 'float')
+        ok = False
+        try:
+            self.api.split_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_split_type, param_value, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'split_table_cell', 'value', param_value, 'float')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'split_table_cell', 'value', param_value, 'float')
+        if ok:
+            self.assert_no_exception('split_table_cell', 'value', 'float')
+
+    def test_split_table_cell_invalid_password(self):
+        """Test case for split_table_cell with invalid password
+        """
+        param_name = self.get_test_value('split_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('split_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('split_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('split_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('split_table_cell', 'cell_index', 'int')
+        param_split_type = self.get_test_value('split_table_cell', 'split_type', 'str')
+        param_value = self.get_test_value('split_table_cell', 'value', 'float')
+        param_password = self.get_test_value('split_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('split_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('split_table_cell', 'storage', 'str')
+        param_password = self.get_invalid_test_value('split_table_cell', 'password', param_password, 'str')
+        self.initialize('split_table_cell', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.split_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_split_type, param_value, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'split_table_cell', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'split_table_cell', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('split_table_cell', 'password', 'str')
+
+    def test_split_table_cell_invalid_folder(self):
+        """Test case for split_table_cell with invalid folder
+        """
+        param_name = self.get_test_value('split_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('split_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('split_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('split_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('split_table_cell', 'cell_index', 'int')
+        param_split_type = self.get_test_value('split_table_cell', 'split_type', 'str')
+        param_value = self.get_test_value('split_table_cell', 'value', 'float')
+        param_password = self.get_test_value('split_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('split_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('split_table_cell', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('split_table_cell', 'folder', param_folder, 'str')
+        self.initialize('split_table_cell', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.split_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_split_type, param_value, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'split_table_cell', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'split_table_cell', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('split_table_cell', 'folder', 'str')
+
+    def test_split_table_cell_invalid_storage(self):
+        """Test case for split_table_cell with invalid storage
+        """
+        param_name = self.get_test_value('split_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('split_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('split_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('split_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('split_table_cell', 'cell_index', 'int')
+        param_split_type = self.get_test_value('split_table_cell', 'split_type', 'str')
+        param_value = self.get_test_value('split_table_cell', 'value', 'float')
+        param_password = self.get_test_value('split_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('split_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('split_table_cell', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('split_table_cell', 'storage', param_storage, 'str')
+        self.initialize('split_table_cell', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.split_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_split_type, param_value, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'split_table_cell', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'split_table_cell', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('split_table_cell', 'storage', 'str')
+
     def test_storage_exists(self):
         """Test case for storage_exists
         """
@@ -39638,6 +42506,1046 @@ class TestSlidesApi(BaseTest):
             self.assert_value_error(ex, 'update_special_slide_shape', 'sub_shape', param_sub_shape, 'str')
         if ok:
             self.assert_no_exception('update_special_slide_shape', 'sub_shape', 'str')
+
+    def test_update_table_cell(self):
+        """Test case for update_table_cell
+        """
+        param_name = self.get_test_value('update_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell', 'cell_index', 'int')
+        param_dto = self.get_test_value('update_table_cell', 'dto', 'TableCell')
+        param_password = self.get_test_value('update_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell', 'storage', 'str')
+        self.initialize('update_table_cell', None, None, None)
+        response = self.api.update_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_update_table_cell_invalid_name(self):
+        """Test case for update_table_cell with invalid name
+        """
+        param_name = self.get_test_value('update_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell', 'cell_index', 'int')
+        param_dto = self.get_test_value('update_table_cell', 'dto', 'TableCell')
+        param_password = self.get_test_value('update_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell', 'storage', 'str')
+        param_name = self.get_invalid_test_value('update_table_cell', 'name', param_name, 'str')
+        self.initialize('update_table_cell', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.update_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('update_table_cell', 'name', 'str')
+
+    def test_update_table_cell_invalid_slide_index(self):
+        """Test case for update_table_cell with invalid slide_index
+        """
+        param_name = self.get_test_value('update_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell', 'cell_index', 'int')
+        param_dto = self.get_test_value('update_table_cell', 'dto', 'TableCell')
+        param_password = self.get_test_value('update_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('update_table_cell', 'slide_index', param_slide_index, 'int')
+        self.initialize('update_table_cell', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell', 'slide_index', 'int')
+
+    def test_update_table_cell_invalid_shape_index(self):
+        """Test case for update_table_cell with invalid shape_index
+        """
+        param_name = self.get_test_value('update_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell', 'cell_index', 'int')
+        param_dto = self.get_test_value('update_table_cell', 'dto', 'TableCell')
+        param_password = self.get_test_value('update_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('update_table_cell', 'shape_index', param_shape_index, 'int')
+        self.initialize('update_table_cell', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell', 'shape_index', 'int')
+
+    def test_update_table_cell_invalid_row_index(self):
+        """Test case for update_table_cell with invalid row_index
+        """
+        param_name = self.get_test_value('update_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell', 'cell_index', 'int')
+        param_dto = self.get_test_value('update_table_cell', 'dto', 'TableCell')
+        param_password = self.get_test_value('update_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('update_table_cell', 'row_index', param_row_index, 'int')
+        self.initialize('update_table_cell', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell', 'row_index', 'int')
+
+    def test_update_table_cell_invalid_cell_index(self):
+        """Test case for update_table_cell with invalid cell_index
+        """
+        param_name = self.get_test_value('update_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell', 'cell_index', 'int')
+        param_dto = self.get_test_value('update_table_cell', 'dto', 'TableCell')
+        param_password = self.get_test_value('update_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell', 'storage', 'str')
+        param_cell_index = self.get_invalid_test_value('update_table_cell', 'cell_index', param_cell_index, 'int')
+        self.initialize('update_table_cell', 'cell_index', param_cell_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell', 'cell_index', param_cell_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell', 'cell_index', param_cell_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell', 'cell_index', 'int')
+
+    def test_update_table_cell_invalid_dto(self):
+        """Test case for update_table_cell with invalid dto
+        """
+        param_name = self.get_test_value('update_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell', 'cell_index', 'int')
+        param_dto = self.get_test_value('update_table_cell', 'dto', 'TableCell')
+        param_password = self.get_test_value('update_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell', 'storage', 'str')
+        param_dto = self.get_invalid_test_value('update_table_cell', 'dto', param_dto, 'TableCell')
+        self.initialize('update_table_cell', 'dto', param_dto, 'TableCell')
+        ok = False
+        try:
+            self.api.update_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell', 'dto', param_dto, 'TableCell')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell', 'dto', param_dto, 'TableCell')
+        if ok:
+            self.assert_no_exception('update_table_cell', 'dto', 'TableCell')
+
+    def test_update_table_cell_invalid_password(self):
+        """Test case for update_table_cell with invalid password
+        """
+        param_name = self.get_test_value('update_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell', 'cell_index', 'int')
+        param_dto = self.get_test_value('update_table_cell', 'dto', 'TableCell')
+        param_password = self.get_test_value('update_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell', 'storage', 'str')
+        param_password = self.get_invalid_test_value('update_table_cell', 'password', param_password, 'str')
+        self.initialize('update_table_cell', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.update_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('update_table_cell', 'password', 'str')
+
+    def test_update_table_cell_invalid_folder(self):
+        """Test case for update_table_cell with invalid folder
+        """
+        param_name = self.get_test_value('update_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell', 'cell_index', 'int')
+        param_dto = self.get_test_value('update_table_cell', 'dto', 'TableCell')
+        param_password = self.get_test_value('update_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('update_table_cell', 'folder', param_folder, 'str')
+        self.initialize('update_table_cell', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.update_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('update_table_cell', 'folder', 'str')
+
+    def test_update_table_cell_invalid_storage(self):
+        """Test case for update_table_cell with invalid storage
+        """
+        param_name = self.get_test_value('update_table_cell', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell', 'cell_index', 'int')
+        param_dto = self.get_test_value('update_table_cell', 'dto', 'TableCell')
+        param_password = self.get_test_value('update_table_cell', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('update_table_cell', 'storage', param_storage, 'str')
+        self.initialize('update_table_cell', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.update_table_cell(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('update_table_cell', 'storage', 'str')
+
+    def test_update_table_cell_paragraph(self):
+        """Test case for update_table_cell_paragraph
+        """
+        param_name = self.get_test_value('update_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_paragraph', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('update_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_paragraph', 'storage', 'str')
+        self.initialize('update_table_cell_paragraph', None, None, None)
+        response = self.api.update_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_update_table_cell_paragraph_invalid_name(self):
+        """Test case for update_table_cell_paragraph with invalid name
+        """
+        param_name = self.get_test_value('update_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_paragraph', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('update_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_paragraph', 'storage', 'str')
+        param_name = self.get_invalid_test_value('update_table_cell_paragraph', 'name', param_name, 'str')
+        self.initialize('update_table_cell_paragraph', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.update_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_paragraph', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_paragraph', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('update_table_cell_paragraph', 'name', 'str')
+
+    def test_update_table_cell_paragraph_invalid_slide_index(self):
+        """Test case for update_table_cell_paragraph with invalid slide_index
+        """
+        param_name = self.get_test_value('update_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_paragraph', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('update_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_paragraph', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('update_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        self.initialize('update_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_paragraph', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell_paragraph', 'slide_index', 'int')
+
+    def test_update_table_cell_paragraph_invalid_shape_index(self):
+        """Test case for update_table_cell_paragraph with invalid shape_index
+        """
+        param_name = self.get_test_value('update_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_paragraph', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('update_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_paragraph', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('update_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        self.initialize('update_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_paragraph', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell_paragraph', 'shape_index', 'int')
+
+    def test_update_table_cell_paragraph_invalid_row_index(self):
+        """Test case for update_table_cell_paragraph with invalid row_index
+        """
+        param_name = self.get_test_value('update_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_paragraph', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('update_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_paragraph', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('update_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        self.initialize('update_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_paragraph', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell_paragraph', 'row_index', 'int')
+
+    def test_update_table_cell_paragraph_invalid_cell_index(self):
+        """Test case for update_table_cell_paragraph with invalid cell_index
+        """
+        param_name = self.get_test_value('update_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_paragraph', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('update_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_paragraph', 'storage', 'str')
+        param_cell_index = self.get_invalid_test_value('update_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        self.initialize('update_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_paragraph', 'cell_index', param_cell_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell_paragraph', 'cell_index', 'int')
+
+    def test_update_table_cell_paragraph_invalid_paragraph_index(self):
+        """Test case for update_table_cell_paragraph with invalid paragraph_index
+        """
+        param_name = self.get_test_value('update_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_paragraph', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('update_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_paragraph', 'storage', 'str')
+        param_paragraph_index = self.get_invalid_test_value('update_table_cell_paragraph', 'paragraph_index', param_paragraph_index, 'int')
+        self.initialize('update_table_cell_paragraph', 'paragraph_index', param_paragraph_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_paragraph', 'paragraph_index', param_paragraph_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_paragraph', 'paragraph_index', param_paragraph_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell_paragraph', 'paragraph_index', 'int')
+
+    def test_update_table_cell_paragraph_invalid_dto(self):
+        """Test case for update_table_cell_paragraph with invalid dto
+        """
+        param_name = self.get_test_value('update_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_paragraph', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('update_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_paragraph', 'storage', 'str')
+        param_dto = self.get_invalid_test_value('update_table_cell_paragraph', 'dto', param_dto, 'Paragraph')
+        self.initialize('update_table_cell_paragraph', 'dto', param_dto, 'Paragraph')
+        ok = False
+        try:
+            self.api.update_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_paragraph', 'dto', param_dto, 'Paragraph')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_paragraph', 'dto', param_dto, 'Paragraph')
+        if ok:
+            self.assert_no_exception('update_table_cell_paragraph', 'dto', 'Paragraph')
+
+    def test_update_table_cell_paragraph_invalid_password(self):
+        """Test case for update_table_cell_paragraph with invalid password
+        """
+        param_name = self.get_test_value('update_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_paragraph', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('update_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_paragraph', 'storage', 'str')
+        param_password = self.get_invalid_test_value('update_table_cell_paragraph', 'password', param_password, 'str')
+        self.initialize('update_table_cell_paragraph', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.update_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_paragraph', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_paragraph', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('update_table_cell_paragraph', 'password', 'str')
+
+    def test_update_table_cell_paragraph_invalid_folder(self):
+        """Test case for update_table_cell_paragraph with invalid folder
+        """
+        param_name = self.get_test_value('update_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_paragraph', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('update_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_paragraph', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('update_table_cell_paragraph', 'folder', param_folder, 'str')
+        self.initialize('update_table_cell_paragraph', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.update_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_paragraph', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_paragraph', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('update_table_cell_paragraph', 'folder', 'str')
+
+    def test_update_table_cell_paragraph_invalid_storage(self):
+        """Test case for update_table_cell_paragraph with invalid storage
+        """
+        param_name = self.get_test_value('update_table_cell_paragraph', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_paragraph', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_paragraph', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_paragraph', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_paragraph', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_paragraph', 'paragraph_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_paragraph', 'dto', 'Paragraph')
+        param_password = self.get_test_value('update_table_cell_paragraph', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_paragraph', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_paragraph', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('update_table_cell_paragraph', 'storage', param_storage, 'str')
+        self.initialize('update_table_cell_paragraph', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.update_table_cell_paragraph(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_paragraph', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_paragraph', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('update_table_cell_paragraph', 'storage', 'str')
+
+    def test_update_table_cell_portion(self):
+        """Test case for update_table_cell_portion
+        """
+        param_name = self.get_test_value('update_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('update_table_cell_portion', 'portion_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('update_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_portion', 'storage', 'str')
+        self.initialize('update_table_cell_portion', None, None, None)
+        response = self.api.update_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_dto, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_update_table_cell_portion_invalid_name(self):
+        """Test case for update_table_cell_portion with invalid name
+        """
+        param_name = self.get_test_value('update_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('update_table_cell_portion', 'portion_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('update_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_portion', 'storage', 'str')
+        param_name = self.get_invalid_test_value('update_table_cell_portion', 'name', param_name, 'str')
+        self.initialize('update_table_cell_portion', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.update_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_portion', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_portion', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('update_table_cell_portion', 'name', 'str')
+
+    def test_update_table_cell_portion_invalid_slide_index(self):
+        """Test case for update_table_cell_portion with invalid slide_index
+        """
+        param_name = self.get_test_value('update_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('update_table_cell_portion', 'portion_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('update_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_portion', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('update_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        self.initialize('update_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_portion', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell_portion', 'slide_index', 'int')
+
+    def test_update_table_cell_portion_invalid_shape_index(self):
+        """Test case for update_table_cell_portion with invalid shape_index
+        """
+        param_name = self.get_test_value('update_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('update_table_cell_portion', 'portion_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('update_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_portion', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('update_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        self.initialize('update_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_portion', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell_portion', 'shape_index', 'int')
+
+    def test_update_table_cell_portion_invalid_row_index(self):
+        """Test case for update_table_cell_portion with invalid row_index
+        """
+        param_name = self.get_test_value('update_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('update_table_cell_portion', 'portion_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('update_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_portion', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('update_table_cell_portion', 'row_index', param_row_index, 'int')
+        self.initialize('update_table_cell_portion', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_portion', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_portion', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell_portion', 'row_index', 'int')
+
+    def test_update_table_cell_portion_invalid_cell_index(self):
+        """Test case for update_table_cell_portion with invalid cell_index
+        """
+        param_name = self.get_test_value('update_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('update_table_cell_portion', 'portion_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('update_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_portion', 'storage', 'str')
+        param_cell_index = self.get_invalid_test_value('update_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        self.initialize('update_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_portion', 'cell_index', param_cell_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell_portion', 'cell_index', 'int')
+
+    def test_update_table_cell_portion_invalid_paragraph_index(self):
+        """Test case for update_table_cell_portion with invalid paragraph_index
+        """
+        param_name = self.get_test_value('update_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('update_table_cell_portion', 'portion_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('update_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_portion', 'storage', 'str')
+        param_paragraph_index = self.get_invalid_test_value('update_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        self.initialize('update_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_portion', 'paragraph_index', param_paragraph_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell_portion', 'paragraph_index', 'int')
+
+    def test_update_table_cell_portion_invalid_portion_index(self):
+        """Test case for update_table_cell_portion with invalid portion_index
+        """
+        param_name = self.get_test_value('update_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('update_table_cell_portion', 'portion_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('update_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_portion', 'storage', 'str')
+        param_portion_index = self.get_invalid_test_value('update_table_cell_portion', 'portion_index', param_portion_index, 'int')
+        self.initialize('update_table_cell_portion', 'portion_index', param_portion_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_portion', 'portion_index', param_portion_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_portion', 'portion_index', param_portion_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_cell_portion', 'portion_index', 'int')
+
+    def test_update_table_cell_portion_invalid_dto(self):
+        """Test case for update_table_cell_portion with invalid dto
+        """
+        param_name = self.get_test_value('update_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('update_table_cell_portion', 'portion_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('update_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_portion', 'storage', 'str')
+        param_dto = self.get_invalid_test_value('update_table_cell_portion', 'dto', param_dto, 'Portion')
+        self.initialize('update_table_cell_portion', 'dto', param_dto, 'Portion')
+        ok = False
+        try:
+            self.api.update_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_portion', 'dto', param_dto, 'Portion')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_portion', 'dto', param_dto, 'Portion')
+        if ok:
+            self.assert_no_exception('update_table_cell_portion', 'dto', 'Portion')
+
+    def test_update_table_cell_portion_invalid_password(self):
+        """Test case for update_table_cell_portion with invalid password
+        """
+        param_name = self.get_test_value('update_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('update_table_cell_portion', 'portion_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('update_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_portion', 'storage', 'str')
+        param_password = self.get_invalid_test_value('update_table_cell_portion', 'password', param_password, 'str')
+        self.initialize('update_table_cell_portion', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.update_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_portion', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_portion', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('update_table_cell_portion', 'password', 'str')
+
+    def test_update_table_cell_portion_invalid_folder(self):
+        """Test case for update_table_cell_portion with invalid folder
+        """
+        param_name = self.get_test_value('update_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('update_table_cell_portion', 'portion_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('update_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_portion', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('update_table_cell_portion', 'folder', param_folder, 'str')
+        self.initialize('update_table_cell_portion', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.update_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_portion', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_portion', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('update_table_cell_portion', 'folder', 'str')
+
+    def test_update_table_cell_portion_invalid_storage(self):
+        """Test case for update_table_cell_portion with invalid storage
+        """
+        param_name = self.get_test_value('update_table_cell_portion', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_cell_portion', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_cell_portion', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_cell_portion', 'row_index', 'int')
+        param_cell_index = self.get_test_value('update_table_cell_portion', 'cell_index', 'int')
+        param_paragraph_index = self.get_test_value('update_table_cell_portion', 'paragraph_index', 'int')
+        param_portion_index = self.get_test_value('update_table_cell_portion', 'portion_index', 'int')
+        param_dto = self.get_test_value('update_table_cell_portion', 'dto', 'Portion')
+        param_password = self.get_test_value('update_table_cell_portion', 'password', 'str')
+        param_folder = self.get_test_value('update_table_cell_portion', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_cell_portion', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('update_table_cell_portion', 'storage', param_storage, 'str')
+        self.initialize('update_table_cell_portion', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.update_table_cell_portion(param_name, param_slide_index, param_shape_index, param_row_index, param_cell_index, param_paragraph_index, param_portion_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_cell_portion', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_cell_portion', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('update_table_cell_portion', 'storage', 'str')
+
+    def test_update_table_row(self):
+        """Test case for update_table_row
+        """
+        param_name = self.get_test_value('update_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_row', 'row_index', 'int')
+        param_dto = self.get_test_value('update_table_row', 'dto', 'TableRow')
+        param_password = self.get_test_value('update_table_row', 'password', 'str')
+        param_folder = self.get_test_value('update_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_row', 'storage', 'str')
+        self.initialize('update_table_row', None, None, None)
+        response = self.api.update_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_dto, param_password, param_folder, param_storage)
+        self.assertIsNotNone(response)
+
+    def test_update_table_row_invalid_name(self):
+        """Test case for update_table_row with invalid name
+        """
+        param_name = self.get_test_value('update_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_row', 'row_index', 'int')
+        param_dto = self.get_test_value('update_table_row', 'dto', 'TableRow')
+        param_password = self.get_test_value('update_table_row', 'password', 'str')
+        param_folder = self.get_test_value('update_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_row', 'storage', 'str')
+        param_name = self.get_invalid_test_value('update_table_row', 'name', param_name, 'str')
+        self.initialize('update_table_row', 'name', param_name, 'str')
+        ok = False
+        try:
+            self.api.update_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_row', 'name', param_name, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_row', 'name', param_name, 'str')
+        if ok:
+            self.assert_no_exception('update_table_row', 'name', 'str')
+
+    def test_update_table_row_invalid_slide_index(self):
+        """Test case for update_table_row with invalid slide_index
+        """
+        param_name = self.get_test_value('update_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_row', 'row_index', 'int')
+        param_dto = self.get_test_value('update_table_row', 'dto', 'TableRow')
+        param_password = self.get_test_value('update_table_row', 'password', 'str')
+        param_folder = self.get_test_value('update_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_row', 'storage', 'str')
+        param_slide_index = self.get_invalid_test_value('update_table_row', 'slide_index', param_slide_index, 'int')
+        self.initialize('update_table_row', 'slide_index', param_slide_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_row', 'slide_index', param_slide_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_row', 'slide_index', param_slide_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_row', 'slide_index', 'int')
+
+    def test_update_table_row_invalid_shape_index(self):
+        """Test case for update_table_row with invalid shape_index
+        """
+        param_name = self.get_test_value('update_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_row', 'row_index', 'int')
+        param_dto = self.get_test_value('update_table_row', 'dto', 'TableRow')
+        param_password = self.get_test_value('update_table_row', 'password', 'str')
+        param_folder = self.get_test_value('update_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_row', 'storage', 'str')
+        param_shape_index = self.get_invalid_test_value('update_table_row', 'shape_index', param_shape_index, 'int')
+        self.initialize('update_table_row', 'shape_index', param_shape_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_row', 'shape_index', param_shape_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_row', 'shape_index', param_shape_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_row', 'shape_index', 'int')
+
+    def test_update_table_row_invalid_row_index(self):
+        """Test case for update_table_row with invalid row_index
+        """
+        param_name = self.get_test_value('update_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_row', 'row_index', 'int')
+        param_dto = self.get_test_value('update_table_row', 'dto', 'TableRow')
+        param_password = self.get_test_value('update_table_row', 'password', 'str')
+        param_folder = self.get_test_value('update_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_row', 'storage', 'str')
+        param_row_index = self.get_invalid_test_value('update_table_row', 'row_index', param_row_index, 'int')
+        self.initialize('update_table_row', 'row_index', param_row_index, 'int')
+        ok = False
+        try:
+            self.api.update_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_row', 'row_index', param_row_index, 'int')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_row', 'row_index', param_row_index, 'int')
+        if ok:
+            self.assert_no_exception('update_table_row', 'row_index', 'int')
+
+    def test_update_table_row_invalid_dto(self):
+        """Test case for update_table_row with invalid dto
+        """
+        param_name = self.get_test_value('update_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_row', 'row_index', 'int')
+        param_dto = self.get_test_value('update_table_row', 'dto', 'TableRow')
+        param_password = self.get_test_value('update_table_row', 'password', 'str')
+        param_folder = self.get_test_value('update_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_row', 'storage', 'str')
+        param_dto = self.get_invalid_test_value('update_table_row', 'dto', param_dto, 'TableRow')
+        self.initialize('update_table_row', 'dto', param_dto, 'TableRow')
+        ok = False
+        try:
+            self.api.update_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_row', 'dto', param_dto, 'TableRow')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_row', 'dto', param_dto, 'TableRow')
+        if ok:
+            self.assert_no_exception('update_table_row', 'dto', 'TableRow')
+
+    def test_update_table_row_invalid_password(self):
+        """Test case for update_table_row with invalid password
+        """
+        param_name = self.get_test_value('update_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_row', 'row_index', 'int')
+        param_dto = self.get_test_value('update_table_row', 'dto', 'TableRow')
+        param_password = self.get_test_value('update_table_row', 'password', 'str')
+        param_folder = self.get_test_value('update_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_row', 'storage', 'str')
+        param_password = self.get_invalid_test_value('update_table_row', 'password', param_password, 'str')
+        self.initialize('update_table_row', 'password', param_password, 'str')
+        ok = False
+        try:
+            self.api.update_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_row', 'password', param_password, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_row', 'password', param_password, 'str')
+        if ok:
+            self.assert_no_exception('update_table_row', 'password', 'str')
+
+    def test_update_table_row_invalid_folder(self):
+        """Test case for update_table_row with invalid folder
+        """
+        param_name = self.get_test_value('update_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_row', 'row_index', 'int')
+        param_dto = self.get_test_value('update_table_row', 'dto', 'TableRow')
+        param_password = self.get_test_value('update_table_row', 'password', 'str')
+        param_folder = self.get_test_value('update_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_row', 'storage', 'str')
+        param_folder = self.get_invalid_test_value('update_table_row', 'folder', param_folder, 'str')
+        self.initialize('update_table_row', 'folder', param_folder, 'str')
+        ok = False
+        try:
+            self.api.update_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_row', 'folder', param_folder, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_row', 'folder', param_folder, 'str')
+        if ok:
+            self.assert_no_exception('update_table_row', 'folder', 'str')
+
+    def test_update_table_row_invalid_storage(self):
+        """Test case for update_table_row with invalid storage
+        """
+        param_name = self.get_test_value('update_table_row', 'name', 'str')
+        param_slide_index = self.get_test_value('update_table_row', 'slide_index', 'int')
+        param_shape_index = self.get_test_value('update_table_row', 'shape_index', 'int')
+        param_row_index = self.get_test_value('update_table_row', 'row_index', 'int')
+        param_dto = self.get_test_value('update_table_row', 'dto', 'TableRow')
+        param_password = self.get_test_value('update_table_row', 'password', 'str')
+        param_folder = self.get_test_value('update_table_row', 'folder', 'str')
+        param_storage = self.get_test_value('update_table_row', 'storage', 'str')
+        param_storage = self.get_invalid_test_value('update_table_row', 'storage', param_storage, 'str')
+        self.initialize('update_table_row', 'storage', param_storage, 'str')
+        ok = False
+        try:
+            self.api.update_table_row(param_name, param_slide_index, param_shape_index, param_row_index, param_dto, param_password, param_folder, param_storage)
+            ok = True
+        except ApiException as ex:
+            self.assert_exception(ex, 'update_table_row', 'storage', param_storage, 'str')
+        except ValueError as ex:
+            self.assert_value_error(ex, 'update_table_row', 'storage', param_storage, 'str')
+        if ok:
+            self.assert_no_exception('update_table_row', 'storage', 'str')
 
     def test_upload_file(self):
         """Test case for upload_file

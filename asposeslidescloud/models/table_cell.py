@@ -59,7 +59,9 @@ class TableCell(object):
         'border_diagonal_up': 'LineFormat',
         'border_diagonal_down': 'LineFormat',
         'column_index': 'int',
-        'row_index': 'int'
+        'row_index': 'int',
+        'text_frame_format': 'TextFrameFormat',
+        'paragraphs': 'ResourceUri'
     }
 
     attribute_map = {
@@ -80,13 +82,15 @@ class TableCell(object):
         'border_diagonal_up': 'borderDiagonalUp',
         'border_diagonal_down': 'borderDiagonalDown',
         'column_index': 'columnIndex',
-        'row_index': 'rowIndex'
+        'row_index': 'rowIndex',
+        'text_frame_format': 'textFrameFormat',
+        'paragraphs': 'paragraphs'
     }
 
     type_determiners = {
     }
 
-    def __init__(self, text=None, row_span=None, col_span=None, margin_top=None, margin_right=None, margin_left=None, margin_bottom=None, text_anchor_type=None, text_vertical_type=None, fill_format=None, border_top=None, border_right=None, border_left=None, border_bottom=None, border_diagonal_up=None, border_diagonal_down=None, column_index=None, row_index=None):  # noqa: E501
+    def __init__(self, text=None, row_span=None, col_span=None, margin_top=None, margin_right=None, margin_left=None, margin_bottom=None, text_anchor_type=None, text_vertical_type=None, fill_format=None, border_top=None, border_right=None, border_left=None, border_bottom=None, border_diagonal_up=None, border_diagonal_down=None, column_index=None, row_index=None, text_frame_format=None, paragraphs=None):  # noqa: E501
         """TableCell - a model defined in Swagger"""  # noqa: E501
 
         self._text = None
@@ -107,6 +111,8 @@ class TableCell(object):
         self._border_diagonal_down = None
         self._column_index = None
         self._row_index = None
+        self._text_frame_format = None
+        self._paragraphs = None
 
         if text is not None:
             self.text = text
@@ -144,6 +150,10 @@ class TableCell(object):
             self.column_index = column_index
         if row_index is not None:
             self.row_index = row_index
+        if text_frame_format is not None:
+            self.text_frame_format = text_frame_format
+        if paragraphs is not None:
+            self.paragraphs = paragraphs
 
     @property
     def text(self):
@@ -572,6 +582,50 @@ class TableCell(object):
         :type: int
         """
         self._row_index = row_index
+
+    @property
+    def text_frame_format(self):
+        """Gets the text_frame_format of this TableCell.  # noqa: E501
+
+        Returns TextFrame's formatting properties.  # noqa: E501
+
+        :return: The text_frame_format of this TableCell.  # noqa: E501
+        :rtype: TextFrameFormat
+        """
+        return self._text_frame_format
+
+    @text_frame_format.setter
+    def text_frame_format(self, text_frame_format):
+        """Sets the text_frame_format of this TableCell.
+
+        Returns TextFrame's formatting properties.  # noqa: E501
+
+        :param text_frame_format: The text_frame_format of this TableCell.  # noqa: E501
+        :type: TextFrameFormat
+        """
+        self._text_frame_format = text_frame_format
+
+    @property
+    def paragraphs(self):
+        """Gets the paragraphs of this TableCell.  # noqa: E501
+
+        Get or sets list to paragraphs list  # noqa: E501
+
+        :return: The paragraphs of this TableCell.  # noqa: E501
+        :rtype: ResourceUri
+        """
+        return self._paragraphs
+
+    @paragraphs.setter
+    def paragraphs(self, paragraphs):
+        """Sets the paragraphs of this TableCell.
+
+        Get or sets list to paragraphs list  # noqa: E501
+
+        :param paragraphs: The paragraphs of this TableCell.  # noqa: E501
+        :type: ResourceUri
+        """
+        self._paragraphs = paragraphs
 
     def to_dict(self):
         """Returns the model properties as a dict"""

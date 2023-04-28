@@ -198,7 +198,7 @@ class BaseTest(unittest.TestCase):
         if rule_type == 'bool':
             return field_type == 'bool'
         if rule_type == 'number':
-            return field_type == 'int'
+            return field_type == 'int' or field_type == 'float'
         if rule_type == 'int':
             return field_type == 'int'
         if rule_type == "int[]":

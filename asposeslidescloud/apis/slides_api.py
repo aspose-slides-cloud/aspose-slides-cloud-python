@@ -4830,6 +4830,421 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def create_table_cell_paragraph(self, name, slide_index, shape_index, row_index, cell_index, dto, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Creates table cell paragraph.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, cell_index, dto, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param dto Paragraph DTO.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Paragraph
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.create_table_cell_paragraph_with_http_info(name, slide_index, shape_index, row_index, cell_index, dto, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_table_cell_paragraph_with_http_info(name, slide_index, shape_index, row_index, cell_index, dto, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def create_table_cell_paragraph_with_http_info(self, name, slide_index, shape_index, row_index, cell_index, dto, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Creates table cell paragraph.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.create_table_cell_paragraph_with_http_info(name, slide_index, shape_index, row_index, cell_index, dto, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param dto Paragraph DTO.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Paragraph
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_table_cell_paragraph" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `create_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `create_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `create_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `create_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'cell_index' is set
+        if not cell_index:
+            raise ValueError("Missing the required parameter `cell_index` when calling `create_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'dto' is set
+        if not dto:
+            raise ValueError("Missing the required parameter `dto` when calling `create_table_cell_paragraph`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+        path_params['cellIndex'] = cell_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+        if dto:
+            body_params = dto
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Paragraph',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_table_cell_portion(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, dto, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Creates table cell portion.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, cell_index, paragraph_index, dto, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param dto Portion DTO.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Portion
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.create_table_cell_portion_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, dto, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_table_cell_portion_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, dto, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def create_table_cell_portion_with_http_info(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, dto, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Creates table cell portion.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.create_table_cell_portion_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, dto, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param dto Portion DTO.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Portion
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_table_cell_portion" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `create_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `create_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `create_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `create_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'cell_index' is set
+        if not cell_index:
+            raise ValueError("Missing the required parameter `cell_index` when calling `create_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'paragraph_index' is set
+        if not paragraph_index:
+            raise ValueError("Missing the required parameter `paragraph_index` when calling `create_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'dto' is set
+        if not dto:
+            raise ValueError("Missing the required parameter `dto` when calling `create_table_cell_portion`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+        path_params['cellIndex'] = cell_index  # noqa: E501
+        path_params['paragraphIndex'] = paragraph_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+        if dto:
+            body_params = dto
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/portions', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Portion',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def create_table_row(self, name, slide_index, shape_index, dto, position = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Inserts the table row in the specified position. If position is not specified, the row add to the end of the table.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, dto, position, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param dto Table row data.
+        :param position Position.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: TableRow
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.create_table_row_with_http_info(name, slide_index, shape_index, dto, position, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.create_table_row_with_http_info(name, slide_index, shape_index, dto, position, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def create_table_row_with_http_info(self, name, slide_index, shape_index, dto, position = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Inserts the table row in the specified position. If position is not specified, the row add to the end of the table.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.create_table_row_with_http_info(name, slide_index, shape_index, dto, position, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param dto Table row data.
+        :param position Position.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: TableRow
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method create_table_row" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `create_table_row`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `create_table_row`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `create_table_row`")  # noqa: E501
+        # verify the required parameter 'dto' is set
+        if not dto:
+            raise ValueError("Missing the required parameter `dto` when calling `create_table_row`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+
+        query_params = []
+        if position:
+            query_params.append(('position', position))  # noqa: E501
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+        if dto:
+            body_params = dto
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='TableRow',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def create_watermark(self, name, shape = None, font_height = None, text = None, font_name = None, font_color = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
         """Adds a text watermark to each slide of the presentation. Text watermark can be setup via method arguments or withing Shape DTO for detailed customization. Both options are applicable simultaneously.   # noqa: E501
 
@@ -10663,6 +11078,418 @@ class SlidesApi(ApiBase):
             post_params=form_params,
             files=param_files,
             response_type='Shapes',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_table_cell_paragraph(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Delete cell paragraph.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, cell_index, paragraph_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Paragraphs
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.delete_table_cell_paragraph_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_table_cell_paragraph_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def delete_table_cell_paragraph_with_http_info(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Delete cell paragraph.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.delete_table_cell_paragraph_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Paragraphs
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_table_cell_paragraph" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `delete_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `delete_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `delete_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `delete_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'cell_index' is set
+        if not cell_index:
+            raise ValueError("Missing the required parameter `cell_index` when calling `delete_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'paragraph_index' is set
+        if not paragraph_index:
+            raise ValueError("Missing the required parameter `paragraph_index` when calling `delete_table_cell_paragraph`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+        path_params['cellIndex'] = cell_index  # noqa: E501
+        path_params['paragraphIndex'] = paragraph_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Paragraphs',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_table_cell_portion(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Delete table ell portion.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param portion_index Portion index.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Portions
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.delete_table_cell_portion_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_table_cell_portion_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def delete_table_cell_portion_with_http_info(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Delete table ell portion.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.delete_table_cell_portion_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param portion_index Portion index.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Portions
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_table_cell_portion" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `delete_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `delete_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `delete_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `delete_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'cell_index' is set
+        if not cell_index:
+            raise ValueError("Missing the required parameter `cell_index` when calling `delete_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'paragraph_index' is set
+        if not paragraph_index:
+            raise ValueError("Missing the required parameter `paragraph_index` when calling `delete_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'portion_index' is set
+        if not portion_index:
+            raise ValueError("Missing the required parameter `portion_index` when calling `delete_table_cell_portion`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+        path_params['cellIndex'] = cell_index  # noqa: E501
+        path_params['paragraphIndex'] = paragraph_index  # noqa: E501
+        path_params['portionIndex'] = portion_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Portions',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def delete_table_row(self, name, slide_index, shape_index, row_index, with_attached_rows = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Deletes the table row.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, with_attached_rows, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param with_attached_rows Also delete all attached rows.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Table
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.delete_table_row_with_http_info(name, slide_index, shape_index, row_index, with_attached_rows, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_table_row_with_http_info(name, slide_index, shape_index, row_index, with_attached_rows, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def delete_table_row_with_http_info(self, name, slide_index, shape_index, row_index, with_attached_rows = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Deletes the table row.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.delete_table_row_with_http_info(name, slide_index, shape_index, row_index, with_attached_rows, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param with_attached_rows Also delete all attached rows.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Table
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_table_row" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `delete_table_row`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `delete_table_row`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `delete_table_row`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `delete_table_row`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+
+        query_params = []
+        if with_attached_rows:
+            query_params.append(('withAttachedRows', with_attached_rows))  # noqa: E501
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Table',  # noqa: E501
             auth_settings=auth_settings,
             is_async=params.get('is_async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -19897,6 +20724,558 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def get_table_cell_paragraph(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Returns paragraph info.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, cell_index, paragraph_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Paragraph
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.get_table_cell_paragraph_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_table_cell_paragraph_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def get_table_cell_paragraph_with_http_info(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Returns paragraph info.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.get_table_cell_paragraph_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Paragraph
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_table_cell_paragraph" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `get_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `get_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `get_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `get_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'cell_index' is set
+        if not cell_index:
+            raise ValueError("Missing the required parameter `cell_index` when calling `get_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'paragraph_index' is set
+        if not paragraph_index:
+            raise ValueError("Missing the required parameter `paragraph_index` when calling `get_table_cell_paragraph`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+        path_params['cellIndex'] = cell_index  # noqa: E501
+        path_params['paragraphIndex'] = paragraph_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Paragraph',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_table_cell_paragraphs(self, name, slide_index, shape_index, row_index, cell_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Returns table cell paragraphs.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, cell_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Paragraphs
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.get_table_cell_paragraphs_with_http_info(name, slide_index, shape_index, row_index, cell_index, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_table_cell_paragraphs_with_http_info(name, slide_index, shape_index, row_index, cell_index, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def get_table_cell_paragraphs_with_http_info(self, name, slide_index, shape_index, row_index, cell_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Returns table cell paragraphs.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.get_table_cell_paragraphs_with_http_info(name, slide_index, shape_index, row_index, cell_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Paragraphs
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_table_cell_paragraphs" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `get_table_cell_paragraphs`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `get_table_cell_paragraphs`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `get_table_cell_paragraphs`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `get_table_cell_paragraphs`")  # noqa: E501
+        # verify the required parameter 'cell_index' is set
+        if not cell_index:
+            raise ValueError("Missing the required parameter `cell_index` when calling `get_table_cell_paragraphs`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+        path_params['cellIndex'] = cell_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Paragraphs',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_table_cell_portion(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Returns table cell portion.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param portion_index Portion index.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Portion
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.get_table_cell_portion_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_table_cell_portion_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def get_table_cell_portion_with_http_info(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Returns table cell portion.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.get_table_cell_portion_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param portion_index Portion index.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Portion
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_table_cell_portion" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `get_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `get_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `get_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `get_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'cell_index' is set
+        if not cell_index:
+            raise ValueError("Missing the required parameter `cell_index` when calling `get_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'paragraph_index' is set
+        if not paragraph_index:
+            raise ValueError("Missing the required parameter `paragraph_index` when calling `get_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'portion_index' is set
+        if not portion_index:
+            raise ValueError("Missing the required parameter `portion_index` when calling `get_table_cell_portion`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+        path_params['cellIndex'] = cell_index  # noqa: E501
+        path_params['paragraphIndex'] = paragraph_index  # noqa: E501
+        path_params['portionIndex'] = portion_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Portion',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_table_cell_portions(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Returns table cell portions.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, cell_index, paragraph_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Portions
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.get_table_cell_portions_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.get_table_cell_portions_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def get_table_cell_portions_with_http_info(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Returns table cell portions.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.get_table_cell_portions_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Portions
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_table_cell_portions" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `get_table_cell_portions`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `get_table_cell_portions`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `get_table_cell_portions`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `get_table_cell_portions`")  # noqa: E501
+        # verify the required parameter 'cell_index' is set
+        if not cell_index:
+            raise ValueError("Missing the required parameter `cell_index` when calling `get_table_cell_portions`")  # noqa: E501
+        # verify the required parameter 'paragraph_index' is set
+        if not paragraph_index:
+            raise ValueError("Missing the required parameter `paragraph_index` when calling `get_table_cell_portions`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+        path_params['cellIndex'] = cell_index  # noqa: E501
+        path_params['paragraphIndex'] = paragraph_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/portions', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Portions',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_theme(self, name, slide_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
         """Read slide theme info.  # noqa: E501
 
@@ -21090,6 +22469,133 @@ class SlidesApi(ApiBase):
             post_params=form_params,
             files=param_files,
             response_type='file',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def merge_table_cells(self, name, slide_index, shape_index, table_cell_merge_options, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Merge table cells.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, table_cell_merge_options, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param table_cell_merge_options Merge settings.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Table
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.merge_table_cells_with_http_info(name, slide_index, shape_index, table_cell_merge_options, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.merge_table_cells_with_http_info(name, slide_index, shape_index, table_cell_merge_options, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def merge_table_cells_with_http_info(self, name, slide_index, shape_index, table_cell_merge_options, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Merge table cells.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.merge_table_cells_with_http_info(name, slide_index, shape_index, table_cell_merge_options, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param table_cell_merge_options Merge settings.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Table
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method merge_table_cells" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `merge_table_cells`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `merge_table_cells`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `merge_table_cells`")  # noqa: E501
+        # verify the required parameter 'table_cell_merge_options' is set
+        if not table_cell_merge_options:
+            raise ValueError("Missing the required parameter `table_cell_merge_options` when calling `merge_table_cells`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+        if table_cell_merge_options:
+            body_params = table_cell_merge_options
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/mergeCells', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Table',  # noqa: E501
             auth_settings=auth_settings,
             is_async=params.get('is_async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -27349,6 +28855,153 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def split_table_cell(self, name, slide_index, shape_index, row_index, cell_index, split_type, value, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Split table cell.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, cell_index, split_type, value, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param split_type Table cell split type (SplitByWidth, SplitByHeight,SplitByColSpan or SplitByRowSpan).
+        :param value Split value. In case of splitting by column or row span, the value must be an integer number.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Table
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.split_table_cell_with_http_info(name, slide_index, shape_index, row_index, cell_index, split_type, value, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.split_table_cell_with_http_info(name, slide_index, shape_index, row_index, cell_index, split_type, value, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def split_table_cell_with_http_info(self, name, slide_index, shape_index, row_index, cell_index, split_type, value, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Split table cell.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.split_table_cell_with_http_info(name, slide_index, shape_index, row_index, cell_index, split_type, value, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param split_type Table cell split type (SplitByWidth, SplitByHeight,SplitByColSpan or SplitByRowSpan).
+        :param value Split value. In case of splitting by column or row span, the value must be an integer number.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Table
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method split_table_cell" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `split_table_cell`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `split_table_cell`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `split_table_cell`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `split_table_cell`")  # noqa: E501
+        # verify the required parameter 'cell_index' is set
+        if not cell_index:
+            raise ValueError("Missing the required parameter `cell_index` when calling `split_table_cell`")  # noqa: E501
+        # verify the required parameter 'split_type' is set
+        if not split_type:
+            raise ValueError("Missing the required parameter `split_type` when calling `split_table_cell`")  # noqa: E501
+        # verify the value of parameter 'split_type' is valid
+        if not split_type.upper() in TableCellSplitType.__dict__:
+            raise ValueError("Invalid value for parameter `split_type` when calling `split_table_cell`")  # noqa: E501
+        # verify the required parameter 'value' is set
+        if not value:
+            raise ValueError("Missing the required parameter `value` when calling `split_table_cell`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+        path_params['cellIndex'] = cell_index  # noqa: E501
+        path_params['splitType'] = split_type  # noqa: E501
+        path_params['value'] = value  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/{splitType}/{value}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Table',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def storage_exists(self, storage_name, **kwargs):  # noqa: E501
         """Check if storage exists  # noqa: E501
 
@@ -29714,6 +31367,574 @@ class SlidesApi(ApiBase):
             post_params=form_params,
             files=param_files,
             response_type='ShapeBase',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_table_cell(self, name, slide_index, shape_index, row_index, cell_index, dto, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Update the table cell.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, cell_index, dto, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param dto Table cell data.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: TableCell
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.update_table_cell_with_http_info(name, slide_index, shape_index, row_index, cell_index, dto, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_table_cell_with_http_info(name, slide_index, shape_index, row_index, cell_index, dto, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def update_table_cell_with_http_info(self, name, slide_index, shape_index, row_index, cell_index, dto, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Update the table cell.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.update_table_cell_with_http_info(name, slide_index, shape_index, row_index, cell_index, dto, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param dto Table cell data.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: TableCell
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_table_cell" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `update_table_cell`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `update_table_cell`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `update_table_cell`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `update_table_cell`")  # noqa: E501
+        # verify the required parameter 'cell_index' is set
+        if not cell_index:
+            raise ValueError("Missing the required parameter `cell_index` when calling `update_table_cell`")  # noqa: E501
+        # verify the required parameter 'dto' is set
+        if not dto:
+            raise ValueError("Missing the required parameter `dto` when calling `update_table_cell`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+        path_params['cellIndex'] = cell_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+        if dto:
+            body_params = dto
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='TableCell',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_table_cell_paragraph(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, dto, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Updates table cell paragraph.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, cell_index, paragraph_index, dto, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param dto Paragraph DTO.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Paragraph
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.update_table_cell_paragraph_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, dto, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_table_cell_paragraph_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, dto, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def update_table_cell_paragraph_with_http_info(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, dto, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Updates table cell paragraph.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.update_table_cell_paragraph_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, dto, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param dto Paragraph DTO.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Paragraph
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_table_cell_paragraph" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `update_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `update_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `update_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `update_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'cell_index' is set
+        if not cell_index:
+            raise ValueError("Missing the required parameter `cell_index` when calling `update_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'paragraph_index' is set
+        if not paragraph_index:
+            raise ValueError("Missing the required parameter `paragraph_index` when calling `update_table_cell_paragraph`")  # noqa: E501
+        # verify the required parameter 'dto' is set
+        if not dto:
+            raise ValueError("Missing the required parameter `dto` when calling `update_table_cell_paragraph`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+        path_params['cellIndex'] = cell_index  # noqa: E501
+        path_params['paragraphIndex'] = paragraph_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+        if dto:
+            body_params = dto
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Paragraph',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_table_cell_portion(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, dto, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Updates table cell portion.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, dto, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param portion_index Portion index.
+        :param dto Portion DTO.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Portion
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.update_table_cell_portion_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, dto, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_table_cell_portion_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, dto, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def update_table_cell_portion_with_http_info(self, name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, dto, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Updates table cell portion.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.update_table_cell_portion_with_http_info(name, slide_index, shape_index, row_index, cell_index, paragraph_index, portion_index, dto, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param cell_index Table cell index.
+        :param paragraph_index Paragraph index.
+        :param portion_index Portion index.
+        :param dto Portion DTO.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: Portion
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_table_cell_portion" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `update_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `update_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `update_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `update_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'cell_index' is set
+        if not cell_index:
+            raise ValueError("Missing the required parameter `cell_index` when calling `update_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'paragraph_index' is set
+        if not paragraph_index:
+            raise ValueError("Missing the required parameter `paragraph_index` when calling `update_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'portion_index' is set
+        if not portion_index:
+            raise ValueError("Missing the required parameter `portion_index` when calling `update_table_cell_portion`")  # noqa: E501
+        # verify the required parameter 'dto' is set
+        if not dto:
+            raise ValueError("Missing the required parameter `dto` when calling `update_table_cell_portion`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+        path_params['cellIndex'] = cell_index  # noqa: E501
+        path_params['paragraphIndex'] = paragraph_index  # noqa: E501
+        path_params['portionIndex'] = portion_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+        if dto:
+            body_params = dto
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}/cells/{cellIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='Portion',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', True),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def update_table_row(self, name, slide_index, shape_index, row_index, dto, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Update the table row.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, row_index, dto, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param dto Table cell data.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: TableRow
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.update_table_row_with_http_info(name, slide_index, shape_index, row_index, dto, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.update_table_row_with_http_info(name, slide_index, shape_index, row_index, dto, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def update_table_row_with_http_info(self, name, slide_index, shape_index, row_index, dto, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Update the table row.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.update_table_row_with_http_info(name, slide_index, shape_index, row_index, dto, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index.
+        :param row_index Row index.
+        :param dto Table cell data.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: TableRow
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method update_table_row" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `update_table_row`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `update_table_row`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `update_table_row`")  # noqa: E501
+        # verify the required parameter 'row_index' is set
+        if not row_index:
+            raise ValueError("Missing the required parameter `row_index` when calling `update_table_row`")  # noqa: E501
+        # verify the required parameter 'dto' is set
+        if not dto:
+            raise ValueError("Missing the required parameter `dto` when calling `update_table_row`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+        path_params['rowIndex'] = row_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+        if dto:
+            body_params = dto
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/rows/{rowIndex}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='TableRow',  # noqa: E501
             auth_settings=auth_settings,
             is_async=params.get('is_async'),
             _return_http_data_only=params.get('_return_http_data_only'),

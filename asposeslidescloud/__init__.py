@@ -256,6 +256,8 @@ from asposeslidescloud.models.svg_export_options import SvgExportOptions
 from asposeslidescloud.models.swf_export_options import SwfExportOptions
 from asposeslidescloud.models.table import Table
 from asposeslidescloud.models.table_cell import TableCell
+from asposeslidescloud.models.table_cell_merge_options import TableCellMergeOptions
+from asposeslidescloud.models.table_cell_split_type import TableCellSplitType
 from asposeslidescloud.models.table_column import TableColumn
 from asposeslidescloud.models.table_row import TableRow
 from asposeslidescloud.models.task import Task
