@@ -265,6 +265,9 @@ from asposeslidescloud.models.tiff_export_options import TiffExportOptions
 from asposeslidescloud.models.tint_effect import TintEffect
 from asposeslidescloud.models.update_background import UpdateBackground
 from asposeslidescloud.models.update_shape import UpdateShape
+from asposeslidescloud.models.vba_module import VbaModule
+from asposeslidescloud.models.vba_project import VbaProject
+from asposeslidescloud.models.vba_reference import VbaReference
 from asposeslidescloud.models.video_export_options import VideoExportOptions
 from asposeslidescloud.models.video_frame import VideoFrame
 from asposeslidescloud.models.view_properties import ViewProperties

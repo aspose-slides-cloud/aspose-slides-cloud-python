@@ -20,29 +20,26 @@ class TestShapes(BaseTest):
         pass
 
     def test_base_shape(self):
-        self.initialize('get_slide_shape', None, None, None)
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" + constant.FILE_NAME)
         result = self.api.get_shape(constant.FILE_NAME, 1, 1, constant.PASSWORD, constant.FOLDER_NAME)
         self.assertEqual("1", result.text)
 
     def test_get_shapes(self):
-        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME,
-                                      constant.FOLDER_NAME + "/" + constant.FILE_NAME)
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" + constant.FILE_NAME)
         slide_index = 3
         shapes = BaseTest.slides_api.get_shapes(constant.FILE_NAME, slide_index, constant.PASSWORD, constant.FOLDER_NAME,
                                                 None, None)
         self.assertEqual(2, len(shapes.shapes_links))
 
     def test_get_shapes_by_type(self):
-        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME,
-                                      constant.FOLDER_NAME + "/" + constant.FILE_NAME)
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" + constant.FILE_NAME)
         slide_index = 3
         shapes = BaseTest.slides_api.get_shapes(constant.FILE_NAME, slide_index, constant.PASSWORD, constant.FOLDER_NAME,
                                                 None, "Chart")
         self.assertEqual(2, len(shapes.shapes_links))
 
     def test_get_sub_shapes(self):
-        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME,
-                                      constant.FOLDER_NAME + "/" + constant.FILE_NAME)
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" + constant.FILE_NAME)
         slide_index = 1
         sub_shape = "4"
         shapes = BaseTest.slides_api.get_shapes(constant.FILE_NAME, slide_index, constant.PASSWORD,
@@ -50,17 +47,14 @@ class TestShapes(BaseTest):
         self.assertEqual(2, len(shapes.shapes_links))
 
     def test_get_shape(self):
-        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME,
-                                      constant.FOLDER_NAME + "/" + constant.FILE_NAME)
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" + constant.FILE_NAME)
         slide_index = 3
         shape_index = 1
-        shape = BaseTest.slides_api.get_shape(constant.FILE_NAME, slide_index, shape_index, constant.PASSWORD,
-                                              constant.FOLDER_NAME)
+        shape = BaseTest.slides_api.get_shape(constant.FILE_NAME, slide_index, shape_index, constant.PASSWORD, constant.FOLDER_NAME)
         self.assertEqual("Chart", shape.type)
 
     def test_get_sub_shape(self):
-        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME,
-                                      constant.FOLDER_NAME + "/" + constant.FILE_NAME)
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" + constant.FILE_NAME)
         slide_index = 1
         sub_shape = "1"
         shape_index = 4

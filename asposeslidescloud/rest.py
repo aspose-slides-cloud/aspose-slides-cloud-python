@@ -324,7 +324,10 @@ class ApiException(Exception):
         if http_resp:
             self.status = http_resp.status
             self.reason = http_resp.reason
-            self.body = http_resp.data
+            try:
+                self.body = http_resp.data
+            except:
+                self.body = None
             self.headers = http_resp.getheaders()
         else:
             self.status = status

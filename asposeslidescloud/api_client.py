@@ -69,7 +69,7 @@ class ApiClient(object):
 
         self.pool = None
         self.rest_client = RESTClientObject(configuration)
-        self.default_headers = {'x-aspose-client': 'python sdk v23.4.0'}
+        self.default_headers = {'x-aspose-client': 'python sdk v23.6.0'}
         if configuration.timeout:
             self.default_headers['x-aspose-timeout'] = configuration.timeout
         self.default_headers.update(configuration.custom_headers)
@@ -133,12 +133,12 @@ class ApiClient(object):
         self.last_response = response_data
 
         return_data = response_data
-        if _preload_content:
-            # deserialize response data
-            if response_type:
-                return_data = self.deserialize(response_data, response_type)
-            else:
-                return_data = None
+
+        # deserialize response data
+        if response_type:
+            return_data = self.deserialize(response_data, response_type)
+        else:
+            return_data = None
 
         if _return_http_data_only:
             return (return_data)
