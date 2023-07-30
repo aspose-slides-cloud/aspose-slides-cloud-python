@@ -59,7 +59,10 @@ class Effect(object):
         'trigger_delay_time': 'float',
         'repeat_until_end_slide': 'bool',
         'repeat_until_next_click': 'bool',
-        'stop_previous_sound': 'bool'
+        'stop_previous_sound': 'bool',
+        'rewind': 'bool',
+        'after_animation_type': 'str',
+        'after_animation_color': 'str'
     }
 
     attribute_map = {
@@ -80,13 +83,16 @@ class Effect(object):
         'trigger_delay_time': 'triggerDelayTime',
         'repeat_until_end_slide': 'repeatUntilEndSlide',
         'repeat_until_next_click': 'repeatUntilNextClick',
-        'stop_previous_sound': 'stopPreviousSound'
+        'stop_previous_sound': 'stopPreviousSound',
+        'rewind': 'rewind',
+        'after_animation_type': 'afterAnimationType',
+        'after_animation_color': 'afterAnimationColor'
     }
 
     type_determiners = {
     }
 
-    def __init__(self, type=None, subtype=None, preset_class_type=None, shape_index=None, paragraph_index=None, trigger_type=None, accelerate=None, auto_reverse=None, decelerate=None, duration=None, repeat_count=None, repeat_duration=None, restart=None, speed=None, trigger_delay_time=None, repeat_until_end_slide=None, repeat_until_next_click=None, stop_previous_sound=None):  # noqa: E501
+    def __init__(self, type=None, subtype=None, preset_class_type=None, shape_index=None, paragraph_index=None, trigger_type=None, accelerate=None, auto_reverse=None, decelerate=None, duration=None, repeat_count=None, repeat_duration=None, restart=None, speed=None, trigger_delay_time=None, repeat_until_end_slide=None, repeat_until_next_click=None, stop_previous_sound=None, rewind=None, after_animation_type=None, after_animation_color=None):  # noqa: E501
         """Effect - a model defined in Swagger"""  # noqa: E501
 
         self._type = None
@@ -107,6 +113,9 @@ class Effect(object):
         self._repeat_until_end_slide = None
         self._repeat_until_next_click = None
         self._stop_previous_sound = None
+        self._rewind = None
+        self._after_animation_type = None
+        self._after_animation_color = None
 
         if type is not None:
             self.type = type
@@ -143,6 +152,12 @@ class Effect(object):
             self.repeat_until_next_click = repeat_until_next_click
         if stop_previous_sound is not None:
             self.stop_previous_sound = stop_previous_sound
+        if rewind is not None:
+            self.rewind = rewind
+        if after_animation_type is not None:
+            self.after_animation_type = after_animation_type
+        if after_animation_color is not None:
+            self.after_animation_color = after_animation_color
 
     @property
     def type(self):
@@ -619,6 +634,88 @@ class Effect(object):
         :type: bool
         """
         self._stop_previous_sound = stop_previous_sound
+
+    @property
+    def rewind(self):
+        """Gets the rewind of this Effect.  # noqa: E501
+
+        This attribute specifies if the effect will rewind when done playing.  # noqa: E501
+
+        :return: The rewind of this Effect.  # noqa: E501
+        :rtype: bool
+        """
+        return self._rewind
+
+    @rewind.setter
+    def rewind(self, rewind):
+        """Sets the rewind of this Effect.
+
+        This attribute specifies if the effect will rewind when done playing.  # noqa: E501
+
+        :param rewind: The rewind of this Effect.  # noqa: E501
+        :type: bool
+        """
+        self._rewind = rewind
+
+    @property
+    def after_animation_type(self):
+        """Gets the after_animation_type of this Effect.  # noqa: E501
+
+        Defined an after animation color for effect.  # noqa: E501
+
+        :return: The after_animation_type of this Effect.  # noqa: E501
+        :rtype: str
+        """
+        return self._after_animation_type
+
+    @after_animation_type.setter
+    def after_animation_type(self, after_animation_type):
+        """Sets the after_animation_type of this Effect.
+
+        Defined an after animation color for effect.  # noqa: E501
+
+        :param after_animation_type: The after_animation_type of this Effect.  # noqa: E501
+        :type: str
+        """
+        if after_animation_type is not None:
+            allowed_values = ["DoNotDim", "Color", "HideAfterAnimation", "HideOnNextMouseClick"]  # noqa: E501
+            if after_animation_type.isdigit():
+                int_after_animation_type = int(after_animation_type)
+                if int_after_animation_type < 0 or int_after_animation_type >= len(allowed_values):
+                    raise ValueError(
+                        "Invalid value for `after_animation_type` ({0}), must be one of {1}"  # noqa: E501
+                        .format(after_animation_type, allowed_values)
+                    )
+                self._after_animation_type = allowed_values[int_after_animation_type]
+                return
+            if after_animation_type not in allowed_values:
+                raise ValueError(
+                    "Invalid value for `after_animation_type` ({0}), must be one of {1}"  # noqa: E501
+                    .format(after_animation_type, allowed_values)
+                )
+        self._after_animation_type = after_animation_type
+
+    @property
+    def after_animation_color(self):
+        """Gets the after_animation_color of this Effect.  # noqa: E501
+
+        Defined an after animation color for effect. Applied when the AfterAnimationType property is set to Color.  # noqa: E501
+
+        :return: The after_animation_color of this Effect.  # noqa: E501
+        :rtype: str
+        """
+        return self._after_animation_color
+
+    @after_animation_color.setter
+    def after_animation_color(self, after_animation_color):
+        """Sets the after_animation_color of this Effect.
+
+        Defined an after animation color for effect. Applied when the AfterAnimationType property is set to Color.  # noqa: E501
+
+        :param after_animation_color: The after_animation_color of this Effect.  # noqa: E501
+        :type: str
+        """
+        self._after_animation_color = after_animation_color
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -2,6 +2,7 @@ from __future__ import absolute_import
 
 from test.base_test import BaseTest
 import asposeslidescloud
+from asposeslidescloud import Portion, PortionFormat
 from test import constant
 
 class TestText(BaseTest):
@@ -55,6 +56,38 @@ class TestText(BaseTest):
         BaseTest.slides_api.replace_presentation_text_online(source, old_value, new_value, True, password)
         BaseTest.slides_api.replace_slide_text_online(source, slide_index, old_value, new_value, None, password)
         BaseTest.slides_api.replace_slide_text_online(source, slide_index, old_value, new_value, True, password)
+
+    def test_replace_text_formatting(self):
+        folder_name = "TempSlidesSDK"
+        file_name = "test.pptx"
+        password = "password"
+        slide_index = 1
+        shape_index = 1
+        paragraph_index = 1
+        portion_index = 1
+        old_text = "banana"
+        new_text = "orange"
+        color = "#FFFFA500"
+
+        portion = Portion()
+        portion.text = old_text
+
+        portion_format = PortionFormat()
+        portion_format.font_color = "#FFFFA500"
+
+        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+        BaseTest.slides_api.create_portion(file_name, slide_index, shape_index, paragraph_index, portion, portion_index, password, folder_name)
+        BaseTest.slides_api.replace_text_formatting(file_name, old_text, new_text, portion_format, None, password, folder_name)
+        updated_portion = BaseTest.slides_api.get_portion(file_name, slide_index, shape_index, paragraph_index, portion_index, password, folder_name)
+        self.assertEqual(new_text, updated_portion.text)
+        self.assertEqual(color, updated_portion.font_color)
+
+    def test_replace_text_formatting_online(self):
+        with open(constant.LOCAL_TEST_DATA_FOLDER + "/" + constant.FILE_NAME, 'rb') as f:
+            source = f.read()
+        portion_format = PortionFormat()
+        portion_format.font_color = "#FFFFA500"
+        BaseTest.slides_api.replace_text_formatting_online(source, "banana", "orange", portion_format, None, "password")
 
     def test_highlight_shape_text(self):
         BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME,

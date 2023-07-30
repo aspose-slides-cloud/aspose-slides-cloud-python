@@ -69,7 +69,9 @@ class VideoFrame(GeometryShape):
         'rewind_video': 'bool',
         'volume': 'str',
         'base64_data': 'str',
-        'picture_fill_format': 'PictureFill'
+        'picture_fill_format': 'PictureFill',
+        'trim_from_start': 'float',
+        'trim_from_end': 'float'
     }
 
     attribute_map = {
@@ -99,14 +101,16 @@ class VideoFrame(GeometryShape):
         'rewind_video': 'rewindVideo',
         'volume': 'volume',
         'base64_data': 'base64Data',
-        'picture_fill_format': 'pictureFillFormat'
+        'picture_fill_format': 'pictureFillFormat',
+        'trim_from_start': 'trimFromStart',
+        'trim_from_end': 'trimFromEnd'
     }
 
     type_determiners = {
         'type': 'VideoFrame',
     }
 
-    def __init__(self, self_uri=None, alternate_links=None, name=None, width=None, height=None, alternative_text=None, alternative_text_title=None, hidden=None, x=None, y=None, z_order_position=None, fill_format=None, effect_format=None, three_d_format=None, line_format=None, hyperlink_click=None, hyperlink_mouse_over=None, type='VideoFrame', shape_type=None, full_screen_mode=None, hide_at_showing=None, play_loop_mode=None, play_mode=None, rewind_video=None, volume=None, base64_data=None, picture_fill_format=None):  # noqa: E501
+    def __init__(self, self_uri=None, alternate_links=None, name=None, width=None, height=None, alternative_text=None, alternative_text_title=None, hidden=None, x=None, y=None, z_order_position=None, fill_format=None, effect_format=None, three_d_format=None, line_format=None, hyperlink_click=None, hyperlink_mouse_over=None, type='VideoFrame', shape_type=None, full_screen_mode=None, hide_at_showing=None, play_loop_mode=None, play_mode=None, rewind_video=None, volume=None, base64_data=None, picture_fill_format=None, trim_from_start=None, trim_from_end=None):  # noqa: E501
         """VideoFrame - a model defined in Swagger"""  # noqa: E501
         super(VideoFrame, self).__init__(self_uri, alternate_links, name, width, height, alternative_text, alternative_text_title, hidden, x, y, z_order_position, fill_format, effect_format, three_d_format, line_format, hyperlink_click, hyperlink_mouse_over, type, shape_type)
 
@@ -118,6 +122,8 @@ class VideoFrame(GeometryShape):
         self._volume = None
         self._base64_data = None
         self._picture_fill_format = None
+        self._trim_from_start = None
+        self._trim_from_end = None
         self.type = 'VideoFrame'
 
         if full_screen_mode is not None:
@@ -136,6 +142,10 @@ class VideoFrame(GeometryShape):
             self.base64_data = base64_data
         if picture_fill_format is not None:
             self.picture_fill_format = picture_fill_format
+        if trim_from_start is not None:
+            self.trim_from_start = trim_from_start
+        if trim_from_end is not None:
+            self.trim_from_end = trim_from_end
 
     @property
     def full_screen_mode(self):
@@ -344,6 +354,50 @@ class VideoFrame(GeometryShape):
         :type: PictureFill
         """
         self._picture_fill_format = picture_fill_format
+
+    @property
+    def trim_from_start(self):
+        """Gets the trim_from_start of this VideoFrame.  # noqa: E501
+
+        Trim start [ms]  # noqa: E501
+
+        :return: The trim_from_start of this VideoFrame.  # noqa: E501
+        :rtype: float
+        """
+        return self._trim_from_start
+
+    @trim_from_start.setter
+    def trim_from_start(self, trim_from_start):
+        """Sets the trim_from_start of this VideoFrame.
+
+        Trim start [ms]  # noqa: E501
+
+        :param trim_from_start: The trim_from_start of this VideoFrame.  # noqa: E501
+        :type: float
+        """
+        self._trim_from_start = trim_from_start
+
+    @property
+    def trim_from_end(self):
+        """Gets the trim_from_end of this VideoFrame.  # noqa: E501
+
+        Trim end [ms]  # noqa: E501
+
+        :return: The trim_from_end of this VideoFrame.  # noqa: E501
+        :rtype: float
+        """
+        return self._trim_from_end
+
+    @trim_from_end.setter
+    def trim_from_end(self, trim_from_end):
+        """Sets the trim_from_end of this VideoFrame.
+
+        Trim end [ms]  # noqa: E501
+
+        :param trim_from_end: The trim_from_end of this VideoFrame.  # noqa: E501
+        :type: float
+        """
+        self._trim_from_end = trim_from_end
 
     def to_dict(self):
         """Returns the model properties as a dict"""
