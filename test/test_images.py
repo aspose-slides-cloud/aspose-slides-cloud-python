@@ -57,10 +57,25 @@ class TestImages(BaseTest):
         self.assertNotEqual(os.path.getsize(default_result), os.path.getsize(png_result))
 
     def test_image_download_request(self):
-        password = "password"
         slide_index = 1
         with open(constant.LOCAL_TEST_DATA_FOLDER + "/" + constant.FILE_NAME, 'rb') as f:
             source = f.read()
-        default_result = BaseTest.slides_api.download_image_default_format_online(source, slide_index, password)
-        png_result = BaseTest.slides_api.download_image_online(source, slide_index, 'png', password)
+        default_result = BaseTest.slides_api.download_image_default_format_online(source, slide_index, constant.PASSWORD)
+        png_result = BaseTest.slides_api.download_image_online(source, slide_index, 'png', constant.PASSWORD)
         self.assertNotEqual(os.path.getsize(default_result), os.path.getsize(png_result))
+
+    def test_replace_image(self):
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" + constant.FILE_NAME)
+        with open(constant.LOCAL_TEST_DATA_FOLDER + "/watermark.png", 'rb') as f:
+            image_source = f.read()
+        image_index = 1
+        BaseTest.slides_api.replace_image(constant.FILE_NAME, image_index, image_source, constant.PASSWORD, constant.FOLDER_NAME)
+
+    def test_replace_image_request(self):
+        with open(constant.LOCAL_TEST_DATA_FOLDER + "/" + constant.FILE_NAME, 'rb') as f:
+            file_source = f.read()
+        with open(constant.LOCAL_TEST_DATA_FOLDER + "/watermark.png", 'rb') as f:
+            image_source = f.read()
+        image_index = 1
+        response = BaseTest.slides_api.replace_image_online(file_source, image_index, image_source, constant.PASSWORD)
+        self.assertNotEqual(os.path.getsize(response), 0)

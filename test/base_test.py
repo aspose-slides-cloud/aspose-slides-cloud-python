@@ -40,7 +40,7 @@ from asposeslidescloud.configuration import Configuration
 from asposeslidescloud.rest import ApiException
 
 base_test_path = '../'
-if inspect.stack().pop().filename == 'run_tests.py':
+if inspect.stack().pop().filename.endswith('run_tests.py'):
     base_test_path = ''
 
 class BaseTest(unittest.TestCase):

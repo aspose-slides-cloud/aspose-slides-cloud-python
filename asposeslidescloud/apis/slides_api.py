@@ -4691,7 +4691,7 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def create_special_slide_shape(self, name, slide_index, slide_type, dto = None, shape_to_clone = None, position = None, password = None, folder = None, storage = None, sub_shape = None, **kwargs):  # noqa: E501
+    def create_special_slide_shape(self, name, slide_index, slide_type, dto, shape_to_clone = None, position = None, password = None, folder = None, storage = None, sub_shape = None, **kwargs):  # noqa: E501
         """Create new shape.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4721,7 +4721,7 @@ class SlidesApi(ApiBase):
             (data) = self.create_special_slide_shape_with_http_info(name, slide_index, slide_type, dto, shape_to_clone, position, password, folder, storage, sub_shape, **kwargs)  # noqa: E501
             return data
 
-    def create_special_slide_shape_with_http_info(self, name, slide_index, slide_type, dto = None, shape_to_clone = None, position = None, password = None, folder = None, storage = None, sub_shape = None, **kwargs):  # noqa: E501
+    def create_special_slide_shape_with_http_info(self, name, slide_index, slide_type, dto, shape_to_clone = None, position = None, password = None, folder = None, storage = None, sub_shape = None, **kwargs):  # noqa: E501
         """Create new shape.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -4772,6 +4772,9 @@ class SlidesApi(ApiBase):
         # verify the value of parameter 'slide_type' is valid
         if not slide_type.upper() in SpecialSlideType.__dict__:
             raise ValueError("Invalid value for parameter `slide_type` when calling `create_special_slide_shape`")  # noqa: E501
+        # verify the required parameter 'dto' is set
+        if not dto:
+            raise ValueError("Missing the required parameter `dto` when calling `create_special_slide_shape`")  # noqa: E501
 
         collection_formats = {}
 
@@ -8435,7 +8438,7 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def delete_protection_online(self, document, password, **kwargs):  # noqa: E501
+    def delete_protection_online(self, document, password = None, **kwargs):  # noqa: E501
         """Resets all presentation protection settings.   # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8457,7 +8460,7 @@ class SlidesApi(ApiBase):
             (data) = self.delete_protection_online_with_http_info(document, password, **kwargs)  # noqa: E501
             return data
 
-    def delete_protection_online_with_http_info(self, document, password, **kwargs):  # noqa: E501
+    def delete_protection_online_with_http_info(self, document, password = None, **kwargs):  # noqa: E501
         """Resets all presentation protection settings.   # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -8491,9 +8494,6 @@ class SlidesApi(ApiBase):
         # verify the required parameter 'document' is set
         if not document:
             raise ValueError("Missing the required parameter `document` when calling `delete_protection_online`")  # noqa: E501
-        # verify the required parameter 'password' is set
-        if not password:
-            raise ValueError("Missing the required parameter `password` when calling `delete_protection_online`")  # noqa: E501
 
         collection_formats = {}
 
@@ -24415,6 +24415,235 @@ class SlidesApi(ApiBase):
 
         return self.api_client.call_api(
             '/slides/fonts/{sourceFont}/replace/{targetFont}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='file',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', False),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def replace_image(self, name, image_index, image = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Replaces image by the specified index.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, image_index, image, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param image_index Image index.
+        :param image Image data.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.replace_image_with_http_info(name, image_index, image, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.replace_image_with_http_info(name, image_index, image, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def replace_image_with_http_info(self, name, image_index, image = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+        """Replaces image by the specified index.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.replace_image_with_http_info(name, image_index, image, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param image_index Image index.
+        :param image Image data.
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Document storage.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method replace_image" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `replace_image`")  # noqa: E501
+        # verify the required parameter 'image_index' is set
+        if not image_index:
+            raise ValueError("Missing the required parameter `image_index` when calling `replace_image`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['imageIndex'] = image_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+        if image:
+            param_files['image'] = image  # noqa: E501
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/images/{imageIndex}/replace', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', False),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def replace_image_online(self, document, image_index, image = None, password = None, **kwargs):  # noqa: E501
+        """Replaces image by the specified index and returns updated document.   # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(document, image_index, image, password, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param document Document data.
+        :param image_index Image index.
+        :param image Image data.
+        :param password Password.
+        :return: file
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.replace_image_online_with_http_info(document, image_index, image, password, **kwargs)  # noqa: E501
+        else:
+            (data) = self.replace_image_online_with_http_info(document, image_index, image, password, **kwargs)  # noqa: E501
+            return data
+
+    def replace_image_online_with_http_info(self, document, image_index, image = None, password = None, **kwargs):  # noqa: E501
+        """Replaces image by the specified index and returns updated document.   # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.replace_image_online_with_http_info(document, image_index, image, password, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param document Document data.
+        :param image_index Image index.
+        :param image Image data.
+        :param password Password.
+        :return: file
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method replace_image_online" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'document' is set
+        if not document:
+            raise ValueError("Missing the required parameter `document` when calling `replace_image_online`")  # noqa: E501
+        # verify the required parameter 'image_index' is set
+        if not image_index:
+            raise ValueError("Missing the required parameter `image_index` when calling `replace_image_online`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['imageIndex'] = image_index  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+        if document:
+            param_files['document'] = document  # noqa: E501
+        if image:
+            param_files['image'] = image  # noqa: E501
+
+        body_params = None
+
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['multipart/form-data'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/images/{imageIndex}/replace', 'POST',
             path_params,
             query_params,
             header_params,
