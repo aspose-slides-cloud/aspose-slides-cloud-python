@@ -47,8 +47,10 @@ class BaseTest(unittest.TestCase):
 
     __test__ = False
     
-    configuration = None
+    slides_api_configuration = None
+    slides_async_api_configuration = None
     slides_api = None
+    slides_async_api = None
     
     def __init__(self, *args, **kwargs):
         super(BaseTest, self).__init__(*args, **kwargs)
@@ -62,17 +64,25 @@ class BaseTest(unittest.TestCase):
         if not BaseTest.slides_api:
             with open(base_test_path + 'testConfig.json') as f:
                 config = json.loads(f.read())
-            BaseTest.configuration = Configuration()
-            BaseTest.configuration.app_sid = config['ClientId']
-            BaseTest.configuration.app_key = config['ClientSecret']
-            BaseTest.configuration.base_url = config['BaseUrl']
-            BaseTest.configuration.auth_base_url = config['BaseUrl']
-            if 'AuthBaseUrl' in config:
-                BaseTest.configuration.auth_base_url = config['AuthBaseUrl']
-            BaseTest.configuration.debug = config['Debug']
-            BaseTest.configuration.verify_ssl = not 'AllowInsecureRequests' in config or not config['AllowInsecureRequests']
+            BaseTest.slides_api_configuration = self.create_configuration(config)
+            BaseTest.slides_async_api_configuration = self.create_configuration(config)
+            if 'AsyncBaseUrl' in config:
+                BaseTest.slides_async_api_configuration.base_url = config['AsyncBaseUrl']
 
             with open(base_test_path + 'testRules.json') as f:
                 BaseTest.test_rules = json.loads(f.read())
 
-            BaseTest.slides_api = asposeslidescloud.apis.slides_api.SlidesApi(self.configuration)  # noqa: E501
+            BaseTest.slides_api = asposeslidescloud.apis.slides_api.SlidesApi(self.slides_api_configuration)  # noqa: E501
+            BaseTest.slides_async_api = asposeslidescloud.apis.slides_async_api.SlidesAsyncApi(self.slides_async_api_configuration)  # noqa: E501
+    
+    def create_configuration(self, config):
+        configuration = Configuration()
+        configuration.app_sid = config['ClientId']
+        configuration.app_key = config['ClientSecret']
+        configuration.base_url = config['BaseUrl']
+        configuration.auth_base_url = config['BaseUrl']
+        if 'AuthBaseUrl' in config:
+            configuration.auth_base_url = config['AuthBaseUrl']
+        configuration.debug = config['Debug']
+        configuration.verify_ssl = not 'AllowInsecureRequests' in config or not config['AllowInsecureRequests']
+        return configuration

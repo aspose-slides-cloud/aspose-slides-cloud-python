@@ -7,7 +7,7 @@ from asposeslidescloud import TableCell, TableRow, Table, TableCellMergeOptions,
 
 class TestTable(BaseTest):
     def setUp(self):
-        self.api = asposeslidescloud.apis.slides_api.SlidesApi(self.configuration)  # noqa: E501
+        self.api = asposeslidescloud.apis.slides_api.SlidesApi(self.slides_api_configuration)  # noqa: E501
 
     def tearDown(self):
         pass

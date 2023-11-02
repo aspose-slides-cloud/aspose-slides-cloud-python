@@ -32,6 +32,7 @@ from test.base_test import BaseTest
 from test import constant
 from test.base_test import BaseTest
 from test.test_animation import TestAnimation
+from test.test_async import TestAsync
 from test.test_auth import TestAuth
 from test.test_chart import TestChart
 from test.test_comments import TestComments

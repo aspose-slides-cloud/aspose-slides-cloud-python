@@ -31,6 +31,7 @@ from __future__ import absolute_import
 
 # import apis into sdk package
 from asposeslidescloud.apis.slides_api import SlidesApi
+from asposeslidescloud.apis.slides_async_api import SlidesAsyncApi
 
 # import ApiClient
 from asposeslidescloud.api_client import ApiClient
@@ -170,6 +171,7 @@ from asposeslidescloud.models.object_exist import ObjectExist
 from asposeslidescloud.models.ole_object_frame import OleObjectFrame
 from asposeslidescloud.models.one_value_chart_data_point import OneValueChartDataPoint
 from asposeslidescloud.models.one_value_series import OneValueSeries
+from asposeslidescloud.models.operation import Operation
 from asposeslidescloud.models.ordered_merge_request import OrderedMergeRequest
 from asposeslidescloud.models.outer_shadow_effect import OuterShadowEffect
 from asposeslidescloud.models.output_file import OutputFile
