@@ -24429,7 +24429,7 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def replace_image(self, name, image_index, image = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+    def replace_image(self, name, image_index, image, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
         """Replaces image by the specified index.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -24455,7 +24455,7 @@ class SlidesApi(ApiBase):
             (data) = self.replace_image_with_http_info(name, image_index, image, password, folder, storage, **kwargs)  # noqa: E501
             return data
 
-    def replace_image_with_http_info(self, name, image_index, image = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+    def replace_image_with_http_info(self, name, image_index, image, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
         """Replaces image by the specified index.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -24496,6 +24496,9 @@ class SlidesApi(ApiBase):
         # verify the required parameter 'image_index' is set
         if not image_index:
             raise ValueError("Missing the required parameter `image_index` when calling `replace_image`")  # noqa: E501
+        # verify the required parameter 'image' is set
+        if not image:
+            raise ValueError("Missing the required parameter `image` when calling `replace_image`")  # noqa: E501
 
         collection_formats = {}
 
@@ -24547,7 +24550,7 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def replace_image_online(self, document, image_index, image = None, password = None, **kwargs):  # noqa: E501
+    def replace_image_online(self, document, image_index, image, password = None, **kwargs):  # noqa: E501
         """Replaces image by the specified index and returns updated document.   # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -24571,7 +24574,7 @@ class SlidesApi(ApiBase):
             (data) = self.replace_image_online_with_http_info(document, image_index, image, password, **kwargs)  # noqa: E501
             return data
 
-    def replace_image_online_with_http_info(self, document, image_index, image = None, password = None, **kwargs):  # noqa: E501
+    def replace_image_online_with_http_info(self, document, image_index, image, password = None, **kwargs):  # noqa: E501
         """Replaces image by the specified index and returns updated document.   # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
@@ -24610,6 +24613,9 @@ class SlidesApi(ApiBase):
         # verify the required parameter 'image_index' is set
         if not image_index:
             raise ValueError("Missing the required parameter `image_index` when calling `replace_image_online`")  # noqa: E501
+        # verify the required parameter 'image' is set
+        if not image:
+            raise ValueError("Missing the required parameter `image` when calling `replace_image_online`")  # noqa: E501
 
         collection_formats = {}
 

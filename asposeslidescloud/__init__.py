@@ -172,6 +172,7 @@ from asposeslidescloud.models.ole_object_frame import OleObjectFrame
 from asposeslidescloud.models.one_value_chart_data_point import OneValueChartDataPoint
 from asposeslidescloud.models.one_value_series import OneValueSeries
 from asposeslidescloud.models.operation import Operation
+from asposeslidescloud.models.operation_progress import OperationProgress
 from asposeslidescloud.models.ordered_merge_request import OrderedMergeRequest
 from asposeslidescloud.models.outer_shadow_effect import OuterShadowEffect
 from asposeslidescloud.models.output_file import OutputFile
@@ -240,6 +241,7 @@ from asposeslidescloud.models.slide_modern_comment import SlideModernComment
 from asposeslidescloud.models.slide_properties import SlideProperties
 from asposeslidescloud.models.slide_replace_result import SlideReplaceResult
 from asposeslidescloud.models.slide_show_properties import SlideShowProperties
+from asposeslidescloud.models.slide_show_transition import SlideShowTransition
 from asposeslidescloud.models.slides import Slides
 from asposeslidescloud.models.smart_art import SmartArt
 from asposeslidescloud.models.smart_art_node import SmartArtNode

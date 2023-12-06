@@ -30,9 +30,8 @@ import re  # noqa: F401
 
 import six
 
-from asposeslidescloud.models.slide import Slide
 
-class SlideReplaceResult(Slide):
+class OperationProgress(object):
 
 
     """
@@ -43,73 +42,97 @@ class SlideReplaceResult(Slide):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'self_uri': 'ResourceUri',
-        'alternate_links': 'list[ResourceUri]',
-        'width': 'float',
-        'height': 'float',
-        'show_master_shapes': 'bool',
-        'slide_show_transition': 'SlideShowTransition',
-        'layout_slide': 'ResourceUri',
-        'shapes': 'ResourceUri',
-        'theme': 'ResourceUri',
-        'placeholders': 'ResourceUri',
-        'images': 'ResourceUri',
-        'comments': 'ResourceUri',
-        'background': 'ResourceUri',
-        'notes_slide': 'ResourceUri',
-        'matches': 'int'
+        'description': 'str',
+        'step_index': 'int',
+        'step_count': 'int'
     }
 
     attribute_map = {
-        'self_uri': 'selfUri',
-        'alternate_links': 'alternateLinks',
-        'width': 'width',
-        'height': 'height',
-        'show_master_shapes': 'showMasterShapes',
-        'slide_show_transition': 'slideShowTransition',
-        'layout_slide': 'layoutSlide',
-        'shapes': 'shapes',
-        'theme': 'theme',
-        'placeholders': 'placeholders',
-        'images': 'images',
-        'comments': 'comments',
-        'background': 'background',
-        'notes_slide': 'notesSlide',
-        'matches': 'matches'
+        'description': 'description',
+        'step_index': 'stepIndex',
+        'step_count': 'stepCount'
     }
 
     type_determiners = {
     }
 
-    def __init__(self, self_uri=None, alternate_links=None, width=None, height=None, show_master_shapes=None, slide_show_transition=None, layout_slide=None, shapes=None, theme=None, placeholders=None, images=None, comments=None, background=None, notes_slide=None, matches=None):  # noqa: E501
-        """SlideReplaceResult - a model defined in Swagger"""  # noqa: E501
-        super(SlideReplaceResult, self).__init__(self_uri, alternate_links, width, height, show_master_shapes, slide_show_transition, layout_slide, shapes, theme, placeholders, images, comments, background, notes_slide)
+    def __init__(self, description=None, step_index=None, step_count=None):  # noqa: E501
+        """OperationProgress - a model defined in Swagger"""  # noqa: E501
 
-        self._matches = None
+        self._description = None
+        self._step_index = None
+        self._step_count = None
 
-        self.matches = matches
+        if description is not None:
+            self.description = description
+        self.step_index = step_index
+        self.step_count = step_count
 
     @property
-    def matches(self):
-        """Gets the matches of this SlideReplaceResult.  # noqa: E501
+    def description(self):
+        """Gets the description of this OperationProgress.  # noqa: E501
 
-        Gets or sets the number of matches   # noqa: E501
+        Description.  # noqa: E501
 
-        :return: The matches of this SlideReplaceResult.  # noqa: E501
+        :return: The description of this OperationProgress.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this OperationProgress.
+
+        Description.  # noqa: E501
+
+        :param description: The description of this OperationProgress.  # noqa: E501
+        :type: str
+        """
+        self._description = description
+
+    @property
+    def step_index(self):
+        """Gets the step_index of this OperationProgress.  # noqa: E501
+
+        Current Step Index.  # noqa: E501
+
+        :return: The step_index of this OperationProgress.  # noqa: E501
         :rtype: int
         """
-        return self._matches
+        return self._step_index
 
-    @matches.setter
-    def matches(self, matches):
-        """Sets the matches of this SlideReplaceResult.
+    @step_index.setter
+    def step_index(self, step_index):
+        """Sets the step_index of this OperationProgress.
 
-        Gets or sets the number of matches   # noqa: E501
+        Current Step Index.  # noqa: E501
 
-        :param matches: The matches of this SlideReplaceResult.  # noqa: E501
+        :param step_index: The step_index of this OperationProgress.  # noqa: E501
         :type: int
         """
-        self._matches = matches
+        self._step_index = step_index
+
+    @property
+    def step_count(self):
+        """Gets the step_count of this OperationProgress.  # noqa: E501
+
+        Current Step Index.  # noqa: E501
+
+        :return: The step_count of this OperationProgress.  # noqa: E501
+        :rtype: int
+        """
+        return self._step_count
+
+    @step_count.setter
+    def step_count(self, step_count):
+        """Sets the step_count of this OperationProgress.
+
+        Current Step Index.  # noqa: E501
+
+        :param step_count: The step_count of this OperationProgress.  # noqa: E501
+        :type: int
+        """
+        self._step_count = step_count
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -145,7 +168,7 @@ class SlideReplaceResult(Slide):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, SlideReplaceResult):
+        if not isinstance(other, OperationProgress):
             return False
 
         return self.__dict__ == other.__dict__

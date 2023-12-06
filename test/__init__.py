@@ -28,7 +28,6 @@
 
 from __future__ import absolute_import
 
-from test.base_test import BaseTest
 from test import constant
 from test.base_test import BaseTest
 from test.test_animation import TestAnimation

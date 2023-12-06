@@ -48,6 +48,7 @@ class Slide(ResourceBase):
         'width': 'float',
         'height': 'float',
         'show_master_shapes': 'bool',
+        'slide_show_transition': 'SlideShowTransition',
         'layout_slide': 'ResourceUri',
         'shapes': 'ResourceUri',
         'theme': 'ResourceUri',
@@ -64,6 +65,7 @@ class Slide(ResourceBase):
         'width': 'width',
         'height': 'height',
         'show_master_shapes': 'showMasterShapes',
+        'slide_show_transition': 'slideShowTransition',
         'layout_slide': 'layoutSlide',
         'shapes': 'shapes',
         'theme': 'theme',
@@ -77,13 +79,14 @@ class Slide(ResourceBase):
     type_determiners = {
     }
 
-    def __init__(self, self_uri=None, alternate_links=None, width=None, height=None, show_master_shapes=None, layout_slide=None, shapes=None, theme=None, placeholders=None, images=None, comments=None, background=None, notes_slide=None):  # noqa: E501
+    def __init__(self, self_uri=None, alternate_links=None, width=None, height=None, show_master_shapes=None, slide_show_transition=None, layout_slide=None, shapes=None, theme=None, placeholders=None, images=None, comments=None, background=None, notes_slide=None):  # noqa: E501
         """Slide - a model defined in Swagger"""  # noqa: E501
         super(Slide, self).__init__(self_uri, alternate_links)
 
         self._width = None
         self._height = None
         self._show_master_shapes = None
+        self._slide_show_transition = None
         self._layout_slide = None
         self._shapes = None
         self._theme = None
@@ -96,6 +99,8 @@ class Slide(ResourceBase):
         self.width = width
         self.height = height
         self.show_master_shapes = show_master_shapes
+        if slide_show_transition is not None:
+            self.slide_show_transition = slide_show_transition
         if layout_slide is not None:
             self.layout_slide = layout_slide
         if shapes is not None:
@@ -178,6 +183,28 @@ class Slide(ResourceBase):
         :type: bool
         """
         self._show_master_shapes = show_master_shapes
+
+    @property
+    def slide_show_transition(self):
+        """Gets the slide_show_transition of this Slide.  # noqa: E501
+
+        Specifies if shapes of the master slide should be shown on the slide. True by default.  # noqa: E501
+
+        :return: The slide_show_transition of this Slide.  # noqa: E501
+        :rtype: SlideShowTransition
+        """
+        return self._slide_show_transition
+
+    @slide_show_transition.setter
+    def slide_show_transition(self, slide_show_transition):
+        """Sets the slide_show_transition of this Slide.
+
+        Specifies if shapes of the master slide should be shown on the slide. True by default.  # noqa: E501
+
+        :param slide_show_transition: The slide_show_transition of this Slide.  # noqa: E501
+        :type: SlideShowTransition
+        """
+        self._slide_show_transition = slide_show_transition
 
     @property
     def layout_slide(self):

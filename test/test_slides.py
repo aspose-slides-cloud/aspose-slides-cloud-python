@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-from asposeslidescloud import SlideComment, SlideModernComment, Slide, ResourceUri, SlideBackground, SolidFill, NoFill
+from asposeslidescloud import SlideComment, SlideModernComment, SlideShowTransition, Slide, ResourceUri, SlideBackground, SolidFill, NoFill
 from test.base_test import BaseTest
 import asposeslidescloud
 from test import constant
@@ -82,6 +82,16 @@ class TestSlides(BaseTest):
         slide = BaseTest.slides_api.update_slide(constant.FILE_NAME, slide_index, dto, constant.PASSWORD,
                                                  constant.FOLDER_NAME)
         self.assertTrue(layout_slide_path in slide.layout_slide.href)
+
+    def test_set_slide_transition(self):
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" + constant.FILE_NAME)
+        dto = Slide()
+        dto.slide_show_transition = SlideShowTransition()
+        dto.slide_show_transition.type = 'Circle'
+        dto.slide_show_transition.speed = 'Medium'
+        slide_index = 1
+        slide = BaseTest.slides_api.update_slide(constant.FILE_NAME, slide_index, dto, constant.PASSWORD, constant.FOLDER_NAME)
+        self.assertEqual(dto.slide_show_transition.type, slide.slide_show_transition.type)
 
     def test_delete_slides(self):
         BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME,

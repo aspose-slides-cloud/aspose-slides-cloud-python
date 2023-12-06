@@ -45,6 +45,7 @@ class Operation(object):
         'id': 'str',
         'method': 'str',
         'status': 'str',
+        'progress': 'OperationProgress',
         'created': 'datetime',
         'enqueued': 'datetime',
         'started': 'datetime',
@@ -58,6 +59,7 @@ class Operation(object):
         'id': 'id',
         'method': 'method',
         'status': 'status',
+        'progress': 'progress',
         'created': 'created',
         'enqueued': 'enqueued',
         'started': 'started',
@@ -70,12 +72,13 @@ class Operation(object):
     type_determiners = {
     }
 
-    def __init__(self, id=None, method=None, status=None, created=None, enqueued=None, started=None, failed=None, canceled=None, finished=None, error=None):  # noqa: E501
+    def __init__(self, id=None, method=None, status=None, progress=None, created=None, enqueued=None, started=None, failed=None, canceled=None, finished=None, error=None):  # noqa: E501
         """Operation - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
         self._method = None
         self._status = None
+        self._progress = None
         self._created = None
         self._enqueued = None
         self._started = None
@@ -87,6 +90,8 @@ class Operation(object):
         self.id = id
         self.method = method
         self.status = status
+        if progress is not None:
+            self.progress = progress
         if created is not None:
             self.created = created
         if enqueued is not None:
@@ -141,7 +146,7 @@ class Operation(object):
         :type: str
         """
         if method is not None:
-            allowed_values = ["Convert", "DownloadPresentation"]  # noqa: E501
+            allowed_values = ["Convert", "DownloadPresentation", "ConvertAndSave", "SavePresentation", "Merge", "MergeAndSave"]  # noqa: E501
             if method.isdigit():
                 int_method = int(method)
                 if int_method < 0 or int_method >= len(allowed_values):
@@ -193,6 +198,26 @@ class Operation(object):
                     .format(status, allowed_values)
                 )
         self._status = status
+
+    @property
+    def progress(self):
+        """Gets the progress of this Operation.  # noqa: E501
+
+
+        :return: The progress of this Operation.  # noqa: E501
+        :rtype: OperationProgress
+        """
+        return self._progress
+
+    @progress.setter
+    def progress(self, progress):
+        """Sets the progress of this Operation.
+
+
+        :param progress: The progress of this Operation.  # noqa: E501
+        :type: OperationProgress
+        """
+        self._progress = progress
 
     @property
     def created(self):
