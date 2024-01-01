@@ -62,6 +62,14 @@ class TestShapes(BaseTest):
                                                  constant.PASSWORD, constant.FOLDER_NAME, None, sub_shape)
         self.assertEqual("Shape", shape.type)
 
+    def test_shape_load_save(self):
+        folder_name = "TempSlidesSDK"
+        file_name = "test.pptx"
+        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+        dto = BaseTest.slides_api.get_shape(file_name, 3, 1, "password", folder_name)
+        shape = BaseTest.slides_api.update_shape(file_name, 3, 1, dto, "password", folder_name)
+        self.assertTrue(isinstance(shape, Chart))
+
     def test_shape_add(self):
         folder_name = "TempSlidesSDK"
         file_name = "test.pptx"
