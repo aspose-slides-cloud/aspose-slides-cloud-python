@@ -110,10 +110,6 @@ class SlidesAsyncApi(ApiBase):
 
         body_params = None
 
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['multipart/form-data'])  # noqa: E501
-
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -205,10 +201,6 @@ class SlidesAsyncApi(ApiBase):
         param_files = {}
 
         body_params = None
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -332,10 +324,6 @@ class SlidesAsyncApi(ApiBase):
         body_params = None
         if options:
             body_params = options
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -467,10 +455,6 @@ class SlidesAsyncApi(ApiBase):
         if options:
             body_params = options
 
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['multipart/form-data'])  # noqa: E501
@@ -597,10 +581,6 @@ class SlidesAsyncApi(ApiBase):
         if options:
             body_params = options
 
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
             ['application/json'])  # noqa: E501
@@ -697,10 +677,6 @@ class SlidesAsyncApi(ApiBase):
         body_params = None
         if request:
             body_params = request
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -805,10 +781,6 @@ class SlidesAsyncApi(ApiBase):
         body_params = None
         if request:
             body_params = request
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -942,10 +914,6 @@ class SlidesAsyncApi(ApiBase):
         body_params = None
         if options:
             body_params = options
-
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501

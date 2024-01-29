@@ -12,6 +12,11 @@ class TestFont(BaseTest):
     def tearDown(self):
         pass
 
+    def test_get_available_fonts(self):
+        response = BaseTest.slides_api.get_available_fonts()
+        self.assertTrue(len(response.list) > 1)
+        self.assertTrue(response.list[0].is_custom == None)
+
     def test_get_fonts(self):
         BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" +
                                       constant.FILE_NAME)

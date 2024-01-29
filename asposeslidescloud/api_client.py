@@ -69,7 +69,7 @@ class ApiClient(object):
 
         self.pool = None
         self.rest_client = RESTClientObject(configuration)
-        self.default_headers = {'x-aspose-client': 'python sdk v23.12.0'}
+        self.default_headers = {'x-aspose-client': 'python sdk v24.1.0'}
         if configuration.timeout:
             self.default_headers['x-aspose-timeout'] = configuration.timeout
         self.default_headers.update(configuration.custom_headers)
@@ -261,6 +261,9 @@ class ApiClient(object):
         # save response body into a tmp file and return the instance
         if response_type == "file":
             return self.__deserialize_file(response)
+
+        if response_type == "str":
+            return response.data.decode('utf-8')
 
         # fetch data from response object
         try:
@@ -462,23 +465,6 @@ class ApiClient(object):
             else:
                 new_params.append((k, v))
         return new_params
-
-    def select_header_accept(self, accepts):
-        """
-        Returns `Accept` based on an array of accepts provided.
-
-        :param accepts: List of headers.
-        :return: Accept (e.g. application/json).
-        """
-        if not accepts:
-            return
-
-        accepts = [x.lower() for x in accepts]
-
-        if 'application/json' in accepts:
-            return 'application/json'
-        else:
-            return ', '.join(accepts)
 
     def select_header_content_type(self, content_types):
         """

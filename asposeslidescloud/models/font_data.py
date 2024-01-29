@@ -43,27 +43,32 @@ class FontData(object):
     """
     swagger_types = {
         'font_name': 'str',
-        'is_embedded': 'bool'
+        'is_embedded': 'bool',
+        'is_custom': 'bool'
     }
 
     attribute_map = {
         'font_name': 'fontName',
-        'is_embedded': 'isEmbedded'
+        'is_embedded': 'isEmbedded',
+        'is_custom': 'isCustom'
     }
 
     type_determiners = {
     }
 
-    def __init__(self, font_name=None, is_embedded=None):  # noqa: E501
+    def __init__(self, font_name=None, is_embedded=None, is_custom=None):  # noqa: E501
         """FontData - a model defined in Swagger"""  # noqa: E501
 
         self._font_name = None
         self._is_embedded = None
+        self._is_custom = None
 
         if font_name is not None:
             self.font_name = font_name
         if is_embedded is not None:
             self.is_embedded = is_embedded
+        if is_custom is not None:
+            self.is_custom = is_custom
 
     @property
     def font_name(self):
@@ -108,6 +113,28 @@ class FontData(object):
         :type: bool
         """
         self._is_embedded = is_embedded
+
+    @property
+    def is_custom(self):
+        """Gets the is_custom of this FontData.  # noqa: E501
+
+        Returns true for a custom font (contained in fontsFolder directory).  # noqa: E501
+
+        :return: The is_custom of this FontData.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_custom
+
+    @is_custom.setter
+    def is_custom(self, is_custom):
+        """Sets the is_custom of this FontData.
+
+        Returns true for a custom font (contained in fontsFolder directory).  # noqa: E501
+
+        :param is_custom: The is_custom of this FontData.  # noqa: E501
+        :type: bool
+        """
+        self._is_custom = is_custom
 
     def to_dict(self):
         """Returns the model properties as a dict"""
