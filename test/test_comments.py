@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-from asposeslidescloud import SlideComment, SlideModernComment
+from asposeslidescloud import SlideComment, SlideModernComment, CommentAuthors
 from test.base_test import BaseTest
 import asposeslidescloud
 from test import constant
@@ -46,7 +46,6 @@ class TestComments(BaseTest):
         output_document = BaseTest.slides_api.create_comment_online(document, slide_index, dto, None, constant.PASSWORD)
 
         self.assertIsNotNone(output_document)
-
 
     def test_get_slide_comments(self):
         BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME,  constant.FOLDER_NAME + "/" + constant.FILE_NAME)
@@ -128,3 +127,8 @@ class TestComments(BaseTest):
         response = BaseTest.slides_api.create_comment(constant.FILE_NAME, slide_index, comment, shape_index, constant.PASSWORD, constant.FOLDER_NAME)
         self.assertEqual(1, len(response.list))
         self.assertEqual("Modern", response.list[0].type)
+
+    def test_get_comment_authors(self):
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME,  constant.FOLDER_NAME + "/" + constant.FILE_NAME)
+        response = BaseTest.slides_api.get_comment_authors(constant.FILE_NAME, constant.PASSWORD, constant.FOLDER_NAME)
+        self.assertEqual(1, len(response.list))

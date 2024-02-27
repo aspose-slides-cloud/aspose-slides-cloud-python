@@ -72,6 +72,8 @@ from asposeslidescloud.models.close_path_segment import ClosePathSegment
 from asposeslidescloud.models.color_change_effect import ColorChangeEffect
 from asposeslidescloud.models.color_replace_effect import ColorReplaceEffect
 from asposeslidescloud.models.color_scheme import ColorScheme
+from asposeslidescloud.models.comment_author import CommentAuthor
+from asposeslidescloud.models.comment_authors import CommentAuthors
 from asposeslidescloud.models.common_slide_view_properties import CommonSlideViewProperties
 from asposeslidescloud.models.connector import Connector
 from asposeslidescloud.models.cubic_bezier_to_path_segment import CubicBezierToPathSegment
