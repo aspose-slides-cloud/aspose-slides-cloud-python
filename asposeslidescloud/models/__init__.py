@@ -121,6 +121,7 @@ from asposeslidescloud.models.graphical_object import GraphicalObject
 from asposeslidescloud.models.gray_scale_effect import GrayScaleEffect
 from asposeslidescloud.models.group_shape import GroupShape
 from asposeslidescloud.models.grouping_character_element import GroupingCharacterElement
+from asposeslidescloud.models.handout_layouting_options import HandoutLayoutingOptions
 from asposeslidescloud.models.header_footer import HeaderFooter
 from asposeslidescloud.models.hsl_effect import HslEffect
 from asposeslidescloud.models.html5_export_options import Html5ExportOptions
@@ -158,6 +159,7 @@ from asposeslidescloud.models.move_to_path_segment import MoveToPathSegment
 from asposeslidescloud.models.nary_operator_element import NaryOperatorElement
 from asposeslidescloud.models.no_fill import NoFill
 from asposeslidescloud.models.normal_view_restored_properties import NormalViewRestoredProperties
+from asposeslidescloud.models.notes_comments_layouting_options import NotesCommentsLayoutingOptions
 from asposeslidescloud.models.notes_slide import NotesSlide
 from asposeslidescloud.models.notes_slide_export_format import NotesSlideExportFormat
 from asposeslidescloud.models.notes_slide_header_footer import NotesSlideHeaderFooter
@@ -237,6 +239,7 @@ from asposeslidescloud.models.slide_replace_result import SlideReplaceResult
 from asposeslidescloud.models.slide_show_properties import SlideShowProperties
 from asposeslidescloud.models.slide_show_transition import SlideShowTransition
 from asposeslidescloud.models.slides import Slides
+from asposeslidescloud.models.slides_layout_options import SlidesLayoutOptions
 from asposeslidescloud.models.smart_art import SmartArt
 from asposeslidescloud.models.smart_art_node import SmartArtNode
 from asposeslidescloud.models.smart_art_shape import SmartArtShape

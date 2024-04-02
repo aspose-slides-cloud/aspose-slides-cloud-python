@@ -51,6 +51,7 @@ class Table(ShapeBase):
         'alternative_text': 'str',
         'alternative_text_title': 'str',
         'hidden': 'bool',
+        'is_decorative': 'bool',
         'x': 'float',
         'y': 'float',
         'z_order_position': 'int',
@@ -82,6 +83,7 @@ class Table(ShapeBase):
         'alternative_text': 'alternativeText',
         'alternative_text_title': 'alternativeTextTitle',
         'hidden': 'hidden',
+        'is_decorative': 'isDecorative',
         'x': 'x',
         'y': 'y',
         'z_order_position': 'zOrderPosition',
@@ -108,9 +110,9 @@ class Table(ShapeBase):
         'type': 'Table',
     }
 
-    def __init__(self, self_uri=None, alternate_links=None, name=None, width=None, height=None, alternative_text=None, alternative_text_title=None, hidden=None, x=None, y=None, z_order_position=None, fill_format=None, effect_format=None, three_d_format=None, line_format=None, hyperlink_click=None, hyperlink_mouse_over=None, type='Table', style=None, rows=None, columns=None, first_col=None, first_row=None, horizontal_banding=None, last_col=None, last_row=None, right_to_left=None, vertical_banding=None):  # noqa: E501
+    def __init__(self, self_uri=None, alternate_links=None, name=None, width=None, height=None, alternative_text=None, alternative_text_title=None, hidden=None, is_decorative=None, x=None, y=None, z_order_position=None, fill_format=None, effect_format=None, three_d_format=None, line_format=None, hyperlink_click=None, hyperlink_mouse_over=None, type='Table', style=None, rows=None, columns=None, first_col=None, first_row=None, horizontal_banding=None, last_col=None, last_row=None, right_to_left=None, vertical_banding=None):  # noqa: E501
         """Table - a model defined in Swagger"""  # noqa: E501
-        super(Table, self).__init__(self_uri, alternate_links, name, width, height, alternative_text, alternative_text_title, hidden, x, y, z_order_position, fill_format, effect_format, three_d_format, line_format, hyperlink_click, hyperlink_mouse_over, type)
+        super(Table, self).__init__(self_uri, alternate_links, name, width, height, alternative_text, alternative_text_title, hidden, is_decorative, x, y, z_order_position, fill_format, effect_format, three_d_format, line_format, hyperlink_click, hyperlink_mouse_over, type)
 
         self._style = None
         self._rows = None

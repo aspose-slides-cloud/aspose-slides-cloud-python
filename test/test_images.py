@@ -5,6 +5,7 @@ from zipfile import ZipFile
 
 from test.base_test import BaseTest
 import asposeslidescloud
+from asposeslidescloud.rest import ApiException
 from test import constant
 
 class TestImages(BaseTest):
@@ -79,3 +80,15 @@ class TestImages(BaseTest):
         image_index = 1
         response = BaseTest.slides_api.replace_image_online(file_source, image_index, image_source, constant.PASSWORD)
         self.assertNotEqual(os.path.getsize(response), 0)
+
+    def test_delete_picture_cropped_areas(self):
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" + constant.FILE_NAME)
+        BaseTest.slides_api.delete_picture_cropped_areas(constant.FILE_NAME, 2, 2, constant.PASSWORD, constant.FOLDER_NAME)
+
+    def test_delete_picture_cropped_areas_wrong_shape_type(self):
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" + constant.FILE_NAME)
+        try:
+            BaseTest.slides_api.delete_picture_cropped_areas(constant.FILE_NAME, 2, 3, constant.PASSWORD, constant.FOLDER_NAME)
+            self.fail("Should throw an exception if shape is not PictureFrame")
+        except ApiException as ex:
+            self.assertEqual(400, ex.status)

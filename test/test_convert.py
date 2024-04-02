@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 import os
 
-from asposeslidescloud import PdfExportOptions, ImageExportOptions, FontFallbackRule
+from asposeslidescloud import PdfExportOptions, ImageExportOptions, HandoutLayoutingOptions, FontFallbackRule
 from test.base_test import BaseTest
 import asposeslidescloud
 from test import constant
@@ -175,4 +175,17 @@ class TestConvert(BaseTest):
                                       constant.FOLDER_NAME + "/" + constant.FILE_NAME)
         response = BaseTest.slides_api.download_presentation(constant.FILE_NAME, "png", export_options,
                                                              constant.PASSWORD, constant.FOLDER_NAME)
+        self.assertIsNotNone(response)
+
+    def test_convert_with_slide_layout_options(self):
+        slides_layout_options = HandoutLayoutingOptions()
+        slides_layout_options.handout = "Handouts2"
+        slides_layout_options.print_slide_numbers = True
+
+        export_options = PdfExportOptions()
+        export_options.slides_layout_options = slides_layout_options
+
+        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" + constant.FILE_NAME)
+        response = BaseTest.slides_api.download_presentation(
+            constant.FILE_NAME, "pdf", export_options, constant.PASSWORD, constant.FOLDER_NAME)
         self.assertIsNotNone(response)

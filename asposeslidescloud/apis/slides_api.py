@@ -7799,6 +7799,128 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def delete_picture_cropped_areas(self, name, slide_index, shape_index, password, folder, storage = None, **kwargs):  # noqa: E501
+        """Deletes cropped areas of a pictire.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, slide_index, shape_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index (must refer to a picture frame).
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Presentation storage.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.delete_picture_cropped_areas_with_http_info(name, slide_index, shape_index, password, folder, storage, **kwargs)  # noqa: E501
+        else:
+            (data) = self.delete_picture_cropped_areas_with_http_info(name, slide_index, shape_index, password, folder, storage, **kwargs)  # noqa: E501
+            return data
+
+    def delete_picture_cropped_areas_with_http_info(self, name, slide_index, shape_index, password, folder, storage = None, **kwargs):  # noqa: E501
+        """Deletes cropped areas of a pictire.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.delete_picture_cropped_areas_with_http_info(name, slide_index, shape_index, password, folder, storage, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name Document name.
+        :param slide_index Slide index.
+        :param shape_index Shape index (must refer to a picture frame).
+        :param password Document password.
+        :param folder Document folder.
+        :param storage Presentation storage.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method delete_picture_cropped_areas" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `delete_picture_cropped_areas`")  # noqa: E501
+        # verify the required parameter 'slide_index' is set
+        if not slide_index:
+            raise ValueError("Missing the required parameter `slide_index` when calling `delete_picture_cropped_areas`")  # noqa: E501
+        # verify the required parameter 'shape_index' is set
+        if not shape_index:
+            raise ValueError("Missing the required parameter `shape_index` when calling `delete_picture_cropped_areas`")  # noqa: E501
+        # verify the required parameter 'password' is set
+        if not password:
+            raise ValueError("Missing the required parameter `password` when calling `delete_picture_cropped_areas`")  # noqa: E501
+        # verify the required parameter 'folder' is set
+        if not folder:
+            raise ValueError("Missing the required parameter `folder` when calling `delete_picture_cropped_areas`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['slideIndex'] = slide_index  # noqa: E501
+        path_params['shapeIndex'] = shape_index  # noqa: E501
+
+        query_params = []
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/pictureCroppedAreas', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', False),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def delete_portion(self, name, slide_index, shape_index, paragraph_index, portion_index, password = None, folder = None, storage = None, sub_shape = None, **kwargs):  # noqa: E501
         """Remove a portion.  # noqa: E501
 

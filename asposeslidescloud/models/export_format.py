@@ -61,6 +61,7 @@ class ExportFormat(object):
     FODP = "Fodp"
     XAML = "Xaml"
     MPEG4 = "Mpeg4"
+    MD = "Md"
 
     """
     Attributes:

@@ -45,6 +45,7 @@ class Effect(object):
         'type': 'str',
         'subtype': 'str',
         'preset_class_type': 'str',
+        'animate_text_type': 'str',
         'shape_index': 'int',
         'paragraph_index': 'int',
         'trigger_type': 'str',
@@ -69,6 +70,7 @@ class Effect(object):
         'type': 'type',
         'subtype': 'subtype',
         'preset_class_type': 'presetClassType',
+        'animate_text_type': 'animateTextType',
         'shape_index': 'shapeIndex',
         'paragraph_index': 'paragraphIndex',
         'trigger_type': 'triggerType',
@@ -92,12 +94,13 @@ class Effect(object):
     type_determiners = {
     }
 
-    def __init__(self, type=None, subtype=None, preset_class_type=None, shape_index=None, paragraph_index=None, trigger_type=None, accelerate=None, auto_reverse=None, decelerate=None, duration=None, repeat_count=None, repeat_duration=None, restart=None, speed=None, trigger_delay_time=None, repeat_until_end_slide=None, repeat_until_next_click=None, stop_previous_sound=None, rewind=None, after_animation_type=None, after_animation_color=None):  # noqa: E501
+    def __init__(self, type=None, subtype=None, preset_class_type=None, animate_text_type=None, shape_index=None, paragraph_index=None, trigger_type=None, accelerate=None, auto_reverse=None, decelerate=None, duration=None, repeat_count=None, repeat_duration=None, restart=None, speed=None, trigger_delay_time=None, repeat_until_end_slide=None, repeat_until_next_click=None, stop_previous_sound=None, rewind=None, after_animation_type=None, after_animation_color=None):  # noqa: E501
         """Effect - a model defined in Swagger"""  # noqa: E501
 
         self._type = None
         self._subtype = None
         self._preset_class_type = None
+        self._animate_text_type = None
         self._shape_index = None
         self._paragraph_index = None
         self._trigger_type = None
@@ -123,6 +126,8 @@ class Effect(object):
             self.subtype = subtype
         if preset_class_type is not None:
             self.preset_class_type = preset_class_type
+        if animate_text_type is not None:
+            self.animate_text_type = animate_text_type
         self.shape_index = shape_index
         if paragraph_index is not None:
             self.paragraph_index = paragraph_index
@@ -272,6 +277,44 @@ class Effect(object):
                     .format(preset_class_type, allowed_values)
                 )
         self._preset_class_type = preset_class_type
+
+    @property
+    def animate_text_type(self):
+        """Gets the animate_text_type of this Effect.  # noqa: E501
+
+        Preset class type.  # noqa: E501
+
+        :return: The animate_text_type of this Effect.  # noqa: E501
+        :rtype: str
+        """
+        return self._animate_text_type
+
+    @animate_text_type.setter
+    def animate_text_type(self, animate_text_type):
+        """Sets the animate_text_type of this Effect.
+
+        Preset class type.  # noqa: E501
+
+        :param animate_text_type: The animate_text_type of this Effect.  # noqa: E501
+        :type: str
+        """
+        if animate_text_type is not None:
+            allowed_values = ["AllAtOnce", "ByWord", "ByLetter"]  # noqa: E501
+            if animate_text_type.isdigit():
+                int_animate_text_type = int(animate_text_type)
+                if int_animate_text_type < 0 or int_animate_text_type >= len(allowed_values):
+                    raise ValueError(
+                        "Invalid value for `animate_text_type` ({0}), must be one of {1}"  # noqa: E501
+                        .format(animate_text_type, allowed_values)
+                    )
+                self._animate_text_type = allowed_values[int_animate_text_type]
+                return
+            if animate_text_type not in allowed_values:
+                raise ValueError(
+                    "Invalid value for `animate_text_type` ({0}), must be one of {1}"  # noqa: E501
+                    .format(animate_text_type, allowed_values)
+                )
+        self._animate_text_type = animate_text_type
 
     @property
     def shape_index(self):

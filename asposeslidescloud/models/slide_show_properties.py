@@ -51,6 +51,7 @@ class SlideShowProperties(ResourceBase):
         'pen_color': 'str',
         'show_animation': 'bool',
         'show_narration': 'bool',
+        'show_media_controls': 'bool',
         'use_timings': 'bool',
         'slide_show_type': 'str',
         'show_scrollbar': 'bool'
@@ -65,6 +66,7 @@ class SlideShowProperties(ResourceBase):
         'pen_color': 'penColor',
         'show_animation': 'showAnimation',
         'show_narration': 'showNarration',
+        'show_media_controls': 'showMediaControls',
         'use_timings': 'useTimings',
         'slide_show_type': 'slideShowType',
         'show_scrollbar': 'showScrollbar'
@@ -73,7 +75,7 @@ class SlideShowProperties(ResourceBase):
     type_determiners = {
     }
 
-    def __init__(self, self_uri=None, alternate_links=None, loop=None, start_slide=None, end_slide=None, pen_color=None, show_animation=None, show_narration=None, use_timings=None, slide_show_type=None, show_scrollbar=None):  # noqa: E501
+    def __init__(self, self_uri=None, alternate_links=None, loop=None, start_slide=None, end_slide=None, pen_color=None, show_animation=None, show_narration=None, show_media_controls=None, use_timings=None, slide_show_type=None, show_scrollbar=None):  # noqa: E501
         """SlideShowProperties - a model defined in Swagger"""  # noqa: E501
         super(SlideShowProperties, self).__init__(self_uri, alternate_links)
 
@@ -83,6 +85,7 @@ class SlideShowProperties(ResourceBase):
         self._pen_color = None
         self._show_animation = None
         self._show_narration = None
+        self._show_media_controls = None
         self._use_timings = None
         self._slide_show_type = None
         self._show_scrollbar = None
@@ -99,6 +102,8 @@ class SlideShowProperties(ResourceBase):
             self.show_animation = show_animation
         if show_narration is not None:
             self.show_narration = show_narration
+        if show_media_controls is not None:
+            self.show_media_controls = show_media_controls
         if use_timings is not None:
             self.use_timings = use_timings
         if slide_show_type is not None:
@@ -237,6 +242,28 @@ class SlideShowProperties(ResourceBase):
         :type: bool
         """
         self._show_narration = show_narration
+
+    @property
+    def show_media_controls(self):
+        """Gets the show_media_controls of this SlideShowProperties.  # noqa: E501
+
+        Show media controls.  # noqa: E501
+
+        :return: The show_media_controls of this SlideShowProperties.  # noqa: E501
+        :rtype: bool
+        """
+        return self._show_media_controls
+
+    @show_media_controls.setter
+    def show_media_controls(self, show_media_controls):
+        """Sets the show_media_controls of this SlideShowProperties.
+
+        Show media controls.  # noqa: E501
+
+        :param show_media_controls: The show_media_controls of this SlideShowProperties.  # noqa: E501
+        :type: bool
+        """
+        self._show_media_controls = show_media_controls
 
     @property
     def use_timings(self):

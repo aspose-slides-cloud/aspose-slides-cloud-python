@@ -51,6 +51,7 @@ class OleObjectFrame(ShapeBase):
         'alternative_text': 'str',
         'alternative_text_title': 'str',
         'hidden': 'bool',
+        'is_decorative': 'bool',
         'x': 'float',
         'y': 'float',
         'z_order_position': 'int',
@@ -81,6 +82,7 @@ class OleObjectFrame(ShapeBase):
         'alternative_text': 'alternativeText',
         'alternative_text_title': 'alternativeTextTitle',
         'hidden': 'hidden',
+        'is_decorative': 'isDecorative',
         'x': 'x',
         'y': 'y',
         'z_order_position': 'zOrderPosition',
@@ -106,9 +108,9 @@ class OleObjectFrame(ShapeBase):
         'type': 'OleObjectFrame',
     }
 
-    def __init__(self, self_uri=None, alternate_links=None, name=None, width=None, height=None, alternative_text=None, alternative_text_title=None, hidden=None, x=None, y=None, z_order_position=None, fill_format=None, effect_format=None, three_d_format=None, line_format=None, hyperlink_click=None, hyperlink_mouse_over=None, type='OleObjectFrame', is_object_icon=None, substitute_picture_title=None, substitute_picture_format=None, object_name=None, embedded_file_base64_data=None, embedded_file_extension=None, object_prog_id=None, link_path=None, update_automatic=None):  # noqa: E501
+    def __init__(self, self_uri=None, alternate_links=None, name=None, width=None, height=None, alternative_text=None, alternative_text_title=None, hidden=None, is_decorative=None, x=None, y=None, z_order_position=None, fill_format=None, effect_format=None, three_d_format=None, line_format=None, hyperlink_click=None, hyperlink_mouse_over=None, type='OleObjectFrame', is_object_icon=None, substitute_picture_title=None, substitute_picture_format=None, object_name=None, embedded_file_base64_data=None, embedded_file_extension=None, object_prog_id=None, link_path=None, update_automatic=None):  # noqa: E501
         """OleObjectFrame - a model defined in Swagger"""  # noqa: E501
-        super(OleObjectFrame, self).__init__(self_uri, alternate_links, name, width, height, alternative_text, alternative_text_title, hidden, x, y, z_order_position, fill_format, effect_format, three_d_format, line_format, hyperlink_click, hyperlink_mouse_over, type)
+        super(OleObjectFrame, self).__init__(self_uri, alternate_links, name, width, height, alternative_text, alternative_text_title, hidden, is_decorative, x, y, z_order_position, fill_format, effect_format, three_d_format, line_format, hyperlink_click, hyperlink_mouse_over, type)
 
         self._is_object_icon = None
         self._substitute_picture_title = None

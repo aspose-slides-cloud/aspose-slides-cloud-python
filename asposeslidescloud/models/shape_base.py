@@ -51,6 +51,7 @@ class ShapeBase(ResourceBase):
         'alternative_text': 'str',
         'alternative_text_title': 'str',
         'hidden': 'bool',
+        'is_decorative': 'bool',
         'x': 'float',
         'y': 'float',
         'z_order_position': 'int',
@@ -72,6 +73,7 @@ class ShapeBase(ResourceBase):
         'alternative_text': 'alternativeText',
         'alternative_text_title': 'alternativeTextTitle',
         'hidden': 'hidden',
+        'is_decorative': 'isDecorative',
         'x': 'x',
         'y': 'y',
         'z_order_position': 'zOrderPosition',
@@ -87,7 +89,7 @@ class ShapeBase(ResourceBase):
     type_determiners = {
     }
 
-    def __init__(self, self_uri=None, alternate_links=None, name=None, width=None, height=None, alternative_text=None, alternative_text_title=None, hidden=None, x=None, y=None, z_order_position=None, fill_format=None, effect_format=None, three_d_format=None, line_format=None, hyperlink_click=None, hyperlink_mouse_over=None, type=None):  # noqa: E501
+    def __init__(self, self_uri=None, alternate_links=None, name=None, width=None, height=None, alternative_text=None, alternative_text_title=None, hidden=None, is_decorative=None, x=None, y=None, z_order_position=None, fill_format=None, effect_format=None, three_d_format=None, line_format=None, hyperlink_click=None, hyperlink_mouse_over=None, type=None):  # noqa: E501
         """ShapeBase - a model defined in Swagger"""  # noqa: E501
         super(ShapeBase, self).__init__(self_uri, alternate_links)
 
@@ -97,6 +99,7 @@ class ShapeBase(ResourceBase):
         self._alternative_text = None
         self._alternative_text_title = None
         self._hidden = None
+        self._is_decorative = None
         self._x = None
         self._y = None
         self._z_order_position = None
@@ -120,6 +123,8 @@ class ShapeBase(ResourceBase):
             self.alternative_text_title = alternative_text_title
         if hidden is not None:
             self.hidden = hidden
+        if is_decorative is not None:
+            self.is_decorative = is_decorative
         if x is not None:
             self.x = x
         if y is not None:
@@ -271,6 +276,28 @@ class ShapeBase(ResourceBase):
         :type: bool
         """
         self._hidden = hidden
+
+    @property
+    def is_decorative(self):
+        """Gets the is_decorative of this ShapeBase.  # noqa: E501
+
+        Gets or sets 'Mark as decorative' option.  # noqa: E501
+
+        :return: The is_decorative of this ShapeBase.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_decorative
+
+    @is_decorative.setter
+    def is_decorative(self, is_decorative):
+        """Sets the is_decorative of this ShapeBase.
+
+        Gets or sets 'Mark as decorative' option.  # noqa: E501
+
+        :param is_decorative: The is_decorative of this ShapeBase.  # noqa: E501
+        :type: bool
+        """
+        self._is_decorative = is_decorative
 
     @property
     def x(self):

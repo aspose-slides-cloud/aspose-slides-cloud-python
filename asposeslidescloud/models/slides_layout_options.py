@@ -31,35 +31,8 @@ import re  # noqa: F401
 import six
 
 
-class SlideExportFormat(object):
+class SlidesLayoutOptions(object):
 
-    """
-    allowed enum values
-    """
-    JPEG = "Jpeg"
-    PNG = "Png"
-    GIF = "Gif"
-    BMP = "Bmp"
-    TIFF = "Tiff"
-    HTML = "Html"
-    PDF = "Pdf"
-    XPS = "Xps"
-    PPTX = "Pptx"
-    ODP = "Odp"
-    OTP = "Otp"
-    PPT = "Ppt"
-    PPS = "Pps"
-    PPSX = "Ppsx"
-    PPTM = "Pptm"
-    PPSM = "Ppsm"
-    POTX = "Potx"
-    POT = "Pot"
-    POTM = "Potm"
-    SVG = "Svg"
-    FODP = "Fodp"
-    XAML = "Xaml"
-    HTML5 = "Html5"
-    MD = "Md"
 
     """
     Attributes:
@@ -69,16 +42,59 @@ class SlideExportFormat(object):
                             and the value is json key in definition.
     """
     swagger_types = {
+        'layout_type': 'str'
     }
 
     attribute_map = {
+        'layout_type': 'layoutType'
     }
 
     type_determiners = {
     }
 
-    def __init__(self):  # noqa: E501
-        """SlideExportFormat - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, layout_type=None):  # noqa: E501
+        """SlidesLayoutOptions - a model defined in Swagger"""  # noqa: E501
+
+        self._layout_type = None
+
+        if layout_type is not None:
+            self.layout_type = layout_type
+
+    @property
+    def layout_type(self):
+        """Gets the layout_type of this SlidesLayoutOptions.  # noqa: E501
+
+
+        :return: The layout_type of this SlidesLayoutOptions.  # noqa: E501
+        :rtype: str
+        """
+        return self._layout_type
+
+    @layout_type.setter
+    def layout_type(self, layout_type):
+        """Sets the layout_type of this SlidesLayoutOptions.
+
+
+        :param layout_type: The layout_type of this SlidesLayoutOptions.  # noqa: E501
+        :type: str
+        """
+        if layout_type is not None:
+            allowed_values = ["NotesComments", "Handout"]  # noqa: E501
+            if layout_type.isdigit():
+                int_layout_type = int(layout_type)
+                if int_layout_type < 0 or int_layout_type >= len(allowed_values):
+                    raise ValueError(
+                        "Invalid value for `layout_type` ({0}), must be one of {1}"  # noqa: E501
+                        .format(layout_type, allowed_values)
+                    )
+                self._layout_type = allowed_values[int_layout_type]
+                return
+            if layout_type not in allowed_values:
+                raise ValueError(
+                    "Invalid value for `layout_type` ({0}), must be one of {1}"  # noqa: E501
+                    .format(layout_type, allowed_values)
+                )
+        self._layout_type = layout_type
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -114,7 +130,7 @@ class SlideExportFormat(object):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, SlideExportFormat):
+        if not isinstance(other, SlidesLayoutOptions):
             return False
 
         return self.__dict__ == other.__dict__

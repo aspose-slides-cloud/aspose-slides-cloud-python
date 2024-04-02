@@ -54,11 +54,8 @@ class TiffExportOptions(ImageExportOptionsBase):
         'dpi_y': 'int',
         'show_hidden_slides': 'bool',
         'pixel_format': 'str',
-        'notes_position': 'str',
-        'comments_position': 'str',
-        'comments_area_width': 'int',
-        'comments_area_color': 'str',
-        'show_comments_by_no_author': 'bool'
+        'slides_layout_options': 'SlidesLayoutOptions',
+        'bw_conversion_mode': 'str'
     }
 
     attribute_map = {
@@ -73,18 +70,15 @@ class TiffExportOptions(ImageExportOptionsBase):
         'dpi_y': 'dpiY',
         'show_hidden_slides': 'showHiddenSlides',
         'pixel_format': 'pixelFormat',
-        'notes_position': 'notesPosition',
-        'comments_position': 'commentsPosition',
-        'comments_area_width': 'commentsAreaWidth',
-        'comments_area_color': 'commentsAreaColor',
-        'show_comments_by_no_author': 'showCommentsByNoAuthor'
+        'slides_layout_options': 'slidesLayoutOptions',
+        'bw_conversion_mode': 'bwConversionMode'
     }
 
     type_determiners = {
         'format': 'tiff',
     }
 
-    def __init__(self, default_regular_font=None, font_fallback_rules=None, font_subst_rules=None, format='tiff', height=None, width=None, compression=None, dpi_x=None, dpi_y=None, show_hidden_slides=None, pixel_format=None, notes_position=None, comments_position=None, comments_area_width=None, comments_area_color=None, show_comments_by_no_author=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, font_fallback_rules=None, font_subst_rules=None, format='tiff', height=None, width=None, compression=None, dpi_x=None, dpi_y=None, show_hidden_slides=None, pixel_format=None, slides_layout_options=None, bw_conversion_mode=None):  # noqa: E501
         """TiffExportOptions - a model defined in Swagger"""  # noqa: E501
         super(TiffExportOptions, self).__init__(default_regular_font, font_fallback_rules, font_subst_rules, format, height, width)
 
@@ -93,11 +87,8 @@ class TiffExportOptions(ImageExportOptionsBase):
         self._dpi_y = None
         self._show_hidden_slides = None
         self._pixel_format = None
-        self._notes_position = None
-        self._comments_position = None
-        self._comments_area_width = None
-        self._comments_area_color = None
-        self._show_comments_by_no_author = None
+        self._slides_layout_options = None
+        self._bw_conversion_mode = None
         self.format = 'tiff'
 
         if compression is not None:
@@ -110,16 +101,10 @@ class TiffExportOptions(ImageExportOptionsBase):
             self.show_hidden_slides = show_hidden_slides
         if pixel_format is not None:
             self.pixel_format = pixel_format
-        if notes_position is not None:
-            self.notes_position = notes_position
-        if comments_position is not None:
-            self.comments_position = comments_position
-        if comments_area_width is not None:
-            self.comments_area_width = comments_area_width
-        if comments_area_color is not None:
-            self.comments_area_color = comments_area_color
-        if show_comments_by_no_author is not None:
-            self.show_comments_by_no_author = show_comments_by_no_author
+        if slides_layout_options is not None:
+            self.slides_layout_options = slides_layout_options
+        if bw_conversion_mode is not None:
+            self.bw_conversion_mode = bw_conversion_mode
 
     @property
     def compression(self):
@@ -264,146 +249,64 @@ class TiffExportOptions(ImageExportOptionsBase):
         self._pixel_format = pixel_format
 
     @property
-    def notes_position(self):
-        """Gets the notes_position of this TiffExportOptions.  # noqa: E501
+    def slides_layout_options(self):
+        """Gets the slides_layout_options of this TiffExportOptions.  # noqa: E501
 
-        Gets or sets the position of the notes on the page.  # noqa: E501
+        Slides layouting options  # noqa: E501
 
-        :return: The notes_position of this TiffExportOptions.  # noqa: E501
+        :return: The slides_layout_options of this TiffExportOptions.  # noqa: E501
+        :rtype: SlidesLayoutOptions
+        """
+        return self._slides_layout_options
+
+    @slides_layout_options.setter
+    def slides_layout_options(self, slides_layout_options):
+        """Sets the slides_layout_options of this TiffExportOptions.
+
+        Slides layouting options  # noqa: E501
+
+        :param slides_layout_options: The slides_layout_options of this TiffExportOptions.  # noqa: E501
+        :type: SlidesLayoutOptions
+        """
+        self._slides_layout_options = slides_layout_options
+
+    @property
+    def bw_conversion_mode(self):
+        """Gets the bw_conversion_mode of this TiffExportOptions.  # noqa: E501
+
+        Specifies the algorithm for converting a color image into a black and white image. This option will applied only if Aspose.Slides.Export.TiffOptions.CompressionType is set to Aspose.Slides.Export.TiffCompressionTypes.CCITT4 or Aspose.Slides.Export.TiffCompressionTypes.CCITT3.  # noqa: E501
+
+        :return: The bw_conversion_mode of this TiffExportOptions.  # noqa: E501
         :rtype: str
         """
-        return self._notes_position
+        return self._bw_conversion_mode
 
-    @notes_position.setter
-    def notes_position(self, notes_position):
-        """Sets the notes_position of this TiffExportOptions.
+    @bw_conversion_mode.setter
+    def bw_conversion_mode(self, bw_conversion_mode):
+        """Sets the bw_conversion_mode of this TiffExportOptions.
 
-        Gets or sets the position of the notes on the page.  # noqa: E501
+        Specifies the algorithm for converting a color image into a black and white image. This option will applied only if Aspose.Slides.Export.TiffOptions.CompressionType is set to Aspose.Slides.Export.TiffCompressionTypes.CCITT4 or Aspose.Slides.Export.TiffCompressionTypes.CCITT3.  # noqa: E501
 
-        :param notes_position: The notes_position of this TiffExportOptions.  # noqa: E501
+        :param bw_conversion_mode: The bw_conversion_mode of this TiffExportOptions.  # noqa: E501
         :type: str
         """
-        if notes_position is not None:
-            allowed_values = ["None", "BottomFull", "BottomTruncated"]  # noqa: E501
-            if notes_position.isdigit():
-                int_notes_position = int(notes_position)
-                if int_notes_position < 0 or int_notes_position >= len(allowed_values):
+        if bw_conversion_mode is not None:
+            allowed_values = ["Default", "Dithering", "DitheringFloydSteinberg", "Auto", "AutoOtsu", "Threshold25", "Threshold50", "Threshold75"]  # noqa: E501
+            if bw_conversion_mode.isdigit():
+                int_bw_conversion_mode = int(bw_conversion_mode)
+                if int_bw_conversion_mode < 0 or int_bw_conversion_mode >= len(allowed_values):
                     raise ValueError(
-                        "Invalid value for `notes_position` ({0}), must be one of {1}"  # noqa: E501
-                        .format(notes_position, allowed_values)
+                        "Invalid value for `bw_conversion_mode` ({0}), must be one of {1}"  # noqa: E501
+                        .format(bw_conversion_mode, allowed_values)
                     )
-                self._notes_position = allowed_values[int_notes_position]
+                self._bw_conversion_mode = allowed_values[int_bw_conversion_mode]
                 return
-            if notes_position not in allowed_values:
+            if bw_conversion_mode not in allowed_values:
                 raise ValueError(
-                    "Invalid value for `notes_position` ({0}), must be one of {1}"  # noqa: E501
-                    .format(notes_position, allowed_values)
+                    "Invalid value for `bw_conversion_mode` ({0}), must be one of {1}"  # noqa: E501
+                    .format(bw_conversion_mode, allowed_values)
                 )
-        self._notes_position = notes_position
-
-    @property
-    def comments_position(self):
-        """Gets the comments_position of this TiffExportOptions.  # noqa: E501
-
-        Gets or sets the position of the comments on the page.  # noqa: E501
-
-        :return: The comments_position of this TiffExportOptions.  # noqa: E501
-        :rtype: str
-        """
-        return self._comments_position
-
-    @comments_position.setter
-    def comments_position(self, comments_position):
-        """Sets the comments_position of this TiffExportOptions.
-
-        Gets or sets the position of the comments on the page.  # noqa: E501
-
-        :param comments_position: The comments_position of this TiffExportOptions.  # noqa: E501
-        :type: str
-        """
-        if comments_position is not None:
-            allowed_values = ["None", "Bottom", "Right"]  # noqa: E501
-            if comments_position.isdigit():
-                int_comments_position = int(comments_position)
-                if int_comments_position < 0 or int_comments_position >= len(allowed_values):
-                    raise ValueError(
-                        "Invalid value for `comments_position` ({0}), must be one of {1}"  # noqa: E501
-                        .format(comments_position, allowed_values)
-                    )
-                self._comments_position = allowed_values[int_comments_position]
-                return
-            if comments_position not in allowed_values:
-                raise ValueError(
-                    "Invalid value for `comments_position` ({0}), must be one of {1}"  # noqa: E501
-                    .format(comments_position, allowed_values)
-                )
-        self._comments_position = comments_position
-
-    @property
-    def comments_area_width(self):
-        """Gets the comments_area_width of this TiffExportOptions.  # noqa: E501
-
-        Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).  # noqa: E501
-
-        :return: The comments_area_width of this TiffExportOptions.  # noqa: E501
-        :rtype: int
-        """
-        return self._comments_area_width
-
-    @comments_area_width.setter
-    def comments_area_width(self, comments_area_width):
-        """Sets the comments_area_width of this TiffExportOptions.
-
-        Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).  # noqa: E501
-
-        :param comments_area_width: The comments_area_width of this TiffExportOptions.  # noqa: E501
-        :type: int
-        """
-        self._comments_area_width = comments_area_width
-
-    @property
-    def comments_area_color(self):
-        """Gets the comments_area_color of this TiffExportOptions.  # noqa: E501
-
-        Gets or sets the color of comments area (Applies only if comments are displayed on the right).  # noqa: E501
-
-        :return: The comments_area_color of this TiffExportOptions.  # noqa: E501
-        :rtype: str
-        """
-        return self._comments_area_color
-
-    @comments_area_color.setter
-    def comments_area_color(self, comments_area_color):
-        """Sets the comments_area_color of this TiffExportOptions.
-
-        Gets or sets the color of comments area (Applies only if comments are displayed on the right).  # noqa: E501
-
-        :param comments_area_color: The comments_area_color of this TiffExportOptions.  # noqa: E501
-        :type: str
-        """
-        self._comments_area_color = comments_area_color
-
-    @property
-    def show_comments_by_no_author(self):
-        """Gets the show_comments_by_no_author of this TiffExportOptions.  # noqa: E501
-
-        True if comments that have no author are displayed. (Applies only if comments are displayed).  # noqa: E501
-
-        :return: The show_comments_by_no_author of this TiffExportOptions.  # noqa: E501
-        :rtype: bool
-        """
-        return self._show_comments_by_no_author
-
-    @show_comments_by_no_author.setter
-    def show_comments_by_no_author(self, show_comments_by_no_author):
-        """Sets the show_comments_by_no_author of this TiffExportOptions.
-
-        True if comments that have no author are displayed. (Applies only if comments are displayed).  # noqa: E501
-
-        :param show_comments_by_no_author: The show_comments_by_no_author of this TiffExportOptions.  # noqa: E501
-        :type: bool
-        """
-        self._show_comments_by_no_author = show_comments_by_no_author
+        self._bw_conversion_mode = bw_conversion_mode
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -48,7 +48,9 @@ class Html5ExportOptions(ExportOptions):
         'font_subst_rules': 'list[FontSubstRule]',
         'format': 'str',
         'animate_transitions': 'bool',
-        'animate_shapes': 'bool'
+        'animate_shapes': 'bool',
+        'embed_images': 'bool',
+        'notes_comments_layouting': 'NotesCommentsLayoutingOptions'
     }
 
     attribute_map = {
@@ -57,25 +59,33 @@ class Html5ExportOptions(ExportOptions):
         'font_subst_rules': 'fontSubstRules',
         'format': 'format',
         'animate_transitions': 'animateTransitions',
-        'animate_shapes': 'animateShapes'
+        'animate_shapes': 'animateShapes',
+        'embed_images': 'embedImages',
+        'notes_comments_layouting': 'notesCommentsLayouting'
     }
 
     type_determiners = {
         'format': 'html5',
     }
 
-    def __init__(self, default_regular_font=None, font_fallback_rules=None, font_subst_rules=None, format='html5', animate_transitions=None, animate_shapes=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, font_fallback_rules=None, font_subst_rules=None, format='html5', animate_transitions=None, animate_shapes=None, embed_images=None, notes_comments_layouting=None):  # noqa: E501
         """Html5ExportOptions - a model defined in Swagger"""  # noqa: E501
         super(Html5ExportOptions, self).__init__(default_regular_font, font_fallback_rules, font_subst_rules, format)
 
         self._animate_transitions = None
         self._animate_shapes = None
+        self._embed_images = None
+        self._notes_comments_layouting = None
         self.format = 'html5'
 
         if animate_transitions is not None:
             self.animate_transitions = animate_transitions
         if animate_shapes is not None:
             self.animate_shapes = animate_shapes
+        if embed_images is not None:
+            self.embed_images = embed_images
+        if notes_comments_layouting is not None:
+            self.notes_comments_layouting = notes_comments_layouting
 
     @property
     def animate_transitions(self):
@@ -120,6 +130,50 @@ class Html5ExportOptions(ExportOptions):
         :type: bool
         """
         self._animate_shapes = animate_shapes
+
+    @property
+    def embed_images(self):
+        """Gets the embed_images of this Html5ExportOptions.  # noqa: E501
+
+        Gets or sets embed images option.  # noqa: E501
+
+        :return: The embed_images of this Html5ExportOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._embed_images
+
+    @embed_images.setter
+    def embed_images(self, embed_images):
+        """Sets the embed_images of this Html5ExportOptions.
+
+        Gets or sets embed images option.  # noqa: E501
+
+        :param embed_images: The embed_images of this Html5ExportOptions.  # noqa: E501
+        :type: bool
+        """
+        self._embed_images = embed_images
+
+    @property
+    def notes_comments_layouting(self):
+        """Gets the notes_comments_layouting of this Html5ExportOptions.  # noqa: E501
+
+        Slides layouting options  # noqa: E501
+
+        :return: The notes_comments_layouting of this Html5ExportOptions.  # noqa: E501
+        :rtype: NotesCommentsLayoutingOptions
+        """
+        return self._notes_comments_layouting
+
+    @notes_comments_layouting.setter
+    def notes_comments_layouting(self, notes_comments_layouting):
+        """Sets the notes_comments_layouting of this Html5ExportOptions.
+
+        Slides layouting options  # noqa: E501
+
+        :param notes_comments_layouting: The notes_comments_layouting of this Html5ExportOptions.  # noqa: E501
+        :type: NotesCommentsLayoutingOptions
+        """
+        self._notes_comments_layouting = notes_comments_layouting
 
     def to_dict(self):
         """Returns the model properties as a dict"""
