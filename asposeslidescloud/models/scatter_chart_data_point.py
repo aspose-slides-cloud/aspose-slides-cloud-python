@@ -47,6 +47,7 @@ class ScatterChartDataPoint(DataPoint):
         'effect_format': 'EffectFormat',
         'three_d_format': 'ThreeDFormat',
         'line_format': 'LineFormat',
+        'marker': 'SeriesMarker',
         'type': 'str',
         'x_value': 'float',
         'y_value': 'float',
@@ -59,6 +60,7 @@ class ScatterChartDataPoint(DataPoint):
         'effect_format': 'effectFormat',
         'three_d_format': 'threeDFormat',
         'line_format': 'lineFormat',
+        'marker': 'marker',
         'type': 'type',
         'x_value': 'xValue',
         'y_value': 'yValue',
@@ -70,9 +72,9 @@ class ScatterChartDataPoint(DataPoint):
         'type': 'Scatter',
     }
 
-    def __init__(self, fill_format=None, effect_format=None, three_d_format=None, line_format=None, type='Scatter', x_value=None, y_value=None, x_value_formula=None, y_value_formula=None):  # noqa: E501
+    def __init__(self, fill_format=None, effect_format=None, three_d_format=None, line_format=None, marker=None, type='Scatter', x_value=None, y_value=None, x_value_formula=None, y_value_formula=None):  # noqa: E501
         """ScatterChartDataPoint - a model defined in Swagger"""  # noqa: E501
-        super(ScatterChartDataPoint, self).__init__(fill_format, effect_format, three_d_format, line_format, type)
+        super(ScatterChartDataPoint, self).__init__(fill_format, effect_format, three_d_format, line_format, marker, type)
 
         self._x_value = None
         self._y_value = None

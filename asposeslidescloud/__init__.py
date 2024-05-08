@@ -156,9 +156,11 @@ from asposeslidescloud.models.line_format import LineFormat
 from asposeslidescloud.models.line_to_path_segment import LineToPathSegment
 from asposeslidescloud.models.literals import Literals
 from asposeslidescloud.models.luminance_effect import LuminanceEffect
+from asposeslidescloud.models.markdown_export_options import MarkdownExportOptions
 from asposeslidescloud.models.master_slide import MasterSlide
 from asposeslidescloud.models.master_slides import MasterSlides
 from asposeslidescloud.models.math_element import MathElement
+from asposeslidescloud.models.math_format import MathFormat
 from asposeslidescloud.models.math_paragraph import MathParagraph
 from asposeslidescloud.models.matrix_element import MatrixElement
 from asposeslidescloud.models.merge import Merge

@@ -119,7 +119,7 @@ class TestMath(BaseTest):
         folder_name = "TempSlidesSDK"
         file_name = "test.pptx"
         BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        mathMl = BaseTest.slides_api.download_portion_as_math_ml(file_name, 2, 3, 1, 1, "password", folder_name)
+        mathMl = BaseTest.slides_api.download_math_portion(file_name, 2, 3, 1, 1, "MathML", "password", folder_name)
         self.assertGreater(os.path.getsize(mathMl), 0)
 
     def test_math_download_null(self):
@@ -127,7 +127,7 @@ class TestMath(BaseTest):
         file_name = "test.pptx"
         BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
         try:
-            BaseTest.slides_api.download_portion_as_math_ml(file_name, 2, 1, 1, 1, "password", folder_name)
+            BaseTest.slides_api.download_math_portion(file_name, 2, 1, 1, 1, "MathML", "password", folder_name)
             self.fail("Must have failed because conversion to MathML works only for math portions")
         except ApiException as ex:
             self.assertEqual(400, ex.status)
@@ -137,5 +137,5 @@ class TestMath(BaseTest):
         file_name = "test.pptx"
         out_path = folder_name + "/mathml.xml"
         BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        BaseTest.slides_api.save_portion_as_math_ml(file_name, 2, 3, 1, 1, out_path, "password", folder_name)
+        BaseTest.slides_api.save_math_portion(file_name, 2, 3, 1, 1, "MathML", out_path, "password", folder_name)
         self.assertTrue(BaseTest.slides_api.object_exists(out_path).exists)

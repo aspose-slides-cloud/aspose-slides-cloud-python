@@ -46,6 +46,7 @@ class DataPoint(object):
         'effect_format': 'EffectFormat',
         'three_d_format': 'ThreeDFormat',
         'line_format': 'LineFormat',
+        'marker': 'SeriesMarker',
         'type': 'str'
     }
 
@@ -54,19 +55,21 @@ class DataPoint(object):
         'effect_format': 'effectFormat',
         'three_d_format': 'threeDFormat',
         'line_format': 'lineFormat',
+        'marker': 'marker',
         'type': 'type'
     }
 
     type_determiners = {
     }
 
-    def __init__(self, fill_format=None, effect_format=None, three_d_format=None, line_format=None, type=None):  # noqa: E501
+    def __init__(self, fill_format=None, effect_format=None, three_d_format=None, line_format=None, marker=None, type=None):  # noqa: E501
         """DataPoint - a model defined in Swagger"""  # noqa: E501
 
         self._fill_format = None
         self._effect_format = None
         self._three_d_format = None
         self._line_format = None
+        self._marker = None
         self._type = None
 
         if fill_format is not None:
@@ -77,6 +80,8 @@ class DataPoint(object):
             self.three_d_format = three_d_format
         if line_format is not None:
             self.line_format = line_format
+        if marker is not None:
+            self.marker = marker
         if type is not None:
             self.type = type
 
@@ -167,6 +172,28 @@ class DataPoint(object):
         :type: LineFormat
         """
         self._line_format = line_format
+
+    @property
+    def marker(self):
+        """Gets the marker of this DataPoint.  # noqa: E501
+
+        Gets or sets the marker.  # noqa: E501
+
+        :return: The marker of this DataPoint.  # noqa: E501
+        :rtype: SeriesMarker
+        """
+        return self._marker
+
+    @marker.setter
+    def marker(self, marker):
+        """Sets the marker of this DataPoint.
+
+        Gets or sets the marker.  # noqa: E501
+
+        :param marker: The marker of this DataPoint.  # noqa: E501
+        :type: SeriesMarker
+        """
+        self._marker = marker
 
     @property
     def type(self):
