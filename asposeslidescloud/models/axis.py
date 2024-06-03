@@ -44,6 +44,7 @@ class Axis(object):
     swagger_types = {
         'is_visible': 'bool',
         'has_title': 'bool',
+        'title': 'ChartTitle',
         'position': 'str',
         'display_unit': 'str',
         'base_unit_scale': 'str',
@@ -85,6 +86,7 @@ class Axis(object):
     attribute_map = {
         'is_visible': 'isVisible',
         'has_title': 'hasTitle',
+        'title': 'title',
         'position': 'position',
         'display_unit': 'displayUnit',
         'base_unit_scale': 'baseUnitScale',
@@ -126,11 +128,12 @@ class Axis(object):
     type_determiners = {
     }
 
-    def __init__(self, is_visible=None, has_title=None, position=None, display_unit=None, base_unit_scale=None, is_automatic_major_unit=None, major_unit=None, major_unit_scale=None, major_tick_mark=None, is_automatic_minor_unit=None, minor_unit=None, minor_unit_scale=None, minor_tick_mark=None, is_automatic_max_value=None, max_value=None, is_automatic_min_value=None, min_value=None, is_logarithmic=None, log_base=None, category_axis_type=None, axis_between_categories=None, label_offset=None, is_plot_order_reversed=None, is_number_format_linked_to_source=None, number_format=None, cross_type=None, cross_at=None, is_automatic_tick_marks_spacing=None, tick_marks_spacing=None, is_automatic_tick_label_spacing=None, tick_label_spacing=None, tick_label_position=None, tick_label_rotation_angle=None, fill_format=None, effect_format=None, line_format=None, major_grid_lines_format=None, minor_grid_lines_format=None):  # noqa: E501
+    def __init__(self, is_visible=None, has_title=None, title=None, position=None, display_unit=None, base_unit_scale=None, is_automatic_major_unit=None, major_unit=None, major_unit_scale=None, major_tick_mark=None, is_automatic_minor_unit=None, minor_unit=None, minor_unit_scale=None, minor_tick_mark=None, is_automatic_max_value=None, max_value=None, is_automatic_min_value=None, min_value=None, is_logarithmic=None, log_base=None, category_axis_type=None, axis_between_categories=None, label_offset=None, is_plot_order_reversed=None, is_number_format_linked_to_source=None, number_format=None, cross_type=None, cross_at=None, is_automatic_tick_marks_spacing=None, tick_marks_spacing=None, is_automatic_tick_label_spacing=None, tick_label_spacing=None, tick_label_position=None, tick_label_rotation_angle=None, fill_format=None, effect_format=None, line_format=None, major_grid_lines_format=None, minor_grid_lines_format=None):  # noqa: E501
         """Axis - a model defined in Swagger"""  # noqa: E501
 
         self._is_visible = None
         self._has_title = None
+        self._title = None
         self._position = None
         self._display_unit = None
         self._base_unit_scale = None
@@ -172,6 +175,8 @@ class Axis(object):
             self.is_visible = is_visible
         if has_title is not None:
             self.has_title = has_title
+        if title is not None:
+            self.title = title
         if position is not None:
             self.position = position
         if display_unit is not None:
@@ -288,6 +293,28 @@ class Axis(object):
         :type: bool
         """
         self._has_title = has_title
+
+    @property
+    def title(self):
+        """Gets the title of this Axis.  # noqa: E501
+
+        Axis title  # noqa: E501
+
+        :return: The title of this Axis.  # noqa: E501
+        :rtype: ChartTitle
+        """
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        """Sets the title of this Axis.
+
+        Axis title  # noqa: E501
+
+        :param title: The title of this Axis.  # noqa: E501
+        :type: ChartTitle
+        """
+        self._title = title
 
     @property
     def position(self):

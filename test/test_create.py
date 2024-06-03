@@ -1,5 +1,6 @@
 from __future__ import absolute_import
 
+from asposeslidescloud import PdfImportOptions
 from test.base_test import BaseTest
 import asposeslidescloud
 from test import constant
@@ -66,7 +67,7 @@ class TestCreate(BaseTest):
         BaseTest.slides_api.delete_file(folder_name + "/" + file_name)
         with open(constant.LOCAL_TEST_DATA_FOLDER + "/test.pdf", 'rb') as f:
             source = f.read()
-        BaseTest.slides_api.import_from_pdf(file_name, source, None, folder_name)
+        BaseTest.slides_api.import_from_pdf(file_name, source, None, None, folder_name)
 
     def test_append_from_pdf(self):
         folder_name = "TempSlidesSDK"
@@ -76,6 +77,8 @@ class TestCreate(BaseTest):
         slideCount = len(BaseTest.slides_api.get_slides(file_name, password, folder_name).slide_list)
         with open(constant.LOCAL_TEST_DATA_FOLDER + "/test.pdf", 'rb') as f:
             source = f.read()
-        BaseTest.slides_api.import_from_pdf(file_name, source, password, folder_name)
+        options = PdfImportOptions()
+        options.detect_tables = False
+        BaseTest.slides_api.import_from_pdf(file_name, source, options, password, folder_name)
         newSlideCount = len(BaseTest.slides_api.get_slides(file_name, password, folder_name).slide_list)
         self.assertEqual(slideCount + 4, newSlideCount)

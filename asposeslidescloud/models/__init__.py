@@ -182,6 +182,7 @@ from asposeslidescloud.models.path_output_file import PathOutputFile
 from asposeslidescloud.models.path_segment import PathSegment
 from asposeslidescloud.models.pattern_fill import PatternFill
 from asposeslidescloud.models.pdf_export_options import PdfExportOptions
+from asposeslidescloud.models.pdf_import_options import PdfImportOptions
 from asposeslidescloud.models.picture_fill import PictureFill
 from asposeslidescloud.models.picture_frame import PictureFrame
 from asposeslidescloud.models.pipeline import Pipeline

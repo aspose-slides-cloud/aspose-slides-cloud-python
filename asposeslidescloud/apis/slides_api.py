@@ -22064,17 +22064,18 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def import_from_pdf(self, name, pdf, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+    def import_from_pdf(self, name, pdf, options = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
         """Create presentation document from pdf or append pdf to an existing presentation.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.(name, pdf, password, folder, storage, is_async=True)
+        >>> thread = api.(name, pdf, options, password, folder, storage, is_async=True)
         >>> result = thread.get()
 
         :param is_async bool
         :param name Document name.
         :param pdf PDF data.
+        :param options Import options.
         :param password Document password.
         :param folder Document folder.
         :param storage Document storage.
@@ -22084,22 +22085,23 @@ class SlidesApi(ApiBase):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('is_async'):
-            return self.import_from_pdf_with_http_info(name, pdf, password, folder, storage, **kwargs)  # noqa: E501
+            return self.import_from_pdf_with_http_info(name, pdf, options, password, folder, storage, **kwargs)  # noqa: E501
         else:
-            (data) = self.import_from_pdf_with_http_info(name, pdf, password, folder, storage, **kwargs)  # noqa: E501
+            (data) = self.import_from_pdf_with_http_info(name, pdf, options, password, folder, storage, **kwargs)  # noqa: E501
             return data
 
-    def import_from_pdf_with_http_info(self, name, pdf, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+    def import_from_pdf_with_http_info(self, name, pdf, options = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
         """Create presentation document from pdf or append pdf to an existing presentation.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.import_from_pdf_with_http_info(name, pdf, password, folder, storage, is_async=True)
+        >>> thread = api.import_from_pdf_with_http_info(name, pdf, options, password, folder, storage, is_async=True)
         >>> result = thread.get()
 
         :param is_async bool
         :param name Document name.
         :param pdf PDF data.
+        :param options Import options.
         :param password Document password.
         :param folder Document folder.
         :param storage Document storage.
@@ -22151,6 +22153,8 @@ class SlidesApi(ApiBase):
             param_files['pdf'] = pdf  # noqa: E501
 
         body_params = None
+        if options:
+            body_params = options
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501

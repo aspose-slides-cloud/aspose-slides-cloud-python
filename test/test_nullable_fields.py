@@ -25,9 +25,9 @@ class TestNullableFields(BaseTest):
         test_dto.chart_type = "Line"
         test_dto.width = 400
         test_dto.height = 300
+        test_dto.has_title = True
 
         test_title = ChartTitle()
-        test_title.has_title = True
         test_title.text = "MyTitle"
         test_dto.title = test_title
 
