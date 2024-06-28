@@ -1,38 +1,27 @@
-
 from __future__ import absolute_import
 
 from asposeslidescloud import OneValueSeries, Chart, OneValueChartDataPoint, ChartCategory, Axis, ChartLinesFormat, \
     LineFormat, NoFill, SolidFill, GradientFill, GradientFillStop, Axes, Legend, ChartWall, EffectFormat, BlurEffect, \
     Workbook, Literals
 from asposeslidescloud.rest import ApiException
-from test import constant
 from test.base_test import BaseTest
-import asposeslidescloud
-
 
 class TestChart(BaseTest):
     def setUp(self):
-        self.api = asposeslidescloud.apis.slides_api.SlidesApi(self.slides_api_configuration)  # noqa: E501
+        self.slide_index = 3
+        self.shape_index = 1
 
     def tearDown(self):
         pass
 
-    def test_chart(self):
-        chart = Chart()
-        self.assertEqual("Chart", chart.type)
-
-    def test_chart_get(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        chart = BaseTest.slides_api.get_shape(file_name, 3, 1, "password", folder_name)
+    def test_get_chart(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        chart = BaseTest.slides_api.get_shape(self.file_name, self.slide_index, self.shape_index, self.password, self.folder_name)
         self.assertEqual(3, len(chart.series))
         self.assertEqual(4, len(chart.categories))
 
-    def test_chart_create_auto_data_source(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_create_chart_auto_data_source(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         chart = Chart()
         chart.chart_type = 'ClusteredColumn'
         chart.width = 400
@@ -63,14 +52,12 @@ class TestChart(BaseTest):
         category3 = ChartCategory()
         category3.value = "Category3"
         chart.categories = [category1, category2, category3]
-        result = BaseTest.slides_api.create_shape(file_name, 3, chart, None, None, "password", folder_name)
+        result = BaseTest.slides_api.create_shape(self.file_name, self.slide_index, chart, None, None, self.password, self.folder_name)
         self.assertEqual(2, len(result.series))
         self.assertEqual(3, len(result.categories))
 
-    def test_chart_create_workbook(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_create_chart_workbook(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         chart = Chart()
         chart.chart_type = 'ClusteredColumn'
         chart.width = 400
@@ -132,14 +119,12 @@ class TestChart(BaseTest):
         category3 = ChartCategory()
         category3.value = "Category3"
         chart.categories = [category1, category2, category3]
-        result = BaseTest.slides_api.create_shape(file_name, 3, chart, None, None, "password", folder_name)
+        result = BaseTest.slides_api.create_shape(self.file_name, self.slide_index, chart, None, None, self.password, self.folder_name)
         self.assertEqual(2, len(result.series))
         self.assertEqual(3, len(result.categories))
 
-    def test_chart_create_literals(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_create_chart_literals(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         chart = Chart()
         chart.chart_type = 'ClusteredColumn'
         chart.width = 400
@@ -181,14 +166,12 @@ class TestChart(BaseTest):
         category3 = ChartCategory()
         category3.value = "Category3"
         chart.categories = [category1, category2, category3]
-        result = BaseTest.slides_api.create_shape(file_name, 3, chart, None, None, "password", folder_name)
+        result = BaseTest.slides_api.create_shape(self.file_name, self.slide_index, chart, None, None, self.password, self.folder_name)
         self.assertEqual(2, len(result.series))
         self.assertEqual(3, len(result.categories))
 
-    def test_chart_update(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_update_chart(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         chart = Chart()
         chart.chart_type = 'ClusteredColumn'
         chart.width = 400
@@ -219,14 +202,13 @@ class TestChart(BaseTest):
         category3 = ChartCategory()
         category3.value = "Category3"
         chart.categories = [category1, category2, category3]
-        result = BaseTest.slides_api.update_shape(file_name, 3, 1, chart, "password", folder_name)
+        result = BaseTest.slides_api.update_shape(
+            self.file_name, self.slide_index, self.shape_index, chart, self.password, self.folder_name)
         self.assertEqual(2, len(result.series))
         self.assertEqual(3, len(result.categories))
 
-    def test_chart_series_create(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_create_chart_series(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         series = OneValueSeries()
         series.name = "Series3"
         point1 = OneValueChartDataPoint()
@@ -238,14 +220,13 @@ class TestChart(BaseTest):
         point4 = OneValueChartDataPoint()
         point4.value = 70
         series.data_points = [point1, point2, point3, point4]
-        result = BaseTest.slides_api.create_chart_series(file_name, 3, 1, series, "password", folder_name)
+        result = BaseTest.slides_api.create_chart_series(
+            self.file_name, self.slide_index, self.shape_index, series, self.password, self.folder_name)
         self.assertEqual(4, len(result.series))
         self.assertEqual(4, len(result.categories))
 
-    def test_chart_series_update(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_update_chart_series(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         series = OneValueSeries()
         series.name = "Series3"
         point1 = OneValueChartDataPoint()
@@ -257,22 +238,20 @@ class TestChart(BaseTest):
         point4 = OneValueChartDataPoint()
         point4.value = 70
         series.data_points = [point1, point2, point3, point4]
-        result = BaseTest.slides_api.update_chart_series(file_name, 3, 1, 2, series, "password", folder_name)
+        result = BaseTest.slides_api.update_chart_series(
+            self.file_name, self.slide_index, self.shape_index, 2, series, self.password, self.folder_name)
         self.assertEqual(3, len(result.series))
         self.assertEqual(4, len(result.categories))
 
-    def test_chart_series_delete(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        result = BaseTest.slides_api.delete_chart_series(file_name, 3, 1, 2, "password", folder_name)
+    def test_delete_chart_series(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        result = BaseTest.slides_api.delete_chart_series(
+            self.file_name, self.slide_index, self.shape_index, 2, self.password, self.folder_name)
         self.assertEqual(2, len(result.series))
         self.assertEqual(4, len(result.categories))
 
-    def test_chart_category_create(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_create_chart_category(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         category = ChartCategory()
         category.value = "NewCategory"
         point1 = OneValueChartDataPoint()
@@ -282,16 +261,15 @@ class TestChart(BaseTest):
         point3 = OneValueChartDataPoint()
         point3.value = 14
         category.data_points = [point1, point2, point3]
-        result = BaseTest.slides_api.create_chart_category(file_name, 3, 1, category, "password", folder_name)
+        result = BaseTest.slides_api.create_chart_category(
+            self.file_name, self.slide_index, self.shape_index, category, self.password, self.folder_name)
         self.assertEqual(3, len(result.series))
         self.assertEqual(5, len(result.categories))
         self.assertEqual(5, len(result.series[0].data_points))
         self.assertEqual(category.data_points[0].value, result.series[0].data_points[4].value)
 
-    def test_chart_category_update(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_update_chart_category(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         category = ChartCategory()
         category.value = "NewCategory"
         point1 = OneValueChartDataPoint()
@@ -301,58 +279,53 @@ class TestChart(BaseTest):
         point3 = OneValueChartDataPoint()
         point3.value = 14
         category.data_points = [point1, point2, point3]
-        result = BaseTest.slides_api.update_chart_category(file_name, 3, 1, 2, category, "password", folder_name)
+        result = BaseTest.slides_api.update_chart_category(
+            self.file_name, self.slide_index, self.shape_index, 2, category, self.password, self.folder_name)
         self.assertEqual(3, len(result.series))
         self.assertEqual(4, len(result.categories))
         self.assertEqual(4, len(result.series[0].data_points))
         self.assertEqual(category.data_points[0].value, result.series[0].data_points[1].value)
 
-    def test_chart_category_delete(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        result = BaseTest.slides_api.delete_chart_category(file_name, 3, 1, 2, "password", folder_name)
+    def test_delete_chart_category(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        result = BaseTest.slides_api.delete_chart_category(
+            self.file_name, self.slide_index, self.shape_index, 2, self.password, self.folder_name)
         self.assertEqual(3, len(result.series))
         self.assertEqual(3, len(result.categories))
         self.assertEqual(3, len(result.series[0].data_points))
 
-    def test_chart_data_point_create(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_create_chart_data_point(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         point = OneValueChartDataPoint()
         point.value = 40
         try:
-            BaseTest.slides_api.create_chart_data_point(file_name, 3, 1, 2, point, "password", folder_name)
+            BaseTest.slides_api.create_chart_data_point(
+                self.file_name, self.slide_index, self.shape_index, 2, point, self.password, self.folder_name)
             self.fail("Must have failed because adding data points only works with Scatter & Bubble charts")
         except ApiException as ex:
             self.assertEqual(400, ex.status)
 
-    def test_chart_data_point_update(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_update_chart_data_point(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         point = OneValueChartDataPoint()
         point.value = 40
-        result = BaseTest.slides_api.update_chart_data_point(file_name, 3, 1, 2, 2, point, "password", folder_name)
+        result = BaseTest.slides_api.update_chart_data_point(
+            self.file_name, self.slide_index, self.shape_index, 2, 2, point, self.password, self.folder_name)
         self.assertEqual(3, len(result.series))
         self.assertEqual(4, len(result.categories))
         self.assertEqual(4, len(result.series[1].data_points))
         self.assertEqual(point.value, result.series[1].data_points[1].value)
 
-    def test_chart_data_point_delete(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        result = BaseTest.slides_api.delete_chart_data_point(file_name, 3, 1, 2, 2, "password", folder_name)
+    def test_delete_chart_data_point(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        result = BaseTest.slides_api.delete_chart_data_point(
+            self.file_name, self.slide_index, self.shape_index, 2, 2, self.password, self.folder_name)
         self.assertEqual(3, len(result.series))
         self.assertEqual(4, len(result.categories))
         self.assertIsNone(result.series[1].data_points[1])
 
-    def test_chart_sunburst(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_sunburst_chart(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         chart = Chart()
         chart.chart_type = 'Sunburst'
         chart.width = 400
@@ -385,14 +358,12 @@ class TestChart(BaseTest):
         category4.value = "Stem2"
         category4.level = 1
         chart.categories = [category1, category2, category3, category4]
-        result = BaseTest.slides_api.create_shape(file_name, 3, chart, None, None, "password", folder_name)
+        result = BaseTest.slides_api.create_shape(self.file_name, self.slide_index, chart, None, None, self.password, self.folder_name)
         self.assertEqual(1, len(result.series))
         self.assertEqual(4, len(result.categories))
 
-    def test_multilevel_category_axis(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_multilevel_chart_category(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         chart = Chart()
         chart.chart_type = "ClusteredColumn"
         chart.x = 100
@@ -440,30 +411,21 @@ class TestChart(BaseTest):
         category8 = ChartCategory()
         category8.value = "Category 8"
 
-        slide_index = 3
         chart.categories = [category1, category2, category3, category4, category5, category6, category7, category8]
-        result = BaseTest.slides_api.create_shape(file_name, slide_index, chart, None, None, "password", folder_name)
+        result = BaseTest.slides_api.create_shape(self.file_name, self.slide_index, chart, None, None, self.password, self.folder_name)
         self.assertEqual("ClusteredColumn", result.chart_type)
 
     def test_hide_chart_legend(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        slide_index = 3
-        shape_index = 1
-
-        chart = BaseTest.slides_api.get_shape(file_name, slide_index, shape_index, "password", folder_name)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        chart = BaseTest.slides_api.get_shape(self.file_name, self.slide_index, self.shape_index, self.password, self.folder_name)
         chart.legend.has_legend = False
-        chart = BaseTest.slides_api.update_shape(file_name, slide_index, shape_index, chart, "password", folder_name)
+        chart = BaseTest.slides_api.update_shape(
+            self.file_name, self.slide_index, self.shape_index, chart, self.password, self.folder_name)
         self.assertEqual(False, chart.legend.has_legend)
 
-    def test_chart_grid_lines_format(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        slide_index = 3
-        shape_index = 1
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        chart = BaseTest.slides_api.get_shape(file_name, slide_index, shape_index, "password", folder_name)
+    def test_chart_axis_grid_lines_format(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        chart = BaseTest.slides_api.get_shape(self.file_name, self.slide_index, self.shape_index, self.password, self.folder_name)
 
         horizontal_axis = Axis()
         horizontal_axis.major_grid_lines_format = ChartLinesFormat()
@@ -496,7 +458,8 @@ class TestChart(BaseTest):
         chart.axes = Axes()
         chart.axes.horizontal_axis = horizontal_axis
         chart.axes.vertical_axis = vertical_axis
-        chart = BaseTest.slides_api.update_shape(file_name, slide_index, shape_index, chart, "password", folder_name)
+        chart = BaseTest.slides_api.update_shape(
+            self.file_name, self.slide_index, self.shape_index, chart, self.password, self.folder_name)
 
         self.assertEqual("NoFill", chart.axes.horizontal_axis.major_grid_lines_format.line_format.fill_format.type)
         self.assertEqual("Solid", chart.axes.horizontal_axis.minor_grid_lines_format.line_format.fill_format.type)
@@ -504,58 +467,51 @@ class TestChart(BaseTest):
         self.assertEqual("NoFill", chart.axes.vertical_axis.minor_grid_lines_format.line_format.fill_format.type)
 
     def test_chart_series_groups(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        chart = BaseTest.slides_api.get_shape(file_name, 3, 1, "password", folder_name)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        chart = BaseTest.slides_api.get_shape(self.file_name, self.slide_index, self.shape_index, self.password, self.folder_name)
         self.assertEqual(1, len(chart.series_groups))
         chart.series_groups[0].overlap = 10
-        chart = BaseTest.slides_api.set_chart_series_group(file_name, 3, 1, 1, chart.series_groups[0], "password",
-                                                              folder_name)
+        chart = BaseTest.slides_api.set_chart_series_group(
+            self.file_name, self.slide_index, self.shape_index, 1, chart.series_groups[0], self.password, self.folder_name)
         self.assertEqual(10, chart.series_groups[0].overlap)
 
     def test_set_chart_legend(self):
-        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" +
-                                      constant.FILE_NAME)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         legend = Legend()
         legend.overlay = True
         fill_format = SolidFill()
-        fill_format.color = constant.COLOR
+        fill_format.color = "#FFF5FF8A"
         legend.fill_format = fill_format
-        response = BaseTest.slides_api.set_chart_legend(constant.FILE_NAME, 3, 1, legend, constant.PASSWORD,
-                                                        constant.FOLDER_NAME)
+        response = BaseTest.slides_api.set_chart_legend(
+            self.file_name, self.slide_index, self.shape_index, legend, self.password, self.folder_name)
         self.assertTrue(response.overlay)
         self.assertEqual('Solid', response.fill_format.type)
 
     def test_set_chart_axis(self):
-        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" +
-                                      constant.FILE_NAME)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         axis = Axis()
         axis.has_title = True
         axis.is_automatic_max_value = False
         axis.max_value = 10
-        response = BaseTest.slides_api.set_chart_axis(constant.FILE_NAME, 3, 1, "VerticalAxis", axis, constant.PASSWORD,
-                                                        constant.FOLDER_NAME)
+        response = BaseTest.slides_api.set_chart_axis(
+            self.file_name, self.slide_index, self.shape_index, "VerticalAxis", axis, self.password, self.folder_name)
         self.assertTrue(axis.has_title)
         self.assertFalse(axis.is_automatic_max_value)
         self.assertEqual(axis.max_value, response.max_value)
 
 
     def test_set_chart_wall(self):
-        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" +
-                                      constant.FILE_NAME)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         wall = ChartWall()
         fill_format = SolidFill()
-        fill_format.color = constant.COLOR
+        fill_format.color = "#FFF5FF8A"
         wall.fill_format = fill_format
 
-        response = BaseTest.slides_api.set_chart_wall(constant.FILE_NAME, 8, 2, "Backwall", wall, constant.PASSWORD,
-                                                        constant.FOLDER_NAME)
+        response = BaseTest.slides_api.set_chart_wall(self.file_name, 8, 2, "Backwall", wall, self.password, self.folder_name)
         self.assertEqual('Solid', response.fill_format.type)
 
     def test_update_data_point_format(self):
-        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME, constant.FOLDER_NAME + "/" +
-                                      constant.FILE_NAME)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         slide_index = 8
         shape_index = 2
         data_point_index = 2
@@ -563,10 +519,10 @@ class TestChart(BaseTest):
         dto = OneValueChartDataPoint()
         dto.value = 40
         fill_format = SolidFill()
-        fill_format.color = constant.COLOR
+        fill_format.color = "#FFF5FF8A"
         line_format = LineFormat()
         line_fill_format = SolidFill()
-        line_fill_format.color = constant.COLOR
+        line_fill_format.color = "#FFF5FF8A"
         line_format.fill_format = line_fill_format
         effect_format = EffectFormat()
         effect_format.blur = BlurEffect()
@@ -574,16 +530,14 @@ class TestChart(BaseTest):
         dto.line_format = line_format
         dto.effect_format = effect_format
 
-        chart = BaseTest.slides_api.update_chart_data_point(constant.FILE_NAME, slide_index, shape_index, series_index,
-                                                            data_point_index, dto, constant.PASSWORD, constant.FOLDER_NAME)
+        chart = BaseTest.slides_api.update_chart_data_point(
+            self.file_name, slide_index, shape_index, series_index, data_point_index, dto, self.password, self.folder_name)
         data_point = chart.series[series_index - 1].data_points[data_point_index - 1]
         self.assertEqual(data_point.fill_format.type, "Solid")
         self.assertEqual(data_point.line_format.fill_format.type, "Solid")
 
-    def test_chart_formulas(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_chart_workbook_formulas(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         chart = Chart()
         chart.chart_type = 'ClusteredColumn'
         chart.width = 400
@@ -624,6 +578,5 @@ class TestChart(BaseTest):
         category3 = ChartCategory()
         category3.value = "Category3"
         chart.categories = [category1, category2, category3]
-        result = BaseTest.slides_api.create_shape(file_name, 3, chart, None, None, "password", folder_name)
+        result = BaseTest.slides_api.create_shape(self.file_name, self.slide_index, chart, None, None, self.password, self.folder_name)
         self.assertEqual(90, result.series[0].data_points[2].value)
-

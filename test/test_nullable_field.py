@@ -2,24 +2,22 @@ from __future__ import absolute_import
 
 from asposeslidescloud import Axis, Chart, Axes, OneValueChartDataPoint, OneValueSeries, ChartTitle, ChartCategory
 from test.base_test import BaseTest
-import asposeslidescloud
 
-class TestNullableFields(BaseTest):
+class TestNullableField(BaseTest):
     def setUp(self):
-        self.api = asposeslidescloud.apis.slides_api.SlidesApi(self.slides_api_configuration)  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
 
     def test_nullable_properties(self):
-        folder_name = "TempSlidesSDK";
-        file_name = "test.pptx";
-        password = "password";
+        slide_index = 1
+        shape_index = 5
         min1  = 44.3;
         min2 = 12;
         max1 = 104.3;
         max2 = 87;
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
 
         test_dto = Chart()
         test_dto.chart_type = "Line"
@@ -49,9 +47,9 @@ class TestNullableFields(BaseTest):
         test_axis.max_value = max1
         test_axes.horizontal_axis = test_axis
         test_dto.axes = test_axes
-        result = BaseTest.slides_api.create_shape(file_name, 1, test_dto, None, None, password, folder_name)
+        result = BaseTest.slides_api.create_shape(self.file_name, slide_index, test_dto, None, None, self.password, self.folder_name)
 
-        result = BaseTest.slides_api.get_shape(file_name, 1, 5, password, folder_name)
+        result = BaseTest.slides_api.get_shape(self.file_name, slide_index, shape_index, self.password, self.folder_name)
         self.assertEqual(min1, result.axes.horizontal_axis.min_value)
         self.assertEqual(max1, result.axes.horizontal_axis.max_value)
 
@@ -61,9 +59,9 @@ class TestNullableFields(BaseTest):
         test_axis.min_value = min2
         test_axes.horizontal_axis = test_axis
         test_dto.axes = test_axes
-        result = BaseTest.slides_api.update_shape(file_name, 1, 5, test_dto, password, folder_name)
+        result = BaseTest.slides_api.update_shape(self.file_name, slide_index, shape_index, test_dto, self.password, self.folder_name)
 
-        result = BaseTest.slides_api.get_shape(file_name, 1, 5, password, folder_name)
+        result = BaseTest.slides_api.get_shape(self.file_name, slide_index, shape_index, self.password, self.folder_name)
         self.assertEqual(min2, result.axes.horizontal_axis.min_value)
         self.assertEqual(max1, result.axes.horizontal_axis.max_value)
 
@@ -71,8 +69,8 @@ class TestNullableFields(BaseTest):
         test_axis.max_value = max2
         test_axes.horizontal_axis = test_axis
         test_dto.axes = test_axes
-        result = BaseTest.slides_api.update_shape(file_name, 1, 5, test_dto, password, folder_name)
+        result = BaseTest.slides_api.update_shape(self.file_name, slide_index, shape_index, test_dto, self.password, self.folder_name)
 
-        result = BaseTest.slides_api.get_shape(file_name, 1, 5, password, folder_name)
+        result = BaseTest.slides_api.get_shape(self.file_name, slide_index, shape_index, self.password, self.folder_name)
         self.assertEqual(min2, result.axes.horizontal_axis.min_value)
         self.assertEqual(max2, result.axes.horizontal_axis.max_value)

@@ -158,10 +158,8 @@ class RESTClientObject(object):
             logger.debug('Post parameters: %s', post_params)
         if headers:
             logger.debug('Headers: ' + json.dumps(headers))
-        if not body is None:
+        if not body is None and headers['Content-Type'] != 'multipart/form-data':
             logger.debug("Body: %s", body)
-        if files:
-            logger.debug('Files: %s', files)
         try:
             # For `POST`, `PUT`, `PATCH`, `OPTIONS`, `DELETE`
             if method in ['POST', 'PUT', 'PATCH', 'OPTIONS', 'DELETE']:
@@ -236,9 +234,15 @@ class RESTClientObject(object):
         logger.debug('<< ' + str(r.status))
         if _preload_content:
             r = RESTResponse(r)
+        
+        response_type = ''
+        if 'Content-Type' in r.getheaders():
+            response_type = r.getheaders()['Content-Type']
 
-            # log response body
+        if 'text' in response_type or 'json' in response_type:
             logger.debug("response body: %s", r.data)
+        elif r.data:
+            logger.debug("response body: binary (%s bytes)", len(r.data))
 
         if not 200 <= r.status <= 299:
             raise ApiException(http_resp=r)

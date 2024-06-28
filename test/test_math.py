@@ -6,21 +6,21 @@ from asposeslidescloud import TextElement, FunctionElement, BlockElement, MathPa
     FractionElement
 from asposeslidescloud.rest import ApiException
 from test.base_test import BaseTest
-import asposeslidescloud
 
 class TestMath(BaseTest):
     def setUp(self):
-        self.api = asposeslidescloud.apis.slides_api.SlidesApi(self.slides_api_configuration)  # noqa: E501
+        self.slide_index = 2
+        self.shape_index = 3
+        self.wrong_shape_index = 1
+        self.paragraph_index = 1
+        self.portion_index = 1
 
     def tearDown(self):
         pass
 
     def test_math_get(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-
-        portion = BaseTest.slides_api.get_portion(file_name, 2, 3, 1, 1, "password", folder_name)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        portion = BaseTest.slides_api.get_portion(self.file_name, self.slide_index, self.shape_index, self.paragraph_index, self.portion_index, self.password, self.folder_name)
         self.assertIsNotNone(portion.math_paragraph)
         self.assertIsNotNone(portion.math_paragraph.math_block_list)
         self.assertEqual(1, len(portion.math_paragraph.math_block_list))
@@ -29,16 +29,12 @@ class TestMath(BaseTest):
         self.assertTrue(isinstance(portion.math_paragraph.math_block_list[0].math_element_list[2], FractionElement))
 
     def test_math_get_null(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        portion = BaseTest.slides_api.get_portion(file_name, 2, 1, 1, 1, "password", folder_name)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        portion = BaseTest.slides_api.get_portion(self.file_name, self.slide_index, self.wrong_shape_index, 1, 1, self.password, self.folder_name)
         self.assertIsNone(portion.math_paragraph)
 
     def test_math_create(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         dto = Portion()
         math_paragraph = MathParagraph()
         math_block = BlockElement()
@@ -67,7 +63,7 @@ class TestMath(BaseTest):
         math_block.math_element_list = [ function_element ]
         math_paragraph.math_block_list = [ math_block ]
         dto.math_paragraph = math_paragraph
-        portion = BaseTest.slides_api.create_portion(file_name, 1, 1, 1, dto, None, "password", folder_name)
+        portion = BaseTest.slides_api.create_portion(self.file_name, 1, 1, 1, dto, None, self.password, self.folder_name)
         self.assertIsNotNone(portion.math_paragraph)
         self.assertIsNotNone(portion.math_paragraph.math_block_list)
         self.assertEqual(1, len(portion.math_paragraph.math_block_list))
@@ -76,9 +72,7 @@ class TestMath(BaseTest):
         self.assertTrue(isinstance(portion.math_paragraph.math_block_list[0].math_element_list[0], FunctionElement))
 
     def test_math_update(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         dto = Portion()
         math_paragraph = MathParagraph()
         math_block = BlockElement()
@@ -107,7 +101,7 @@ class TestMath(BaseTest):
         math_block.math_element_list = [ function_element ]
         math_paragraph.math_block_list = [ math_block ]
         dto.math_paragraph = math_paragraph
-        portion = BaseTest.slides_api.update_portion(file_name, 2, 3, 1, 1, dto, "password", folder_name)
+        portion = BaseTest.slides_api.update_portion(self.file_name, self.slide_index, self.shape_index, self.paragraph_index, self.portion_index, dto, self.password, self.folder_name)
         self.assertIsNotNone(portion.math_paragraph)
         self.assertIsNotNone(portion.math_paragraph.math_block_list)
         self.assertEqual(1, len(portion.math_paragraph.math_block_list))
@@ -116,26 +110,20 @@ class TestMath(BaseTest):
         self.assertTrue(isinstance(portion.math_paragraph.math_block_list[0].math_element_list[0], FunctionElement))
 
     def test_math_download(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        mathMl = BaseTest.slides_api.download_math_portion(file_name, 2, 3, 1, 1, "MathML", "password", folder_name)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        mathMl = BaseTest.slides_api.download_math_portion(self.file_name, self.slide_index, self.shape_index, self.paragraph_index, self.portion_index, "MathML", self.password, self.folder_name)
         self.assertGreater(os.path.getsize(mathMl), 0)
 
     def test_math_download_null(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         try:
-            BaseTest.slides_api.download_math_portion(file_name, 2, 1, 1, 1, "MathML", "password", folder_name)
+            BaseTest.slides_api.download_math_portion(self.file_name, self.slide_index, self.wrong_shape_index, 1, 1, "MathML", self.password, self.folder_name)
             self.fail("Must have failed because conversion to MathML works only for math portions")
         except ApiException as ex:
             self.assertEqual(400, ex.status)
 
     def test_math_save(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        out_path = folder_name + "/mathml.xml"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        BaseTest.slides_api.save_math_portion(file_name, 2, 3, 1, 1, "MathML", out_path, "password", folder_name)
+        out_path = self.folder_name + "/mathml.xml"
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        BaseTest.slides_api.save_math_portion(self.file_name, self.slide_index, self.shape_index, self.paragraph_index, self.portion_index, "MathML", out_path, self.password, self.folder_name)
         self.assertTrue(BaseTest.slides_api.object_exists(out_path).exists)

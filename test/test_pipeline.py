@@ -2,12 +2,10 @@ from __future__ import absolute_import
 
 from asposeslidescloud import ExportFormat, Pipeline, Save, OutputFile, Input, RequestInputFile
 from test.base_test import BaseTest
-import asposeslidescloud
-from test import constant
 
 class TestPipeline(BaseTest):
     def setUp(self):
-        self.api = asposeslidescloud.apis.slides_api.SlidesApi(self.slides_api_configuration)  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
@@ -38,12 +36,12 @@ class TestPipeline(BaseTest):
         pipeline.tasks = [task]
 
         files = {}
-        with open(constant.LOCAL_TEST_DATA_FOLDER + "/TemplatingCVDataWithBase64.xml", 'rb') as f:
+        with open(self.test_data_path + "/TemplatingCVDataWithBase64.xml", 'rb') as f:
             files["file1"] = ("TemplatingCVDataWithBase64.xml", f.read())
 
-        with open(constant.LOCAL_TEST_DATA_FOLDER + "/TemplateCV.pptx", 'rb') as f:
+        with open(self.test_data_path + "/TemplateCV.pptx", 'rb') as f:
             files["file2"] = ("TemplateCV.pptx", f.read())
 
-        result = self.api.pipeline(pipeline, files)
+        result = BaseTest.slides_api.pipeline(pipeline, files)
         self.assertTrue(isinstance(result, str))
         self.assertTrue(len(result) > 0)

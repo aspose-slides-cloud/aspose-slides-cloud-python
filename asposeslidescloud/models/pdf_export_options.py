@@ -61,7 +61,9 @@ class PdfExportOptions(ExportOptions):
         'slides_layout_options': 'SlidesLayoutOptions',
         'image_transparent_color': 'str',
         'apply_image_transparent': 'bool',
-        'access_permissions': 'AccessPermissions'
+        'access_permissions': 'AccessPermissions',
+        'hide_ink': 'bool',
+        'interpret_mask_op_as_opacity': 'bool'
     }
 
     attribute_map = {
@@ -83,14 +85,16 @@ class PdfExportOptions(ExportOptions):
         'slides_layout_options': 'slidesLayoutOptions',
         'image_transparent_color': 'imageTransparentColor',
         'apply_image_transparent': 'applyImageTransparent',
-        'access_permissions': 'accessPermissions'
+        'access_permissions': 'accessPermissions',
+        'hide_ink': 'hideInk',
+        'interpret_mask_op_as_opacity': 'interpretMaskOpAsOpacity'
     }
 
     type_determiners = {
         'format': 'pdf',
     }
 
-    def __init__(self, default_regular_font=None, font_fallback_rules=None, font_subst_rules=None, format='pdf', text_compression=None, embed_full_fonts=None, compliance=None, sufficient_resolution=None, jpeg_quality=None, draw_slides_frame=None, show_hidden_slides=None, save_metafiles_as_png=None, password=None, embed_true_type_fonts_for_ascii=None, additional_common_font_families=None, slides_layout_options=None, image_transparent_color=None, apply_image_transparent=None, access_permissions=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, font_fallback_rules=None, font_subst_rules=None, format='pdf', text_compression=None, embed_full_fonts=None, compliance=None, sufficient_resolution=None, jpeg_quality=None, draw_slides_frame=None, show_hidden_slides=None, save_metafiles_as_png=None, password=None, embed_true_type_fonts_for_ascii=None, additional_common_font_families=None, slides_layout_options=None, image_transparent_color=None, apply_image_transparent=None, access_permissions=None, hide_ink=None, interpret_mask_op_as_opacity=None):  # noqa: E501
         """PdfExportOptions - a model defined in Swagger"""  # noqa: E501
         super(PdfExportOptions, self).__init__(default_regular_font, font_fallback_rules, font_subst_rules, format)
 
@@ -109,6 +113,8 @@ class PdfExportOptions(ExportOptions):
         self._image_transparent_color = None
         self._apply_image_transparent = None
         self._access_permissions = None
+        self._hide_ink = None
+        self._interpret_mask_op_as_opacity = None
         self.format = 'pdf'
 
         if text_compression is not None:
@@ -141,6 +147,10 @@ class PdfExportOptions(ExportOptions):
             self.apply_image_transparent = apply_image_transparent
         if access_permissions is not None:
             self.access_permissions = access_permissions
+        if hide_ink is not None:
+            self.hide_ink = hide_ink
+        if interpret_mask_op_as_opacity is not None:
+            self.interpret_mask_op_as_opacity = interpret_mask_op_as_opacity
 
     @property
     def text_compression(self):
@@ -503,6 +513,50 @@ class PdfExportOptions(ExportOptions):
         :type: AccessPermissions
         """
         self._access_permissions = access_permissions
+
+    @property
+    def hide_ink(self):
+        """Gets the hide_ink of this PdfExportOptions.  # noqa: E501
+
+        True to hide Ink elements in exported document.  # noqa: E501
+
+        :return: The hide_ink of this PdfExportOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hide_ink
+
+    @hide_ink.setter
+    def hide_ink(self, hide_ink):
+        """Sets the hide_ink of this PdfExportOptions.
+
+        True to hide Ink elements in exported document.  # noqa: E501
+
+        :param hide_ink: The hide_ink of this PdfExportOptions.  # noqa: E501
+        :type: bool
+        """
+        self._hide_ink = hide_ink
+
+    @property
+    def interpret_mask_op_as_opacity(self):
+        """Gets the interpret_mask_op_as_opacity of this PdfExportOptions.  # noqa: E501
+
+        True to use ROP operation or Opacity for rendering brush.  # noqa: E501
+
+        :return: The interpret_mask_op_as_opacity of this PdfExportOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._interpret_mask_op_as_opacity
+
+    @interpret_mask_op_as_opacity.setter
+    def interpret_mask_op_as_opacity(self, interpret_mask_op_as_opacity):
+        """Sets the interpret_mask_op_as_opacity of this PdfExportOptions.
+
+        True to use ROP operation or Opacity for rendering brush.  # noqa: E501
+
+        :param interpret_mask_op_as_opacity: The interpret_mask_op_as_opacity of this PdfExportOptions.  # noqa: E501
+        :type: bool
+        """
+        self._interpret_mask_op_as_opacity = interpret_mask_op_as_opacity
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -3,12 +3,10 @@ from __future__ import absolute_import
 from asposeslidescloud import Shape, TextFrameFormat, ThreeDFormat, ShapeBevel, LightRig, Camera, ParagraphFormat, \
     SolidFill
 from test.base_test import BaseTest
-import asposeslidescloud
-from test import constant
 
 class TestTextFormat(BaseTest):
     def setUp(self):
-        self.api = asposeslidescloud.apis.slides_api.SlidesApi(self.slides_api_configuration)  # noqa: E501
+        self.slide_index = 1
 
     def tearDown(self):
         pass
@@ -60,11 +58,8 @@ class TestTextFormat(BaseTest):
 
         dto.text_frame_format = text_frame_format
 
-        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME,
-                                      constant.FOLDER_NAME + "/" + constant.FILE_NAME)
-        slide_index = 1
-        shape = BaseTest.slides_api.create_shape(constant.FILE_NAME, slide_index, dto, None, None, constant.PASSWORD,
-                                                 constant.FOLDER_NAME)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        shape = BaseTest.slides_api.create_shape(self.file_name, self.slide_index, dto, None, None, self.password, self.folder_name)
         self.assertTrue(isinstance(shape, Shape))
 
     def test_text_frame_format(self):
@@ -89,10 +84,7 @@ class TestTextFormat(BaseTest):
         text_frame_format.default_paragraph_format = default_paragraph_format
         dto.text_frame = text_frame_format
 		
-        BaseTest.slides_api.copy_file("TempTests/" + constant.FILE_NAME,
-                                      constant.FOLDER_NAME + "/" + constant.FILE_NAME)
-        slide_index = 1
-        shape = BaseTest.slides_api.create_shape(constant.FILE_NAME, slide_index, dto, None, None, constant.PASSWORD,
-                                                 constant.FOLDER_NAME)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        shape = BaseTest.slides_api.create_shape(self.file_name, self.slide_index, dto, None, None, self.password, self.folder_name)
         self.assertTrue(isinstance(shape, Shape))
 

@@ -47,7 +47,6 @@ class Operation(object):
         'status': 'str',
         'progress': 'OperationProgress',
         'created': 'datetime',
-        'enqueued': 'datetime',
         'started': 'datetime',
         'failed': 'datetime',
         'canceled': 'datetime',
@@ -61,7 +60,6 @@ class Operation(object):
         'status': 'status',
         'progress': 'progress',
         'created': 'created',
-        'enqueued': 'enqueued',
         'started': 'started',
         'failed': 'failed',
         'canceled': 'canceled',
@@ -72,7 +70,7 @@ class Operation(object):
     type_determiners = {
     }
 
-    def __init__(self, id=None, method=None, status=None, progress=None, created=None, enqueued=None, started=None, failed=None, canceled=None, finished=None, error=None):  # noqa: E501
+    def __init__(self, id=None, method=None, status=None, progress=None, created=None, started=None, failed=None, canceled=None, finished=None, error=None):  # noqa: E501
         """Operation - a model defined in Swagger"""  # noqa: E501
 
         self._id = None
@@ -80,7 +78,6 @@ class Operation(object):
         self._status = None
         self._progress = None
         self._created = None
-        self._enqueued = None
         self._started = None
         self._failed = None
         self._canceled = None
@@ -94,8 +91,6 @@ class Operation(object):
             self.progress = progress
         if created is not None:
             self.created = created
-        if enqueued is not None:
-            self.enqueued = enqueued
         if started is not None:
             self.started = started
         if failed is not None:
@@ -238,26 +233,6 @@ class Operation(object):
         :type: datetime
         """
         self._created = created
-
-    @property
-    def enqueued(self):
-        """Gets the enqueued of this Operation.  # noqa: E501
-
-
-        :return: The enqueued of this Operation.  # noqa: E501
-        :rtype: datetime
-        """
-        return self._enqueued
-
-    @enqueued.setter
-    def enqueued(self, enqueued):
-        """Sets the enqueued of this Operation.
-
-
-        :param enqueued: The enqueued of this Operation.  # noqa: E501
-        :type: datetime
-        """
-        self._enqueued = enqueued
 
     @property
     def started(self):

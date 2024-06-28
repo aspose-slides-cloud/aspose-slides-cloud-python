@@ -6,33 +6,27 @@ import asposeslidescloud
 
 class TestAnimation(BaseTest):
     def setUp(self):
-        self.api = asposeslidescloud.apis.slides_api.SlidesApi(self.slides_api_configuration)  # noqa: E501
+        self.slide_index = 1
 
     def tearDown(self):
         pass
 
-    def test_animation_get(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        password = "password"
-        slide_index = 1
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test__get_animation(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
 
-        animation = BaseTest.slides_api.get_animation(file_name, slide_index, None, None, password, folder_name)
+        animation = BaseTest.slides_api.get_animation(self.file_name, self.slide_index, None, None, self.password, self.folder_name)
         self.assertEqual(1, len(animation.main_sequence))
         self.assertEqual(1, len(animation.interactive_sequences))
 
-        animation = BaseTest.slides_api.get_animation(file_name, slide_index, 3, None, password, folder_name)
+        animation = BaseTest.slides_api.get_animation(self.file_name, self.slide_index, 3, None, self.password, self.folder_name)
         self.assertEqual(1, len(animation.main_sequence))
         self.assertEqual(0, len(animation.interactive_sequences))
 
-        animation = BaseTest.slides_api.get_animation(file_name, slide_index, 3, 1, password, folder_name)
+        animation = BaseTest.slides_api.get_animation(self.file_name, self.slide_index, 3, 1, self.password, self.folder_name)
         self.assertEqual(0, len(animation.main_sequence))
 
-    def test_animation_set(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
+    def test_set_animation(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
 
         dto = SlideAnimation()
 
@@ -48,117 +42,98 @@ class TestAnimation(BaseTest):
         effect2.shape_index = 4
         dto.main_sequence = [ effect1, effect2 ]
         dto.interactive_sequences = []
-        animation = BaseTest.slides_api.set_animation(file_name, 1, dto, "password", folder_name)
+        animation = BaseTest.slides_api.set_animation(self.file_name, self.slide_index, dto, self.password, self.folder_name)
         self.assertEqual(len(dto.main_sequence), len(animation.main_sequence))
         self.assertEqual(0, len(animation.interactive_sequences))
 
-    def test_animation_create_effect(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-
+    def test_create_animation_effect(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         dto = Effect()
         dto.type = "Blast"
         dto.shape_index = 3
-        animation = BaseTest.slides_api.create_animation_effect(file_name, 1, dto, "password", folder_name)
+        animation = BaseTest.slides_api.create_animation_effect(self.file_name, self.slide_index, dto, self.password, self.folder_name)
         self.assertEqual(2, len(animation.main_sequence))
         self.assertEqual(1, len(animation.interactive_sequences))
 
-    def test_animation_create_interactive_sequence(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-
+    def test_create_animation_interactive_sequence(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         dto = InteractiveSequence()
         dto.trigger_shape_index = 2
         effect = Effect()
         effect.type = "Blast"
         effect.shape_index = 3
         dto.effects = [ effect ]
-        animation = BaseTest.slides_api.create_animation_interactive_sequence(file_name, 1, dto, "password", folder_name)
+        animation = BaseTest.slides_api.create_animation_interactive_sequence(
+            self.file_name, self.slide_index, dto, self.password, self.folder_name)
         self.assertEqual(1, len(animation.main_sequence))
         self.assertEqual(2, len(animation.interactive_sequences))
 
-    def test_animation_create_interactive_sequence_effect(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-
+    def test_create_animation_interactive_sequence_effect(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         dto = Effect()
         dto.type = "Blast"
         dto.shape_index = 3
-        animation = BaseTest.slides_api.create_animation_interactive_sequence_effect(file_name, 1, 1, dto, "password", folder_name)
+        animation = BaseTest.slides_api.create_animation_interactive_sequence_effect(
+            self.file_name, self.slide_index, 1, dto, self.password, self.folder_name)
         self.assertEqual(1, len(animation.main_sequence))
         self.assertEqual(1, len(animation.interactive_sequences))
 
-    def test_animation_update_effect(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-
+    def test_update_animation_effect(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         dto = Effect()
         dto.type = "Blast"
         dto.shape_index = 3
-        animation = BaseTest.slides_api.update_animation_effect(file_name, 1, 1, dto, "password", folder_name)
+        animation = BaseTest.slides_api.update_animation_effect(
+            self.file_name, self.slide_index, 1, dto, self.password, self.folder_name)
         self.assertEqual(1, len(animation.main_sequence))
         self.assertEqual(1, len(animation.interactive_sequences))
 
-    def test_animation_update_interactive_sequence_effect(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-
+    def test_update_animation_interactive_sequence_effect(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         dto = Effect()
         dto.type = "Blast"
         dto.shape_index = 3
-        animation = BaseTest.slides_api.update_animation_interactive_sequence_effect(file_name, 1, 1, 1, dto, "password", folder_name)
+        animation = BaseTest.slides_api.update_animation_interactive_sequence_effect(
+            self.file_name, self.slide_index, 1, 1, dto, self.password, self.folder_name)
         self.assertEqual(1, len(animation.main_sequence))
         self.assertEqual(1, len(animation.interactive_sequences))
 
-    def test_animation_delete(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        animation = BaseTest.slides_api.delete_animation(file_name, 1, "password", folder_name)
+    def test_delete_animation(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        animation = BaseTest.slides_api.delete_animation(self.file_name, self.slide_index, self.password, self.folder_name)
         self.assertEqual(0, len(animation.main_sequence))
         self.assertEqual(0, len(animation.interactive_sequences))
 
-    def test_animation_delete_main_sequence(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        animation = BaseTest.slides_api.delete_animation_main_sequence(file_name, 1, "password", folder_name)
+    def test_delete_animation_main_sequence(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        animation = BaseTest.slides_api.delete_animation_main_sequence(
+            self.file_name, self.slide_index, self.password, self.folder_name)
         self.assertEqual(0, len(animation.main_sequence))
         self.assertEqual(1, len(animation.interactive_sequences))
 
-    def test_animation_delete_main_sequence_effect(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        animation = BaseTest.slides_api.delete_animation_effect(file_name, 1, 1, "password", folder_name)
+    def test_delete_animation_effect(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        animation = BaseTest.slides_api.delete_animation_effect(self.file_name, self.slide_index, 1, self.password, self.folder_name)
         self.assertEqual(0, len(animation.main_sequence))
         self.assertEqual(1, len(animation.interactive_sequences))
 
-    def test_animation_delete_interactive_sequences(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        animation = BaseTest.slides_api.delete_animation_interactive_sequences(file_name, 1, "password", folder_name)
+    def test_delete_animation_interactive_sequences(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        animation = BaseTest.slides_api.delete_animation_interactive_sequences(
+            self.file_name, self.slide_index, self.password, self.folder_name)
         self.assertEqual(1, len(animation.main_sequence))
         self.assertEqual(0, len(animation.interactive_sequences))
 
-    def test_animation_delete_interactive_sequence(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        animation = BaseTest.slides_api.delete_animation_interactive_sequence(file_name, 1, 1, "password", folder_name)
+    def test_delete_animation_interactive_sequence(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        animation = BaseTest.slides_api.delete_animation_interactive_sequence(
+            self.file_name, self.slide_index, 1, self.password, self.folder_name)
         self.assertEqual(1, len(animation.main_sequence))
         self.assertEqual(0, len(animation.interactive_sequences))
 
-    def test_animation_delete_interactive_sequence_effect(self):
-        folder_name = "TempSlidesSDK"
-        file_name = "test.pptx"
-        BaseTest.slides_api.copy_file("TempTests/" + file_name, folder_name + "/" + file_name)
-        animation = BaseTest.slides_api.delete_animation_interactive_sequence_effect(file_name, 1, 1, 1, "password", folder_name)
+    def test_delete_animation_interactive_sequence_effect(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        animation = BaseTest.slides_api.delete_animation_interactive_sequence_effect(
+            self.file_name, self.slide_index, 1, 1, self.password, self.folder_name)
         self.assertEqual(1, len(animation.main_sequence))
         self.assertEqual(1, len(animation.interactive_sequences))

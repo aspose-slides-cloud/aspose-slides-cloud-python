@@ -1,12 +1,10 @@
 from __future__ import absolute_import
 
 from test.base_test import BaseTest
-import asposeslidescloud
-from test import constant
 
 class TestTimeout(BaseTest):
     def setUp(self):
-        self.api = asposeslidescloud.apis.slides_api.SlidesApi(self.slides_api_configuration)  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
@@ -22,4 +20,4 @@ class TestTimeout(BaseTest):
         config.debug = self.configuration.debug
         config.timeout = 1
         api = asposeslidescloud.apis.slides_api.SlidesApi(config)  # noqa: E501
-        result = api.download_slide("test.pptx", 1, "svg", None, None, None, "password", "TempSlidesSDK")
+        result = api.download_slide(self.file_name, 1, "svg", None, None, None, self.password, self.folder_name)

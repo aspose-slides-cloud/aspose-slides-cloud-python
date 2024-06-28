@@ -7,12 +7,12 @@ import asposeslidescloud
 
 class TestAuth(BaseTest):
     def setUp(self):
-        self.api = asposeslidescloud.apis.slides_api.SlidesApi(self.slides_api_configuration)  # noqa: E501
+        pass
 
     def tearDown(self):
         pass
 
-    def test_good_auth(self):
+    def test_good_credentials(self):
         config = Configuration()
         config.app_sid = self.slides_api_configuration.app_sid
         config.app_key = self.slides_api_configuration.app_key
@@ -23,7 +23,7 @@ class TestAuth(BaseTest):
         api = asposeslidescloud.apis.slides_api.SlidesApi(config)
         api.get_api_info()
 
-    def test_bad_auth(self):
+    def test_bad_credentials(self):
         config = Configuration()
         config.app_sid = "invalid"
         config.app_key = self.slides_api_configuration.app_key

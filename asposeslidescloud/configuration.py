@@ -123,18 +123,16 @@ class Configuration(object):
             self.logger_file_handler = logging.FileHandler(self.__logger_file)
             self.logger_file_handler.setFormatter(self.logger_formatter)
             for _, logger in iteritems(self.logger):
+                logger.handlers.clear()
                 logger.addHandler(self.logger_file_handler)
-                if self.logger_stream_handler:
-                    logger.removeHandler(self.logger_stream_handler)
         else:
             # If not set logging file,
             # then add stream handler and remove file handler.
             self.logger_stream_handler = logging.StreamHandler()
             self.logger_stream_handler.setFormatter(self.logger_formatter)
             for _, logger in iteritems(self.logger):
+                logger.handlers.clear()
                 logger.addHandler(self.logger_stream_handler)
-                if self.logger_file_handler:
-                    logger.removeHandler(self.logger_file_handler)
 
     @property
     def debug(self):
@@ -156,15 +154,11 @@ class Configuration(object):
             # if debug status is True, turn on debug logging
             for _, logger in iteritems(self.logger):
                 logger.setLevel(logging.DEBUG)
-            # turn on httplib debug
-            httplib.HTTPConnection.debuglevel = 1
         else:
             # if debug status is False, turn off debug logging,
             # setting log level to default `logging.WARNING`
             for _, logger in iteritems(self.logger):
                 logger.setLevel(logging.WARNING)
-            # turn off httplib debug
-            httplib.HTTPConnection.debuglevel = 0
 
     @property
     def logger_format(self):
@@ -196,5 +190,5 @@ class Configuration(object):
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 3.0\n"\
-               "SDK Package Version: 24.5.0".\
+               "SDK Package Version: 24.6.0".\
                format(env=sys.platform, pyversion=sys.version)
