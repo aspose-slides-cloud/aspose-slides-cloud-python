@@ -44,6 +44,7 @@ class XamlExportOptions(ExportOptions):
     """
     swagger_types = {
         'default_regular_font': 'str',
+        'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
         'format': 'str',
@@ -52,6 +53,7 @@ class XamlExportOptions(ExportOptions):
 
     attribute_map = {
         'default_regular_font': 'defaultRegularFont',
+        'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
         'format': 'format',
@@ -62,9 +64,9 @@ class XamlExportOptions(ExportOptions):
         'format': 'xaml',
     }
 
-    def __init__(self, default_regular_font=None, font_fallback_rules=None, font_subst_rules=None, format='xaml', export_hidden_slides=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='xaml', export_hidden_slides=None):  # noqa: E501
         """XamlExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(XamlExportOptions, self).__init__(default_regular_font, font_fallback_rules, font_subst_rules, format)
+        super(XamlExportOptions, self).__init__(default_regular_font, gradient_style, font_fallback_rules, font_subst_rules, format)
 
         self._export_hidden_slides = None
         self.format = 'xaml'

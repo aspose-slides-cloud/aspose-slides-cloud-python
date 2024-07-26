@@ -43,6 +43,7 @@ class ExportOptions(object):
     """
     swagger_types = {
         'default_regular_font': 'str',
+        'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
         'format': 'str'
@@ -50,6 +51,7 @@ class ExportOptions(object):
 
     attribute_map = {
         'default_regular_font': 'defaultRegularFont',
+        'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
         'format': 'format'
@@ -58,16 +60,19 @@ class ExportOptions(object):
     type_determiners = {
     }
 
-    def __init__(self, default_regular_font=None, font_fallback_rules=None, font_subst_rules=None, format=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format=None):  # noqa: E501
         """ExportOptions - a model defined in Swagger"""  # noqa: E501
 
         self._default_regular_font = None
+        self._gradient_style = None
         self._font_fallback_rules = None
         self._font_subst_rules = None
         self._format = None
 
         if default_regular_font is not None:
             self.default_regular_font = default_regular_font
+        if gradient_style is not None:
+            self.gradient_style = gradient_style
         if font_fallback_rules is not None:
             self.font_fallback_rules = font_fallback_rules
         if font_subst_rules is not None:
@@ -96,6 +101,44 @@ class ExportOptions(object):
         :type: str
         """
         self._default_regular_font = default_regular_font
+
+    @property
+    def gradient_style(self):
+        """Gets the gradient_style of this ExportOptions.  # noqa: E501
+
+        Default regular font for rendering the presentation.   # noqa: E501
+
+        :return: The gradient_style of this ExportOptions.  # noqa: E501
+        :rtype: str
+        """
+        return self._gradient_style
+
+    @gradient_style.setter
+    def gradient_style(self, gradient_style):
+        """Sets the gradient_style of this ExportOptions.
+
+        Default regular font for rendering the presentation.   # noqa: E501
+
+        :param gradient_style: The gradient_style of this ExportOptions.  # noqa: E501
+        :type: str
+        """
+        if gradient_style is not None:
+            allowed_values = ["Default", "PowerPointUI"]  # noqa: E501
+            if gradient_style.isdigit():
+                int_gradient_style = int(gradient_style)
+                if int_gradient_style < 0 or int_gradient_style >= len(allowed_values):
+                    raise ValueError(
+                        "Invalid value for `gradient_style` ({0}), must be one of {1}"  # noqa: E501
+                        .format(gradient_style, allowed_values)
+                    )
+                self._gradient_style = allowed_values[int_gradient_style]
+                return
+            if gradient_style not in allowed_values:
+                raise ValueError(
+                    "Invalid value for `gradient_style` ({0}), must be one of {1}"  # noqa: E501
+                    .format(gradient_style, allowed_values)
+                )
+        self._gradient_style = gradient_style
 
     @property
     def font_fallback_rules(self):

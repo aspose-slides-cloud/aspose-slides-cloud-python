@@ -73,7 +73,8 @@ class TableCellMergeOptions(object):
         self.first_cell_index = first_cell_index
         self.last_row_index = last_row_index
         self.last_cell_index = last_cell_index
-        self.allow_splitting = allow_splitting
+        if allow_splitting is not None:
+            self.allow_splitting = allow_splitting
 
     @property
     def first_row_index(self):

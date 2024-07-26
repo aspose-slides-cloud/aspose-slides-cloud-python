@@ -62,6 +62,7 @@ class ExportFormat(object):
     XAML = "Xaml"
     MPEG4 = "Mpeg4"
     MD = "Md"
+    XML = "Xml"
 
     """
     Attributes:

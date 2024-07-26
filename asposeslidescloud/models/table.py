@@ -71,7 +71,8 @@ class Table(ShapeBase):
         'last_col': 'bool',
         'last_row': 'bool',
         'right_to_left': 'bool',
-        'vertical_banding': 'bool'
+        'vertical_banding': 'bool',
+        'transparency': 'float'
     }
 
     attribute_map = {
@@ -103,14 +104,15 @@ class Table(ShapeBase):
         'last_col': 'lastCol',
         'last_row': 'lastRow',
         'right_to_left': 'rightToLeft',
-        'vertical_banding': 'verticalBanding'
+        'vertical_banding': 'verticalBanding',
+        'transparency': 'transparency'
     }
 
     type_determiners = {
         'type': 'Table',
     }
 
-    def __init__(self, self_uri=None, alternate_links=None, name=None, width=None, height=None, alternative_text=None, alternative_text_title=None, hidden=None, is_decorative=None, x=None, y=None, z_order_position=None, fill_format=None, effect_format=None, three_d_format=None, line_format=None, hyperlink_click=None, hyperlink_mouse_over=None, type='Table', style=None, rows=None, columns=None, first_col=None, first_row=None, horizontal_banding=None, last_col=None, last_row=None, right_to_left=None, vertical_banding=None):  # noqa: E501
+    def __init__(self, self_uri=None, alternate_links=None, name=None, width=None, height=None, alternative_text=None, alternative_text_title=None, hidden=None, is_decorative=None, x=None, y=None, z_order_position=None, fill_format=None, effect_format=None, three_d_format=None, line_format=None, hyperlink_click=None, hyperlink_mouse_over=None, type='Table', style=None, rows=None, columns=None, first_col=None, first_row=None, horizontal_banding=None, last_col=None, last_row=None, right_to_left=None, vertical_banding=None, transparency=None):  # noqa: E501
         """Table - a model defined in Swagger"""  # noqa: E501
         super(Table, self).__init__(self_uri, alternate_links, name, width, height, alternative_text, alternative_text_title, hidden, is_decorative, x, y, z_order_position, fill_format, effect_format, three_d_format, line_format, hyperlink_click, hyperlink_mouse_over, type)
 
@@ -124,6 +126,7 @@ class Table(ShapeBase):
         self._last_row = None
         self._right_to_left = None
         self._vertical_banding = None
+        self._transparency = None
         self.type = 'Table'
 
         if style is not None:
@@ -146,6 +149,8 @@ class Table(ShapeBase):
             self.right_to_left = right_to_left
         if vertical_banding is not None:
             self.vertical_banding = vertical_banding
+        if transparency is not None:
+            self.transparency = transparency
 
     @property
     def style(self):
@@ -382,6 +387,28 @@ class Table(ShapeBase):
         :type: bool
         """
         self._vertical_banding = vertical_banding
+
+    @property
+    def transparency(self):
+        """Gets the transparency of this Table.  # noqa: E501
+
+        Transparency.  # noqa: E501
+
+        :return: The transparency of this Table.  # noqa: E501
+        :rtype: float
+        """
+        return self._transparency
+
+    @transparency.setter
+    def transparency(self, transparency):
+        """Sets the transparency of this Table.
+
+        Transparency.  # noqa: E501
+
+        :param transparency: The transparency of this Table.  # noqa: E501
+        :type: float
+        """
+        self._transparency = transparency
 
     def to_dict(self):
         """Returns the model properties as a dict"""

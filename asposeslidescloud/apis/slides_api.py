@@ -13441,134 +13441,6 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def download_portion_as_math_ml(self, name, slide_index, shape_index, paragraph_index, portion_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
-        """Convert Mathematical Text to MathML Format  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.(name, slide_index, shape_index, paragraph_index, portion_index, password, folder, storage, is_async=True)
-        >>> result = thread.get()
-
-        :param is_async bool
-        :param name Document name.
-        :param slide_index Slide index.
-        :param shape_index Shape index.
-        :param paragraph_index Paragraph index.
-        :param portion_index Portion index.
-        :param password Document password.
-        :param folder Document folder.
-        :param storage Document storage.
-        :return: file
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('is_async'):
-            return self.download_portion_as_math_ml_with_http_info(name, slide_index, shape_index, paragraph_index, portion_index, password, folder, storage, **kwargs)  # noqa: E501
-        else:
-            (data) = self.download_portion_as_math_ml_with_http_info(name, slide_index, shape_index, paragraph_index, portion_index, password, folder, storage, **kwargs)  # noqa: E501
-            return data
-
-    def download_portion_as_math_ml_with_http_info(self, name, slide_index, shape_index, paragraph_index, portion_index, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
-        """Convert Mathematical Text to MathML Format  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.download_portion_as_math_ml_with_http_info(name, slide_index, shape_index, paragraph_index, portion_index, password, folder, storage, is_async=True)
-        >>> result = thread.get()
-
-        :param is_async bool
-        :param name Document name.
-        :param slide_index Slide index.
-        :param shape_index Shape index.
-        :param paragraph_index Paragraph index.
-        :param portion_index Portion index.
-        :param password Document password.
-        :param folder Document folder.
-        :param storage Document storage.
-        :return: file
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []  # noqa: E501
-        all_params.append('is_async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method download_portion_as_math_ml" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'name' is set
-        if not name:
-            raise ValueError("Missing the required parameter `name` when calling `download_portion_as_math_ml`")  # noqa: E501
-        # verify the required parameter 'slide_index' is set
-        if not slide_index:
-            raise ValueError("Missing the required parameter `slide_index` when calling `download_portion_as_math_ml`")  # noqa: E501
-        # verify the required parameter 'shape_index' is set
-        if not shape_index:
-            raise ValueError("Missing the required parameter `shape_index` when calling `download_portion_as_math_ml`")  # noqa: E501
-        # verify the required parameter 'paragraph_index' is set
-        if not paragraph_index:
-            raise ValueError("Missing the required parameter `paragraph_index` when calling `download_portion_as_math_ml`")  # noqa: E501
-        # verify the required parameter 'portion_index' is set
-        if not portion_index:
-            raise ValueError("Missing the required parameter `portion_index` when calling `download_portion_as_math_ml`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        path_params['name'] = name  # noqa: E501
-        path_params['slideIndex'] = slide_index  # noqa: E501
-        path_params['shapeIndex'] = shape_index  # noqa: E501
-        path_params['paragraphIndex'] = paragraph_index  # noqa: E501
-        path_params['portionIndex'] = portion_index  # noqa: E501
-
-        query_params = []
-        if folder:
-            query_params.append(('folder', folder))  # noqa: E501
-        if storage:
-            query_params.append(('storage', storage))  # noqa: E501
-
-        header_params = {}
-        if password:
-            header_params['password'] = password  # noqa: E501
-
-        form_params = []
-        param_files = {}
-
-        body_params = None
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['JWT']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/mathml', 'POST',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=param_files,
-            response_type='file',  # noqa: E501
-            auth_settings=auth_settings,
-            is_async=params.get('is_async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', False),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def download_presentation(self, name, format, options = None, password = None, folder = None, storage = None, fonts_folder = None, slides = None, **kwargs):  # noqa: E501
         """Save a presentation to a specified format.  # noqa: E501
 
@@ -16054,6 +15926,92 @@ class SlidesApi(ApiBase):
             post_params=form_params,
             files=param_files,
             response_type='FormatScheme',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', False),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def get_html5_templates(self, **kwargs):  # noqa: E501
+        """Get default templates for HTML5 export.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :return: file
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.get_html5_templates_with_http_info(**kwargs)  # noqa: E501
+        else:
+            (data) = self.get_html5_templates_with_http_info(**kwargs)  # noqa: E501
+            return data
+
+    def get_html5_templates_with_http_info(self, **kwargs):  # noqa: E501
+        """Get default templates for HTML5 export.  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.get_html5_templates_with_http_info(is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :return: file
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method get_html5_templates" % key
+                )
+            params[key] = val
+        del params['kwargs']
+
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/html5Templates', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='file',  # noqa: E501
             auth_settings=auth_settings,
             is_async=params.get('is_async'),
             _return_http_data_only=params.get('_return_http_data_only'),
@@ -24307,12 +24265,12 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def replace_presentation_text(self, name, old_value, new_value, ignore_case = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+    def replace_presentation_text(self, name, old_value, new_value, ignore_case = None, whole_words_only = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
         """Replace text with a new value.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.(name, old_value, new_value, ignore_case, password, folder, storage, is_async=True)
+        >>> thread = api.(name, old_value, new_value, ignore_case, whole_words_only, password, folder, storage, is_async=True)
         >>> result = thread.get()
 
         :param is_async bool
@@ -24320,6 +24278,7 @@ class SlidesApi(ApiBase):
         :param old_value Text value to be replaced.
         :param new_value Text value to replace with.
         :param ignore_case True if character case must be ignored.
+        :param whole_words_only True to replace whole words only.
         :param password Document password.
         :param folder Document folder.
         :param storage Document storage.
@@ -24329,17 +24288,17 @@ class SlidesApi(ApiBase):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('is_async'):
-            return self.replace_presentation_text_with_http_info(name, old_value, new_value, ignore_case, password, folder, storage, **kwargs)  # noqa: E501
+            return self.replace_presentation_text_with_http_info(name, old_value, new_value, ignore_case, whole_words_only, password, folder, storage, **kwargs)  # noqa: E501
         else:
-            (data) = self.replace_presentation_text_with_http_info(name, old_value, new_value, ignore_case, password, folder, storage, **kwargs)  # noqa: E501
+            (data) = self.replace_presentation_text_with_http_info(name, old_value, new_value, ignore_case, whole_words_only, password, folder, storage, **kwargs)  # noqa: E501
             return data
 
-    def replace_presentation_text_with_http_info(self, name, old_value, new_value, ignore_case = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
+    def replace_presentation_text_with_http_info(self, name, old_value, new_value, ignore_case = None, whole_words_only = None, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
         """Replace text with a new value.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.replace_presentation_text_with_http_info(name, old_value, new_value, ignore_case, password, folder, storage, is_async=True)
+        >>> thread = api.replace_presentation_text_with_http_info(name, old_value, new_value, ignore_case, whole_words_only, password, folder, storage, is_async=True)
         >>> result = thread.get()
 
         :param is_async bool
@@ -24347,6 +24306,7 @@ class SlidesApi(ApiBase):
         :param old_value Text value to be replaced.
         :param new_value Text value to replace with.
         :param ignore_case True if character case must be ignored.
+        :param whole_words_only True to replace whole words only.
         :param password Document password.
         :param folder Document folder.
         :param storage Document storage.
@@ -24392,6 +24352,8 @@ class SlidesApi(ApiBase):
             query_params.append(('newValue', new_value))  # noqa: E501
         if ignore_case:
             query_params.append(('ignoreCase', ignore_case))  # noqa: E501
+        if whole_words_only:
+            query_params.append(('wholeWordsOnly', whole_words_only))  # noqa: E501
         if folder:
             query_params.append(('folder', folder))  # noqa: E501
         if storage:
@@ -24429,12 +24391,12 @@ class SlidesApi(ApiBase):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def replace_presentation_text_online(self, document, old_value, new_value, ignore_case = None, password = None, **kwargs):  # noqa: E501
+    def replace_presentation_text_online(self, document, old_value, new_value, ignore_case = None, whole_words_only = None, password = None, **kwargs):  # noqa: E501
         """Replace text with a new value.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.(document, old_value, new_value, ignore_case, password, is_async=True)
+        >>> thread = api.(document, old_value, new_value, ignore_case, whole_words_only, password, is_async=True)
         >>> result = thread.get()
 
         :param is_async bool
@@ -24442,6 +24404,7 @@ class SlidesApi(ApiBase):
         :param old_value Text value to be replaced.
         :param new_value Text value to replace with.
         :param ignore_case True if character case must be ignored.
+        :param whole_words_only True to replace whole words only.
         :param password Document password.
         :return: file
                  If the method is called asynchronously,
@@ -24449,17 +24412,17 @@ class SlidesApi(ApiBase):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('is_async'):
-            return self.replace_presentation_text_online_with_http_info(document, old_value, new_value, ignore_case, password, **kwargs)  # noqa: E501
+            return self.replace_presentation_text_online_with_http_info(document, old_value, new_value, ignore_case, whole_words_only, password, **kwargs)  # noqa: E501
         else:
-            (data) = self.replace_presentation_text_online_with_http_info(document, old_value, new_value, ignore_case, password, **kwargs)  # noqa: E501
+            (data) = self.replace_presentation_text_online_with_http_info(document, old_value, new_value, ignore_case, whole_words_only, password, **kwargs)  # noqa: E501
             return data
 
-    def replace_presentation_text_online_with_http_info(self, document, old_value, new_value, ignore_case = None, password = None, **kwargs):  # noqa: E501
+    def replace_presentation_text_online_with_http_info(self, document, old_value, new_value, ignore_case = None, whole_words_only = None, password = None, **kwargs):  # noqa: E501
         """Replace text with a new value.  # noqa: E501
 
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.replace_presentation_text_online_with_http_info(document, old_value, new_value, ignore_case, password, is_async=True)
+        >>> thread = api.replace_presentation_text_online_with_http_info(document, old_value, new_value, ignore_case, whole_words_only, password, is_async=True)
         >>> result = thread.get()
 
         :param is_async bool
@@ -24467,6 +24430,7 @@ class SlidesApi(ApiBase):
         :param old_value Text value to be replaced.
         :param new_value Text value to replace with.
         :param ignore_case True if character case must be ignored.
+        :param whole_words_only True to replace whole words only.
         :param password Document password.
         :return: file
                  If the method is called asynchronously,
@@ -24509,6 +24473,8 @@ class SlidesApi(ApiBase):
             query_params.append(('newValue', new_value))  # noqa: E501
         if ignore_case:
             query_params.append(('ignoreCase', ignore_case))  # noqa: E501
+        if whole_words_only:
+            query_params.append(('wholeWordsOnly', whole_words_only))  # noqa: E501
 
         header_params = {}
         if password:
@@ -25168,141 +25134,6 @@ class SlidesApi(ApiBase):
 
         return self.api_client.call_api(
             '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/{format}', 'PUT',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=param_files,
-            response_type=None,  # noqa: E501
-            auth_settings=auth_settings,
-            is_async=params.get('is_async'),
-            _return_http_data_only=params.get('_return_http_data_only'),
-            _preload_content=params.get('_preload_content', False),
-            _request_timeout=params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
-    def save_portion_as_math_ml(self, name, slide_index, shape_index, paragraph_index, portion_index, out_path, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
-        """Convert Mathematical Text to MathML Format and saves result to the storage  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.(name, slide_index, shape_index, paragraph_index, portion_index, out_path, password, folder, storage, is_async=True)
-        >>> result = thread.get()
-
-        :param is_async bool
-        :param name Document name.
-        :param slide_index Slide index.
-        :param shape_index Shape index.
-        :param paragraph_index Paragraph index.
-        :param portion_index Portion index.
-        :param out_path Path to save result.
-        :param password Document password.
-        :param folder Presentation folder.
-        :param storage Presentation storage.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        if kwargs.get('is_async'):
-            return self.save_portion_as_math_ml_with_http_info(name, slide_index, shape_index, paragraph_index, portion_index, out_path, password, folder, storage, **kwargs)  # noqa: E501
-        else:
-            (data) = self.save_portion_as_math_ml_with_http_info(name, slide_index, shape_index, paragraph_index, portion_index, out_path, password, folder, storage, **kwargs)  # noqa: E501
-            return data
-
-    def save_portion_as_math_ml_with_http_info(self, name, slide_index, shape_index, paragraph_index, portion_index, out_path, password = None, folder = None, storage = None, **kwargs):  # noqa: E501
-        """Convert Mathematical Text to MathML Format and saves result to the storage  # noqa: E501
-
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass is_async=True
-        >>> thread = api.save_portion_as_math_ml_with_http_info(name, slide_index, shape_index, paragraph_index, portion_index, out_path, password, folder, storage, is_async=True)
-        >>> result = thread.get()
-
-        :param is_async bool
-        :param name Document name.
-        :param slide_index Slide index.
-        :param shape_index Shape index.
-        :param paragraph_index Paragraph index.
-        :param portion_index Portion index.
-        :param out_path Path to save result.
-        :param password Document password.
-        :param folder Presentation folder.
-        :param storage Presentation storage.
-        :return: None
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        all_params = []  # noqa: E501
-        all_params.append('is_async')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        params = locals()
-        for key, val in six.iteritems(params['kwargs']):
-            if key not in all_params:
-                raise TypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method save_portion_as_math_ml" % key
-                )
-            params[key] = val
-        del params['kwargs']
-        # verify the required parameter 'name' is set
-        if not name:
-            raise ValueError("Missing the required parameter `name` when calling `save_portion_as_math_ml`")  # noqa: E501
-        # verify the required parameter 'slide_index' is set
-        if not slide_index:
-            raise ValueError("Missing the required parameter `slide_index` when calling `save_portion_as_math_ml`")  # noqa: E501
-        # verify the required parameter 'shape_index' is set
-        if not shape_index:
-            raise ValueError("Missing the required parameter `shape_index` when calling `save_portion_as_math_ml`")  # noqa: E501
-        # verify the required parameter 'paragraph_index' is set
-        if not paragraph_index:
-            raise ValueError("Missing the required parameter `paragraph_index` when calling `save_portion_as_math_ml`")  # noqa: E501
-        # verify the required parameter 'portion_index' is set
-        if not portion_index:
-            raise ValueError("Missing the required parameter `portion_index` when calling `save_portion_as_math_ml`")  # noqa: E501
-        # verify the required parameter 'out_path' is set
-        if not out_path:
-            raise ValueError("Missing the required parameter `out_path` when calling `save_portion_as_math_ml`")  # noqa: E501
-
-        collection_formats = {}
-
-        path_params = {}
-        path_params['name'] = name  # noqa: E501
-        path_params['slideIndex'] = slide_index  # noqa: E501
-        path_params['shapeIndex'] = shape_index  # noqa: E501
-        path_params['paragraphIndex'] = paragraph_index  # noqa: E501
-        path_params['portionIndex'] = portion_index  # noqa: E501
-
-        query_params = []
-        if out_path:
-            query_params.append(('outPath', out_path))  # noqa: E501
-        if folder:
-            query_params.append(('folder', folder))  # noqa: E501
-        if storage:
-            query_params.append(('storage', storage))  # noqa: E501
-
-        header_params = {}
-        if password:
-            header_params['password'] = password  # noqa: E501
-
-        form_params = []
-        param_files = {}
-
-        body_params = None
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['JWT']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/slides/{name}/slides/{slideIndex}/shapes/{shapeIndex}/paragraphs/{paragraphIndex}/portions/{portionIndex}/mathml', 'PUT',
             path_params,
             query_params,
             header_params,

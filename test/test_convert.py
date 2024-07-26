@@ -2,7 +2,7 @@ from __future__ import absolute_import
 
 import os
 
-from asposeslidescloud import PdfExportOptions, ImageExportOptions, HandoutLayoutingOptions, FontFallbackRule
+from asposeslidescloud import PdfExportOptions, Html5ExportOptions, ImageExportOptions, HandoutLayoutingOptions, FontFallbackRule
 from test.base_test import BaseTest
 
 class TestConvert(BaseTest):
@@ -159,4 +159,21 @@ class TestConvert(BaseTest):
 
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
         response = BaseTest.slides_api.download_presentation(self.file_name, "pdf", export_options, self.password, self.folder_name)
+        self.assertIsNotNone(response)
+
+    def test_convert_with_custom_html5_templates(self):
+        templates_path = "Html5Templates"
+        template_file_name = "pictureFrame.html"
+
+        BaseTest.slides_api.create_folder(templates_path)
+        BaseTest.slides_api.copy_file(self.temp_folder_name + "/" + template_file_name, templates_path + "/" + template_file_name)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        html5_options = Html5ExportOptions()
+        html5_options.templates_path = templates_path
+        html5_options.animate_transitions = True
+        response = BaseTest.slides_api.download_presentation(self.file_name, "html5", html5_options, self.password, self.folder_name)
+        self.assertIsNotNone(response)
+
+    def test_get_html5_templates(self):
+        response = BaseTest.slides_api.get_html5_templates()
         self.assertIsNotNone(response)

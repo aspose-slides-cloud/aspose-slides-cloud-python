@@ -60,6 +60,7 @@ class SlideExportFormat(object):
     XAML = "Xaml"
     HTML5 = "Html5"
     MD = "Md"
+    XML = "Xml"
 
     """
     Attributes:

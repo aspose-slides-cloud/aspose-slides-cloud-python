@@ -78,13 +78,18 @@ class GradientFill(FillFormat):
         self._tile_flip = None
         self.type = 'Gradient'
 
-        self.direction = direction
-        self.shape = shape
+        if direction is not None:
+            self.direction = direction
+        if shape is not None:
+            self.shape = shape
         if stops is not None:
             self.stops = stops
-        self.linear_angle = linear_angle
-        self.is_scaled = is_scaled
-        self.tile_flip = tile_flip
+        if linear_angle is not None:
+            self.linear_angle = linear_angle
+        if is_scaled is not None:
+            self.is_scaled = is_scaled
+        if tile_flip is not None:
+            self.tile_flip = tile_flip
 
     @property
     def direction(self):

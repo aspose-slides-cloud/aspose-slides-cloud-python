@@ -86,8 +86,10 @@ class ProtectionProperties(ResourceBase):
             self.read_password = read_password
         if write_password is not None:
             self.write_password = write_password
-        self.is_write_protected = is_write_protected
-        self.is_encrypted = is_encrypted
+        if is_write_protected is not None:
+            self.is_write_protected = is_write_protected
+        if is_encrypted is not None:
+            self.is_encrypted = is_encrypted
 
     @property
     def encrypt_document_properties(self):

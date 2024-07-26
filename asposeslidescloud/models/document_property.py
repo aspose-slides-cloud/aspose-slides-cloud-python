@@ -73,7 +73,8 @@ class DocumentProperty(ResourceBase):
             self.name = name
         if value is not None:
             self.value = value
-        self.built_in = built_in
+        if built_in is not None:
+            self.built_in = built_in
 
     @property
     def name(self):

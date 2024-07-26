@@ -24,14 +24,17 @@ class TestText(BaseTest):
         old_value = "text"
         new_value = "new_text"
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
-        result = BaseTest.slides_api.replace_presentation_text(self.file_name, old_value, new_value, None, self.password, self.folder_name)
+        result = BaseTest.slides_api.replace_presentation_text(self.file_name, old_value, new_value, None, None, self.password, self.folder_name)
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
-        result_with_empty = BaseTest.slides_api.replace_presentation_text(self.file_name, old_value, new_value, True, self.password, self.folder_name)
+        result_with_empty = BaseTest.slides_api.replace_presentation_text(self.file_name, old_value, new_value, True, None, self.password, self.folder_name)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        result_whole_words = BaseTest.slides_api.replace_presentation_text(self.file_name, old_value, new_value, True, True, self.password, self.folder_name)
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
         slide_result = BaseTest.slides_api.replace_slide_text(self.file_name, self.slide_index, old_value, new_value, None, self.password, self.folder_name)
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
         slide_result_with_empty = BaseTest.slides_api.replace_slide_text(self.file_name, self.slide_index, old_value, new_value, True, self.password, self.folder_name)
         self.assertLess(result.matches, result_with_empty.matches)
+        self.assertLess(result_whole_words.matches, result_with_empty.matches)
         self.assertLess(slide_result.matches, result.matches)
         self.assertLess(slide_result.matches, slide_result_with_empty.matches)
 
@@ -40,8 +43,8 @@ class TestText(BaseTest):
         new_value = "new_text"
         with open(self.local_path, 'rb') as f:
             source = f.read()
-        BaseTest.slides_api.replace_presentation_text_online(source, old_value, new_value, None, self.password)
-        BaseTest.slides_api.replace_presentation_text_online(source, old_value, new_value, True, self.password)
+        BaseTest.slides_api.replace_presentation_text_online(source, old_value, new_value, None, None, self.password)
+        BaseTest.slides_api.replace_presentation_text_online(source, old_value, new_value, True, None, self.password)
         BaseTest.slides_api.replace_slide_text_online(source, self.slide_index, old_value, new_value, None, self.password)
         BaseTest.slides_api.replace_slide_text_online(source, self.slide_index, old_value, new_value, True, self.password)
 

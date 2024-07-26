@@ -44,6 +44,7 @@ class PdfExportOptions(ExportOptions):
     """
     swagger_types = {
         'default_regular_font': 'str',
+        'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
         'format': 'str',
@@ -63,11 +64,13 @@ class PdfExportOptions(ExportOptions):
         'apply_image_transparent': 'bool',
         'access_permissions': 'AccessPermissions',
         'hide_ink': 'bool',
-        'interpret_mask_op_as_opacity': 'bool'
+        'interpret_mask_op_as_opacity': 'bool',
+        'rasterize_unsupported_font_styles': 'bool'
     }
 
     attribute_map = {
         'default_regular_font': 'defaultRegularFont',
+        'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
         'format': 'format',
@@ -87,16 +90,17 @@ class PdfExportOptions(ExportOptions):
         'apply_image_transparent': 'applyImageTransparent',
         'access_permissions': 'accessPermissions',
         'hide_ink': 'hideInk',
-        'interpret_mask_op_as_opacity': 'interpretMaskOpAsOpacity'
+        'interpret_mask_op_as_opacity': 'interpretMaskOpAsOpacity',
+        'rasterize_unsupported_font_styles': 'rasterizeUnsupportedFontStyles'
     }
 
     type_determiners = {
         'format': 'pdf',
     }
 
-    def __init__(self, default_regular_font=None, font_fallback_rules=None, font_subst_rules=None, format='pdf', text_compression=None, embed_full_fonts=None, compliance=None, sufficient_resolution=None, jpeg_quality=None, draw_slides_frame=None, show_hidden_slides=None, save_metafiles_as_png=None, password=None, embed_true_type_fonts_for_ascii=None, additional_common_font_families=None, slides_layout_options=None, image_transparent_color=None, apply_image_transparent=None, access_permissions=None, hide_ink=None, interpret_mask_op_as_opacity=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='pdf', text_compression=None, embed_full_fonts=None, compliance=None, sufficient_resolution=None, jpeg_quality=None, draw_slides_frame=None, show_hidden_slides=None, save_metafiles_as_png=None, password=None, embed_true_type_fonts_for_ascii=None, additional_common_font_families=None, slides_layout_options=None, image_transparent_color=None, apply_image_transparent=None, access_permissions=None, hide_ink=None, interpret_mask_op_as_opacity=None, rasterize_unsupported_font_styles=None):  # noqa: E501
         """PdfExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(PdfExportOptions, self).__init__(default_regular_font, font_fallback_rules, font_subst_rules, format)
+        super(PdfExportOptions, self).__init__(default_regular_font, gradient_style, font_fallback_rules, font_subst_rules, format)
 
         self._text_compression = None
         self._embed_full_fonts = None
@@ -115,6 +119,7 @@ class PdfExportOptions(ExportOptions):
         self._access_permissions = None
         self._hide_ink = None
         self._interpret_mask_op_as_opacity = None
+        self._rasterize_unsupported_font_styles = None
         self.format = 'pdf'
 
         if text_compression is not None:
@@ -151,6 +156,8 @@ class PdfExportOptions(ExportOptions):
             self.hide_ink = hide_ink
         if interpret_mask_op_as_opacity is not None:
             self.interpret_mask_op_as_opacity = interpret_mask_op_as_opacity
+        if rasterize_unsupported_font_styles is not None:
+            self.rasterize_unsupported_font_styles = rasterize_unsupported_font_styles
 
     @property
     def text_compression(self):
@@ -557,6 +564,28 @@ class PdfExportOptions(ExportOptions):
         :type: bool
         """
         self._interpret_mask_op_as_opacity = interpret_mask_op_as_opacity
+
+    @property
+    def rasterize_unsupported_font_styles(self):
+        """Gets the rasterize_unsupported_font_styles of this PdfExportOptions.  # noqa: E501
+
+        True if text should be rasterized as a bitmap and saved to PDF when the font does not support bold styling. This approach can enhance the quality of text in the resulting PDF for certain fonts.  # noqa: E501
+
+        :return: The rasterize_unsupported_font_styles of this PdfExportOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._rasterize_unsupported_font_styles
+
+    @rasterize_unsupported_font_styles.setter
+    def rasterize_unsupported_font_styles(self, rasterize_unsupported_font_styles):
+        """Sets the rasterize_unsupported_font_styles of this PdfExportOptions.
+
+        True if text should be rasterized as a bitmap and saved to PDF when the font does not support bold styling. This approach can enhance the quality of text in the resulting PDF for certain fonts.  # noqa: E501
+
+        :param rasterize_unsupported_font_styles: The rasterize_unsupported_font_styles of this PdfExportOptions.  # noqa: E501
+        :type: bool
+        """
+        self._rasterize_unsupported_font_styles = rasterize_unsupported_font_styles
 
     def to_dict(self):
         """Returns the model properties as a dict"""

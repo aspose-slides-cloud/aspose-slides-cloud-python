@@ -47,7 +47,7 @@ class TestSection(BaseTest):
         result = BaseTest.slides_api.move_section(self.file_name, 1, 2, self.password, self.folder_name)
         self.assertEqual(3, len(result.section_list))
 
-    def test_clear_section(self):
+    def test_clear_sections(self):
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
         result = BaseTest.slides_api.delete_sections(self.file_name, None, None, self.password, self.folder_name)
         self.assertEqual(0, len(result.section_list))
@@ -57,7 +57,7 @@ class TestSection(BaseTest):
         result = BaseTest.slides_api.delete_sections(self.file_name, [ 2, 3 ], None, self.password, self.folder_name)
         self.assertEqual(1, len(result.section_list))
 
-    def test_delete_sections(self):
+    def test_delete_section(self):
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
         result = BaseTest.slides_api.delete_section(self.file_name, 2, None, self.password, self.folder_name)
         self.assertEqual(2, len(result.section_list))

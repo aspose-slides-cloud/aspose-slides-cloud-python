@@ -49,6 +49,7 @@ class TableCell(object):
         'margin_right': 'float',
         'margin_left': 'float',
         'margin_bottom': 'float',
+        'transparency': 'float',
         'text_anchor_type': 'str',
         'text_vertical_type': 'str',
         'fill_format': 'FillFormat',
@@ -72,6 +73,7 @@ class TableCell(object):
         'margin_right': 'marginRight',
         'margin_left': 'marginLeft',
         'margin_bottom': 'marginBottom',
+        'transparency': 'transparency',
         'text_anchor_type': 'textAnchorType',
         'text_vertical_type': 'textVerticalType',
         'fill_format': 'fillFormat',
@@ -90,7 +92,7 @@ class TableCell(object):
     type_determiners = {
     }
 
-    def __init__(self, text=None, row_span=None, col_span=None, margin_top=None, margin_right=None, margin_left=None, margin_bottom=None, text_anchor_type=None, text_vertical_type=None, fill_format=None, border_top=None, border_right=None, border_left=None, border_bottom=None, border_diagonal_up=None, border_diagonal_down=None, column_index=None, row_index=None, text_frame_format=None, paragraphs=None):  # noqa: E501
+    def __init__(self, text=None, row_span=None, col_span=None, margin_top=None, margin_right=None, margin_left=None, margin_bottom=None, transparency=None, text_anchor_type=None, text_vertical_type=None, fill_format=None, border_top=None, border_right=None, border_left=None, border_bottom=None, border_diagonal_up=None, border_diagonal_down=None, column_index=None, row_index=None, text_frame_format=None, paragraphs=None):  # noqa: E501
         """TableCell - a model defined in Swagger"""  # noqa: E501
 
         self._text = None
@@ -100,6 +102,7 @@ class TableCell(object):
         self._margin_right = None
         self._margin_left = None
         self._margin_bottom = None
+        self._transparency = None
         self._text_anchor_type = None
         self._text_vertical_type = None
         self._fill_format = None
@@ -128,6 +131,8 @@ class TableCell(object):
             self.margin_left = margin_left
         if margin_bottom is not None:
             self.margin_bottom = margin_bottom
+        if transparency is not None:
+            self.transparency = transparency
         if text_anchor_type is not None:
             self.text_anchor_type = text_anchor_type
         if text_vertical_type is not None:
@@ -308,6 +313,28 @@ class TableCell(object):
         :type: float
         """
         self._margin_bottom = margin_bottom
+
+    @property
+    def transparency(self):
+        """Gets the transparency of this TableCell.  # noqa: E501
+
+        Transparency.  # noqa: E501
+
+        :return: The transparency of this TableCell.  # noqa: E501
+        :rtype: float
+        """
+        return self._transparency
+
+    @transparency.setter
+    def transparency(self, transparency):
+        """Sets the transparency of this TableCell.
+
+        Transparency.  # noqa: E501
+
+        :param transparency: The transparency of this TableCell.  # noqa: E501
+        :type: float
+        """
+        self._transparency = transparency
 
     @property
     def text_anchor_type(self):

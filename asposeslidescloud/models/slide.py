@@ -98,7 +98,8 @@ class Slide(ResourceBase):
 
         self.width = width
         self.height = height
-        self.show_master_shapes = show_master_shapes
+        if show_master_shapes is not None:
+            self.show_master_shapes = show_master_shapes
         if slide_show_transition is not None:
             self.slide_show_transition = slide_show_transition
         if layout_slide is not None:

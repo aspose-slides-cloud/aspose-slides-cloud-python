@@ -44,6 +44,7 @@ class ImageExportOptions(ImageExportOptionsBase):
     """
     swagger_types = {
         'default_regular_font': 'str',
+        'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
         'format': 'str',
@@ -55,6 +56,7 @@ class ImageExportOptions(ImageExportOptionsBase):
 
     attribute_map = {
         'default_regular_font': 'defaultRegularFont',
+        'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
         'format': 'format',
@@ -68,9 +70,9 @@ class ImageExportOptions(ImageExportOptionsBase):
         'format': 'image',
     }
 
-    def __init__(self, default_regular_font=None, font_fallback_rules=None, font_subst_rules=None, format='image', height=None, width=None, show_hidden_slides=None, slides_layout_options=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='image', height=None, width=None, show_hidden_slides=None, slides_layout_options=None):  # noqa: E501
         """ImageExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(ImageExportOptions, self).__init__(default_regular_font, font_fallback_rules, font_subst_rules, format, height, width)
+        super(ImageExportOptions, self).__init__(default_regular_font, gradient_style, font_fallback_rules, font_subst_rules, format, height, width)
 
         self._show_hidden_slides = None
         self._slides_layout_options = None
