@@ -21,13 +21,13 @@ class TestFont(BaseTest):
     def test_get_fonts(self):
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
         response = BaseTest.slides_api.get_fonts(self.file_name, self.password, self.folder_name)
-        self.assertEqual(3, len(response.list))
+        self.assertEqual(4, len(response.list))
 
     def test_get_fonts_online(self):
         with open(self.local_path, 'rb') as f:
             source = f.read()
         response = BaseTest.slides_api.get_fonts_online(source, self.password)
-        self.assertEqual(3, len(response.list))
+        self.assertEqual(4, len(response.list))
 
     def test_set_embedded_font(self):
         BaseTest.slides_api.copy_file(self.temp_path, self.path)

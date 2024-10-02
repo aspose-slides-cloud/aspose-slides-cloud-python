@@ -129,7 +129,8 @@ class ShapeBase(ResourceBase):
             self.x = x
         if y is not None:
             self.y = y
-        self.z_order_position = z_order_position
+        if z_order_position is not None:
+            self.z_order_position = z_order_position
         if fill_format is not None:
             self.fill_format = fill_format
         if effect_format is not None:

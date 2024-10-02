@@ -76,6 +76,24 @@ class TestAsync(BaseTest):
 
         self.assertTrue(BaseTest.slides_api.object_exists(out_path).exists)
 
+    def test_async_split(self):
+        out_folder = "splitResult"
+        BaseTest.slides_api.delete_folder(out_folder, None, True)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        operation_id = BaseTest.slides_async_api.start_split(
+            self.file_name, 'png', None, None, None, None, None, out_folder, self.password, self.folder_name)
+        self.await_good_operation(operation_id)
+        self.assertTrue(BaseTest.slides_api.object_exists(out_folder).exists)
+
+    def test_async_upload_and_split(self):
+        out_folder = "splitResult"
+        BaseTest.slides_api.delete_folder(out_folder, None, True)
+        with open(self.local_path, 'rb') as f:
+            source = f.read()
+        operation_id = BaseTest.slides_async_api.start_upload_and_split(source, 'png', out_folder, None, None, None, None, self.password)
+        self.await_good_operation(operation_id)
+        self.assertTrue(BaseTest.slides_api.object_exists(out_folder).exists)
+
     def test_async_bad_operation(self):
         operation_id = BaseTest.slides_async_api.start_download_presentation('IDoNotExist.pptx', 'pdf')
         operation = self.await_operation(operation_id)

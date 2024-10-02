@@ -170,6 +170,7 @@ from asposeslidescloud.models.ole_object_frame import OleObjectFrame
 from asposeslidescloud.models.one_value_chart_data_point import OneValueChartDataPoint
 from asposeslidescloud.models.one_value_series import OneValueSeries
 from asposeslidescloud.models.operation import Operation
+from asposeslidescloud.models.operation_error import OperationError
 from asposeslidescloud.models.operation_progress import OperationProgress
 from asposeslidescloud.models.ordered_merge_request import OrderedMergeRequest
 from asposeslidescloud.models.outer_shadow_effect import OuterShadowEffect

@@ -31,7 +31,7 @@ import re  # noqa: F401
 import six
 
 
-class TableRow(object):
+class OperationError(object):
 
 
     """
@@ -42,99 +42,117 @@ class TableRow(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'cells': 'list[TableCell]',
-        'minimal_height': 'float',
-        'height': 'float'
+        'code': 'str',
+        'description': 'str',
+        'http_status_code': 'int',
+        'message': 'str'
     }
 
     attribute_map = {
-        'cells': 'cells',
-        'minimal_height': 'minimalHeight',
-        'height': 'height'
+        'code': 'code',
+        'description': 'description',
+        'http_status_code': 'httpStatusCode',
+        'message': 'message'
     }
 
     type_determiners = {
     }
 
-    def __init__(self, cells=None, minimal_height=None, height=None):  # noqa: E501
-        """TableRow - a model defined in Swagger"""  # noqa: E501
+    def __init__(self, code=None, description=None, http_status_code=None, message=None):  # noqa: E501
+        """OperationError - a model defined in Swagger"""  # noqa: E501
 
-        self._cells = None
-        self._minimal_height = None
-        self._height = None
+        self._code = None
+        self._description = None
+        self._http_status_code = None
+        self._message = None
 
-        if cells is not None:
-            self.cells = cells
-        if minimal_height is not None:
-            self.minimal_height = minimal_height
-        if height is not None:
-            self.height = height
-
-    @property
-    def cells(self):
-        """Gets the cells of this TableRow.  # noqa: E501
-
-        Cells for the row.  # noqa: E501
-
-        :return: The cells of this TableRow.  # noqa: E501
-        :rtype: list[TableCell]
-        """
-        return self._cells
-
-    @cells.setter
-    def cells(self, cells):
-        """Sets the cells of this TableRow.
-
-        Cells for the row.  # noqa: E501
-
-        :param cells: The cells of this TableRow.  # noqa: E501
-        :type: list[TableCell]
-        """
-        self._cells = cells
+        if code is not None:
+            self.code = code
+        if description is not None:
+            self.description = description
+        self.http_status_code = http_status_code
+        if message is not None:
+            self.message = message
 
     @property
-    def minimal_height(self):
-        """Gets the minimal_height of this TableRow.  # noqa: E501
+    def code(self):
+        """Gets the code of this OperationError.  # noqa: E501
 
-        Minimal height of the row.  # noqa: E501
 
-        :return: The minimal_height of this TableRow.  # noqa: E501
-        :rtype: float
+        :return: The code of this OperationError.  # noqa: E501
+        :rtype: str
         """
-        return self._minimal_height
+        return self._code
 
-    @minimal_height.setter
-    def minimal_height(self, minimal_height):
-        """Sets the minimal_height of this TableRow.
+    @code.setter
+    def code(self, code):
+        """Sets the code of this OperationError.
 
-        Minimal height of the row.  # noqa: E501
 
-        :param minimal_height: The minimal_height of this TableRow.  # noqa: E501
-        :type: float
+        :param code: The code of this OperationError.  # noqa: E501
+        :type: str
         """
-        self._minimal_height = minimal_height
+        self._code = code
 
     @property
-    def height(self):
-        """Gets the height of this TableRow.  # noqa: E501
+    def description(self):
+        """Gets the description of this OperationError.  # noqa: E501
 
-        Height of the row.  # noqa: E501
 
-        :return: The height of this TableRow.  # noqa: E501
-        :rtype: float
+        :return: The description of this OperationError.  # noqa: E501
+        :rtype: str
         """
-        return self._height
+        return self._description
 
-    @height.setter
-    def height(self, height):
-        """Sets the height of this TableRow.
+    @description.setter
+    def description(self, description):
+        """Sets the description of this OperationError.
 
-        Height of the row.  # noqa: E501
 
-        :param height: The height of this TableRow.  # noqa: E501
-        :type: float
+        :param description: The description of this OperationError.  # noqa: E501
+        :type: str
         """
-        self._height = height
+        self._description = description
+
+    @property
+    def http_status_code(self):
+        """Gets the http_status_code of this OperationError.  # noqa: E501
+
+
+        :return: The http_status_code of this OperationError.  # noqa: E501
+        :rtype: int
+        """
+        return self._http_status_code
+
+    @http_status_code.setter
+    def http_status_code(self, http_status_code):
+        """Sets the http_status_code of this OperationError.
+
+
+        :param http_status_code: The http_status_code of this OperationError.  # noqa: E501
+        :type: int
+        """
+        self._http_status_code = http_status_code
+
+    @property
+    def message(self):
+        """Gets the message of this OperationError.  # noqa: E501
+
+
+        :return: The message of this OperationError.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this OperationError.
+
+
+        :param message: The message of this OperationError.  # noqa: E501
+        :type: str
+        """
+        self._message = message
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -170,7 +188,7 @@ class TableRow(object):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, TableRow):
+        if not isinstance(other, OperationError):
             return False
 
         return self.__dict__ == other.__dict__

@@ -51,7 +51,7 @@ class Operation(object):
         'failed': 'datetime',
         'canceled': 'datetime',
         'finished': 'datetime',
-        'error': 'str'
+        'error': 'OperationError'
     }
 
     attribute_map = {
@@ -141,7 +141,7 @@ class Operation(object):
         :type: str
         """
         if method is not None:
-            allowed_values = ["Convert", "DownloadPresentation", "ConvertAndSave", "SavePresentation", "Merge", "MergeAndSave"]  # noqa: E501
+            allowed_values = ["Convert", "DownloadPresentation", "ConvertAndSave", "SavePresentation", "Merge", "MergeAndSave", "Split", "UploadAndSplit"]  # noqa: E501
             if method.isdigit():
                 int_method = int(method)
                 if int_method < 0 or int_method >= len(allowed_values):
@@ -320,7 +320,7 @@ class Operation(object):
 
 
         :return: The error of this Operation.  # noqa: E501
-        :rtype: str
+        :rtype: OperationError
         """
         return self._error
 
@@ -330,7 +330,7 @@ class Operation(object):
 
 
         :param error: The error of this Operation.  # noqa: E501
-        :type: str
+        :type: OperationError
         """
         self._error = error
 

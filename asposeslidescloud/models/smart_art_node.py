@@ -76,7 +76,8 @@ class SmartArtNode(object):
             self.nodes = nodes
         if shapes is not None:
             self.shapes = shapes
-        self.is_assistant = is_assistant
+        if is_assistant is not None:
+            self.is_assistant = is_assistant
         if text is not None:
             self.text = text
         self.org_chart_layout = org_chart_layout

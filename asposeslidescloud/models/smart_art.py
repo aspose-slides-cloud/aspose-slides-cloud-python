@@ -116,7 +116,8 @@ class SmartArt(ShapeBase):
         self.color_style = color_style
         if nodes is not None:
             self.nodes = nodes
-        self.is_reversed = is_reversed
+        if is_reversed is not None:
+            self.is_reversed = is_reversed
 
     @property
     def layout(self):

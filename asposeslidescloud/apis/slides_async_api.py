@@ -41,6 +41,106 @@ class SlidesAsyncApi(ApiBase):
     def __init__(self, configuration = None, app_sid = None, app_key = None):
         super(SlidesAsyncApi, self).__init__(configuration, app_sid, app_key)
 
+    def download(self, path, storage_name = None, version_id = None, **kwargs):  # noqa: E501
+        """download  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(path, storage_name, version_id, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param path 
+        :param storage_name 
+        :param version_id 
+        :return: file
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.download_with_http_info(path, storage_name, version_id, **kwargs)  # noqa: E501
+        else:
+            (data) = self.download_with_http_info(path, storage_name, version_id, **kwargs)  # noqa: E501
+            return data
+
+    def download_with_http_info(self, path, storage_name = None, version_id = None, **kwargs):  # noqa: E501
+        """download  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.download_with_http_info(path, storage_name, version_id, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param path 
+        :param storage_name 
+        :param version_id 
+        :return: file
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method download" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'path' is set
+        if not path:
+            raise ValueError("Missing the required parameter `path` when calling `download`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['path'] = path  # noqa: E501
+
+        query_params = []
+        if storage_name:
+            query_params.append(('storageName', storage_name))  # noqa: E501
+        if version_id:
+            query_params.append(('versionId', version_id))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/async/storage/file/{path}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='file',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', False),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def get_operation_result(self, id, **kwargs):  # noqa: E501
         """get_operation_result  # noqa: E501
 
@@ -931,6 +1031,388 @@ class SlidesAsyncApi(ApiBase):
             post_params=form_params,
             files=param_files,
             response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', False),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def start_split(self, name, format, options = None, width = None, height = None, _from = None, to = None, dest_folder = None, password = None, folder = None, storage = None, fonts_folder = None, **kwargs):  # noqa: E501
+        """start_split  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(name, format, options, width, height, _from, to, dest_folder, password, folder, storage, fonts_folder, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name 
+        :param format 
+        :param options 
+        :param width 
+        :param height 
+        :param _from 
+        :param to 
+        :param dest_folder 
+        :param password 
+        :param folder 
+        :param storage 
+        :param fonts_folder 
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.start_split_with_http_info(name, format, options, width, height, _from, to, dest_folder, password, folder, storage, fonts_folder, **kwargs)  # noqa: E501
+        else:
+            (data) = self.start_split_with_http_info(name, format, options, width, height, _from, to, dest_folder, password, folder, storage, fonts_folder, **kwargs)  # noqa: E501
+            return data
+
+    def start_split_with_http_info(self, name, format, options = None, width = None, height = None, _from = None, to = None, dest_folder = None, password = None, folder = None, storage = None, fonts_folder = None, **kwargs):  # noqa: E501
+        """start_split  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.start_split_with_http_info(name, format, options, width, height, _from, to, dest_folder, password, folder, storage, fonts_folder, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param name 
+        :param format 
+        :param options 
+        :param width 
+        :param height 
+        :param _from 
+        :param to 
+        :param dest_folder 
+        :param password 
+        :param folder 
+        :param storage 
+        :param fonts_folder 
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method start_split" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'name' is set
+        if not name:
+            raise ValueError("Missing the required parameter `name` when calling `start_split`")  # noqa: E501
+        # verify the required parameter 'format' is set
+        if not format:
+            raise ValueError("Missing the required parameter `format` when calling `start_split`")  # noqa: E501
+        # verify the value of parameter 'format' is valid
+        if not format.upper() in SlideExportFormat.__dict__:
+            raise ValueError("Invalid value for parameter `format` when calling `start_split`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['name'] = name  # noqa: E501
+        path_params['format'] = format  # noqa: E501
+
+        query_params = []
+        if width:
+            query_params.append(('width', width))  # noqa: E501
+        if height:
+            query_params.append(('height', height))  # noqa: E501
+        if _from:
+            query_params.append(('from', _from))  # noqa: E501
+        if to:
+            query_params.append(('to', to))  # noqa: E501
+        if dest_folder:
+            query_params.append(('destFolder', dest_folder))  # noqa: E501
+        if folder:
+            query_params.append(('folder', folder))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+        if fonts_folder:
+            query_params.append(('fontsFolder', fonts_folder))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+
+        body_params = None
+        if options:
+            body_params = options
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/async/{name}/split/{format}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', False),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def start_upload_and_split(self, document, format, dest_folder = None, width = None, height = None, _from = None, to = None, password = None, storage = None, fonts_folder = None, options = None, **kwargs):  # noqa: E501
+        """start_upload_and_split  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(document, format, dest_folder, width, height, _from, to, password, storage, fonts_folder, options, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param document Document data.
+        :param format 
+        :param dest_folder 
+        :param width 
+        :param height 
+        :param _from 
+        :param to 
+        :param password 
+        :param storage 
+        :param fonts_folder 
+        :param options 
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.start_upload_and_split_with_http_info(document, format, dest_folder, width, height, _from, to, password, storage, fonts_folder, options, **kwargs)  # noqa: E501
+        else:
+            (data) = self.start_upload_and_split_with_http_info(document, format, dest_folder, width, height, _from, to, password, storage, fonts_folder, options, **kwargs)  # noqa: E501
+            return data
+
+    def start_upload_and_split_with_http_info(self, document, format, dest_folder = None, width = None, height = None, _from = None, to = None, password = None, storage = None, fonts_folder = None, options = None, **kwargs):  # noqa: E501
+        """start_upload_and_split  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.start_upload_and_split_with_http_info(document, format, dest_folder, width, height, _from, to, password, storage, fonts_folder, options, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param document Document data.
+        :param format 
+        :param dest_folder 
+        :param width 
+        :param height 
+        :param _from 
+        :param to 
+        :param password 
+        :param storage 
+        :param fonts_folder 
+        :param options 
+        :return: str
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method start_upload_and_split" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'document' is set
+        if not document:
+            raise ValueError("Missing the required parameter `document` when calling `start_upload_and_split`")  # noqa: E501
+        # verify the required parameter 'format' is set
+        if not format:
+            raise ValueError("Missing the required parameter `format` when calling `start_upload_and_split`")  # noqa: E501
+        # verify the value of parameter 'format' is valid
+        if not format.upper() in SlideExportFormat.__dict__:
+            raise ValueError("Invalid value for parameter `format` when calling `start_upload_and_split`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['format'] = format  # noqa: E501
+
+        query_params = []
+        if dest_folder:
+            query_params.append(('destFolder', dest_folder))  # noqa: E501
+        if width:
+            query_params.append(('width', width))  # noqa: E501
+        if height:
+            query_params.append(('height', height))  # noqa: E501
+        if _from:
+            query_params.append(('from', _from))  # noqa: E501
+        if to:
+            query_params.append(('to', to))  # noqa: E501
+        if storage:
+            query_params.append(('storage', storage))  # noqa: E501
+        if fonts_folder:
+            query_params.append(('fontsFolder', fonts_folder))  # noqa: E501
+
+        header_params = {}
+        if password:
+            header_params['password'] = password  # noqa: E501
+
+        form_params = []
+        param_files = {}
+        if document:
+            param_files['document'] = document  # noqa: E501
+
+        body_params = None
+        if options:
+            body_params = options
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/async/split/{format}', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='str',  # noqa: E501
+            auth_settings=auth_settings,
+            is_async=params.get('is_async'),
+            _return_http_data_only=params.get('_return_http_data_only'),
+            _preload_content=params.get('_preload_content', False),
+            _request_timeout=params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def upload(self, path, file, storage_name = None, **kwargs):  # noqa: E501
+        """upload  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.(path, file, storage_name, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param path 
+        :param file File to upload
+        :param storage_name 
+        :return: FilesUploadResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        if kwargs.get('is_async'):
+            return self.upload_with_http_info(path, file, storage_name, **kwargs)  # noqa: E501
+        else:
+            (data) = self.upload_with_http_info(path, file, storage_name, **kwargs)  # noqa: E501
+            return data
+
+    def upload_with_http_info(self, path, file, storage_name = None, **kwargs):  # noqa: E501
+        """upload  # noqa: E501
+
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass is_async=True
+        >>> thread = api.upload_with_http_info(path, file, storage_name, is_async=True)
+        >>> result = thread.get()
+
+        :param is_async bool
+        :param path 
+        :param file File to upload
+        :param storage_name 
+        :return: FilesUploadResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        all_params = []  # noqa: E501
+        all_params.append('is_async')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        params = locals()
+        for key, val in six.iteritems(params['kwargs']):
+            if key not in all_params:
+                raise TypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method upload" % key
+                )
+            params[key] = val
+        del params['kwargs']
+        # verify the required parameter 'path' is set
+        if not path:
+            raise ValueError("Missing the required parameter `path` when calling `upload`")  # noqa: E501
+        # verify the required parameter 'file' is set
+        if not file:
+            raise ValueError("Missing the required parameter `file` when calling `upload`")  # noqa: E501
+
+        collection_formats = {}
+
+        path_params = {}
+        path_params['path'] = path  # noqa: E501
+
+        query_params = []
+        if storage_name:
+            query_params.append(('storageName', storage_name))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        param_files = {}
+        if file:
+            param_files['file'] = file  # noqa: E501
+
+        body_params = None
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['multipart/form-data'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['JWT']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/slides/async/storage/file/{path}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=param_files,
+            response_type='FilesUploadResult',  # noqa: E501
             auth_settings=auth_settings,
             is_async=params.get('is_async'),
             _return_http_data_only=params.get('_return_http_data_only'),

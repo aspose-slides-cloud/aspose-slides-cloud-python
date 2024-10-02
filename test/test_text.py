@@ -26,6 +26,8 @@ class TestText(BaseTest):
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
         result = BaseTest.slides_api.replace_presentation_text(self.file_name, old_value, new_value, None, None, self.password, self.folder_name)
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        result_regex = BaseTest.slides_api.replace_presentation_regex(self.file_name, old_value, new_value, None, self.password, self.folder_name)
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
         result_with_empty = BaseTest.slides_api.replace_presentation_text(self.file_name, old_value, new_value, True, None, self.password, self.folder_name)
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
         result_whole_words = BaseTest.slides_api.replace_presentation_text(self.file_name, old_value, new_value, True, True, self.password, self.folder_name)
@@ -33,6 +35,7 @@ class TestText(BaseTest):
         slide_result = BaseTest.slides_api.replace_slide_text(self.file_name, self.slide_index, old_value, new_value, None, self.password, self.folder_name)
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
         slide_result_with_empty = BaseTest.slides_api.replace_slide_text(self.file_name, self.slide_index, old_value, new_value, True, self.password, self.folder_name)
+        self.assertEqual(result.matches, result_regex.matches)
         self.assertLess(result.matches, result_with_empty.matches)
         self.assertLess(result_whole_words.matches, result_with_empty.matches)
         self.assertLess(slide_result.matches, result.matches)
@@ -44,6 +47,7 @@ class TestText(BaseTest):
         with open(self.local_path, 'rb') as f:
             source = f.read()
         BaseTest.slides_api.replace_presentation_text_online(source, old_value, new_value, None, None, self.password)
+        BaseTest.slides_api.replace_presentation_regex_online(source, old_value, new_value, None, self.password)
         BaseTest.slides_api.replace_presentation_text_online(source, old_value, new_value, True, None, self.password)
         BaseTest.slides_api.replace_slide_text_online(source, self.slide_index, old_value, new_value, None, self.password)
         BaseTest.slides_api.replace_slide_text_online(source, self.slide_index, old_value, new_value, True, self.password)
@@ -98,7 +102,42 @@ class TestText(BaseTest):
         text_to_highlight = "highlight"
         regex = "h.ghl[abci]ght"
         color = "#FFF5FF8A"
-        BaseTest.slides_api.highlight_shape_regex(self.file_name, slide_index, shape_index, regex, color, None, False, self.password, self.folder_name)
+        BaseTest.slides_api.highlight_shape_regex(self.file_name, slide_index, shape_index, regex, color, False, self.password, self.folder_name)
+        para = BaseTest.slides_api.get_paragraph(self.file_name, slide_index, shape_index, paragraph_index, self.password, self.folder_name)
+        self.assertNotEqual(para.portion_list[0].text, text_to_highlight)
+        self.assertNotEqual(para.portion_list[0].highlight_color, color)
+        self.assertEqual(para.portion_list[1].text, text_to_highlight)
+        self.assertEqual(para.portion_list[1].highlight_color, color)
+
+    def test_highlight_presentation_text(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        text_to_highlight = "highlight"
+        color = "#FFF5FF8A"
+        result = BaseTest.slides_api.highlight_presentation_text(self.file_name, text_to_highlight, color, None, False, self.password, self.folder_name)
+        result_ignore_case = BaseTest.slides_api.highlight_presentation_text(self.file_name, text_to_highlight, color, None, True, self.password, self.folder_name)
+        self.assertEqual(result.matches, result_ignore_case.matches)
+
+        slide_index = 6
+        shape_index = 1
+        paragraph_index = 1
+        para = BaseTest.slides_api.get_paragraph(self.file_name, slide_index, shape_index, paragraph_index, self.password, self.folder_name)
+        self.assertNotEqual(para.portion_list[0].text, text_to_highlight)
+        self.assertNotEqual(para.portion_list[0].highlight_color, color)
+        self.assertEqual(para.portion_list[1].text, text_to_highlight)
+        self.assertEqual(para.portion_list[1].highlight_color, color)
+
+    def test_highlight_presentation_regex(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        text_to_highlight = "highlight"
+        regex = "h.ghl[abci]ght"
+        color = "#FFF5FF8A"
+        result = BaseTest.slides_api.highlight_presentation_regex(self.file_name, regex, color, False, self.password, self.folder_name)
+        result_ignore_case = BaseTest.slides_api.highlight_presentation_regex(self.file_name, regex, color, True, self.password, self.folder_name)
+        self.assertEqual(result.matches, result_ignore_case.matches)
+
+        slide_index = 6
+        shape_index = 1
+        paragraph_index = 1
         para = BaseTest.slides_api.get_paragraph(self.file_name, slide_index, shape_index, paragraph_index, self.password, self.folder_name)
         self.assertNotEqual(para.portion_list[0].text, text_to_highlight)
         self.assertNotEqual(para.portion_list[0].highlight_color, color)
