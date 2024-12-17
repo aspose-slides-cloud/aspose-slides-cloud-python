@@ -64,7 +64,7 @@ class Shape(GeometryShape):
         'type': 'str',
         'shape_type': 'str',
         'text': 'str',
-        'paragraphs': 'ResourceUri',
+        'paragraphs': 'list[Paragraph]',
         'text_frame_format': 'TextFrameFormat'
     }
 
@@ -143,7 +143,7 @@ class Shape(GeometryShape):
         Get or sets list to paragraphs list  # noqa: E501
 
         :return: The paragraphs of this Shape.  # noqa: E501
-        :rtype: ResourceUri
+        :rtype: list[Paragraph]
         """
         return self._paragraphs
 
@@ -154,7 +154,7 @@ class Shape(GeometryShape):
         Get or sets list to paragraphs list  # noqa: E501
 
         :param paragraphs: The paragraphs of this Shape.  # noqa: E501
-        :type: ResourceUri
+        :type: list[Paragraph]
         """
         self._paragraphs = paragraphs
 

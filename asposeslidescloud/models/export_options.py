@@ -43,6 +43,7 @@ class ExportOptions(object):
     """
     swagger_types = {
         'default_regular_font': 'str',
+        'delete_embedded_binary_objects': 'bool',
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
@@ -51,6 +52,7 @@ class ExportOptions(object):
 
     attribute_map = {
         'default_regular_font': 'defaultRegularFont',
+        'delete_embedded_binary_objects': 'deleteEmbeddedBinaryObjects',
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
@@ -60,10 +62,11 @@ class ExportOptions(object):
     type_determiners = {
     }
 
-    def __init__(self, default_regular_font=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format=None):  # noqa: E501
         """ExportOptions - a model defined in Swagger"""  # noqa: E501
 
         self._default_regular_font = None
+        self._delete_embedded_binary_objects = None
         self._gradient_style = None
         self._font_fallback_rules = None
         self._font_subst_rules = None
@@ -71,6 +74,8 @@ class ExportOptions(object):
 
         if default_regular_font is not None:
             self.default_regular_font = default_regular_font
+        if delete_embedded_binary_objects is not None:
+            self.delete_embedded_binary_objects = delete_embedded_binary_objects
         if gradient_style is not None:
             self.gradient_style = gradient_style
         if font_fallback_rules is not None:
@@ -101,6 +106,28 @@ class ExportOptions(object):
         :type: str
         """
         self._default_regular_font = default_regular_font
+
+    @property
+    def delete_embedded_binary_objects(self):
+        """Gets the delete_embedded_binary_objects of this ExportOptions.  # noqa: E501
+
+        True to delete delete all embedded binary objects.  # noqa: E501
+
+        :return: The delete_embedded_binary_objects of this ExportOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._delete_embedded_binary_objects
+
+    @delete_embedded_binary_objects.setter
+    def delete_embedded_binary_objects(self, delete_embedded_binary_objects):
+        """Sets the delete_embedded_binary_objects of this ExportOptions.
+
+        True to delete delete all embedded binary objects.  # noqa: E501
+
+        :param delete_embedded_binary_objects: The delete_embedded_binary_objects of this ExportOptions.  # noqa: E501
+        :type: bool
+        """
+        self._delete_embedded_binary_objects = delete_embedded_binary_objects
 
     @property
     def gradient_style(self):

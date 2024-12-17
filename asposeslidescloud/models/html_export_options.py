@@ -44,6 +44,7 @@ class HtmlExportOptions(ExportOptions):
     """
     swagger_types = {
         'default_regular_font': 'str',
+        'delete_embedded_binary_objects': 'bool',
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
@@ -60,6 +61,7 @@ class HtmlExportOptions(ExportOptions):
 
     attribute_map = {
         'default_regular_font': 'defaultRegularFont',
+        'delete_embedded_binary_objects': 'deleteEmbeddedBinaryObjects',
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
@@ -78,9 +80,9 @@ class HtmlExportOptions(ExportOptions):
         'format': 'html',
     }
 
-    def __init__(self, default_regular_font=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='html', save_as_zip=None, sub_directory_name=None, show_hidden_slides=None, svg_responsive_layout=None, jpeg_quality=None, pictures_compression=None, delete_pictures_cropped_areas=None, slides_layout_options=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='html', save_as_zip=None, sub_directory_name=None, show_hidden_slides=None, svg_responsive_layout=None, jpeg_quality=None, pictures_compression=None, delete_pictures_cropped_areas=None, slides_layout_options=None):  # noqa: E501
         """HtmlExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(HtmlExportOptions, self).__init__(default_regular_font, gradient_style, font_fallback_rules, font_subst_rules, format)
+        super(HtmlExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format)
 
         self._save_as_zip = None
         self._sub_directory_name = None

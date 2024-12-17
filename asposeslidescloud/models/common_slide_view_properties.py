@@ -43,27 +43,32 @@ class CommonSlideViewProperties(object):
     """
     swagger_types = {
         'scale': 'int',
-        'variable_scale': 'bool'
+        'variable_scale': 'bool',
+        'drawing_guides': 'list[DrawingGuide]'
     }
 
     attribute_map = {
         'scale': 'scale',
-        'variable_scale': 'variableScale'
+        'variable_scale': 'variableScale',
+        'drawing_guides': 'drawingGuides'
     }
 
     type_determiners = {
     }
 
-    def __init__(self, scale=None, variable_scale=None):  # noqa: E501
+    def __init__(self, scale=None, variable_scale=None, drawing_guides=None):  # noqa: E501
         """CommonSlideViewProperties - a model defined in Swagger"""  # noqa: E501
 
         self._scale = None
         self._variable_scale = None
+        self._drawing_guides = None
 
         if scale is not None:
             self.scale = scale
         if variable_scale is not None:
             self.variable_scale = variable_scale
+        if drawing_guides is not None:
+            self.drawing_guides = drawing_guides
 
     @property
     def scale(self):
@@ -108,6 +113,28 @@ class CommonSlideViewProperties(object):
         :type: bool
         """
         self._variable_scale = variable_scale
+
+    @property
+    def drawing_guides(self):
+        """Gets the drawing_guides of this CommonSlideViewProperties.  # noqa: E501
+
+        Drawing guides  # noqa: E501
+
+        :return: The drawing_guides of this CommonSlideViewProperties.  # noqa: E501
+        :rtype: list[DrawingGuide]
+        """
+        return self._drawing_guides
+
+    @drawing_guides.setter
+    def drawing_guides(self, drawing_guides):
+        """Sets the drawing_guides of this CommonSlideViewProperties.
+
+        Drawing guides  # noqa: E501
+
+        :param drawing_guides: The drawing_guides of this CommonSlideViewProperties.  # noqa: E501
+        :type: list[DrawingGuide]
+        """
+        self._drawing_guides = drawing_guides
 
     def to_dict(self):
         """Returns the model properties as a dict"""

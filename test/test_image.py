@@ -69,14 +69,18 @@ class TestImage(BaseTest):
         response = BaseTest.slides_api.replace_image_online(file_source, self.image_index, image_source, self.password)
         self.assertNotEqual(os.path.getsize(response), 0)
 
+    def test_compress_image(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        BaseTest.slides_api.compress_image(self.file_name, 2, 2, 150, False, self.password, self.folder_name)
+
     def test_delete_picture_cropped_areas(self):
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
-        BaseTest.slides_api.delete_picture_cropped_areas(self.file_name, 2, 2, self.password, self.folder_name)
+        BaseTest.slides_api.compress_image(self.file_name, 2, 2, None, True, self.password, self.folder_name)
 
     def test_delete_picture_cropped_areas_wrong_shape_type(self):
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
         try:
-            BaseTest.slides_api.delete_picture_cropped_areas(self.file_name, 2, 3, self.password, self.folder_name)
+            BaseTest.slides_api.compress_image(self.file_name, 2, 3, None, True, self.password, self.folder_name)
             self.fail("Should throw an exception if shape is not PictureFrame")
         except ApiException as ex:
             self.assertEqual(400, ex.status)

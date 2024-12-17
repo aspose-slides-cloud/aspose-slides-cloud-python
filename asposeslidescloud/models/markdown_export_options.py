@@ -44,6 +44,7 @@ class MarkdownExportOptions(ExportOptions):
     """
     swagger_types = {
         'default_regular_font': 'str',
+        'delete_embedded_binary_objects': 'bool',
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
@@ -59,6 +60,7 @@ class MarkdownExportOptions(ExportOptions):
 
     attribute_map = {
         'default_regular_font': 'defaultRegularFont',
+        'delete_embedded_binary_objects': 'deleteEmbeddedBinaryObjects',
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
@@ -76,9 +78,9 @@ class MarkdownExportOptions(ExportOptions):
         'format': 'md',
     }
 
-    def __init__(self, default_regular_font=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='md', export_type=None, flavor=None, new_line_type=None, images_save_folder_name=None, show_slide_number=None, show_comments=None, show_hidden_slides=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='md', export_type=None, flavor=None, new_line_type=None, images_save_folder_name=None, show_slide_number=None, show_comments=None, show_hidden_slides=None):  # noqa: E501
         """MarkdownExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(MarkdownExportOptions, self).__init__(default_regular_font, gradient_style, font_fallback_rules, font_subst_rules, format)
+        super(MarkdownExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format)
 
         self._export_type = None
         self._flavor = None

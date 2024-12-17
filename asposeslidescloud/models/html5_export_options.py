@@ -44,6 +44,7 @@ class Html5ExportOptions(ExportOptions):
     """
     swagger_types = {
         'default_regular_font': 'str',
+        'delete_embedded_binary_objects': 'bool',
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
@@ -57,6 +58,7 @@ class Html5ExportOptions(ExportOptions):
 
     attribute_map = {
         'default_regular_font': 'defaultRegularFont',
+        'delete_embedded_binary_objects': 'deleteEmbeddedBinaryObjects',
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
@@ -72,9 +74,9 @@ class Html5ExportOptions(ExportOptions):
         'format': 'html5',
     }
 
-    def __init__(self, default_regular_font=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='html5', animate_transitions=None, animate_shapes=None, embed_images=None, notes_comments_layouting=None, templates_path=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='html5', animate_transitions=None, animate_shapes=None, embed_images=None, notes_comments_layouting=None, templates_path=None):  # noqa: E501
         """Html5ExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(Html5ExportOptions, self).__init__(default_regular_font, gradient_style, font_fallback_rules, font_subst_rules, format)
+        super(Html5ExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format)
 
         self._animate_transitions = None
         self._animate_shapes = None

@@ -49,6 +49,12 @@ class PictureFill(FillFormat):
         'crop_right': 'float',
         'crop_top': 'float',
         'dpi': 'int',
+        'tile_offset_x': 'float',
+        'tile_offset_y': 'float',
+        'tile_scale_x': 'float',
+        'tile_scale_y': 'float',
+        'tile_alignment': 'str',
+        'tile_flip': 'str',
         'image': 'ResourceUri',
         'base64_data': 'str',
         'svg_data': 'str',
@@ -63,6 +69,12 @@ class PictureFill(FillFormat):
         'crop_right': 'cropRight',
         'crop_top': 'cropTop',
         'dpi': 'dpi',
+        'tile_offset_x': 'tileOffsetX',
+        'tile_offset_y': 'tileOffsetY',
+        'tile_scale_x': 'tileScaleX',
+        'tile_scale_y': 'tileScaleY',
+        'tile_alignment': 'tileAlignment',
+        'tile_flip': 'tileFlip',
         'image': 'image',
         'base64_data': 'base64Data',
         'svg_data': 'svgData',
@@ -74,7 +86,7 @@ class PictureFill(FillFormat):
         'type': 'Picture',
     }
 
-    def __init__(self, type='Picture', crop_bottom=None, crop_left=None, crop_right=None, crop_top=None, dpi=None, image=None, base64_data=None, svg_data=None, picture_fill_mode=None, image_transform_list=None):  # noqa: E501
+    def __init__(self, type='Picture', crop_bottom=None, crop_left=None, crop_right=None, crop_top=None, dpi=None, tile_offset_x=None, tile_offset_y=None, tile_scale_x=None, tile_scale_y=None, tile_alignment=None, tile_flip=None, image=None, base64_data=None, svg_data=None, picture_fill_mode=None, image_transform_list=None):  # noqa: E501
         """PictureFill - a model defined in Swagger"""  # noqa: E501
         super(PictureFill, self).__init__(type)
 
@@ -83,6 +95,12 @@ class PictureFill(FillFormat):
         self._crop_right = None
         self._crop_top = None
         self._dpi = None
+        self._tile_offset_x = None
+        self._tile_offset_y = None
+        self._tile_scale_x = None
+        self._tile_scale_y = None
+        self._tile_alignment = None
+        self._tile_flip = None
         self._image = None
         self._base64_data = None
         self._svg_data = None
@@ -95,6 +113,18 @@ class PictureFill(FillFormat):
         self.crop_right = crop_right
         self.crop_top = crop_top
         self.dpi = dpi
+        if tile_offset_x is not None:
+            self.tile_offset_x = tile_offset_x
+        if tile_offset_y is not None:
+            self.tile_offset_y = tile_offset_y
+        if tile_scale_x is not None:
+            self.tile_scale_x = tile_scale_x
+        if tile_scale_y is not None:
+            self.tile_scale_y = tile_scale_y
+        if tile_alignment is not None:
+            self.tile_alignment = tile_alignment
+        if tile_flip is not None:
+            self.tile_flip = tile_flip
         if image is not None:
             self.image = image
         if base64_data is not None:
@@ -214,6 +244,170 @@ class PictureFill(FillFormat):
         :type: int
         """
         self._dpi = dpi
+
+    @property
+    def tile_offset_x(self):
+        """Gets the tile_offset_x of this PictureFill.  # noqa: E501
+
+        The horizontal offset of the texture from the shape's origin in points. A positive value moves the texture to the right, while a negative value moves it to the left.  # noqa: E501
+
+        :return: The tile_offset_x of this PictureFill.  # noqa: E501
+        :rtype: float
+        """
+        return self._tile_offset_x
+
+    @tile_offset_x.setter
+    def tile_offset_x(self, tile_offset_x):
+        """Sets the tile_offset_x of this PictureFill.
+
+        The horizontal offset of the texture from the shape's origin in points. A positive value moves the texture to the right, while a negative value moves it to the left.  # noqa: E501
+
+        :param tile_offset_x: The tile_offset_x of this PictureFill.  # noqa: E501
+        :type: float
+        """
+        self._tile_offset_x = tile_offset_x
+
+    @property
+    def tile_offset_y(self):
+        """Gets the tile_offset_y of this PictureFill.  # noqa: E501
+
+        The vertical offset of the texture from the shape's origin in points. A positive value moves the texture down, while a negative value moves it up.  # noqa: E501
+
+        :return: The tile_offset_y of this PictureFill.  # noqa: E501
+        :rtype: float
+        """
+        return self._tile_offset_y
+
+    @tile_offset_y.setter
+    def tile_offset_y(self, tile_offset_y):
+        """Sets the tile_offset_y of this PictureFill.
+
+        The vertical offset of the texture from the shape's origin in points. A positive value moves the texture down, while a negative value moves it up.  # noqa: E501
+
+        :param tile_offset_y: The tile_offset_y of this PictureFill.  # noqa: E501
+        :type: float
+        """
+        self._tile_offset_y = tile_offset_y
+
+    @property
+    def tile_scale_x(self):
+        """Gets the tile_scale_x of this PictureFill.  # noqa: E501
+
+        The horizontal scale for the texture fill as a percentage.  # noqa: E501
+
+        :return: The tile_scale_x of this PictureFill.  # noqa: E501
+        :rtype: float
+        """
+        return self._tile_scale_x
+
+    @tile_scale_x.setter
+    def tile_scale_x(self, tile_scale_x):
+        """Sets the tile_scale_x of this PictureFill.
+
+        The horizontal scale for the texture fill as a percentage.  # noqa: E501
+
+        :param tile_scale_x: The tile_scale_x of this PictureFill.  # noqa: E501
+        :type: float
+        """
+        self._tile_scale_x = tile_scale_x
+
+    @property
+    def tile_scale_y(self):
+        """Gets the tile_scale_y of this PictureFill.  # noqa: E501
+
+        The vertical scale for the texture fill as a percentage.  # noqa: E501
+
+        :return: The tile_scale_y of this PictureFill.  # noqa: E501
+        :rtype: float
+        """
+        return self._tile_scale_y
+
+    @tile_scale_y.setter
+    def tile_scale_y(self, tile_scale_y):
+        """Sets the tile_scale_y of this PictureFill.
+
+        The vertical scale for the texture fill as a percentage.  # noqa: E501
+
+        :param tile_scale_y: The tile_scale_y of this PictureFill.  # noqa: E501
+        :type: float
+        """
+        self._tile_scale_y = tile_scale_y
+
+    @property
+    def tile_alignment(self):
+        """Gets the tile_alignment of this PictureFill.  # noqa: E501
+
+        The way texture is aligned within the shape. This setting controls the starting point of the texture pattern and how it repeats across the shape.  # noqa: E501
+
+        :return: The tile_alignment of this PictureFill.  # noqa: E501
+        :rtype: str
+        """
+        return self._tile_alignment
+
+    @tile_alignment.setter
+    def tile_alignment(self, tile_alignment):
+        """Sets the tile_alignment of this PictureFill.
+
+        The way texture is aligned within the shape. This setting controls the starting point of the texture pattern and how it repeats across the shape.  # noqa: E501
+
+        :param tile_alignment: The tile_alignment of this PictureFill.  # noqa: E501
+        :type: str
+        """
+        if tile_alignment is not None:
+            allowed_values = ["TopLeft", "Top", "TopRight", "Left", "Center", "Right", "BottomLeft", "Bottom", "BottomRight", "NotDefined"]  # noqa: E501
+            if tile_alignment.isdigit():
+                int_tile_alignment = int(tile_alignment)
+                if int_tile_alignment < 0 or int_tile_alignment >= len(allowed_values):
+                    raise ValueError(
+                        "Invalid value for `tile_alignment` ({0}), must be one of {1}"  # noqa: E501
+                        .format(tile_alignment, allowed_values)
+                    )
+                self._tile_alignment = allowed_values[int_tile_alignment]
+                return
+            if tile_alignment not in allowed_values:
+                raise ValueError(
+                    "Invalid value for `tile_alignment` ({0}), must be one of {1}"  # noqa: E501
+                    .format(tile_alignment, allowed_values)
+                )
+        self._tile_alignment = tile_alignment
+
+    @property
+    def tile_flip(self):
+        """Gets the tile_flip of this PictureFill.  # noqa: E501
+
+        Flips the texture tile around its horizontal, vertical or both axis.  # noqa: E501
+
+        :return: The tile_flip of this PictureFill.  # noqa: E501
+        :rtype: str
+        """
+        return self._tile_flip
+
+    @tile_flip.setter
+    def tile_flip(self, tile_flip):
+        """Sets the tile_flip of this PictureFill.
+
+        Flips the texture tile around its horizontal, vertical or both axis.  # noqa: E501
+
+        :param tile_flip: The tile_flip of this PictureFill.  # noqa: E501
+        :type: str
+        """
+        if tile_flip is not None:
+            allowed_values = ["NoFlip", "FlipX", "FlipY", "FlipBoth", "NotDefined"]  # noqa: E501
+            if tile_flip.isdigit():
+                int_tile_flip = int(tile_flip)
+                if int_tile_flip < 0 or int_tile_flip >= len(allowed_values):
+                    raise ValueError(
+                        "Invalid value for `tile_flip` ({0}), must be one of {1}"  # noqa: E501
+                        .format(tile_flip, allowed_values)
+                    )
+                self._tile_flip = allowed_values[int_tile_flip]
+                return
+            if tile_flip not in allowed_values:
+                raise ValueError(
+                    "Invalid value for `tile_flip` ({0}), must be one of {1}"  # noqa: E501
+                    .format(tile_flip, allowed_values)
+                )
+        self._tile_flip = tile_flip
 
     @property
     def image(self):

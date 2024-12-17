@@ -94,6 +94,7 @@ from asposeslidescloud.models.document import Document
 from asposeslidescloud.models.document_properties import DocumentProperties
 from asposeslidescloud.models.document_property import DocumentProperty
 from asposeslidescloud.models.document_replace_result import DocumentReplaceResult
+from asposeslidescloud.models.drawing_guide import DrawingGuide
 from asposeslidescloud.models.duotone_effect import DuotoneEffect
 from asposeslidescloud.models.effect import Effect
 from asposeslidescloud.models.effect_format import EffectFormat

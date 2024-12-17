@@ -53,7 +53,8 @@ class ViewProperties(ResourceBase):
         'restored_top': 'NormalViewRestoredProperties',
         'slide_view_properties': 'CommonSlideViewProperties',
         'notes_view_properties': 'CommonSlideViewProperties',
-        'show_comments': 'str'
+        'show_comments': 'str',
+        'grid_spacing': 'float'
     }
 
     attribute_map = {
@@ -67,13 +68,14 @@ class ViewProperties(ResourceBase):
         'restored_top': 'restoredTop',
         'slide_view_properties': 'slideViewProperties',
         'notes_view_properties': 'notesViewProperties',
-        'show_comments': 'showComments'
+        'show_comments': 'showComments',
+        'grid_spacing': 'gridSpacing'
     }
 
     type_determiners = {
     }
 
-    def __init__(self, self_uri=None, alternate_links=None, last_view=None, horizontal_bar_state=None, vertical_bar_state=None, prefer_single_view=None, restored_left=None, restored_top=None, slide_view_properties=None, notes_view_properties=None, show_comments=None):  # noqa: E501
+    def __init__(self, self_uri=None, alternate_links=None, last_view=None, horizontal_bar_state=None, vertical_bar_state=None, prefer_single_view=None, restored_left=None, restored_top=None, slide_view_properties=None, notes_view_properties=None, show_comments=None, grid_spacing=None):  # noqa: E501
         """ViewProperties - a model defined in Swagger"""  # noqa: E501
         super(ViewProperties, self).__init__(self_uri, alternate_links)
 
@@ -86,6 +88,7 @@ class ViewProperties(ResourceBase):
         self._slide_view_properties = None
         self._notes_view_properties = None
         self._show_comments = None
+        self._grid_spacing = None
 
         if last_view is not None:
             self.last_view = last_view
@@ -105,6 +108,8 @@ class ViewProperties(ResourceBase):
             self.notes_view_properties = notes_view_properties
         if show_comments is not None:
             self.show_comments = show_comments
+        if grid_spacing is not None:
+            self.grid_spacing = grid_spacing
 
     @property
     def last_view(self):
@@ -367,6 +372,28 @@ class ViewProperties(ResourceBase):
                     .format(show_comments, allowed_values)
                 )
         self._show_comments = show_comments
+
+    @property
+    def grid_spacing(self):
+        """Gets the grid_spacing of this ViewProperties.  # noqa: E501
+
+        The grid spacing that should be used for the grid underlying the presentation document, in points.  # noqa: E501
+
+        :return: The grid_spacing of this ViewProperties.  # noqa: E501
+        :rtype: float
+        """
+        return self._grid_spacing
+
+    @grid_spacing.setter
+    def grid_spacing(self, grid_spacing):
+        """Sets the grid_spacing of this ViewProperties.
+
+        The grid spacing that should be used for the grid underlying the presentation document, in points.  # noqa: E501
+
+        :param grid_spacing: The grid_spacing of this ViewProperties.  # noqa: E501
+        :type: float
+        """
+        self._grid_spacing = grid_spacing
 
     def to_dict(self):
         """Returns the model properties as a dict"""

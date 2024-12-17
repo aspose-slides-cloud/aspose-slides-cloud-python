@@ -30,9 +30,8 @@ import re  # noqa: F401
 
 import six
 
-from asposeslidescloud.models.export_options import ExportOptions
 
-class XamlExportOptions(ExportOptions):
+class DrawingGuide(object):
 
 
     """
@@ -43,60 +42,86 @@ class XamlExportOptions(ExportOptions):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'default_regular_font': 'str',
-        'delete_embedded_binary_objects': 'bool',
-        'gradient_style': 'str',
-        'font_fallback_rules': 'list[FontFallbackRule]',
-        'font_subst_rules': 'list[FontSubstRule]',
-        'format': 'str',
-        'export_hidden_slides': 'bool'
+        'orientation': 'str',
+        'position': 'float'
     }
 
     attribute_map = {
-        'default_regular_font': 'defaultRegularFont',
-        'delete_embedded_binary_objects': 'deleteEmbeddedBinaryObjects',
-        'gradient_style': 'gradientStyle',
-        'font_fallback_rules': 'fontFallbackRules',
-        'font_subst_rules': 'fontSubstRules',
-        'format': 'format',
-        'export_hidden_slides': 'exportHiddenSlides'
+        'orientation': 'orientation',
+        'position': 'position'
     }
 
     type_determiners = {
-        'format': 'xaml',
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='xaml', export_hidden_slides=None):  # noqa: E501
-        """XamlExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(XamlExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format)
+    def __init__(self, orientation=None, position=None):  # noqa: E501
+        """DrawingGuide - a model defined in Swagger"""  # noqa: E501
 
-        self._export_hidden_slides = None
-        self.format = 'xaml'
+        self._orientation = None
+        self._position = None
 
-        if export_hidden_slides is not None:
-            self.export_hidden_slides = export_hidden_slides
+        self.orientation = orientation
+        self.position = position
 
     @property
-    def export_hidden_slides(self):
-        """Gets the export_hidden_slides of this XamlExportOptions.  # noqa: E501
+    def orientation(self):
+        """Gets the orientation of this DrawingGuide.  # noqa: E501
 
-        Export hidden slides  # noqa: E501
+        Last used view mode.  # noqa: E501
 
-        :return: The export_hidden_slides of this XamlExportOptions.  # noqa: E501
-        :rtype: bool
+        :return: The orientation of this DrawingGuide.  # noqa: E501
+        :rtype: str
         """
-        return self._export_hidden_slides
+        return self._orientation
 
-    @export_hidden_slides.setter
-    def export_hidden_slides(self, export_hidden_slides):
-        """Sets the export_hidden_slides of this XamlExportOptions.
+    @orientation.setter
+    def orientation(self, orientation):
+        """Sets the orientation of this DrawingGuide.
 
-        Export hidden slides  # noqa: E501
+        Last used view mode.  # noqa: E501
 
-        :param export_hidden_slides: The export_hidden_slides of this XamlExportOptions.  # noqa: E501
-        :type: bool
+        :param orientation: The orientation of this DrawingGuide.  # noqa: E501
+        :type: str
         """
-        self._export_hidden_slides = export_hidden_slides
+        if orientation is not None:
+            allowed_values = ["Horizontal", "Vertical"]  # noqa: E501
+            if orientation.isdigit():
+                int_orientation = int(orientation)
+                if int_orientation < 0 or int_orientation >= len(allowed_values):
+                    raise ValueError(
+                        "Invalid value for `orientation` ({0}), must be one of {1}"  # noqa: E501
+                        .format(orientation, allowed_values)
+                    )
+                self._orientation = allowed_values[int_orientation]
+                return
+            if orientation not in allowed_values:
+                raise ValueError(
+                    "Invalid value for `orientation` ({0}), must be one of {1}"  # noqa: E501
+                    .format(orientation, allowed_values)
+                )
+        self._orientation = orientation
+
+    @property
+    def position(self):
+        """Gets the position of this DrawingGuide.  # noqa: E501
+
+        Horizontal bar state.  # noqa: E501
+
+        :return: The position of this DrawingGuide.  # noqa: E501
+        :rtype: float
+        """
+        return self._position
+
+    @position.setter
+    def position(self, position):
+        """Sets the position of this DrawingGuide.
+
+        Horizontal bar state.  # noqa: E501
+
+        :param position: The position of this DrawingGuide.  # noqa: E501
+        :type: float
+        """
+        self._position = position
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -132,7 +157,7 @@ class XamlExportOptions(ExportOptions):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, XamlExportOptions):
+        if not isinstance(other, DrawingGuide):
             return False
 
         return self.__dict__ == other.__dict__
