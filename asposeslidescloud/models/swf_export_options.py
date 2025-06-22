@@ -48,6 +48,7 @@ class SwfExportOptions(ExportOptions):
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
+        'skip_java_script_links': 'bool',
         'format': 'str',
         'show_hidden_slides': 'bool',
         'compressed': 'bool',
@@ -64,11 +65,7 @@ class SwfExportOptions(ExportOptions):
         'logo_image': 'str',
         'logo_link': 'str',
         'jpeg_quality': 'int',
-        'notes_position': 'str',
-        'comments_position': 'str',
-        'comments_area_width': 'int',
-        'comments_area_color': 'str',
-        'show_comments_by_no_author': 'bool'
+        'slides_layout_options': 'SlidesLayoutOptions'
     }
 
     attribute_map = {
@@ -77,6 +74,7 @@ class SwfExportOptions(ExportOptions):
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
+        'skip_java_script_links': 'skipJavaScriptLinks',
         'format': 'format',
         'show_hidden_slides': 'showHiddenSlides',
         'compressed': 'compressed',
@@ -93,20 +91,16 @@ class SwfExportOptions(ExportOptions):
         'logo_image': 'logoImage',
         'logo_link': 'logoLink',
         'jpeg_quality': 'jpegQuality',
-        'notes_position': 'notesPosition',
-        'comments_position': 'commentsPosition',
-        'comments_area_width': 'commentsAreaWidth',
-        'comments_area_color': 'commentsAreaColor',
-        'show_comments_by_no_author': 'showCommentsByNoAuthor'
+        'slides_layout_options': 'slidesLayoutOptions'
     }
 
     type_determiners = {
         'format': 'swf',
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='swf', show_hidden_slides=None, compressed=None, viewer_included=None, show_page_border=None, show_full_screen=None, show_page_stepper=None, show_search=None, show_top_pane=None, show_bottom_pane=None, show_left_pane=None, start_open_left_pane=None, enable_context_menu=None, logo_image=None, logo_link=None, jpeg_quality=None, notes_position=None, comments_position=None, comments_area_width=None, comments_area_color=None, show_comments_by_no_author=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, skip_java_script_links=None, format='swf', show_hidden_slides=None, compressed=None, viewer_included=None, show_page_border=None, show_full_screen=None, show_page_stepper=None, show_search=None, show_top_pane=None, show_bottom_pane=None, show_left_pane=None, start_open_left_pane=None, enable_context_menu=None, logo_image=None, logo_link=None, jpeg_quality=None, slides_layout_options=None):  # noqa: E501
         """SwfExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(SwfExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format)
+        super(SwfExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, skip_java_script_links, format)
 
         self._show_hidden_slides = None
         self._compressed = None
@@ -123,11 +117,7 @@ class SwfExportOptions(ExportOptions):
         self._logo_image = None
         self._logo_link = None
         self._jpeg_quality = None
-        self._notes_position = None
-        self._comments_position = None
-        self._comments_area_width = None
-        self._comments_area_color = None
-        self._show_comments_by_no_author = None
+        self._slides_layout_options = None
         self.format = 'swf'
 
         if show_hidden_slides is not None:
@@ -160,16 +150,8 @@ class SwfExportOptions(ExportOptions):
             self.logo_link = logo_link
         if jpeg_quality is not None:
             self.jpeg_quality = jpeg_quality
-        if notes_position is not None:
-            self.notes_position = notes_position
-        if comments_position is not None:
-            self.comments_position = comments_position
-        if comments_area_width is not None:
-            self.comments_area_width = comments_area_width
-        if comments_area_color is not None:
-            self.comments_area_color = comments_area_color
-        if show_comments_by_no_author is not None:
-            self.show_comments_by_no_author = show_comments_by_no_author
+        if slides_layout_options is not None:
+            self.slides_layout_options = slides_layout_options
 
     @property
     def show_hidden_slides(self):
@@ -502,146 +484,26 @@ class SwfExportOptions(ExportOptions):
         self._jpeg_quality = jpeg_quality
 
     @property
-    def notes_position(self):
-        """Gets the notes_position of this SwfExportOptions.  # noqa: E501
+    def slides_layout_options(self):
+        """Gets the slides_layout_options of this SwfExportOptions.  # noqa: E501
 
-        Gets or sets the position of the notes on the page.  # noqa: E501
+        Slides layouting options  # noqa: E501
 
-        :return: The notes_position of this SwfExportOptions.  # noqa: E501
-        :rtype: str
+        :return: The slides_layout_options of this SwfExportOptions.  # noqa: E501
+        :rtype: SlidesLayoutOptions
         """
-        return self._notes_position
+        return self._slides_layout_options
 
-    @notes_position.setter
-    def notes_position(self, notes_position):
-        """Sets the notes_position of this SwfExportOptions.
+    @slides_layout_options.setter
+    def slides_layout_options(self, slides_layout_options):
+        """Sets the slides_layout_options of this SwfExportOptions.
 
-        Gets or sets the position of the notes on the page.  # noqa: E501
+        Slides layouting options  # noqa: E501
 
-        :param notes_position: The notes_position of this SwfExportOptions.  # noqa: E501
-        :type: str
+        :param slides_layout_options: The slides_layout_options of this SwfExportOptions.  # noqa: E501
+        :type: SlidesLayoutOptions
         """
-        if notes_position is not None:
-            allowed_values = ["None", "BottomFull", "BottomTruncated"]  # noqa: E501
-            if notes_position.isdigit():
-                int_notes_position = int(notes_position)
-                if int_notes_position < 0 or int_notes_position >= len(allowed_values):
-                    raise ValueError(
-                        "Invalid value for `notes_position` ({0}), must be one of {1}"  # noqa: E501
-                        .format(notes_position, allowed_values)
-                    )
-                self._notes_position = allowed_values[int_notes_position]
-                return
-            if notes_position not in allowed_values:
-                raise ValueError(
-                    "Invalid value for `notes_position` ({0}), must be one of {1}"  # noqa: E501
-                    .format(notes_position, allowed_values)
-                )
-        self._notes_position = notes_position
-
-    @property
-    def comments_position(self):
-        """Gets the comments_position of this SwfExportOptions.  # noqa: E501
-
-        Gets or sets the position of the comments on the page.  # noqa: E501
-
-        :return: The comments_position of this SwfExportOptions.  # noqa: E501
-        :rtype: str
-        """
-        return self._comments_position
-
-    @comments_position.setter
-    def comments_position(self, comments_position):
-        """Sets the comments_position of this SwfExportOptions.
-
-        Gets or sets the position of the comments on the page.  # noqa: E501
-
-        :param comments_position: The comments_position of this SwfExportOptions.  # noqa: E501
-        :type: str
-        """
-        if comments_position is not None:
-            allowed_values = ["None", "Bottom", "Right"]  # noqa: E501
-            if comments_position.isdigit():
-                int_comments_position = int(comments_position)
-                if int_comments_position < 0 or int_comments_position >= len(allowed_values):
-                    raise ValueError(
-                        "Invalid value for `comments_position` ({0}), must be one of {1}"  # noqa: E501
-                        .format(comments_position, allowed_values)
-                    )
-                self._comments_position = allowed_values[int_comments_position]
-                return
-            if comments_position not in allowed_values:
-                raise ValueError(
-                    "Invalid value for `comments_position` ({0}), must be one of {1}"  # noqa: E501
-                    .format(comments_position, allowed_values)
-                )
-        self._comments_position = comments_position
-
-    @property
-    def comments_area_width(self):
-        """Gets the comments_area_width of this SwfExportOptions.  # noqa: E501
-
-        Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).  # noqa: E501
-
-        :return: The comments_area_width of this SwfExportOptions.  # noqa: E501
-        :rtype: int
-        """
-        return self._comments_area_width
-
-    @comments_area_width.setter
-    def comments_area_width(self, comments_area_width):
-        """Sets the comments_area_width of this SwfExportOptions.
-
-        Gets or sets the width of the comment output area in pixels (Applies only if comments are displayed on the right).  # noqa: E501
-
-        :param comments_area_width: The comments_area_width of this SwfExportOptions.  # noqa: E501
-        :type: int
-        """
-        self._comments_area_width = comments_area_width
-
-    @property
-    def comments_area_color(self):
-        """Gets the comments_area_color of this SwfExportOptions.  # noqa: E501
-
-        Gets or sets the color of comments area (Applies only if comments are displayed on the right).  # noqa: E501
-
-        :return: The comments_area_color of this SwfExportOptions.  # noqa: E501
-        :rtype: str
-        """
-        return self._comments_area_color
-
-    @comments_area_color.setter
-    def comments_area_color(self, comments_area_color):
-        """Sets the comments_area_color of this SwfExportOptions.
-
-        Gets or sets the color of comments area (Applies only if comments are displayed on the right).  # noqa: E501
-
-        :param comments_area_color: The comments_area_color of this SwfExportOptions.  # noqa: E501
-        :type: str
-        """
-        self._comments_area_color = comments_area_color
-
-    @property
-    def show_comments_by_no_author(self):
-        """Gets the show_comments_by_no_author of this SwfExportOptions.  # noqa: E501
-
-        True if comments that have no author are displayed. (Applies only if comments are displayed).  # noqa: E501
-
-        :return: The show_comments_by_no_author of this SwfExportOptions.  # noqa: E501
-        :rtype: bool
-        """
-        return self._show_comments_by_no_author
-
-    @show_comments_by_no_author.setter
-    def show_comments_by_no_author(self, show_comments_by_no_author):
-        """Sets the show_comments_by_no_author of this SwfExportOptions.
-
-        True if comments that have no author are displayed. (Applies only if comments are displayed).  # noqa: E501
-
-        :param show_comments_by_no_author: The show_comments_by_no_author of this SwfExportOptions.  # noqa: E501
-        :type: bool
-        """
-        self._show_comments_by_no_author = show_comments_by_no_author
+        self._slides_layout_options = slides_layout_options
 
     def to_dict(self):
         """Returns the model properties as a dict"""

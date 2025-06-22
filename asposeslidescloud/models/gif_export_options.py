@@ -48,6 +48,7 @@ class GifExportOptions(ImageExportOptionsBase):
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
+        'skip_java_script_links': 'bool',
         'format': 'str',
         'height': 'int',
         'width': 'int',
@@ -62,6 +63,7 @@ class GifExportOptions(ImageExportOptionsBase):
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
+        'skip_java_script_links': 'skipJavaScriptLinks',
         'format': 'format',
         'height': 'height',
         'width': 'width',
@@ -74,9 +76,9 @@ class GifExportOptions(ImageExportOptionsBase):
         'format': 'gif',
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='gif', height=None, width=None, export_hidden_slides=None, transition_fps=None, default_delay=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, skip_java_script_links=None, format='gif', height=None, width=None, export_hidden_slides=None, transition_fps=None, default_delay=None):  # noqa: E501
         """GifExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(GifExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format, height, width)
+        super(GifExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, skip_java_script_links, format, height, width)
 
         self._export_hidden_slides = None
         self._transition_fps = None

@@ -1,7 +1,8 @@
 from __future__ import absolute_import
 
-from asposeslidescloud import LightRig, Camera, Shape, ThreeDFormat, ShapeBevel, InnerShadowEffect, EffectFormat, \
-    SolidFill, LineFormat
+import base64
+
+from asposeslidescloud import LightRig, Camera, Shape, ThreeDFormat, ShapeBevel, InnerShadowEffect, EffectFormat, SolidFill, PictureFill, LineFormat
 from test.base_test import BaseTest
 
 class TestShapeFormat(BaseTest):
@@ -38,6 +39,21 @@ class TestShapeFormat(BaseTest):
         self.assertTrue(isinstance(shape, Shape))
         self.assertTrue(isinstance(shape.fill_format, SolidFill))
         self.assertEqual(dto.fill_format.color, shape.fill_format.color)
+
+    def test_shape_format_picture_fill(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        dto = Shape()
+        fill_format = PictureFill()
+        with open(self.test_data_path + "/watermark.png", 'rb') as f:
+            picture = f.read()
+        fill_format.base64_data = base64.b64encode(picture).decode('utf-8')
+        fill_format.resolution = 150
+        dto.fill_format = fill_format
+        shape = BaseTest.slides_api.update_shape(self.file_name, self.slideIndex, self.shapeIndex, dto, self.password, self.folder_name)
+        self.assertTrue(isinstance(shape, Shape))
+        shape = BaseTest.slides_api.get_shape(self.file_name, self.slideIndex, self.shapeIndex, self.password, self.folder_name)
+        self.assertTrue(isinstance(shape, Shape))
+        self.assertTrue(isinstance(shape.fill_format, PictureFill))
 
     def test_shape_format_effect(self):
         BaseTest.slides_api.copy_file(self.temp_path, self.path)

@@ -48,6 +48,7 @@ class PdfExportOptions(ExportOptions):
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
+        'skip_java_script_links': 'bool',
         'format': 'str',
         'text_compression': 'str',
         'embed_full_fonts': 'bool',
@@ -76,6 +77,7 @@ class PdfExportOptions(ExportOptions):
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
+        'skip_java_script_links': 'skipJavaScriptLinks',
         'format': 'format',
         'text_compression': 'textCompression',
         'embed_full_fonts': 'embedFullFonts',
@@ -102,9 +104,9 @@ class PdfExportOptions(ExportOptions):
         'format': 'pdf',
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='pdf', text_compression=None, embed_full_fonts=None, compliance=None, sufficient_resolution=None, jpeg_quality=None, draw_slides_frame=None, show_hidden_slides=None, save_metafiles_as_png=None, password=None, embed_true_type_fonts_for_ascii=None, additional_common_font_families=None, slides_layout_options=None, image_transparent_color=None, apply_image_transparent=None, access_permissions=None, hide_ink=None, interpret_mask_op_as_opacity=None, rasterize_unsupported_font_styles=None, include_ole_data=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, skip_java_script_links=None, format='pdf', text_compression=None, embed_full_fonts=None, compliance=None, sufficient_resolution=None, jpeg_quality=None, draw_slides_frame=None, show_hidden_slides=None, save_metafiles_as_png=None, password=None, embed_true_type_fonts_for_ascii=None, additional_common_font_families=None, slides_layout_options=None, image_transparent_color=None, apply_image_transparent=None, access_permissions=None, hide_ink=None, interpret_mask_op_as_opacity=None, rasterize_unsupported_font_styles=None, include_ole_data=None):  # noqa: E501
         """PdfExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(PdfExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format)
+        super(PdfExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, skip_java_script_links, format)
 
         self._text_compression = None
         self._embed_full_fonts = None

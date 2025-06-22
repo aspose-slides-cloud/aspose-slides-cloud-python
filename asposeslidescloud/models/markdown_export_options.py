@@ -48,6 +48,7 @@ class MarkdownExportOptions(ExportOptions):
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
+        'skip_java_script_links': 'bool',
         'format': 'str',
         'export_type': 'str',
         'flavor': 'str',
@@ -55,7 +56,10 @@ class MarkdownExportOptions(ExportOptions):
         'images_save_folder_name': 'str',
         'show_slide_number': 'bool',
         'show_comments': 'bool',
-        'show_hidden_slides': 'bool'
+        'show_hidden_slides': 'bool',
+        'remove_empty_lines': 'bool',
+        'handle_repeated_spaces': 'str',
+        'slide_number_format': 'str'
     }
 
     attribute_map = {
@@ -64,6 +68,7 @@ class MarkdownExportOptions(ExportOptions):
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
+        'skip_java_script_links': 'skipJavaScriptLinks',
         'format': 'format',
         'export_type': 'exportType',
         'flavor': 'flavor',
@@ -71,16 +76,19 @@ class MarkdownExportOptions(ExportOptions):
         'images_save_folder_name': 'imagesSaveFolderName',
         'show_slide_number': 'showSlideNumber',
         'show_comments': 'showComments',
-        'show_hidden_slides': 'showHiddenSlides'
+        'show_hidden_slides': 'showHiddenSlides',
+        'remove_empty_lines': 'removeEmptyLines',
+        'handle_repeated_spaces': 'handleRepeatedSpaces',
+        'slide_number_format': 'slideNumberFormat'
     }
 
     type_determiners = {
         'format': 'md',
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='md', export_type=None, flavor=None, new_line_type=None, images_save_folder_name=None, show_slide_number=None, show_comments=None, show_hidden_slides=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, skip_java_script_links=None, format='md', export_type=None, flavor=None, new_line_type=None, images_save_folder_name=None, show_slide_number=None, show_comments=None, show_hidden_slides=None, remove_empty_lines=None, handle_repeated_spaces=None, slide_number_format=None):  # noqa: E501
         """MarkdownExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(MarkdownExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format)
+        super(MarkdownExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, skip_java_script_links, format)
 
         self._export_type = None
         self._flavor = None
@@ -89,6 +97,9 @@ class MarkdownExportOptions(ExportOptions):
         self._show_slide_number = None
         self._show_comments = None
         self._show_hidden_slides = None
+        self._remove_empty_lines = None
+        self._handle_repeated_spaces = None
+        self._slide_number_format = None
         self.format = 'md'
 
         if export_type is not None:
@@ -105,6 +116,12 @@ class MarkdownExportOptions(ExportOptions):
             self.show_comments = show_comments
         if show_hidden_slides is not None:
             self.show_hidden_slides = show_hidden_slides
+        if remove_empty_lines is not None:
+            self.remove_empty_lines = remove_empty_lines
+        if handle_repeated_spaces is not None:
+            self.handle_repeated_spaces = handle_repeated_spaces
+        if slide_number_format is not None:
+            self.slide_number_format = slide_number_format
 
     @property
     def export_type(self):
@@ -307,6 +324,88 @@ class MarkdownExportOptions(ExportOptions):
         :type: bool
         """
         self._show_hidden_slides = show_hidden_slides
+
+    @property
+    def remove_empty_lines(self):
+        """Gets the remove_empty_lines of this MarkdownExportOptions.  # noqa: E501
+
+        true to remove empty or whitespace-only lines from the final Markdown output. Default is false.   # noqa: E501
+
+        :return: The remove_empty_lines of this MarkdownExportOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._remove_empty_lines
+
+    @remove_empty_lines.setter
+    def remove_empty_lines(self, remove_empty_lines):
+        """Sets the remove_empty_lines of this MarkdownExportOptions.
+
+        true to remove empty or whitespace-only lines from the final Markdown output. Default is false.   # noqa: E501
+
+        :param remove_empty_lines: The remove_empty_lines of this MarkdownExportOptions.  # noqa: E501
+        :type: bool
+        """
+        self._remove_empty_lines = remove_empty_lines
+
+    @property
+    def handle_repeated_spaces(self):
+        """Gets the handle_repeated_spaces of this MarkdownExportOptions.  # noqa: E501
+
+        Specifies how repeated space characters are preserved to maintain visual alignment.   # noqa: E501
+
+        :return: The handle_repeated_spaces of this MarkdownExportOptions.  # noqa: E501
+        :rtype: str
+        """
+        return self._handle_repeated_spaces
+
+    @handle_repeated_spaces.setter
+    def handle_repeated_spaces(self, handle_repeated_spaces):
+        """Sets the handle_repeated_spaces of this MarkdownExportOptions.
+
+        Specifies how repeated space characters are preserved to maintain visual alignment.   # noqa: E501
+
+        :param handle_repeated_spaces: The handle_repeated_spaces of this MarkdownExportOptions.  # noqa: E501
+        :type: str
+        """
+        if handle_repeated_spaces is not None:
+            allowed_values = ["None", "AlternateSpacesToNbsp", "MultipleSpacesToNbsp"]  # noqa: E501
+            if handle_repeated_spaces.isdigit():
+                int_handle_repeated_spaces = int(handle_repeated_spaces)
+                if int_handle_repeated_spaces < 0 or int_handle_repeated_spaces >= len(allowed_values):
+                    raise ValueError(
+                        "Invalid value for `handle_repeated_spaces` ({0}), must be one of {1}"  # noqa: E501
+                        .format(handle_repeated_spaces, allowed_values)
+                    )
+                self._handle_repeated_spaces = allowed_values[int_handle_repeated_spaces]
+                return
+            if handle_repeated_spaces not in allowed_values:
+                raise ValueError(
+                    "Invalid value for `handle_repeated_spaces` ({0}), must be one of {1}"  # noqa: E501
+                    .format(handle_repeated_spaces, allowed_values)
+                )
+        self._handle_repeated_spaces = handle_repeated_spaces
+
+    @property
+    def slide_number_format(self):
+        """Gets the slide_number_format of this MarkdownExportOptions.  # noqa: E501
+
+        The format of slide number headers.   # noqa: E501
+
+        :return: The slide_number_format of this MarkdownExportOptions.  # noqa: E501
+        :rtype: str
+        """
+        return self._slide_number_format
+
+    @slide_number_format.setter
+    def slide_number_format(self, slide_number_format):
+        """Sets the slide_number_format of this MarkdownExportOptions.
+
+        The format of slide number headers.   # noqa: E501
+
+        :param slide_number_format: The slide_number_format of this MarkdownExportOptions.  # noqa: E501
+        :type: str
+        """
+        self._slide_number_format = slide_number_format
 
     def to_dict(self):
         """Returns the model properties as a dict"""

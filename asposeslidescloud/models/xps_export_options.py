@@ -48,6 +48,7 @@ class XpsExportOptions(ExportOptions):
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
+        'skip_java_script_links': 'bool',
         'format': 'str',
         'show_hidden_slides': 'bool',
         'save_metafiles_as_png': 'bool',
@@ -60,6 +61,7 @@ class XpsExportOptions(ExportOptions):
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
+        'skip_java_script_links': 'skipJavaScriptLinks',
         'format': 'format',
         'show_hidden_slides': 'showHiddenSlides',
         'save_metafiles_as_png': 'saveMetafilesAsPng',
@@ -70,9 +72,9 @@ class XpsExportOptions(ExportOptions):
         'format': 'xps',
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='xps', show_hidden_slides=None, save_metafiles_as_png=None, draw_slides_frame=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, skip_java_script_links=None, format='xps', show_hidden_slides=None, save_metafiles_as_png=None, draw_slides_frame=None):  # noqa: E501
         """XpsExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(XpsExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format)
+        super(XpsExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, skip_java_script_links, format)
 
         self._show_hidden_slides = None
         self._save_metafiles_as_png = None

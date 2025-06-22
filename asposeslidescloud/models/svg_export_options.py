@@ -48,6 +48,7 @@ class SvgExportOptions(ExportOptions):
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
+        'skip_java_script_links': 'bool',
         'format': 'str',
         'vectorize_text': 'bool',
         'metafile_rasterization_dpi': 'int',
@@ -59,7 +60,8 @@ class SvgExportOptions(ExportOptions):
         'delete_pictures_cropped_areas': 'bool',
         'external_fonts_handling': 'str',
         'use_frame_size': 'bool',
-        'use_frame_rotation': 'bool'
+        'use_frame_rotation': 'bool',
+        'disable_font_ligatures': 'bool'
     }
 
     attribute_map = {
@@ -68,6 +70,7 @@ class SvgExportOptions(ExportOptions):
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
+        'skip_java_script_links': 'skipJavaScriptLinks',
         'format': 'format',
         'vectorize_text': 'vectorizeText',
         'metafile_rasterization_dpi': 'metafileRasterizationDpi',
@@ -79,16 +82,17 @@ class SvgExportOptions(ExportOptions):
         'delete_pictures_cropped_areas': 'deletePicturesCroppedAreas',
         'external_fonts_handling': 'externalFontsHandling',
         'use_frame_size': 'useFrameSize',
-        'use_frame_rotation': 'useFrameRotation'
+        'use_frame_rotation': 'useFrameRotation',
+        'disable_font_ligatures': 'disableFontLigatures'
     }
 
     type_determiners = {
         'format': 'svg',
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='svg', vectorize_text=None, metafile_rasterization_dpi=None, disable3_d_text=None, disable_gradient_split=None, disable_line_end_cropping=None, jpeg_quality=None, pictures_compression=None, delete_pictures_cropped_areas=None, external_fonts_handling=None, use_frame_size=None, use_frame_rotation=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, skip_java_script_links=None, format='svg', vectorize_text=None, metafile_rasterization_dpi=None, disable3_d_text=None, disable_gradient_split=None, disable_line_end_cropping=None, jpeg_quality=None, pictures_compression=None, delete_pictures_cropped_areas=None, external_fonts_handling=None, use_frame_size=None, use_frame_rotation=None, disable_font_ligatures=None):  # noqa: E501
         """SvgExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(SvgExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format)
+        super(SvgExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, skip_java_script_links, format)
 
         self._vectorize_text = None
         self._metafile_rasterization_dpi = None
@@ -101,6 +105,7 @@ class SvgExportOptions(ExportOptions):
         self._external_fonts_handling = None
         self._use_frame_size = None
         self._use_frame_rotation = None
+        self._disable_font_ligatures = None
         self.format = 'svg'
 
         if vectorize_text is not None:
@@ -125,6 +130,8 @@ class SvgExportOptions(ExportOptions):
             self.use_frame_size = use_frame_size
         if use_frame_rotation is not None:
             self.use_frame_rotation = use_frame_rotation
+        if disable_font_ligatures is not None:
+            self.disable_font_ligatures = disable_font_ligatures
 
     @property
     def vectorize_text(self):
@@ -399,6 +406,28 @@ class SvgExportOptions(ExportOptions):
         :type: bool
         """
         self._use_frame_rotation = use_frame_rotation
+
+    @property
+    def disable_font_ligatures(self):
+        """Gets the disable_font_ligatures of this SvgExportOptions.  # noqa: E501
+
+        true to disable ligatures in the rendered output.  # noqa: E501
+
+        :return: The disable_font_ligatures of this SvgExportOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disable_font_ligatures
+
+    @disable_font_ligatures.setter
+    def disable_font_ligatures(self, disable_font_ligatures):
+        """Sets the disable_font_ligatures of this SvgExportOptions.
+
+        true to disable ligatures in the rendered output.  # noqa: E501
+
+        :param disable_font_ligatures: The disable_font_ligatures of this SvgExportOptions.  # noqa: E501
+        :type: bool
+        """
+        self._disable_font_ligatures = disable_font_ligatures
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -42,6 +42,7 @@ class ShapeExportFormat(object):
     BMP = "Bmp"
     TIFF = "Tiff"
     SVG = "Svg"
+    EMF = "Emf"
 
     """
     Attributes:

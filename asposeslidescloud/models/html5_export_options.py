@@ -48,12 +48,14 @@ class Html5ExportOptions(ExportOptions):
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
+        'skip_java_script_links': 'bool',
         'format': 'str',
         'animate_transitions': 'bool',
         'animate_shapes': 'bool',
         'embed_images': 'bool',
-        'notes_comments_layouting': 'NotesCommentsLayoutingOptions',
-        'templates_path': 'str'
+        'slides_layout_options': 'SlidesLayoutOptions',
+        'templates_path': 'str',
+        'disable_font_ligatures': 'bool'
     }
 
     attribute_map = {
@@ -62,27 +64,30 @@ class Html5ExportOptions(ExportOptions):
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
+        'skip_java_script_links': 'skipJavaScriptLinks',
         'format': 'format',
         'animate_transitions': 'animateTransitions',
         'animate_shapes': 'animateShapes',
         'embed_images': 'embedImages',
-        'notes_comments_layouting': 'notesCommentsLayouting',
-        'templates_path': 'templatesPath'
+        'slides_layout_options': 'slidesLayoutOptions',
+        'templates_path': 'templatesPath',
+        'disable_font_ligatures': 'disableFontLigatures'
     }
 
     type_determiners = {
         'format': 'html5',
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='html5', animate_transitions=None, animate_shapes=None, embed_images=None, notes_comments_layouting=None, templates_path=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, skip_java_script_links=None, format='html5', animate_transitions=None, animate_shapes=None, embed_images=None, slides_layout_options=None, templates_path=None, disable_font_ligatures=None):  # noqa: E501
         """Html5ExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(Html5ExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format)
+        super(Html5ExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, skip_java_script_links, format)
 
         self._animate_transitions = None
         self._animate_shapes = None
         self._embed_images = None
-        self._notes_comments_layouting = None
+        self._slides_layout_options = None
         self._templates_path = None
+        self._disable_font_ligatures = None
         self.format = 'html5'
 
         if animate_transitions is not None:
@@ -91,10 +96,12 @@ class Html5ExportOptions(ExportOptions):
             self.animate_shapes = animate_shapes
         if embed_images is not None:
             self.embed_images = embed_images
-        if notes_comments_layouting is not None:
-            self.notes_comments_layouting = notes_comments_layouting
+        if slides_layout_options is not None:
+            self.slides_layout_options = slides_layout_options
         if templates_path is not None:
             self.templates_path = templates_path
+        if disable_font_ligatures is not None:
+            self.disable_font_ligatures = disable_font_ligatures
 
     @property
     def animate_transitions(self):
@@ -163,26 +170,26 @@ class Html5ExportOptions(ExportOptions):
         self._embed_images = embed_images
 
     @property
-    def notes_comments_layouting(self):
-        """Gets the notes_comments_layouting of this Html5ExportOptions.  # noqa: E501
+    def slides_layout_options(self):
+        """Gets the slides_layout_options of this Html5ExportOptions.  # noqa: E501
 
         Slides layouting options  # noqa: E501
 
-        :return: The notes_comments_layouting of this Html5ExportOptions.  # noqa: E501
-        :rtype: NotesCommentsLayoutingOptions
+        :return: The slides_layout_options of this Html5ExportOptions.  # noqa: E501
+        :rtype: SlidesLayoutOptions
         """
-        return self._notes_comments_layouting
+        return self._slides_layout_options
 
-    @notes_comments_layouting.setter
-    def notes_comments_layouting(self, notes_comments_layouting):
-        """Sets the notes_comments_layouting of this Html5ExportOptions.
+    @slides_layout_options.setter
+    def slides_layout_options(self, slides_layout_options):
+        """Sets the slides_layout_options of this Html5ExportOptions.
 
         Slides layouting options  # noqa: E501
 
-        :param notes_comments_layouting: The notes_comments_layouting of this Html5ExportOptions.  # noqa: E501
-        :type: NotesCommentsLayoutingOptions
+        :param slides_layout_options: The slides_layout_options of this Html5ExportOptions.  # noqa: E501
+        :type: SlidesLayoutOptions
         """
-        self._notes_comments_layouting = notes_comments_layouting
+        self._slides_layout_options = slides_layout_options
 
     @property
     def templates_path(self):
@@ -205,6 +212,28 @@ class Html5ExportOptions(ExportOptions):
         :type: str
         """
         self._templates_path = templates_path
+
+    @property
+    def disable_font_ligatures(self):
+        """Gets the disable_font_ligatures of this Html5ExportOptions.  # noqa: E501
+
+        true to disable ligatures in the rendered output.  # noqa: E501
+
+        :return: The disable_font_ligatures of this Html5ExportOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disable_font_ligatures
+
+    @disable_font_ligatures.setter
+    def disable_font_ligatures(self, disable_font_ligatures):
+        """Sets the disable_font_ligatures of this Html5ExportOptions.
+
+        true to disable ligatures in the rendered output.  # noqa: E501
+
+        :param disable_font_ligatures: The disable_font_ligatures of this Html5ExportOptions.  # noqa: E501
+        :type: bool
+        """
+        self._disable_font_ligatures = disable_font_ligatures
 
     def to_dict(self):
         """Returns the model properties as a dict"""

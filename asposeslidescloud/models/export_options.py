@@ -47,6 +47,7 @@ class ExportOptions(object):
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
+        'skip_java_script_links': 'bool',
         'format': 'str'
     }
 
@@ -56,13 +57,14 @@ class ExportOptions(object):
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
+        'skip_java_script_links': 'skipJavaScriptLinks',
         'format': 'format'
     }
 
     type_determiners = {
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, skip_java_script_links=None, format=None):  # noqa: E501
         """ExportOptions - a model defined in Swagger"""  # noqa: E501
 
         self._default_regular_font = None
@@ -70,6 +72,7 @@ class ExportOptions(object):
         self._gradient_style = None
         self._font_fallback_rules = None
         self._font_subst_rules = None
+        self._skip_java_script_links = None
         self._format = None
 
         if default_regular_font is not None:
@@ -82,6 +85,8 @@ class ExportOptions(object):
             self.font_fallback_rules = font_fallback_rules
         if font_subst_rules is not None:
             self.font_subst_rules = font_subst_rules
+        if skip_java_script_links is not None:
+            self.skip_java_script_links = skip_java_script_links
         if format is not None:
             self.format = format
 
@@ -210,6 +215,28 @@ class ExportOptions(object):
         :type: list[FontSubstRule]
         """
         self._font_subst_rules = font_subst_rules
+
+    @property
+    def skip_java_script_links(self):
+        """Gets the skip_java_script_links of this ExportOptions.  # noqa: E501
+
+        True to skip hyperlinks with javascript calls when saving the presentation.  # noqa: E501
+
+        :return: The skip_java_script_links of this ExportOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._skip_java_script_links
+
+    @skip_java_script_links.setter
+    def skip_java_script_links(self, skip_java_script_links):
+        """Sets the skip_java_script_links of this ExportOptions.
+
+        True to skip hyperlinks with javascript calls when saving the presentation.  # noqa: E501
+
+        :param skip_java_script_links: The skip_java_script_links of this ExportOptions.  # noqa: E501
+        :type: bool
+        """
+        self._skip_java_script_links = skip_java_script_links
 
     @property
     def format(self):

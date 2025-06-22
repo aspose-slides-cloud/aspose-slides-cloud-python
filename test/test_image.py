@@ -54,6 +54,19 @@ class TestImage(BaseTest):
         png_result = BaseTest.slides_api.download_image_online(source, self.slide_index, 'png', self.password)
         self.assertNotEqual(os.path.getsize(default_result), os.path.getsize(png_result))
 
+    def test_image_download_quality(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        good_result = BaseTest.slides_api.download_image(self.file_name, self.slide_index, 'jpeg', self.password, self.folder_name, None, 100)
+        bad_result = BaseTest.slides_api.download_image(self.file_name, self.slide_index, 'jpeg', self.password, self.folder_name, None, 50)
+        self.assertGreater(os.path.getsize(good_result), os.path.getsize(bad_result))
+
+    def test_image_download_quality_useless(self):
+        BaseTest.slides_api.copy_file(self.temp_path, self.path)
+        good_result = BaseTest.slides_api.download_image(self.file_name, self.slide_index, 'png', self.password, self.folder_name, None, 100)
+        bad_result = BaseTest.slides_api.download_image(self.file_name, self.slide_index, 'png', self.password, self.folder_name, None, 50)
+        #Quality property only has effect on Jpeg images so these two must be identical
+        self.assertEqual(os.path.getsize(good_result), os.path.getsize(bad_result))
+
     def test_replace_image(self):
         BaseTest.slides_api.copy_file(self.temp_path, self.path)
         with open(self.image_path, 'rb') as f:

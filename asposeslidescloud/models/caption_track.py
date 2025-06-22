@@ -30,9 +30,9 @@ import re  # noqa: F401
 
 import six
 
-from asposeslidescloud.models.export_options import ExportOptions
+from asposeslidescloud.models.resource_base import ResourceBase
 
-class XamlExportOptions(ExportOptions):
+class CaptionTrack(ResourceBase):
 
 
     """
@@ -43,62 +43,103 @@ class XamlExportOptions(ExportOptions):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'default_regular_font': 'str',
-        'delete_embedded_binary_objects': 'bool',
-        'gradient_style': 'str',
-        'font_fallback_rules': 'list[FontFallbackRule]',
-        'font_subst_rules': 'list[FontSubstRule]',
-        'skip_java_script_links': 'bool',
-        'format': 'str',
-        'export_hidden_slides': 'bool'
+        'self_uri': 'ResourceUri',
+        'alternate_links': 'list[ResourceUri]',
+        'caption_id': 'str',
+        'label': 'str',
+        'data_as_string': 'str'
     }
 
     attribute_map = {
-        'default_regular_font': 'defaultRegularFont',
-        'delete_embedded_binary_objects': 'deleteEmbeddedBinaryObjects',
-        'gradient_style': 'gradientStyle',
-        'font_fallback_rules': 'fontFallbackRules',
-        'font_subst_rules': 'fontSubstRules',
-        'skip_java_script_links': 'skipJavaScriptLinks',
-        'format': 'format',
-        'export_hidden_slides': 'exportHiddenSlides'
+        'self_uri': 'selfUri',
+        'alternate_links': 'alternateLinks',
+        'caption_id': 'captionId',
+        'label': 'label',
+        'data_as_string': 'dataAsString'
     }
 
     type_determiners = {
-        'format': 'xaml',
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, skip_java_script_links=None, format='xaml', export_hidden_slides=None):  # noqa: E501
-        """XamlExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(XamlExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, skip_java_script_links, format)
+    def __init__(self, self_uri=None, alternate_links=None, caption_id=None, label=None, data_as_string=None):  # noqa: E501
+        """CaptionTrack - a model defined in Swagger"""  # noqa: E501
+        super(CaptionTrack, self).__init__(self_uri, alternate_links)
 
-        self._export_hidden_slides = None
-        self.format = 'xaml'
+        self._caption_id = None
+        self._label = None
+        self._data_as_string = None
 
-        if export_hidden_slides is not None:
-            self.export_hidden_slides = export_hidden_slides
+        self.caption_id = caption_id
+        if label is not None:
+            self.label = label
+        if data_as_string is not None:
+            self.data_as_string = data_as_string
 
     @property
-    def export_hidden_slides(self):
-        """Gets the export_hidden_slides of this XamlExportOptions.  # noqa: E501
+    def caption_id(self):
+        """Gets the caption_id of this CaptionTrack.  # noqa: E501
 
-        Export hidden slides  # noqa: E501
+        Caption ID.  # noqa: E501
 
-        :return: The export_hidden_slides of this XamlExportOptions.  # noqa: E501
-        :rtype: bool
+        :return: The caption_id of this CaptionTrack.  # noqa: E501
+        :rtype: str
         """
-        return self._export_hidden_slides
+        return self._caption_id
 
-    @export_hidden_slides.setter
-    def export_hidden_slides(self, export_hidden_slides):
-        """Sets the export_hidden_slides of this XamlExportOptions.
+    @caption_id.setter
+    def caption_id(self, caption_id):
+        """Sets the caption_id of this CaptionTrack.
 
-        Export hidden slides  # noqa: E501
+        Caption ID.  # noqa: E501
 
-        :param export_hidden_slides: The export_hidden_slides of this XamlExportOptions.  # noqa: E501
-        :type: bool
+        :param caption_id: The caption_id of this CaptionTrack.  # noqa: E501
+        :type: str
         """
-        self._export_hidden_slides = export_hidden_slides
+        self._caption_id = caption_id
+
+    @property
+    def label(self):
+        """Gets the label of this CaptionTrack.  # noqa: E501
+
+        Label.  # noqa: E501
+
+        :return: The label of this CaptionTrack.  # noqa: E501
+        :rtype: str
+        """
+        return self._label
+
+    @label.setter
+    def label(self, label):
+        """Sets the label of this CaptionTrack.
+
+        Label.  # noqa: E501
+
+        :param label: The label of this CaptionTrack.  # noqa: E501
+        :type: str
+        """
+        self._label = label
+
+    @property
+    def data_as_string(self):
+        """Gets the data_as_string of this CaptionTrack.  # noqa: E501
+
+        Caption track data as string.  # noqa: E501
+
+        :return: The data_as_string of this CaptionTrack.  # noqa: E501
+        :rtype: str
+        """
+        return self._data_as_string
+
+    @data_as_string.setter
+    def data_as_string(self, data_as_string):
+        """Sets the data_as_string of this CaptionTrack.
+
+        Caption track data as string.  # noqa: E501
+
+        :param data_as_string: The data_as_string of this CaptionTrack.  # noqa: E501
+        :type: str
+        """
+        self._data_as_string = data_as_string
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -134,7 +175,7 @@ class XamlExportOptions(ExportOptions):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, XamlExportOptions):
+        if not isinstance(other, CaptionTrack):
             return False
 
         return self.__dict__ == other.__dict__

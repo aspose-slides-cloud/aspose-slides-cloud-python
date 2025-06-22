@@ -48,9 +48,11 @@ class PptxExportOptions(ExportOptions):
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
+        'skip_java_script_links': 'bool',
         'format': 'str',
         'conformance': 'str',
-        'zip64_mode': 'str'
+        'zip64_mode': 'str',
+        'refresh_thumbnail': 'bool'
     }
 
     attribute_map = {
@@ -59,27 +61,32 @@ class PptxExportOptions(ExportOptions):
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
+        'skip_java_script_links': 'skipJavaScriptLinks',
         'format': 'format',
         'conformance': 'conformance',
-        'zip64_mode': 'zip64Mode'
+        'zip64_mode': 'zip64Mode',
+        'refresh_thumbnail': 'refreshThumbnail'
     }
 
     type_determiners = {
         'format': 'pptx',
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='pptx', conformance=None, zip64_mode=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, skip_java_script_links=None, format='pptx', conformance=None, zip64_mode=None, refresh_thumbnail=None):  # noqa: E501
         """PptxExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(PptxExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format)
+        super(PptxExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, skip_java_script_links, format)
 
         self._conformance = None
         self._zip64_mode = None
+        self._refresh_thumbnail = None
         self.format = 'pptx'
 
         if conformance is not None:
             self.conformance = conformance
         if zip64_mode is not None:
             self.zip64_mode = zip64_mode
+        if refresh_thumbnail is not None:
+            self.refresh_thumbnail = refresh_thumbnail
 
     @property
     def conformance(self):
@@ -156,6 +163,28 @@ class PptxExportOptions(ExportOptions):
                     .format(zip64_mode, allowed_values)
                 )
         self._zip64_mode = zip64_mode
+
+    @property
+    def refresh_thumbnail(self):
+        """Gets the refresh_thumbnail of this PptxExportOptions.  # noqa: E501
+
+        True to refresh the presentation thumbnail on save  # noqa: E501
+
+        :return: The refresh_thumbnail of this PptxExportOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._refresh_thumbnail
+
+    @refresh_thumbnail.setter
+    def refresh_thumbnail(self, refresh_thumbnail):
+        """Sets the refresh_thumbnail of this PptxExportOptions.
+
+        True to refresh the presentation thumbnail on save  # noqa: E501
+
+        :param refresh_thumbnail: The refresh_thumbnail of this PptxExportOptions.  # noqa: E501
+        :type: bool
+        """
+        self._refresh_thumbnail = refresh_thumbnail
 
     def to_dict(self):
         """Returns the model properties as a dict"""

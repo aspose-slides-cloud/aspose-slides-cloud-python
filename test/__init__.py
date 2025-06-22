@@ -61,4 +61,5 @@ from test.test_text import TestText
 from test.test_text_format import TestTextFormat
 from test.test_timeout import TestTimeout
 from test.test_vba import TestVba
+from test.test_video import TestVideo
 from test.test_watermark import TestWatermark

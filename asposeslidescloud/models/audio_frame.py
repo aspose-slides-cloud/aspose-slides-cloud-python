@@ -72,9 +72,14 @@ class AudioFrame(GeometryShape):
         'play_loop_mode': 'bool',
         'play_mode': 'str',
         'volume': 'str',
+        'volume_value': 'float',
         'base64_data': 'str',
         'play_across_slides': 'bool',
         'rewind_audio': 'bool',
+        'fade_in_duration': 'float',
+        'fade_out_duration': 'float',
+        'trim_from_start': 'float',
+        'trim_from_end': 'float',
         'picture_fill_format': 'PictureFill'
     }
 
@@ -108,9 +113,14 @@ class AudioFrame(GeometryShape):
         'play_loop_mode': 'playLoopMode',
         'play_mode': 'playMode',
         'volume': 'volume',
+        'volume_value': 'volumeValue',
         'base64_data': 'base64Data',
         'play_across_slides': 'playAcrossSlides',
         'rewind_audio': 'rewindAudio',
+        'fade_in_duration': 'fadeInDuration',
+        'fade_out_duration': 'fadeOutDuration',
+        'trim_from_start': 'trimFromStart',
+        'trim_from_end': 'trimFromEnd',
         'picture_fill_format': 'pictureFillFormat'
     }
 
@@ -118,7 +128,7 @@ class AudioFrame(GeometryShape):
         'type': 'AudioFrame',
     }
 
-    def __init__(self, self_uri=None, alternate_links=None, name=None, width=None, height=None, alternative_text=None, alternative_text_title=None, hidden=None, is_decorative=None, x=None, y=None, z_order_position=None, fill_format=None, effect_format=None, three_d_format=None, line_format=None, hyperlink_click=None, hyperlink_mouse_over=None, type='AudioFrame', shape_type=None, audio_cd_end_track=None, audio_cd_end_track_time=None, audio_cd_start_track=None, audio_cd_start_track_time=None, embedded=None, hide_at_showing=None, play_loop_mode=None, play_mode=None, volume=None, base64_data=None, play_across_slides=None, rewind_audio=None, picture_fill_format=None):  # noqa: E501
+    def __init__(self, self_uri=None, alternate_links=None, name=None, width=None, height=None, alternative_text=None, alternative_text_title=None, hidden=None, is_decorative=None, x=None, y=None, z_order_position=None, fill_format=None, effect_format=None, three_d_format=None, line_format=None, hyperlink_click=None, hyperlink_mouse_over=None, type='AudioFrame', shape_type=None, audio_cd_end_track=None, audio_cd_end_track_time=None, audio_cd_start_track=None, audio_cd_start_track_time=None, embedded=None, hide_at_showing=None, play_loop_mode=None, play_mode=None, volume=None, volume_value=None, base64_data=None, play_across_slides=None, rewind_audio=None, fade_in_duration=None, fade_out_duration=None, trim_from_start=None, trim_from_end=None, picture_fill_format=None):  # noqa: E501
         """AudioFrame - a model defined in Swagger"""  # noqa: E501
         super(AudioFrame, self).__init__(self_uri, alternate_links, name, width, height, alternative_text, alternative_text_title, hidden, is_decorative, x, y, z_order_position, fill_format, effect_format, three_d_format, line_format, hyperlink_click, hyperlink_mouse_over, type, shape_type)
 
@@ -131,9 +141,14 @@ class AudioFrame(GeometryShape):
         self._play_loop_mode = None
         self._play_mode = None
         self._volume = None
+        self._volume_value = None
         self._base64_data = None
         self._play_across_slides = None
         self._rewind_audio = None
+        self._fade_in_duration = None
+        self._fade_out_duration = None
+        self._trim_from_start = None
+        self._trim_from_end = None
         self._picture_fill_format = None
         self.type = 'AudioFrame'
 
@@ -155,12 +170,22 @@ class AudioFrame(GeometryShape):
             self.play_mode = play_mode
         if volume is not None:
             self.volume = volume
+        if volume_value is not None:
+            self.volume_value = volume_value
         if base64_data is not None:
             self.base64_data = base64_data
         if play_across_slides is not None:
             self.play_across_slides = play_across_slides
         if rewind_audio is not None:
             self.rewind_audio = rewind_audio
+        if fade_in_duration is not None:
+            self.fade_in_duration = fade_in_duration
+        if fade_out_duration is not None:
+            self.fade_out_duration = fade_out_duration
+        if trim_from_start is not None:
+            self.trim_from_start = trim_from_start
+        if trim_from_end is not None:
+            self.trim_from_end = trim_from_end
         if picture_fill_format is not None:
             self.picture_fill_format = picture_fill_format
 
@@ -395,6 +420,28 @@ class AudioFrame(GeometryShape):
         self._volume = volume
 
     @property
+    def volume_value(self):
+        """Gets the volume_value of this AudioFrame.  # noqa: E501
+
+        Audio volume percent.  # noqa: E501
+
+        :return: The volume_value of this AudioFrame.  # noqa: E501
+        :rtype: float
+        """
+        return self._volume_value
+
+    @volume_value.setter
+    def volume_value(self, volume_value):
+        """Sets the volume_value of this AudioFrame.
+
+        Audio volume percent.  # noqa: E501
+
+        :param volume_value: The volume_value of this AudioFrame.  # noqa: E501
+        :type: float
+        """
+        self._volume_value = volume_value
+
+    @property
     def base64_data(self):
         """Gets the base64_data of this AudioFrame.  # noqa: E501
 
@@ -459,6 +506,94 @@ class AudioFrame(GeometryShape):
         :type: bool
         """
         self._rewind_audio = rewind_audio
+
+    @property
+    def fade_in_duration(self):
+        """Gets the fade_in_duration of this AudioFrame.  # noqa: E501
+
+        Time duration for the initial fade-in of the media in milliseconds.  # noqa: E501
+
+        :return: The fade_in_duration of this AudioFrame.  # noqa: E501
+        :rtype: float
+        """
+        return self._fade_in_duration
+
+    @fade_in_duration.setter
+    def fade_in_duration(self, fade_in_duration):
+        """Sets the fade_in_duration of this AudioFrame.
+
+        Time duration for the initial fade-in of the media in milliseconds.  # noqa: E501
+
+        :param fade_in_duration: The fade_in_duration of this AudioFrame.  # noqa: E501
+        :type: float
+        """
+        self._fade_in_duration = fade_in_duration
+
+    @property
+    def fade_out_duration(self):
+        """Gets the fade_out_duration of this AudioFrame.  # noqa: E501
+
+        Time duration for the ending fade-out of the media in milliseconds.  # noqa: E501
+
+        :return: The fade_out_duration of this AudioFrame.  # noqa: E501
+        :rtype: float
+        """
+        return self._fade_out_duration
+
+    @fade_out_duration.setter
+    def fade_out_duration(self, fade_out_duration):
+        """Sets the fade_out_duration of this AudioFrame.
+
+        Time duration for the ending fade-out of the media in milliseconds.  # noqa: E501
+
+        :param fade_out_duration: The fade_out_duration of this AudioFrame.  # noqa: E501
+        :type: float
+        """
+        self._fade_out_duration = fade_out_duration
+
+    @property
+    def trim_from_start(self):
+        """Gets the trim_from_start of this AudioFrame.  # noqa: E501
+
+        Time duration to be removed from the beginning of the media during playback in milliseconds.  # noqa: E501
+
+        :return: The trim_from_start of this AudioFrame.  # noqa: E501
+        :rtype: float
+        """
+        return self._trim_from_start
+
+    @trim_from_start.setter
+    def trim_from_start(self, trim_from_start):
+        """Sets the trim_from_start of this AudioFrame.
+
+        Time duration to be removed from the beginning of the media during playback in milliseconds.  # noqa: E501
+
+        :param trim_from_start: The trim_from_start of this AudioFrame.  # noqa: E501
+        :type: float
+        """
+        self._trim_from_start = trim_from_start
+
+    @property
+    def trim_from_end(self):
+        """Gets the trim_from_end of this AudioFrame.  # noqa: E501
+
+        Time duration to be removed from the end of the media during playback in milliseconds.  # noqa: E501
+
+        :return: The trim_from_end of this AudioFrame.  # noqa: E501
+        :rtype: float
+        """
+        return self._trim_from_end
+
+    @trim_from_end.setter
+    def trim_from_end(self, trim_from_end):
+        """Sets the trim_from_end of this AudioFrame.
+
+        Time duration to be removed from the end of the media during playback in milliseconds.  # noqa: E501
+
+        :param trim_from_end: The trim_from_end of this AudioFrame.  # noqa: E501
+        :type: float
+        """
+        self._trim_from_end = trim_from_end
 
     @property
     def picture_fill_format(self):

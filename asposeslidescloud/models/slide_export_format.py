@@ -61,6 +61,7 @@ class SlideExportFormat(object):
     HTML5 = "Html5"
     MD = "Md"
     XML = "Xml"
+    EMF = "Emf"
 
     """
     Attributes:

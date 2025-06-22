@@ -58,6 +58,8 @@ class PictureFill(FillFormat):
         'image': 'ResourceUri',
         'base64_data': 'str',
         'svg_data': 'str',
+        'delete_picture_cropped_areas': 'bool',
+        'resolution': 'float',
         'picture_fill_mode': 'str',
         'image_transform_list': 'list[ImageTransformEffect]'
     }
@@ -78,6 +80,8 @@ class PictureFill(FillFormat):
         'image': 'image',
         'base64_data': 'base64Data',
         'svg_data': 'svgData',
+        'delete_picture_cropped_areas': 'deletePictureCroppedAreas',
+        'resolution': 'resolution',
         'picture_fill_mode': 'pictureFillMode',
         'image_transform_list': 'imageTransformList'
     }
@@ -86,7 +90,7 @@ class PictureFill(FillFormat):
         'type': 'Picture',
     }
 
-    def __init__(self, type='Picture', crop_bottom=None, crop_left=None, crop_right=None, crop_top=None, dpi=None, tile_offset_x=None, tile_offset_y=None, tile_scale_x=None, tile_scale_y=None, tile_alignment=None, tile_flip=None, image=None, base64_data=None, svg_data=None, picture_fill_mode=None, image_transform_list=None):  # noqa: E501
+    def __init__(self, type='Picture', crop_bottom=None, crop_left=None, crop_right=None, crop_top=None, dpi=None, tile_offset_x=None, tile_offset_y=None, tile_scale_x=None, tile_scale_y=None, tile_alignment=None, tile_flip=None, image=None, base64_data=None, svg_data=None, delete_picture_cropped_areas=None, resolution=None, picture_fill_mode=None, image_transform_list=None):  # noqa: E501
         """PictureFill - a model defined in Swagger"""  # noqa: E501
         super(PictureFill, self).__init__(type)
 
@@ -104,6 +108,8 @@ class PictureFill(FillFormat):
         self._image = None
         self._base64_data = None
         self._svg_data = None
+        self._delete_picture_cropped_areas = None
+        self._resolution = None
         self._picture_fill_mode = None
         self._image_transform_list = None
         self.type = 'Picture'
@@ -131,6 +137,10 @@ class PictureFill(FillFormat):
             self.base64_data = base64_data
         if svg_data is not None:
             self.svg_data = svg_data
+        if delete_picture_cropped_areas is not None:
+            self.delete_picture_cropped_areas = delete_picture_cropped_areas
+        if resolution is not None:
+            self.resolution = resolution
         self.picture_fill_mode = picture_fill_mode
         if image_transform_list is not None:
             self.image_transform_list = image_transform_list
@@ -474,6 +484,50 @@ class PictureFill(FillFormat):
         :type: str
         """
         self._svg_data = svg_data
+
+    @property
+    def delete_picture_cropped_areas(self):
+        """Gets the delete_picture_cropped_areas of this PictureFill.  # noqa: E501
+
+        true to delete picture cropped areas on save.  # noqa: E501
+
+        :return: The delete_picture_cropped_areas of this PictureFill.  # noqa: E501
+        :rtype: bool
+        """
+        return self._delete_picture_cropped_areas
+
+    @delete_picture_cropped_areas.setter
+    def delete_picture_cropped_areas(self, delete_picture_cropped_areas):
+        """Sets the delete_picture_cropped_areas of this PictureFill.
+
+        true to delete picture cropped areas on save.  # noqa: E501
+
+        :param delete_picture_cropped_areas: The delete_picture_cropped_areas of this PictureFill.  # noqa: E501
+        :type: bool
+        """
+        self._delete_picture_cropped_areas = delete_picture_cropped_areas
+
+    @property
+    def resolution(self):
+        """Gets the resolution of this PictureFill.  # noqa: E501
+
+        true to compress the picture image with the specified resolution (in dpi) on save.  # noqa: E501
+
+        :return: The resolution of this PictureFill.  # noqa: E501
+        :rtype: float
+        """
+        return self._resolution
+
+    @resolution.setter
+    def resolution(self, resolution):
+        """Sets the resolution of this PictureFill.
+
+        true to compress the picture image with the specified resolution (in dpi) on save.  # noqa: E501
+
+        :param resolution: The resolution of this PictureFill.  # noqa: E501
+        :type: float
+        """
+        self._resolution = resolution
 
     @property
     def picture_fill_mode(self):

@@ -63,6 +63,7 @@ class ExportFormat(object):
     MPEG4 = "Mpeg4"
     MD = "Md"
     XML = "Xml"
+    EMF = "Emf"
 
     """
     Attributes:

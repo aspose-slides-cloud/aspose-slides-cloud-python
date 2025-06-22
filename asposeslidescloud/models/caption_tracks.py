@@ -30,9 +30,9 @@ import re  # noqa: F401
 
 import six
 
-from asposeslidescloud.models.export_options import ExportOptions
+from asposeslidescloud.models.resource_base import ResourceBase
 
-class XamlExportOptions(ExportOptions):
+class CaptionTracks(ResourceBase):
 
 
     """
@@ -43,62 +43,50 @@ class XamlExportOptions(ExportOptions):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'default_regular_font': 'str',
-        'delete_embedded_binary_objects': 'bool',
-        'gradient_style': 'str',
-        'font_fallback_rules': 'list[FontFallbackRule]',
-        'font_subst_rules': 'list[FontSubstRule]',
-        'skip_java_script_links': 'bool',
-        'format': 'str',
-        'export_hidden_slides': 'bool'
+        'self_uri': 'ResourceUri',
+        'alternate_links': 'list[ResourceUri]',
+        'items': 'list[CaptionTrack]'
     }
 
     attribute_map = {
-        'default_regular_font': 'defaultRegularFont',
-        'delete_embedded_binary_objects': 'deleteEmbeddedBinaryObjects',
-        'gradient_style': 'gradientStyle',
-        'font_fallback_rules': 'fontFallbackRules',
-        'font_subst_rules': 'fontSubstRules',
-        'skip_java_script_links': 'skipJavaScriptLinks',
-        'format': 'format',
-        'export_hidden_slides': 'exportHiddenSlides'
+        'self_uri': 'selfUri',
+        'alternate_links': 'alternateLinks',
+        'items': 'items'
     }
 
     type_determiners = {
-        'format': 'xaml',
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, skip_java_script_links=None, format='xaml', export_hidden_slides=None):  # noqa: E501
-        """XamlExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(XamlExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, skip_java_script_links, format)
+    def __init__(self, self_uri=None, alternate_links=None, items=None):  # noqa: E501
+        """CaptionTracks - a model defined in Swagger"""  # noqa: E501
+        super(CaptionTracks, self).__init__(self_uri, alternate_links)
 
-        self._export_hidden_slides = None
-        self.format = 'xaml'
+        self._items = None
 
-        if export_hidden_slides is not None:
-            self.export_hidden_slides = export_hidden_slides
+        if items is not None:
+            self.items = items
 
     @property
-    def export_hidden_slides(self):
-        """Gets the export_hidden_slides of this XamlExportOptions.  # noqa: E501
+    def items(self):
+        """Gets the items of this CaptionTracks.  # noqa: E501
 
-        Export hidden slides  # noqa: E501
+        List of caption tracks.  # noqa: E501
 
-        :return: The export_hidden_slides of this XamlExportOptions.  # noqa: E501
-        :rtype: bool
+        :return: The items of this CaptionTracks.  # noqa: E501
+        :rtype: list[CaptionTrack]
         """
-        return self._export_hidden_slides
+        return self._items
 
-    @export_hidden_slides.setter
-    def export_hidden_slides(self, export_hidden_slides):
-        """Sets the export_hidden_slides of this XamlExportOptions.
+    @items.setter
+    def items(self, items):
+        """Sets the items of this CaptionTracks.
 
-        Export hidden slides  # noqa: E501
+        List of caption tracks.  # noqa: E501
 
-        :param export_hidden_slides: The export_hidden_slides of this XamlExportOptions.  # noqa: E501
-        :type: bool
+        :param items: The items of this CaptionTracks.  # noqa: E501
+        :type: list[CaptionTrack]
         """
-        self._export_hidden_slides = export_hidden_slides
+        self._items = items
 
     def to_dict(self):
         """Returns the model properties as a dict"""
@@ -134,7 +122,7 @@ class XamlExportOptions(ExportOptions):
 
     def __eq__(self, other):
         """Returns true if both objects are equal"""
-        if not isinstance(other, XamlExportOptions):
+        if not isinstance(other, CaptionTracks):
             return False
 
         return self.__dict__ == other.__dict__

@@ -48,6 +48,7 @@ class HtmlExportOptions(ExportOptions):
         'gradient_style': 'str',
         'font_fallback_rules': 'list[FontFallbackRule]',
         'font_subst_rules': 'list[FontSubstRule]',
+        'skip_java_script_links': 'bool',
         'format': 'str',
         'save_as_zip': 'bool',
         'sub_directory_name': 'str',
@@ -56,7 +57,8 @@ class HtmlExportOptions(ExportOptions):
         'jpeg_quality': 'int',
         'pictures_compression': 'str',
         'delete_pictures_cropped_areas': 'bool',
-        'slides_layout_options': 'SlidesLayoutOptions'
+        'slides_layout_options': 'SlidesLayoutOptions',
+        'disable_font_ligatures': 'bool'
     }
 
     attribute_map = {
@@ -65,6 +67,7 @@ class HtmlExportOptions(ExportOptions):
         'gradient_style': 'gradientStyle',
         'font_fallback_rules': 'fontFallbackRules',
         'font_subst_rules': 'fontSubstRules',
+        'skip_java_script_links': 'skipJavaScriptLinks',
         'format': 'format',
         'save_as_zip': 'saveAsZip',
         'sub_directory_name': 'subDirectoryName',
@@ -73,16 +76,17 @@ class HtmlExportOptions(ExportOptions):
         'jpeg_quality': 'jpegQuality',
         'pictures_compression': 'picturesCompression',
         'delete_pictures_cropped_areas': 'deletePicturesCroppedAreas',
-        'slides_layout_options': 'slidesLayoutOptions'
+        'slides_layout_options': 'slidesLayoutOptions',
+        'disable_font_ligatures': 'disableFontLigatures'
     }
 
     type_determiners = {
         'format': 'html',
     }
 
-    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, format='html', save_as_zip=None, sub_directory_name=None, show_hidden_slides=None, svg_responsive_layout=None, jpeg_quality=None, pictures_compression=None, delete_pictures_cropped_areas=None, slides_layout_options=None):  # noqa: E501
+    def __init__(self, default_regular_font=None, delete_embedded_binary_objects=None, gradient_style=None, font_fallback_rules=None, font_subst_rules=None, skip_java_script_links=None, format='html', save_as_zip=None, sub_directory_name=None, show_hidden_slides=None, svg_responsive_layout=None, jpeg_quality=None, pictures_compression=None, delete_pictures_cropped_areas=None, slides_layout_options=None, disable_font_ligatures=None):  # noqa: E501
         """HtmlExportOptions - a model defined in Swagger"""  # noqa: E501
-        super(HtmlExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, format)
+        super(HtmlExportOptions, self).__init__(default_regular_font, delete_embedded_binary_objects, gradient_style, font_fallback_rules, font_subst_rules, skip_java_script_links, format)
 
         self._save_as_zip = None
         self._sub_directory_name = None
@@ -92,6 +96,7 @@ class HtmlExportOptions(ExportOptions):
         self._pictures_compression = None
         self._delete_pictures_cropped_areas = None
         self._slides_layout_options = None
+        self._disable_font_ligatures = None
         self.format = 'html'
 
         if save_as_zip is not None:
@@ -110,6 +115,8 @@ class HtmlExportOptions(ExportOptions):
             self.delete_pictures_cropped_areas = delete_pictures_cropped_areas
         if slides_layout_options is not None:
             self.slides_layout_options = slides_layout_options
+        if disable_font_ligatures is not None:
+            self.disable_font_ligatures = disable_font_ligatures
 
     @property
     def save_as_zip(self):
@@ -302,6 +309,28 @@ class HtmlExportOptions(ExportOptions):
         :type: SlidesLayoutOptions
         """
         self._slides_layout_options = slides_layout_options
+
+    @property
+    def disable_font_ligatures(self):
+        """Gets the disable_font_ligatures of this HtmlExportOptions.  # noqa: E501
+
+        true to disable ligatures in the rendered output.  # noqa: E501
+
+        :return: The disable_font_ligatures of this HtmlExportOptions.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disable_font_ligatures
+
+    @disable_font_ligatures.setter
+    def disable_font_ligatures(self, disable_font_ligatures):
+        """Sets the disable_font_ligatures of this HtmlExportOptions.
+
+        true to disable ligatures in the rendered output.  # noqa: E501
+
+        :param disable_font_ligatures: The disable_font_ligatures of this HtmlExportOptions.  # noqa: E501
+        :type: bool
+        """
+        self._disable_font_ligatures = disable_font_ligatures
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -61,6 +61,8 @@ from asposeslidescloud.models.box_element import BoxElement
 from asposeslidescloud.models.bubble_chart_data_point import BubbleChartDataPoint
 from asposeslidescloud.models.bubble_series import BubbleSeries
 from asposeslidescloud.models.camera import Camera
+from asposeslidescloud.models.caption_track import CaptionTrack
+from asposeslidescloud.models.caption_tracks import CaptionTracks
 from asposeslidescloud.models.chart import Chart
 from asposeslidescloud.models.chart_category import ChartCategory
 from asposeslidescloud.models.chart_lines_format import ChartLinesFormat
